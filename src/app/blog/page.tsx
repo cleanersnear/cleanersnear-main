@@ -1,20 +1,26 @@
-import { Suspense } from 'react';
-import MainLayout from '@/components/layout/MainLayout';
-import BlogList from '@/components/features/BlogList';
+import { Metadata } from 'next'
+import MainLayout from '@/components/layout/MainLayout'
+import BlogList from '@/components/features/BlogList'
+import { Suspense } from 'react'
 
-async function getBlogs() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs`, {
-        next: { 
-            revalidate: 3600
-        }
-    });
-    
-    if (!res.ok) throw new Error('Failed to fetch blogs');
-    return res.json();
+// Define metadata for SEO
+export const metadata: Metadata = {
+    title: 'Our Blog | Cleaners Near',
+    description: 'Stay updated with the latest cleaning tips and industry insights'
 }
 
+// Simple data fetching with revalidation
+async function getBlogs() {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blogs`, {
+        next: { revalidate: 3600 }
+    })
+    if (!res.ok) throw new Error('Failed to fetch blogs')
+    return res.json()
+}
+
+// Basic page component
 export default async function BlogPage() {
-    const initialBlogs = await getBlogs();
+    const blogs = await getBlogs()
 
     return (
         <MainLayout>
@@ -25,15 +31,14 @@ export default async function BlogPage() {
                         Stay updated with the latest cleaning tips, industry news, and professional advice.
                     </p>
                 </div>
-
                 <Suspense fallback={
                     <div className="flex justify-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#1E3D8F]"></div>
                     </div>
                 }>
-                    <BlogList initialBlogs={initialBlogs} />
+                    <BlogList initialBlogs={blogs} />
                 </Suspense>
             </div>
         </MainLayout>
-    );
+    )
 } 
