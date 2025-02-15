@@ -253,7 +253,8 @@ export default function UpholsteryClean() {
         state.details.upholsteryCleaning.chair,
         state.details.upholsteryCleaning.mattress,
         calculateTotalPrice,
-        generatePriceBreakdown
+        generatePriceBreakdown,
+        state.details
     ]);
 
     return (
