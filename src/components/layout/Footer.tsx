@@ -62,7 +62,7 @@ export default function Footer() {
               <li><Link href="/about" className="hover:text-[#FFA500]">About</Link></li>
               <li><Link href="/services" className="hover:text-[#FFA500]">Services</Link></li>
               <li><Link href="/pricing" className="hover:text-[#FFA500]">Pricing</Link></li>
-              <li><Link href="/blog" className="hover:text-[#FFA500]">Blog</Link></li>
+              <li><Link href="/blogs" className="hover:text-[#FFA500]">Blog</Link></li>
               <li><Link href="/contact" className="hover:text-[#FFA500]">Contact</Link></li>
             </ul>
           </div>
