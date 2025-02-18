@@ -234,9 +234,9 @@ export default function Header() {
                 PRICING
               </Link>
               <Link 
-                href="/blog" 
+                href="/blogs" 
                 className={`text-gray-700 hover:text-[#1E3D8F] transition-colors relative ${
-                  isActive('/blog') ? 'text-[#1E3D8F] font-semibold after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#1E3D8F]' : ''
+                  isActive('/blogs') ? 'text-[#1E3D8F] font-semibold after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#1E3D8F]' : ''
                 }`}
               >
                 BLOG
