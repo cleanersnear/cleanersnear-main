@@ -239,7 +239,7 @@ export default function Header() {
                   isActive('/blogs') ? 'text-[#1E3D8F] font-semibold after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#1E3D8F]' : ''
                 }`}
               >
-                BLOG
+                BLOGS
               </Link>
               <Link 
                 href="/faqs" 
@@ -396,7 +396,7 @@ export default function Header() {
               </div>
 
               {/* Rest of mobile menu links */}
-              {['PRICING', 'BLOG', 'FAQS', 'CONTACT', 'GET QUOTE', 'CAREER'].map((item) => (
+              {['PRICING', 'BLOGS', 'FAQS', 'CONTACT', 'GET QUOTE', 'CAREER'].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
