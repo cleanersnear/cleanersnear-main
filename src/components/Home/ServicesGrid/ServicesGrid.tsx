@@ -8,11 +8,11 @@ import Link from 'next/link'
 const services = [
     {
       title: 'Move In/Move Out Cleaning',
-      slug: 'move-in-move-out-cleaning',
+      slug: 'move-in-cleaning',
       description: 'Moving out? Our end-of-lease cleaning service ensures you leave the property in pristine condition. We handle everything from deep cleaning carpets to scrubbing kitchens and bathrooms.',
       price: 'Starts from: $275',
       image: '/images/Movein.png',
-      link: '/services/move-in-move-out-cleaning',
+      link: '/services/move-in-cleaning',
       isPopular: true
     },
     {
@@ -90,83 +90,76 @@ export default function ServicesGrid() {
 
           <div className="grid md:grid-cols-3 gap-4 md:gap-8">
             {services.map((service) => (
-              <div 
-                key={service.title} 
-                className="bg-white rounded-lg shadow-lg overflow-visible relative group hover:shadow-xl transition-all duration-300 flex flex-col h-full mt-6"
+              <Link 
+                href={service.link} 
+                key={service.title}
+                className="block mb-6 md:mb-0"
               >
-                {service.isPopular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20 bg-green-500 text-white px-4 md:px-6 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-semibold shadow-md">
-                    Popular
-                  </div>
-                )}
-                
-                {/* Smaller image container for mobile */}
-                <div className="relative h-48 md:h-64 overflow-hidden rounded-t-lg">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="p-4 md:p-6 flex flex-col flex-grow">
-                  <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">
-                    {service.title}
-                  </h3>
+                <div 
+                  className="bg-white rounded-lg shadow-lg overflow-visible relative group 
+                    hover:shadow-xl transition-all duration-300 flex flex-col h-full mt-6
+                    transform hover:scale-105 active:scale-95 cursor-pointer"
+                >
+                  {service.isPopular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20 
+                      bg-green-500 text-white px-4 md:px-6 py-1 md:py-1.5 rounded-full 
+                      text-xs md:text-sm font-semibold shadow-md">
+                      Popular
+                    </div>
+                  )}
                   
-                  {/* Show description on mobile with smaller text */}
-                  <p className="text-xs md:text-base text-gray-600 mb-4 flex-grow line-clamp-3 md:line-clamp-none">
-                    {service.description}
-                  </p>
+                  <div className="relative h-48 md:h-64 overflow-hidden rounded-t-lg">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
 
-                  <div className="flex flex-col gap-2 md:gap-3">
-                    <div className="flex items-center justify-between md:flex-row md:items-center gap-1 md:gap-0">
-                      <span className="text-[#1E3D8F] font-bold text-base md:text-xl">
-                        {service.price}
-                      </span>
-                      
-                      {/* Mobile Arrow Button */}
-                      <Link 
-                        href="/pricing"
-                        className="md:hidden flex items-center justify-center w-8 h-8 rounded-full bg-[#1E3D8F] text-white hover:bg-opacity-90 transition-all duration-200"
-                      >
-                        <svg 
-                          className="w-5 h-5" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M9 5l7 7-7 7" 
-                          />
-                        </svg>
-                      </Link>
-                      
-                      {/* Desktop See Pricing Link */}
-                      <Link 
-                        href="/pricing"
-                        className="hidden md:block text-[#1E3D8F] text-base hover:text-opacity-80 transition-all duration-200"
-                      >
-                        See Pricing
-                      </Link>
-                    </div>
+                  <div className="p-4 md:p-6 flex flex-col flex-grow">
+                    <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">
+                      {service.title}
+                    </h3>
                     
-                    {/* Book Now button - Hidden on mobile */}
-                    <div className="hidden md:block pt-3 border-t">
-                      <Link 
-                        href="/quick-book/location"
-                        className="block w-full text-center bg-[#1E3D8F] text-white py-3 rounded-md hover:bg-opacity-90 font-medium transition-all duration-200"
-                      >
-                        Book Now
-                      </Link>
+                    <p className="text-xs md:text-base text-gray-600 mb-4 flex-grow line-clamp-3 md:line-clamp-none">
+                      {service.description}
+                    </p>
+
+                    <div className="flex flex-col gap-2 md:gap-3">
+                      <div className="flex items-center justify-between md:flex-row md:items-center gap-1 md:gap-0">
+                        <span className="text-[#1E3D8F] font-bold text-base md:text-xl">
+                          {service.price}
+                        </span>
+                        
+                        {/* Mobile Arrow Button */}
+                        <div className="md:hidden flex items-center justify-center w-8 h-8 rounded-full 
+                          bg-[#1E3D8F] text-white hover:bg-opacity-90 transition-all duration-200">
+                          <svg 
+                            className="w-5 h-5" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path 
+                              strokeLinecap="round" 
+                              strokeLinejoin="round" 
+                              strokeWidth={2} 
+                              d="M9 5l7 7-7 7" 
+                            />
+                          </svg>
+                        </div>
+                        
+                        {/* Desktop See Pricing Link */}
+                        <span className="hidden md:block text-[#1E3D8F] text-base hover:text-opacity-80 
+                          transition-all duration-200">
+                          See Details
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

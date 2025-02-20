@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Search } from 'lucide-react'
 
+// Types
 interface Blog {
     id: string;
     title: string;
@@ -16,11 +17,11 @@ interface Blog {
     created_at: string;
 }
 
-const categories = ['All', 'Cleaning Tips', 'Home Maintenance', 'Commercial Cleaning', 'Green Cleaning']
-
 interface BlogListProps {
     initialBlogs: Blog[]
 }
+
+const categories = ['All', 'Cleaning Tips', 'Home Maintenance', 'Commercial Cleaning', 'Green Cleaning']
 
 export default function BlogList({ initialBlogs }: BlogListProps) {
     const [searchQuery, setSearchQuery] = useState('')

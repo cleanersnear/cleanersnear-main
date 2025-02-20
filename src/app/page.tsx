@@ -7,7 +7,7 @@ import { Calendar, User, Tag } from 'lucide-react'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
 import AnimatedCounter from '@/components/features/AnimatedCounter'
 import { useState, useEffect } from 'react'
-import CostCalculator from '@/components/features/CostCalculator'
+//import CostCalculator from '@/components/features/CostCalculator'
 import DefaultHero from '@/components/Home/HeroSection/DefaultHero'
 import DynamicHero from '@/components/Home/HeroSection/DynamicHero'
 import { useLocation } from '@/utils/location/useLocation'
@@ -16,45 +16,46 @@ import HowItWorks from '@/components/Home/HowItWorks/HowItWorks'
 import ServicesGrid from '@/components/Home/ServicesGrid/ServicesGrid'
 import TrustedOrganizations from '@/components/Home/TrustedOrganizations/TrustedOrganizations'
 import HomeReviewsGrid from '@/components/Home/ReviewsSection/HomeReviewsGrid'
+import InstantCost from '@/components/instant-cost/instantcost'
 
 
 // Blog posts data
 const blogPosts = [
   {
     id: 1,
-    title: 'Carpet Cleaning: 7 Powerful Benefits for a Healthier Home',
-    slug: 'carpet-cleaning-benefits',
-    excerpt: 'Discover professional cleaning techniques that will transform your home...',
-    image: '/images/blog/carpet-cleaning.webp',
+    title: 'Expert Guide: Best DIY Carpet Cleaning Solutions from Professional Cleaners',
+    slug: 'diy-carpet-cleaning-guide-melbourne',
+    excerpt: 'Discover professional carpet cleaning tips from Cleaning Professionals. Learn DIY carpet cleaning methods and when to call experts.',
+    image: '/images/blog/diy-cleaning.png',
     date: 'Dec 13, 2024',
-    author: 'Sarah Johnson',
-    category: 'Uncategorized',
-    readTime: '6 MIN READ',
-    tags: ['cleaning tips', 'home maintenance', 'healthy living']
+    author: 'Michelle Zhang',
+    category: 'Cleaning Tips',
+    readTime: '18 MIN READ',
+    tags: ['carpet cleaning', 'DIY cleaning', 'professional cleaning']
   },
   {
     id: 2,
-    title: '5 Effective Ways to Eliminate Mold on Ceiling for a Healthier Home',
-    slug: 'eliminate-mold-ceiling',
-    excerpt: 'Learn effective methods to remove and prevent mold growth on your ceiling...',
+    title: 'Expert Guide: Professional Mold Removal Solutions for Melbourne Homes',
+    slug: 'professional-mold-removal-melbourne-guide',
+    excerpt: 'Need professional mold removal in Melbourne? Cleaning Professionals shares expert tips and solutions for ceiling mold removal.',
     image: '/images/blog/mold-cleaning.png',
     date: 'Dec 10, 2024',
-    author: 'Michael Brown',
+    author: 'Dr. Robert Chen',
     category: 'Cleaning Tips',
-    readTime: '4 MIN READ',
-    tags: ['mold removal', 'ceiling cleaning', 'healthy home', 'DIY cleaning']
+    readTime: '20 MIN READ',
+    tags: ['mold removal', 'professional cleaning', 'Melbourne']
   },
   {
     id: 3,
-    title: 'Explore Best 3 DIY Carpet Cleaner Solutions: Tips for a Spotless Home',
-    slug: 'diy-carpet-cleaner-solutions',
-    excerpt: 'Discover effective DIY solutions for maintaining clean carpets...',
-    image: '/images/blog/diy-cleaning.png',
+    title: '11 Critical Mistakes to Avoid When Booking End of Lease Cleaning in Victoria',
+    slug: 'move-out-cleaning-mistakes-victoria',
+    excerpt: 'Planning your end of lease clean in Victoria? Cleaning Professionals reveals crucial mistakes to avoid for guaranteed bond return.',
+    image: '/images/blogimages/latest/bedroom-clean.jpg',
     date: 'Dec 6, 2024',
-    author: 'Emily Parker',
+    author: 'James Wilson',
     category: 'Cleaning Tips',
-    readTime: '4 MIN READ',
-    tags: ['DIY cleaning', 'carpet care', 'stain removal', 'home maintenance']
+    readTime: '20 MIN READ',
+    tags: ['end of lease', 'cleaning tips', 'Victoria']
   }
 ]
 
@@ -188,7 +189,7 @@ export default function HomePage() {
 
       
 
-            
+      <InstantCost />    
            
         
 
@@ -283,9 +284,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Cost Calculator Section */}
+
+      
+
+    {/* Cost Calculator Section 
       <section className="relative bg-[#1E3D8F] text-white py-20">
-        {/* Background Image with Overlay */}
+        
         <div className="absolute inset-0">
           <Image
             
@@ -317,6 +321,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+    */}
+
+     
 
       {/* Blog Section */}
       <section className="py-20">
@@ -333,7 +340,7 @@ export default function HomePage() {
                 surroundings clean.
               </h2>
               <Link 
-                href="/blog"
+                href="/blogs"
                 className="w-full md:w-auto bg-white text-[#1E3D8F] border-2 border-[#1E3D8F] md:border-0 md:bg-[#FFA500] md:text-white px-4 md:px-6 py-3 md:py-3 text-sm md:text-base hover-[#1E3D8F] hover:text-white md:hover:bg-opacity-90 transition-all duration-200 text-center mt-4 block md:hidden"
               >
                 VIEW ALL POSTS
@@ -341,7 +348,7 @@ export default function HomePage() {
             </div>
             {/* Desktop View All Posts button */}
             <Link 
-              href="/blog"
+              href="/blogs"
               className="hidden md:block bg-[#FFA500] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
             >
               VIEW ALL POSTS
@@ -350,42 +357,45 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {blogPosts.map((post) => (
-              <div key={post.title} className="bg-white rounded-lg shadow-lg overflow-hidden">
-                <div className="relative h-48">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  {/* Blog Meta Info - Only visible on desktop */}
-                  <div className="hidden md:flex flex-wrap gap-4 mb-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={16} />
-                      <span>{post.date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <User size={16} />
-                      <span>{post.author}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Tag size={16} />
-                      <span>Cleaning Tips</span>
-                    </div>
-                  </div>
+                <div 
+                    key={post.title} 
+                    className="bg-white rounded-lg shadow-lg overflow-hidden 
+                        transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+                >
+                    <Link href={`/blogs/${post.slug}`}>
+                        <div className="relative h-48">
+                            <Image
+                                src={post.image}
+                                alt={post.title}
+                                fill
+                                className="object-cover"
+                            />
+                        </div>
+                        <div className="p-6">
+                            {/* Blog Meta Info - Only visible on desktop */}
+                            <div className="hidden md:flex flex-wrap gap-4 mb-4 text-sm text-gray-500">
+                                <div className="flex items-center gap-1">
+                                    <Calendar size={16} />
+                                    <span>{post.date}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <User size={16} />
+                                    <span>{post.author}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <Tag size={16} />
+                                    <span>Cleaning Tips</span>
+                                </div>
+                            </div>
 
-                  <h3 className="text-xl font-bold mb-2">{post.title}</h3>
-                  <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <Link 
-                    href={`/blog/${post.slug}`}
-                    className="text-[#1E3D8F] hover:text-[#FFA500] transition-colors"
-                  >
-                    Read More →
-                  </Link>
+                            <h3 className="text-xl font-bold mb-2 group-hover:text-[#1E3D8F] 
+                                transition-colors duration-200">
+                                {post.title}
+                            </h3>
+                            <p className="text-gray-600 mb-4">{post.excerpt}</p>
+                        </div>
+                    </Link>
                 </div>
-              </div>
             ))}
           </div>
     </div>

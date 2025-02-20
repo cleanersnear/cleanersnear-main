@@ -19,7 +19,7 @@ import {
 import { useBookingStore } from '../../../store/bookingStore'
 
 
-export default function MoveInOutClean() {
+export default function MoveInOutClean() { 
     const router = useRouter()
     
     // Basic booking states

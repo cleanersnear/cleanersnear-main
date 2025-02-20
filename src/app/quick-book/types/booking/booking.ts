@@ -128,7 +128,7 @@ export class BookingService {
                     message: 'Failed to create booking',
                     error: 'Deep cleaning details missing'
                 };
-            }
+            } 
 
             if (selectedService.type === 'move-in-cleaning' && !serviceDetails['move-in-cleaning']) {
                 return {

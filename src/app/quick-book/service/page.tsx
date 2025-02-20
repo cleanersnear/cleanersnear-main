@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Search } from 'lucide-react';
 import * as BookingServices from '@/app/quick-book/components/book-services';
@@ -10,10 +10,19 @@ import BookingSummary from '@/app/quick-book/components/layout/BookingSummary';
 
 export default function QuickBookServicePage() {
     
-    const [selectedServiceId, setSelectedServiceId] = useState<string>('');
     const [searchQuery, setSearchQuery] = useState('');
+    // Get the pre-selected service from store
+    const storedService = useBookingStore((state) => state.selectedService);
+    const [selectedServiceId, setSelectedServiceId] = useState<string>(storedService?.id || '');
     const setService = useBookingStore((state) => state.setService);
     const isBookingSummaryVisible = useBookingStore((state) => state.isBookingSummaryVisible);
+
+    // Only set the selectedServiceId, don't call handleServiceSelect
+    useEffect(() => {
+        if (storedService) {
+            setSelectedServiceId(storedService.id);
+        }
+    }, [storedService]); // Run only once on mount
 
     // Popular services with correct ServiceType
     const popularServices = [
@@ -40,11 +49,9 @@ export default function QuickBookServicePage() {
         service.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Function to handle service selection and data storage
+    // Function to handle service selection
     const handleServiceSelect = (service: { id: ServiceType, title: string }) => {
         setSelectedServiceId(service.id);
-        
-        // Single source of truth - BookingStore
         setService({
             id: service.id,
             title: service.title,

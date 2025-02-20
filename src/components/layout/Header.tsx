@@ -10,17 +10,17 @@ import { usePathname } from 'next/navigation'
 const serviceLinks = [
   { title: 'All Services', href: '/services' },
   { title: 'Carpet Cleaning', href: '/services/carpet-cleaning' },
-  { title: 'After Renovation Cleaning', href: '/services/after-renovation-cleaning' },
-  { title: 'Commercial Cleaning', href: '/services/commercial-cleaning' },
-  { title: 'End of Lease Cleaning', href: '/services/end-of-lease' },
-  { title: 'General House Cleaning', href: '/services/general-cleaning' },
+  { title: 'End Of Lease Cleaning', href: '/services/end-of-lease-cleaning' },
+  { title: 'General Cleaning', href: '/services/general-cleaning' },
+  { title: 'Deep Cleaning', href: '/services/deep-cleaning' },
+  { title: 'Move In Cleaning', href: '/services/move-in-cleaning' },
   { title: 'NDIS Cleaning', href: '/services/ndis-cleaning' },
-  { title: 'Office Cleaning', href: '/services/office-cleaning' },
-  { title: 'Oven Cleaning', href: '/services/oven-cleaning' },
-  { title: 'Tile and Floor Cleaning', href: '/services/tile-and-floor-cleaning' },
-  { title: 'Upholstery Cleaning', href: '/services/upholstery-cleaning' },
-  { title: 'Move In/Move Out Cleaning', href: '/services/move-in-move-out-cleaning' },
-  { title: 'Window Cleaning', href: '/services/window-cleaning' }
+  { title: 'Commercial Cleaning', href: '/services/commercial-cleaning' },
+  { title: 'After Renovation Clean', href: '/services/after-renovation-cleaning' },
+  { title: 'Oven Clean', href: '/services/oven-cleaning' },
+  { title: 'Tile & Floor Clean', href: '/services/tile-and-floor-cleaning' },
+  { title: 'Upholstery Clean', href: '/services/upholstery-cleaning' },
+  { title: 'Window Clean', href: '/services/window-cleaning' }
 ]
 
 // First, add the about submenu data near the top where serviceLinks is defined
@@ -80,7 +80,7 @@ export default function Header() {
           </div>
           <div className="flex items-center space-x-4 ml-auto">
             <a 
-              href="https://facebook.com" 
+              href="https://www.facebook.com/people/Cleaning-Professionals/61572518431848/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-5 h-5 flex items-center justify-center"
@@ -94,13 +94,13 @@ export default function Header() {
               />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/cleaning__professionals/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-5 h-5 flex items-center justify-center"
             >
               <Image 
-                src="/logos/instagram.png"
+                src="/logos/instagram.png" 
                 alt="Instagram"
                 width={20}
                 height={20}
@@ -108,7 +108,7 @@ export default function Header() {
               />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/company/cleaning-professionals-melbourne/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-5 h-5 flex items-center justify-center"
@@ -122,7 +122,7 @@ export default function Header() {
               />
             </a>
             <a 
-              href="https://wa.me/0450124086" 
+              href="https://wa.me/+61450124086" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-5 h-5 flex items-center justify-center"

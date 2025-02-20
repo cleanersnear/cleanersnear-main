@@ -4,7 +4,10 @@ import LocationSearch from '@/app/quick-book/components/features/LocationSearch'
 
 export default function LocationPage() {
     return (
+        
         <div className="pb-20">
+            
+
             {/* Page Content */}
             <div className="pt-4 md:pt-8">
                 <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">

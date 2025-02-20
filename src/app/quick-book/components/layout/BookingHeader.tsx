@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { Phone, Mail, ArrowLeft,  ChevronUp, ChevronDown } from 'lucide-react'
 import { useBookingStore } from '../../store/bookingStore'
 import { usePathname } from 'next/navigation'
+import BookingSteps from '../features/BookingSteps'
+import BookingStepsDesktop from '../features/BookingStepsDesktop'
 
 export default function BookingHeader() {
   // Add state to control summary visibility
@@ -46,40 +48,40 @@ export default function BookingHeader() {
           </Link>
         </div>
 
-        {/* Desktop Contact Section */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#1E3D8F]/10 flex items-center justify-center">
-                <Phone className="w-5 h-5 text-[#1E3D8F]" />
+          {/* Desktop Contact Section */}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex items-center gap-8">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#1E3D8F]/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-[#1E3D8F]" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Call us at</p>
+                  <a 
+                    href="tel:0450124086" 
+                    className="text-[#1E3D8F] hover:text-[#1E3D8F]/80 font-semibold transition-colors"
+                  >
+                    0450 124 086
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-500">Call us at</p>
-                <a 
-                  href="tel:0450124086" 
-                  className="text-[#1E3D8F] hover:text-[#1E3D8F]/80 font-semibold transition-colors"
-                >
-                  0450 124 086
-                </a>
-              </div>
-            </div>
-            <div className="h-8 border-l border-gray-300"></div>
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[#1E3D8F]/10 flex items-center justify-center">
-                <Mail className="w-5 h-5 text-[#1E3D8F]" />
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Email us at</p>
-                <a 
-                  href="mailto:account@cleaningprofessionals.com.au"
-                  className="text-[#1E3D8F] hover:text-[#1E3D8F]/80 font-semibold transition-colors"
-                >
-                  account@cleaningprofessionals.com.au
-                </a>
+              <div className="h-8 border-l border-gray-300"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#1E3D8F]/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-[#1E3D8F]" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Email us at</p>
+                  <a 
+                    href="mailto:account@cleaningprofessionals.com.au"
+                    className="text-[#1E3D8F] hover:text-[#1E3D8F]/80 font-semibold transition-colors"
+                  >
+                    account@cleaningprofessionals.com.au
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
         {/* Enhanced Toggle Button - Only show on service page */}
         {showToggle && (
@@ -113,6 +115,12 @@ export default function BookingHeader() {
             </div>
           </button>
         )}
+      </div>
+      <div className="md:hidden">
+        <BookingSteps />
+      </div>
+      <div className="hidden md:block w-full">
+        <BookingStepsDesktop />
       </div>
     </header>
   )

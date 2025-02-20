@@ -1,8 +1,12 @@
+'use client'
+
 import MainLayout from '@/components/layout/MainLayout'
 import Image from 'next/image'
 import Link from 'next/link'
 import { services } from '@/data/services'
 import { ArrowRight, Check } from 'lucide-react'
+import { useBookingStore } from '@/app/quick-book/store/bookingStore'
+import type { ServiceType } from '@/app/quick-book/types'
 
 export default function ServicesPage() {
   return (
@@ -122,7 +126,15 @@ export default function ServicesPage() {
                       </div>
                       <div className="pt-3 border-t">
                         <Link 
-                          href={`/book-now?service=${service.id}`}
+                          href="/quick-book/location"
+                          onClick={() => {
+                            useBookingStore.getState().setService({
+                              id: service.id as ServiceType,
+                              title: service.title,
+                              category: service.isPopular ? 'popular' : 'other',
+                              type: service.id as ServiceType
+                            });
+                          }}
                           className="block w-full text-center bg-[#1E3D8F] text-white py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
                         >
                           Book Now

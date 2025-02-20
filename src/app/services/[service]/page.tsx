@@ -8,16 +8,30 @@ import Link from 'next/link'
 import { Check } from 'lucide-react'
 import { services, Service } from '@/data/services'
 import CostCalculator from '@/components/features/CostCalculator'
+import { useBookingStore } from '@/app/quick-book/store/bookingStore'
+import type { ServiceType } from '@/app/quick-book/types'
 
 export default function ServicePage() {
   const params = useParams()
   const [service, setService] = useState<Service | null>(null)
+  const setBookingService = useBookingStore(state => state.setService)
 
   useEffect(() => {
     const serviceId = params?.service as string
     const foundService = services.find(s => s.id === serviceId)
     setService(foundService || null)
   }, [params])
+
+  const handleBookNow = () => {
+    if (service) {
+      setBookingService({
+        id: service.id as ServiceType,
+        title: service.title,
+        category: service.isPopular ? 'popular' : 'other',
+        type: service.id as ServiceType
+      })
+    }
+  }
 
   if (!service) {
     return (
@@ -120,7 +134,8 @@ export default function ServicePage() {
                     <div className="text-3xl font-bold text-[#1E3D8F]">{service.price}</div>
                   </div>
                   <Link
-                    href={`/book-now?service=${service.id}`}
+                    href="/quick-book/location"
+                    onClick={handleBookNow}
                     className="block w-full bg-[#1E3D8F] text-white text-center py-3 rounded-md hover:bg-opacity-90 transition-all mb-4"
                   >
                     Book Now

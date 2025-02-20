@@ -104,6 +104,8 @@ export default function DetailsPage() {
             if (response.success) {
                 localStorage.setItem('bookingId', response.bookingId!)
                 router.push('/quick-book/confirmation')
+                 // Missing: Update currentStep before navigation
+                useBookingStore.getState().setCurrentStep('confirmation')
             }
 
         } catch (error) {

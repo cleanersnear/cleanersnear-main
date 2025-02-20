@@ -51,12 +51,12 @@ export const services: Service[] = [
     ]
   },
   {
-    id: 'after-renovation-cleaning',
-    title: 'After Renovation Cleaning',
-    description: 'Comprehensive post-renovation cleaning service to remove construction dust and debris.',
-    price: 'From $45/hr',
-    image: '/images/after-renovation-cleaning.jpg',
-    isPopular: false,
+    id: 'end-of-lease-cleaning',
+    title: 'End Of Lease Cleaning',
+    description: 'Comprehensive end of lease cleaning service to ensure your bond return.',
+    price: 'From $299',
+    image: '/images/end-of-lease-cleaning.jpg',
+    isPopular: true,
     features: [
       'Dust and debris removal',
       'Paint spot cleaning',
@@ -80,11 +80,11 @@ export const services: Service[] = [
         answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
       }
     ]
-  },
+  }, 
   {
-    id: 'general-house-cleaning',
-    title: 'General House Cleaning',
-    description: 'Professional home cleaning service tailored to your needs. We handle everything from regular maintenance to deep cleaning.',
+    id: 'general-cleaning',
+    title: 'General Cleaning',
+    description: 'Professional home cleaning service tailored to your needs.',
     price: 'From $35/hr',
     image: '/images/general-cleaning.jpg',
     isPopular: true,
@@ -117,106 +117,163 @@ export const services: Service[] = [
     ]
   },
   {
-    id: 'end-of-lease',
-    title: 'End of Lease Cleaning',
-    description: 'Comprehensive end of lease cleaning service to ensure you get your bond back. Includes carpet cleaning and full property detailing.',
-    price: 'From $359',
-    image: '/images/end-of-lease-cleaning.jpg',
-    isPopular: true
-  },
-  {
-    id: 'ndis-cleaning',
-    title: 'NDIS Cleaning',
-    description: 'Specialized cleaning services for NDIS participants. Our trained staff ensure your home remains clean and hygienic.',
-    price: '$35-50/hr',
-    image: '/images/ndis-cleaning.jpg',
-    isPopular: false
-  },
-  {
-    id: 'commercial-cleaning',
-    title: 'Commercial Cleaning',
-    description: 'Professional cleaning solutions for offices, retail spaces, and commercial properties. Customized to your business needs.',
-    price: 'Custom Quote',
-    image: '/images/commercial-cleaning.jpg',
-    isPopular: false
-  },
-  {
-    id: 'move-in-move-out',
-    title: 'Move In/Move Out Cleaning',
-    description: 'Thorough cleaning service for moving transitions. We ensure your new space is ready or your old space is spotless.',
-    price: 'From $275',
-    image: '/images/Movein.png',
-    isPopular: false
-  },
-  {
-    id: 'window-cleaning',
-    title: 'Window Cleaning',
-    description: 'Professional window cleaning service for crystal clear views. We handle both residential and commercial properties.',
-    price: 'From $5-10 per window',
-    image: '/images/windows-cleaning.png',
-    isPopular: false,
+    id: 'deep-cleaning',
+    title: 'Deep Cleaning',
+    description: 'Thorough deep cleaning service for homes that need extra attention.',
+    price: 'From $45/hr',
+    image: '/images/deep-cleaning.jpg',
+    isPopular: true,
     features: [
-      'Interior and exterior cleaning',
-      'Track and sill cleaning',
-      'Screen cleaning',
-      'Frame wiping',
-      'Streak-free finish',
-      'High-rise capability',
-      'Hard water stain removal',
-      'Solar panel cleaning'
+      'Dust and debris removal',
+      'Paint spot cleaning',
+      'Window and frame cleaning',
+      'Floor deep cleaning',
+      'Air vent cleaning',
+      'Light fixture cleaning',
+      'Cabinet interior cleaning',
+      'Hardware cleaning and polishing'
     ],
     includes: [
-      'Professional equipment',
-      'Safety gear',
-      'Eco-friendly solutions',
-      'Experienced technicians',
-      'Insurance coverage'
+      'Specialized cleaning equipment',
+      'Heavy-duty vacuum cleaners',
+      'Professional cleaning agents',
+      'Experienced cleaning team',
+      'Complete site cleanup'
     ],
     faqs: [
       {
-        question: 'How often should windows be cleaned?',
-        answer: 'We recommend professional cleaning every 3-6 months for optimal results.'
+        question: 'How soon after renovation can you clean?',
+        answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
       }
     ]
   },
   {
-    id: 'office-cleaning',
-    title: 'Office Cleaning',
-    description: 'Professional office cleaning services to maintain a clean and productive workspace.',
-    price: 'Custom Quote',
-    image: '/images/office-cleaning.jpg',
-    isPopular: false,
+    id: 'move-in-cleaning',
+    title: 'Move In Cleaning',
+    description: 'Comprehensive cleaning service for your new home before you move in.',
+    price: 'From $299',
+    image: '/images/Movein.png',
+    isPopular: true,
     features: [
-      'Workstation and desk cleaning',
-      'Floor maintenance',
-      'Kitchen and break room cleaning',
-      'Bathroom sanitization',
-      'Window cleaning',
-      'Waste management',
-      'Evening/after-hours service',
-      'Common area maintenance'
+      'Dust and debris removal',
+      'Paint spot cleaning',
+      'Window and frame cleaning',
+      'Floor deep cleaning',
+      'Air vent cleaning',
+      'Light fixture cleaning',
+      'Cabinet interior cleaning',
+      'Hardware cleaning and polishing'
     ],
     includes: [
-      'Trained cleaning staff',
-      'Commercial-grade equipment',
-      'Flexible scheduling',
-      'Regular quality checks',
-      'Insurance coverage'
+      'Specialized cleaning equipment',
+      'Heavy-duty vacuum cleaners',
+      'Professional cleaning agents',
+      'Experienced cleaning team',
+      'Complete site cleanup'
     ],
     faqs: [
       {
-        question: 'How often is office cleaning recommended?',
-        answer: 'Daily or weekly cleaning is recommended for most offices, depending on size and usage.'
-      },
+        question: 'How soon after renovation can you clean?',
+        answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
+      }
+    ]
+  },
+  {
+    id: 'ndis-cleaning',
+    title: 'NDIS Cleaning',
+    description: 'Specialized cleaning services for NDIS participants.',
+    price: '$35-50/hr',
+    image: '/images/ndis-cleaning.jpg',
+    isPopular: true,
+    features: [
+      'Dust and debris removal',
+      'Paint spot cleaning',
+      'Window and frame cleaning',
+      'Floor deep cleaning',
+      'Air vent cleaning',
+      'Light fixture cleaning',
+      'Cabinet interior cleaning',
+      'Hardware cleaning and polishing'
+    ],
+    includes: [
+      'Specialized cleaning equipment',
+      'Heavy-duty vacuum cleaners',
+      'Professional cleaning agents',
+      'Experienced cleaning team',
+      'Complete site cleanup'
+    ],
+    faqs: [
       {
-        question: 'Do you work after hours?',
-        answer: 'Yes, we offer flexible scheduling including after-hours and weekend cleaning.'
+        question: 'How soon after renovation can you clean?',
+        answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
+      }
+    ]
+  },
+  {
+    id: 'commercial-cleaning',
+    title: 'Commercial Cleaning',
+    description: 'Professional cleaning solutions for businesses and commercial spaces.',
+    price: 'Custom Quote',
+    image: '/images/commercial-cleaning.jpg',
+    isPopular: true,
+    features: [
+      'Dust and debris removal',
+      'Paint spot cleaning',
+      'Window and frame cleaning',
+      'Floor deep cleaning',
+      'Air vent cleaning',
+      'Light fixture cleaning',
+      'Cabinet interior cleaning',
+      'Hardware cleaning and polishing'
+    ],
+    includes: [
+      'Specialized cleaning equipment',
+      'Heavy-duty vacuum cleaners',
+      'Professional cleaning agents',
+      'Experienced cleaning team',
+      'Complete site cleanup'
+    ],
+    faqs: [
+      {
+        question: 'How soon after renovation can you clean?',
+        answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
+      }
+    ]
+  },
+  {
+    id: 'after-renovation-cleaning',
+    title: 'After Renovation Clean',
+    description: 'Comprehensive post-renovation cleaning service to remove construction dust and debris.',
+    price: 'From $45/hr',
+    image: '/images/after-renovation-cleaning.jpg',
+    isPopular: false,
+    features: [
+      'Dust and debris removal',
+      'Paint spot cleaning',
+      'Window and frame cleaning',
+      'Floor deep cleaning',
+      'Air vent cleaning',
+      'Light fixture cleaning',
+      'Cabinet interior cleaning',
+      'Hardware cleaning and polishing'
+    ],
+    includes: [
+      'Specialized cleaning equipment',
+      'Heavy-duty vacuum cleaners',
+      'Professional cleaning agents',
+      'Experienced cleaning team',
+      'Complete site cleanup'
+    ],
+    faqs: [
+      {
+        question: 'How soon after renovation can you clean?',
+        answer: 'We can start cleaning as soon as all construction work is completed and materials are removed.'
       }
     ]
   },
   {
     id: 'oven-cleaning',
-    title: 'Oven Cleaning',
+    title: 'Oven Clean',
     description: 'Specialized oven cleaning service to remove grease and grime, restoring your oven to like-new condition.',
     price: 'From $80',
     image: '/images/oven-cleaning.jpg',
@@ -247,7 +304,7 @@ export const services: Service[] = [
   },
   {
     id: 'tile-and-floor-cleaning',
-    title: 'Tile and Floor Cleaning',
+    title: 'Tile & Floor Clean',
     description: 'Professional floor cleaning for all types of surfaces including tile, hardwood, and natural stone.',
     price: '$40-55/hr',
     image: '/images/floor-cleaning.png',
@@ -278,7 +335,7 @@ export const services: Service[] = [
   },
   {
     id: 'upholstery-cleaning',
-    title: 'Upholstery Cleaning',
+    title: 'Upholstery Clean',
     description: 'Professional cleaning service for all types of upholstered furniture and fabrics.',
     price: 'From $60/seat',
     image: '/images/upholstery-cleaning.png',
@@ -304,6 +361,37 @@ export const services: Service[] = [
       {
         question: 'How long until furniture is dry?',
         answer: 'Most upholstery dries within 4-6 hours.'
+      }
+    ]
+  },
+  {
+    id: 'window-cleaning',
+    title: 'Window Clean',
+    description: 'Professional window cleaning service for crystal clear views.',
+    price: 'From $99',
+    image: '/images/windows-cleaning.png',
+    isPopular: false,
+    features: [
+      'Interior and exterior cleaning',
+      'Track and sill cleaning',
+      'Screen cleaning',
+      'Frame wiping',
+      'Streak-free finish',
+      'High-rise capability',
+      'Hard water stain removal',
+      'Solar panel cleaning'
+    ],
+    includes: [
+      'Professional equipment',
+      'Safety gear',
+      'Eco-friendly solutions',
+      'Experienced technicians',
+      'Insurance coverage'
+    ],
+    faqs: [
+      {
+        question: 'How often should windows be cleaned?',
+        answer: 'We recommend professional cleaning every 3-6 months for optimal results.'
       }
     ]
   }
