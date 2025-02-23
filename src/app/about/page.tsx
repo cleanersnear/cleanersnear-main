@@ -2,6 +2,13 @@ import MainLayout from '@/components/layout/MainLayout'
 import Image from 'next/image'
 import { Award, Users, Clock, Shield } from 'lucide-react'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
+import { Metadata } from "next"
+
+
+export const metadata: Metadata = {
+  title: 'About Cleaning Professionals',
+  description: 'Learn more about Cleaning Professionals Australia, your premier choice for top-notch cleaning services across Australia.',
+}
 
 const stats = [
   { icon: Award, label: 'Years Experience', value: '4+' },

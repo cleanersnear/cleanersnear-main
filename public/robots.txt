@@ -1,0 +1,62 @@
+# Global rules for all robots
+User-agent: *
+
+# Allow access to main sections
+Allow: /
+Allow: /services/
+Allow: /locations/
+Allow: /blogs/
+Allow: /about/
+Allow: /contact/
+Allow: /pricing/
+Allow: /faqs/
+Allow: /reviews/
+Allow: /career/
+Allow: /get-quote/
+
+# Service-specific rules
+Allow: /services/carpet-cleaning/
+Allow: /services/end-of-lease-cleaning/
+Allow: /services/ndis-cleaning/
+Allow: /services/commercial-cleaning/
+Allow: /services/window-cleaning/
+Allow: /services/after-renovation-cleaning/
+Allow: /services/oven-cleaning/
+
+# Block sensitive and utility pages
+Disallow: /admin-tools-x8k9z/
+Disallow: /quick-book/confirmation
+Disallow: /quick-book/payment
+Disallow: /quick-book/success
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*.json$
+Disallow: /*_buildManifest.js$
+Disallow: /*_ssgManifest.js$
+Disallow: /*.js.map$
+
+# Special rules for specific bots
+User-agent: Googlebot
+Crawl-delay: 1
+Allow: /*.js$
+Allow: /*.css$
+
+User-agent: Bingbot
+Crawl-delay: 2
+Allow: /*.js$
+Allow: /*.css$
+
+User-agent: DuckDuckBot
+Crawl-delay: 5
+
+# Block potentially harmful bots
+User-agent: *bot
+Disallow: /wp-admin/
+Disallow: /wp-login/
+Disallow: /wp-content/
+
+# Host directive
+Host: https://cleaningprofessionals.com.au
+
+# Sitemaps
+Sitemap: https://cleaningprofessionals.com.au/sitemap.xml 

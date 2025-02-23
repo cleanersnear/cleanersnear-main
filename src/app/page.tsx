@@ -189,9 +189,10 @@ export default function HomePage() {
 
       
 
-      <InstantCost />    
-           
+      <div className="pricing-calculators">
+        <InstantCost service="end-of-lease" />
         
+      </div>
 
       {/* Why Choose Us Section */}
       <section className="py-20 bg-gray-50">
@@ -332,7 +333,7 @@ export default function HomePage() {
             <div className="w-full md:w-auto">
               <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
                 <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
-                <span className="text-xs md:text-sm uppercase tracking-wider text-center">BLOG</span>
+                <span className="text-xs md:text-sm uppercase tracking-wider text-center">BLOGS</span>
                 <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
               </div>
               <h2 className="text-xl md:text-4xl font-bold mt-2 mb-4 md:mb-0">
