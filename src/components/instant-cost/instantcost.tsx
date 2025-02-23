@@ -259,34 +259,42 @@ const INITIAL_END_OF_LEASE_DATA: EndOfLeaseFormData = {
   bedrooms: ''
 }
 
-const BookingButton = ({ price }: { price: number | string }) => (
+const BookingButton = ({ price, service }: { price: number | string; service: string }) => (
   <div className="mt-8 p-6 bg-gray-50 rounded-lg border-t">
     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
         <span className="text-gray-600">Total Price:</span>
         <span className="text-3xl font-bold text-[#1E3D8F]">${price}</span>
       </div>
-      <a
-        href="http://localhost:3000/quick-book/location"
-        className="w-full md:w-auto bg-[#1E3D8F] text-white px-8 py-3 rounded-lg
-          hover:bg-[#1E3D8F]/90 transition-all duration-200 flex items-center justify-center gap-2"
-      >
-        <span>Book Now Online</span>
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </a>
+      <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
+        <a
+          href={`/pricing/calculator/${service}`}
+          className="text-[#1E3D8F] underline text-sm hover:text-[#1E3D8F]/80"
+        >
+          View detailed pricing
+        </a>
+        <a
+          href="/quick-book/location"
+          className="w-full md:w-auto bg-[#1E3D8F] text-white px-8 py-3 rounded-lg
+            hover:bg-[#1E3D8F]/90 transition-all duration-200 flex items-center justify-center gap-2"
+        >
+          <span>Book Now Online</span>
+          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
     </div>
   </div>
 )
 
 // Add prop interface
-interface InstantCostProps {
+export interface InstantCostProps {
   service: 'general' | 'end-of-lease' | 'carpet' | 'commercial' | 'ndis' | 'deep' | 'move-in';
 }
 
-
-export default function InstantCost() {
+// Update component definition
+export default function InstantCost({ service }: InstantCostProps) {
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA)
   
   const [isClient, setIsClient] = useState(false)
@@ -354,6 +362,12 @@ export default function InstantCost() {
   useEffect(() => {
     setIsClient(true)
   }, [])
+
+  // Silent use of service prop in useEffect
+  useEffect(() => {
+    // Just log it silently for analytics or future use
+    console.debug('Calculator loaded for service:', service)
+  }, [service])
 
   // Calculate total price whenever carpet data changes
   useEffect(() => {
@@ -730,6 +744,7 @@ export default function InstantCost() {
               : COMMERCIAL_PRICES.onceOff;
             return baseRate * commercialData.hours * commercialData.staff;
           })()}
+          service={formData.service}
         />
       )}
     </div>
@@ -952,7 +967,7 @@ export default function InstantCost() {
         return (
           <>
             {getCarpetFields()}
-            <BookingButton price={totalPrice} />
+            <BookingButton price={totalPrice} service={formData.service} />
           </>
         )
 
@@ -964,6 +979,7 @@ export default function InstantCost() {
               <BookingButton 
                 price={`${END_OF_LEASE_PRICES[endOfLeaseData.bedrooms as keyof EndOfLeasePrices].min} - 
                         ${END_OF_LEASE_PRICES[endOfLeaseData.bedrooms as keyof EndOfLeasePrices].max}`} 
+                service={formData.service}
               />
             )}
           </>
@@ -979,6 +995,7 @@ export default function InstantCost() {
                 price={generalCleaningData.pricingType === 'hourly'
                   ? GENERAL_CLEANING_PRICES.hourly[generalCleaningData.frequency!] * generalCleaningData.hours!
                   : GENERAL_CLEANING_PRICES.flatRate[generalCleaningData.bedrooms as keyof typeof GENERAL_CLEANING_PRICES.flatRate]} 
+                service={formData.service}
               />
             )}
           </>
@@ -993,6 +1010,7 @@ export default function InstantCost() {
                 price={(ndisData.cleanType === 'regular' && ndisData.frequency 
                   ? NDIS_PRICES.regular[ndisData.frequency] 
                   : NDIS_PRICES.onceOff) * ndisData.hours} 
+                service={formData.service}
               />
             )}
           </>
@@ -1010,6 +1028,7 @@ export default function InstantCost() {
                     : COMMERCIAL_PRICES.onceOff;
                   return baseRate * commercialData.hours * commercialData.staff;
                 })()} 
+                service={formData.service}
               />
             )}
           </>
@@ -1046,7 +1065,7 @@ export default function InstantCost() {
                 </div>
               </div>
             </div>
-            <BookingButton price={deepCleaningData.hours * DEEP_CLEANING_PRICES.hourlyRate} />
+            <BookingButton price={deepCleaningData.hours * DEEP_CLEANING_PRICES.hourlyRate} service={formData.service} />
           </>
         )
 
@@ -1086,7 +1105,7 @@ export default function InstantCost() {
                 </div>
               </div>
             </div>
-            <BookingButton price={moveInData.hours * MOVE_IN_PRICES.hourlyRate} />
+            <BookingButton price={moveInData.hours * MOVE_IN_PRICES.hourlyRate} service={formData.service} />
           </>
         )
 
