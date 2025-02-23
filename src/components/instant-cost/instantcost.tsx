@@ -280,6 +280,12 @@ const BookingButton = ({ price }: { price: number | string }) => (
   </div>
 )
 
+// Add prop interface
+interface InstantCostProps {
+  service: 'general' | 'end-of-lease' | 'carpet' | 'commercial' | 'ndis' | 'deep' | 'move-in';
+}
+
+
 export default function InstantCost() {
   const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA)
   
