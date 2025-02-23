@@ -136,7 +136,7 @@ export default function AdminTools() {
                                 </p>
                             </div>
                             <div className="p-6">
-                                <InstantCost />
+                                <InstantCost service="end-of-lease" />
                             </div>
                         </div>
                     )}
