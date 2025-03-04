@@ -15,21 +15,23 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cleaningprofessionals.com.au'),
   title: {
-    default: 'Cleaning Professionals Australia | Professional Cleaning Services Melbourne',
-    template: '%s | Cleaning Professionals Australia'
+    default: 'Professional Cleaners Melbourne | End of Lease & House Cleaning Services',
+    template: '%s | Cleaning Professionals Melbourne'
   },
-  description: 'Melbourne\'s trusted cleaning service. End of lease, carpet, NDIS, and commercial cleaning. Professional cleaners, guaranteed results. Book online today!',
+  description: '✓ Bond Back Guarantee ✓ Same Day Service ✓ Professional Cleaners. Melbourne\'s trusted cleaning service for homes & offices. NDIS registered, fully insured. Book online today!',
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     url: 'https://cleaningprofessionals.com.au',
     siteName: 'Cleaning Professionals Melbourne',
+    title: 'Professional Cleaners Melbourne | End of Lease & House Cleaning Services',
+    description: '✓ Bond Back Guarantee ✓ Same Day Service ✓ Professional Cleaners. Melbourne\'s most trusted cleaning service. NDIS registered & fully insured.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cleaning Professionals Melbourne',
+        alt: 'Cleaning Professionals Melbourne Services',
       }
     ],
   },
@@ -37,8 +39,8 @@ export const metadata: Metadata = {
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'Cleaning Professionals Melbourne',
-    description: "Melbourne's trusted cleaning service",
+    title: 'Professional Cleaners Melbourne | End of Lease & House Cleaning',
+    description: '✓ Bond Back Guarantee ✓ Same Day Service. Melbourne\'s trusted cleaning service.',
     images: ['/images/twitter-image.jpg'],
   },
 
@@ -60,7 +62,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cleaningprofessionals.com.au',
   },
-  keywords: 'cleaning services melbourne, house cleaning, commercial cleaning, carpet cleaning',
+  keywords: 'house cleaning melbourne, end of lease cleaning melbourne, bond cleaning melbourne, commercial cleaning melbourne, ndis cleaning melbourne, carpet cleaning melbourne',
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   creator: 'Cleaning Professionals Melbourne',
   publisher: 'Cleaning Professionals Melbourne',
@@ -86,7 +88,9 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                debug_mode: true
+              });
             `,
           }}
         />
