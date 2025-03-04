@@ -93,25 +93,55 @@ export default function StructuredData() {
       },
       {
         "@type": "Offer",
-        "name": "Weekly Cleaning Discount",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Weekly Cleaning Service",
+          "description": "Regular weekly cleaning service"
+        },
+        "name": "Weekly Cleaning Special Offer",
         "description": "Save 10% on weekly cleaning services",
-        "discount": 10,
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 43.65,
+          "priceCurrency": "AUD",
+          "description": "10% off regular rate of $48.50"
+        },
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       },
       {
         "@type": "Offer",
-        "name": "Fortnightly Cleaning Discount",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Fortnightly Cleaning Service",
+          "description": "Regular fortnightly cleaning service"
+        },
+        "name": "Fortnightly Cleaning Special Offer",
         "description": "Save 5% on fortnightly cleaning services",
-        "discount": 5,
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 55.58,
+          "priceCurrency": "AUD",
+          "description": "5% off regular rate of $58.50"
+        },
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       },
       {
         "@type": "Offer",
-        "name": "3-Weekly Cleaning Discount",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "3-Weekly Cleaning Service",
+          "description": "Regular 3-weekly cleaning service"
+        },
+        "name": "3-Weekly Cleaning Special Offer",
         "description": "Save 3% on 3-weekly cleaning services",
-        "discount": 3,
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 61.16,
+          "priceCurrency": "AUD",
+          "description": "3% off regular rate of $63.05"
+        },
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       }
