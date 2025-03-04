@@ -82,6 +82,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
+          <StructuredData />
         <Script
           id="google-analytics"
           strategy="afterInteractive"
