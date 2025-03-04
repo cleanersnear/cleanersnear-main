@@ -4,42 +4,48 @@ export default function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Cleaning Professionals Melbourne",
+    "name": "Cleaning Professionals Australia",
     "image": "https://cleaningprofessionals.com.au/images/logo.png",
+    "@id": "https://cleaningprofessionals.com.au",
     "url": "https://cleaningprofessionals.com.au",
-    "@id": "https://cleaningprofessionals.com.au/#organization",
-    "description": "Melbourne's Most Trusted Cleaning Service. Professional house cleaning, end of lease & NDIS cleaning services with 100% satisfaction guarantee.",
+    "telephone": "0450124086",
+    "description": "Professional cleaning services in Melbourne including end of lease cleaning, deep cleaning, NDIS cleaning, and regular cleaning services. Servicing all Melbourne suburbs.",
+    
+    // Mobile business - no physical address
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Melbourne",
       "addressRegion": "VIC",
       "addressCountry": "AU"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -37.8136,
-      "longitude": 144.9631
+    
+    "areaServed": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": -37.8136,
+        "longitude": 144.9631
+      },
+      "geoRadius": "50000" // 50km radius covering Melbourne suburbs
     },
-    "telephone": "your-phone-number",
-    "priceRange": "$$",
+    
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
         "opens": "08:00",
-        "closes": "18:00"
+        "closes": "20:00"
       },
       {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Saturday", "Sunday"],
         "opens": "09:00",
-        "closes": "17:00"
+        "closes": "19:00"
       }
     ],
-    "sameAs": [
-      "https://facebook.com/cleaningprofessionals",
-      "https://instagram.com/cleaningprofessionals"
-    ],
+
+    "priceRange": "$$",
+    
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Cleaning Services",
@@ -49,15 +55,36 @@ export default function StructuredData() {
           "itemOffered": {
             "@type": "Service",
             "name": "End of Lease Cleaning",
-            "description": "Comprehensive end of lease cleaning with 100% bond back guarantee"
+            "description": "Comprehensive end of lease cleaning service with 100% bond back guarantee"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": [
+              { "Studio/1 Bedroom": "260-315" },
+              { "2 Bedrooms": "287-408" },
+              { "3 Bedrooms": "359-650" },
+              { "4 Bedrooms": "545-890" }
+            ],
+            "priceCurrency": "AUD"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "House Cleaning",
-            "description": "Professional house cleaning services"
+            "name": "Regular House Cleaning",
+            "description": "Weekly, fortnightly, or monthly cleaning services"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": {
+              "Weekly Rate": "48.50",
+              "Fortnightly Rate": "58.50",
+              "3-Weekly Rate": "63.05",
+              "Monthly/One-Time": "65.00"
+            },
+            "description": "Per hour rates with discounts: Weekly (10% OFF), Fortnightly (5% OFF), 3-Weekly (3% OFF)",
+            "priceCurrency": "AUD"
           }
         },
         {
@@ -65,49 +92,41 @@ export default function StructuredData() {
           "itemOffered": {
             "@type": "Service",
             "name": "NDIS Cleaning",
-            "description": "NDIS registered cleaning provider"
+            "description": "Specialized cleaning services for NDIS participants"
+          },
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "45-55",
+            "description": "Per hour (NDIS funding typically covers up to $50.20 per hour)",
+            "priceCurrency": "AUD"
           }
         }
       ]
     },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://cleaningprofessionals.com.au",
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://cleaningprofessionals.com.au"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": "https://cleaningprofessionals.com.au/services"
-          }
-        ]
-      }
-    },
-    "potentialAction": {
-      "@type": "ReserveAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://cleaningprofessionals.com.au/book-now",
-        "inLanguage": "en-AU",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/IOSPlatform",
-          "http://schema.org/AndroidPlatform"
-        ]
+
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Weekly Cleaning Discount",
+        "description": "Save 10% on weekly cleaning services",
+        "availabilityStarts": "2024-01-01",
+        "availabilityEnds": "2024-12-31"
       },
-      "result": {
-        "@type": "Reservation",
-        "name": "Book Cleaning Service"
+      {
+        "@type": "Offer",
+        "name": "Fortnightly Cleaning Discount",
+        "description": "Save 5% on fortnightly cleaning services",
+        "availabilityStarts": "2024-01-01",
+        "availabilityEnds": "2024-12-31"
+      },
+      {
+        "@type": "Offer",
+        "name": "3-Weekly Cleaning Discount",
+        "description": "Save 3% on 3-weekly cleaning services",
+        "availabilityStarts": "2024-01-01",
+        "availabilityEnds": "2024-12-31"
       }
-    }
+    ]
   }
 
   return (
