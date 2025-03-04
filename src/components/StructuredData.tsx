@@ -3,7 +3,7 @@ import Script from 'next/script'
 export default function StructuredData() {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "CleaningService",
+    "@type": "LocalBusiness",
     "name": "Cleaning Professionals Melbourne",
     "image": "https://cleaningprofessionals.com.au/images/logo.png",
     "url": "https://cleaningprofessionals.com.au",
