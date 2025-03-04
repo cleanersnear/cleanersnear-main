@@ -3,6 +3,8 @@ import { Metadata } from "next"
 import "./globals.css"
 import Script from 'next/script'
 import { GA_MEASUREMENT_ID } from '@/utils/analytics'
+import StructuredData from '@/components/StructuredData'
+
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
