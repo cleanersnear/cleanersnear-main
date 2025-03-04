@@ -46,69 +46,56 @@ export default function StructuredData() {
 
     "priceRange": "$$",
     
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Cleaning Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "End of Lease Cleaning",
-            "description": "Comprehensive end of lease cleaning service with 100% bond back guarantee"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": [
-              { "Studio/1 Bedroom": "260-315" },
-              { "2 Bedrooms": "287-408" },
-              { "3 Bedrooms": "359-650" },
-              { "4 Bedrooms": "545-890" }
-            ],
-            "priceCurrency": "AUD"
-          }
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "End of Lease Cleaning",
+          "description": "Comprehensive end of lease cleaning service with 100% bond back guarantee"
         },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Regular House Cleaning",
-            "description": "Weekly, fortnightly, or monthly cleaning services"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": {
-              "Weekly Rate": "48.50",
-              "Fortnightly Rate": "58.50",
-              "3-Weekly Rate": "63.05",
-              "Monthly/One-Time": "65.00"
-            },
-            "description": "Per hour rates with discounts: Weekly (10% OFF), Fortnightly (5% OFF), 3-Weekly (3% OFF)",
-            "priceCurrency": "AUD"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "NDIS Cleaning",
-            "description": "Specialized cleaning services for NDIS participants"
-          },
-          "priceSpecification": {
-            "@type": "PriceSpecification",
-            "price": "45-55",
-            "description": "Per hour (NDIS funding typically covers up to $50.20 per hour)",
-            "priceCurrency": "AUD"
-          }
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 260,
+          "maxPrice": 890,
+          "priceCurrency": "AUD",
+          "description": "Prices range from $260 for studios to $890 for 4 bedrooms"
         }
-      ]
-    },
-
-    "offers": [
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Regular House Cleaning",
+          "description": "Weekly, fortnightly, or monthly cleaning services"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": 48.50,
+          "priceCurrency": "AUD",
+          "description": "Starting from $48.50 per hour with weekly discounts available"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "NDIS Cleaning",
+          "description": "Specialized cleaning services for NDIS participants"
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "minPrice": 45,
+          "maxPrice": 55,
+          "priceCurrency": "AUD",
+          "description": "NDIS approved rates between $45-$55 per hour"
+        }
+      },
       {
         "@type": "Offer",
         "name": "Weekly Cleaning Discount",
         "description": "Save 10% on weekly cleaning services",
+        "discount": 10,
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       },
@@ -116,6 +103,7 @@ export default function StructuredData() {
         "@type": "Offer",
         "name": "Fortnightly Cleaning Discount",
         "description": "Save 5% on fortnightly cleaning services",
+        "discount": 5,
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       },
@@ -123,6 +111,7 @@ export default function StructuredData() {
         "@type": "Offer",
         "name": "3-Weekly Cleaning Discount",
         "description": "Save 3% on 3-weekly cleaning services",
+        "discount": 3,
         "availabilityStarts": "2024-01-01",
         "availabilityEnds": "2024-12-31"
       }
