@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#1E3D8F] text-white">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Column 1 - Logo and Description */}
           <div className="md:col-span-1">
             <Image 
@@ -17,18 +17,18 @@ export default function Footer() {
               height={80}
               className="mb-6 w-[160px] md:w-[200px]"
             />
-            <p className="text-sm md:text-base text-gray-300 mb-6">
-              Cleaning Professionals stands as a beacon of excellence in household and commercial cleaning services across the Melbourne area
+            <p className="text-sm md:text-base text-gray-300 mb-8">
+              Cleaning Professionals stands as a beacon of excellence in household and commercial cleaning services across the Melbourne area. We deliver exceptional cleaning solutions tailored to your needs.
             </p>
-            <div className="space-y-2 text-sm md:text-base">
-              <p className="text-gray-300">Email:</p>
-              <a href="mailto:info@cleaningprofessionals.com.au" className="text-white hover:text-[#FFA500] text-sm md:text-base">
+            <div className="space-y-4 text-sm md:text-base">
+              <p className="text-gray-300 font-medium">Email:</p>
+              <a href="mailto:info@cleaningprofessionals.com.au" className="text-white hover:text-[#FFA500] text-sm md:text-base block mb-2">
                 info@cleaningprofessionals.com.au
               </a>
               <a href="mailto:account@cleaningprofessionals.com.au" className="block text-white hover:text-[#FFA500] text-sm md:text-base">
                 account@cleaningprofessionals.com.au
               </a>
-              <p className="text-gray-300 mt-4">Phone: <a href="tel:0450124086" className="text-white hover:text-[#FFA500]">0450124086</a></p>
+              <p className="text-gray-300 mt-6 font-medium">Phone: <a href="tel:0450124086" className="text-white hover:text-[#FFA500] ml-1">0450124086</a></p>
             </div>
             <div className="flex gap-4 mt-6">
               <Link href="https://www.facebook.com/people/Cleaning-Professionals/61572518431848/" className="text-white hover:text-[#FFA500] transition-colors">
@@ -86,13 +86,53 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 - Operating Hours */}
+          {/* Column 4 - Service Areas */}
+          <div>
+            <h3 className="text-base md:text-lg font-bold mb-6">Service Areas</h3>
+            <ul className="space-y-3 text-sm md:text-base">
+              <li><Link href="/locations/melbourne" className="hover:text-[#FFA500]">Melbourne CBD</Link></li>
+              <li><Link href="/locations/south-yarra" className="hover:text-[#FFA500]">South Yarra</Link></li>
+              <li><Link href="/locations/toorak" className="hover:text-[#FFA500]">Toorak</Link></li>
+              <li><Link href="/locations/richmond" className="hover:text-[#FFA500]">Richmond</Link></li>
+              <li><Link href="/locations/brunswick" className="hover:text-[#FFA500]">Brunswick</Link></li>
+              <li><Link href="/locations/carlton" className="hover:text-[#FFA500]">Carlton</Link></li>
+              <li><Link href="/locations/st-kilda" className="hover:text-[#FFA500]">St Kilda</Link></li>
+              <li><Link href="/locations/fitzroy" className="hover:text-[#FFA500]">Fitzroy</Link></li>
+              <li className="pt-2">
+                <Link 
+                  href="/locations" 
+                  className="inline-flex items-center text-sm text-white hover:text-[#FFA500] transition-colors group"
+                >
+                  <span className="border-b border-[#FFA500] pb-0.5">View All Service Areas</span>
+                  <svg 
+                    className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5 - Operating Hours & Policies */}
           <div>
             <h3 className="text-base md:text-lg font-bold mb-6">Operating Hours</h3>
-            <ul className="space-y-3 text-sm md:text-base">
+            <ul className="space-y-3 text-sm md:text-base mb-8">
               <li>Mon - Fri: 8am – 8pm</li>
               <li>Saturday: 9am - 7pm</li>
               <li>Sunday: 9am - 8pm</li>
+            </ul>
+
+            <h3 className="text-base md:text-lg font-bold mb-4">Policies</h3>
+            <ul className="space-y-3 text-sm md:text-base">
+              <li><Link href="/privacy-policy" className="hover:text-[#FFA500]">Privacy Policy</Link></li>
+              <li><Link href="/terms-and-conditions" className="hover:text-[#FFA500]">Terms & Conditions</Link></li>
+              {/* To be enabled once pages are customized */}
+              {/* <li><Link href="/cookie-policy" className="hover:text-[#FFA500]">Cookie Policy</Link></li> */}
+              {/* <li><Link href="/collection-notice" className="hover:text-[#FFA500]">Collection Notice</Link></li> */}
             </ul>
           </div>
         </div>
