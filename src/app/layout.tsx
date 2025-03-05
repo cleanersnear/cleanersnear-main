@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import "./globals.css"
 import Script from 'next/script'
 import { GA_MEASUREMENT_ID } from '@/utils/analytics'
-import StructuredData from '@/components/StructuredData'
+import StructuredData from '@/components/SEO/StructuredData'
 
 
 const roboto = Roboto({
