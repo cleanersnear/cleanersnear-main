@@ -2,10 +2,19 @@ import { SiteConfig } from "@/types"
 
 export const siteConfig: SiteConfig = {
   name: "Cleaning Professionals",
-  description: "Professional Cleaning Services in Melbourne",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   links: {
-    facebook: "https://facebook.com/cleanersnear",
-    instagram: "https://instagram.com/cleanersnear",
-  }
+    facebook: "https://facebook.com/cleaningprofessionals",
+    instagram: "https://instagram.com/cleaningprofessionals",
+  },
+  title: {
+    template: '%s | Cleaning Professionals Melbourne',
+    default: 'Professional Cleaning Services Melbourne',
+    services: 'Professional Cleaning Services Melbourne | %s',
+  },
+  description: {
+    default: 'Melbourne\'s trusted professional cleaning service. Expert cleaners, satisfaction guaranteed, servicing all suburbs.',
+    services: 'Professional %s in Melbourne. Certified cleaners, 100% satisfaction guaranteed.',
+    locations: 'Expert professional cleaning services in {location}. Trusted local cleaners.'
+  },
 } 

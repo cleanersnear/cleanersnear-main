@@ -23,6 +23,15 @@ Allow: /services/window-cleaning/
 Allow: /services/after-renovation-cleaning/
 Allow: /services/oven-cleaning/
 
+
+
+# Enhanced Service-specific rules
+Allow: /services/*
+Allow: /locations/melbourne-cbd/*
+Allow: /locations/south-yarra/*
+Allow: /locations/*/professional-cleaning
+
+
 # Block sensitive and utility pages
 Disallow: /admin-tools-x8k9z/
 Disallow: /quick-book/confirmation
@@ -38,6 +47,8 @@ Disallow: /*.js.map$
 # Special rules for specific bots
 User-agent: Googlebot
 Crawl-delay: 1
+Allow: /services/*
+Allow: /locations/*
 Allow: /*.js$
 Allow: /*.css$
 
@@ -51,6 +62,7 @@ Crawl-delay: 5
 
 # Block potentially harmful bots
 User-agent: *bot
+Disallow: /admin-tools-x8k9z/
 Disallow: /wp-admin/
 Disallow: /wp-login/
 Disallow: /wp-content/

@@ -1,7 +1,7 @@
 export const getOrganizationSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
-  name: 'Cleaning Professionals Australia',
+  name: 'Professional Cleaning Services Melbourne - Cleaning Professionals Australia', // Enhanced
   image: 'https://cleaningprofessionals.com.au/images/logo.png',
   '@id': 'https://cleaningprofessionals.com.au',
   url: 'https://cleaningprofessionals.com.au',
@@ -46,9 +46,30 @@ export const getOrganizationSchema = () => ({
   // Services offered
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Cleaning Services',
+    name: 'Professional Cleaning Services Melbourne',
     itemListElement: [
+      
+      
+
       {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Professional Commercial Cleaning',  // Enhanced
+          description: 'Expert commercial cleaning services with certified professional cleaners'
+        },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          price: '55-75',
+          description: 'Professional cleaning rates per hour',
+          priceCurrency: 'AUD'
+        }
+      },
+
+
+      
+      {
+        
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
@@ -66,6 +87,10 @@ export const getOrganizationSchema = () => ({
           priceCurrency: 'AUD'
         }
       },
+
+
+
+
       {
         '@type': 'Offer',
         itemOffered: {
