@@ -40,12 +40,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/services/${service}`,
     lastModified: new Date(),
     changeFrequency: 'daily' as const,
-    priority: 0.95,
-    images: [{
-      url: `${baseUrl}/images/services/${service}.webp`,
-      title: `Professional ${service.replace('-', ' ')} Services in Melbourne`,
-      caption: `Expert ${service.replace('-', ' ')} services by Cleaning Professionals Melbourne`
-    }]
+    priority: 0.95
   }))
 
   // Priority 2: Important pages (0.9)
@@ -79,12 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${baseUrl}/blogs/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: 0.9,
-    images: [{
-      url: `${baseUrl}/images/blogs/${slug}.webp`,
-      title: slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '),
-      caption: `${slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')} - Cleaning Professionals Melbourne`
-    }]
+    priority: 0.9
   }))
 
   // Quick Book Flow Pages (0.8)
@@ -108,12 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           url: `${baseUrl}/locations/${slugifiedSuburb}`,
           lastModified: new Date(),
           changeFrequency: 'weekly' as const,
-          priority: 0.75,
-          images: [{
-            url: `${baseUrl}/images/locations/${slugifiedSuburb}.webp`,
-            title: `Professional Cleaning Services in ${suburb}`,
-            caption: `Expert cleaning services in ${suburb}, Melbourne by Cleaning Professionals`
-          }]
+          priority: 0.75
         }
       })
     )
