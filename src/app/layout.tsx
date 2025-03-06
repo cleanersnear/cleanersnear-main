@@ -3,8 +3,6 @@ import { Metadata } from "next"
 import "./globals.css"
 import Script from 'next/script'
 import { GA_MEASUREMENT_ID } from '@/utils/analytics'
-import StructuredData from '@/components/SEO/StructuredData'
-
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -17,32 +15,35 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cleaningprofessionals.com.au'),
   title: {
-    default: 'Professional Cleaners Melbourne | End of Lease & House Cleaning Services',
+    default: 'Cleaning Professionals - Melbourne\'s Leading Cleaning Service',
     template: '%s | Cleaning Professionals Melbourne'
   },
-  description: '✓ Bond Back Guarantee ✓ Same Day Service ✓ Professional Cleaners. Melbourne\'s trusted cleaning service for homes & offices. NDIS registered, fully insured. Book online today!',
+  description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Trained Professionals ✓ Fully Insured Teams. Professional house cleaning, end of lease & commercial cleaning. Servicing All Melbourne Suburbs.',
+  icons: {
+    icon: '/favicon.ico'
+  },
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     url: 'https://cleaningprofessionals.com.au',
-    siteName: 'Cleaning Professionals Melbourne',
-    title: 'Professional Cleaners Melbourne | End of Lease & House Cleaning Services',
-    description: '✓ Bond Back Guarantee ✓ Same Day Service ✓ Professional Cleaners. Melbourne\'s most trusted cleaning service. NDIS registered & fully insured.',
+    title: 'Cleaning Professionals Melbourne | Professional House & Commercial Cleaning | #1 End of Lease & House Cleaning',
+    description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Trained Professionals ✓ Fully Insured Teams. Professional house cleaning, end of lease & commercial cleaning. Servicing All Melbourne Suburbs.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Cleaning Professionals Melbourne Services',
+        alt: 'Cleaning Professionals Melbourne - Professional Cleaning Services',
       }
     ],
+    siteName: 'Cleaning Professionals Melbourne'
   },
 
   // Twitter Card
   twitter: {
     card: 'summary_large_image',
-    title: 'Professional Cleaners Melbourne | End of Lease & House Cleaning',
-    description: '✓ Bond Back Guarantee ✓ Same Day Service. Melbourne\'s trusted cleaning service.',
+    title: 'Cleaning Professionals Melbourne | Professional Cleaning Services',
+    description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Reference Checked ✓ Fully Insured Teams. Servicing All Melbourne Suburbs.',
     images: ['/images/twitter-image.jpg'],
   },
 
@@ -64,10 +65,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://cleaningprofessionals.com.au',
   },
-  keywords: 'house cleaning melbourne, end of lease cleaning melbourne, bond cleaning melbourne, commercial cleaning melbourne, ndis cleaning melbourne, carpet cleaning melbourne',
+  keywords: 'house cleaning melbourne, end of lease cleaning melbourne, bond cleaning melbourne, commercial cleaning melbourne, ndis cleaning melbourne, carpet cleaning melbourne, domestic cleaning, office cleaning',
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   creator: 'Cleaning Professionals Melbourne',
   publisher: 'Cleaning Professionals Melbourne',
+  other: {
+    'google-site-verification': 'your-verification-code',
+    'msvalidate.01': 'your-bing-verification-code',
+    'facebook-domain-verification': 'your-facebook-verification-code'
+  }
 }
 
 export default function RootLayout({
@@ -82,7 +88,6 @@ export default function RootLayout({
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
-          <StructuredData />
         <Script
           id="google-analytics"
           strategy="afterInteractive"
