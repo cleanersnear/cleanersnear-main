@@ -2,27 +2,20 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Search, Home, Phone, ArrowRight } from 'lucide-react'
-import { useState, useEffect, useRef } from 'react'
+import { Home, Phone, ArrowRight } from 'lucide-react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function NotFound() {
-  const [searchQuery, setSearchQuery] = useState('')
+  
   const [countdown, setCountdown] = useState(10)
   const router = useRouter()
-  const shouldRedirect = useRef(false)
-
+  
   useEffect(() => {
     if (countdown === 0) {
-      shouldRedirect.current = true
-    }
-  }, [countdown])
-
-  useEffect(() => {
-    if (shouldRedirect.current) {
       router.push('/')
     }
-  }, [router, shouldRedirect.current])
+  }, [countdown, router])
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -97,7 +90,7 @@ export default function NotFound() {
             Oops! Page Not Found
           </h1>
           <p className="text-lg text-gray-600 mb-4">
-            The page you're looking for seems to have been moved or doesn't exist.
+            The page you&apos;re looking for seems to have been moved or doesn&apos;t exist.
             Let us help you find what you need!
           </p>
           <p className="text-md text-[#1E3D8F] font-medium mb-8">

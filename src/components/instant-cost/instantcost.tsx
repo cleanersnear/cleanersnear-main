@@ -259,7 +259,7 @@ const INITIAL_END_OF_LEASE_DATA: EndOfLeaseFormData = {
   bedrooms: ''
 }
 
-const BookingButton = ({ price, service }: { price: number | string; service: string }) => (
+const BookingButton = ({ price}: { price: number | string; service: string }) => (
   <div className="mt-8 p-6 bg-gray-50 rounded-lg border-t">
     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-3">
