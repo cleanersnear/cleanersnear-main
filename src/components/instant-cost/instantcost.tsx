@@ -267,12 +267,7 @@ const BookingButton = ({ price, service }: { price: number | string; service: st
         <span className="text-3xl font-bold text-[#1E3D8F]">${price}</span>
       </div>
       <div className="flex flex-col md:flex-row gap-3 w-full md:w-auto">
-        <a
-          href={`/pricing/calculator/${service}`}
-          className="text-[#1E3D8F] underline text-sm hover:text-[#1E3D8F]/80"
-        >
-          View detailed pricing
-        </a>
+        
         <a
           href="/quick-book/location"
           className="w-full md:w-auto bg-[#1E3D8F] text-white px-8 py-3 rounded-lg
@@ -736,17 +731,7 @@ export default function InstantCost({ service }: InstantCostProps) {
         </div>
       )}
 
-      {commercialData.cleanType && (
-        <BookingButton 
-          price={(() => {
-            const baseRate = commercialData.cleanType === 'regular' && commercialData.frequency
-              ? COMMERCIAL_PRICES.regular[commercialData.frequency]
-              : COMMERCIAL_PRICES.onceOff;
-            return baseRate * commercialData.hours * commercialData.staff;
-          })()}
-          service={formData.service}
-        />
-      )}
+      
     </div>
   )
 
