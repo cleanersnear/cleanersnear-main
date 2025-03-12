@@ -63,6 +63,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.95
   }))
 
+  // Priority 1.5: End of Lease main page and location pages (0.95)
+  const endOfLeasePages = [
+    {
+      url: `${baseUrl}/services/end-of-lease-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.95
+    }
+  ]
+
+  // NEW: End of Lease Service Areas with high priority (0.9)
+  const endOfLeaseLocationPages = Object.values(MELBOURNE_REGIONS).flatMap(region =>
+    region.councils.flatMap(council =>
+      council.key_suburbs.map(suburb => {
+        const slugifiedSuburb = suburb.toLowerCase().replace(/\s+/g, '-')
+        return {
+          url: `${baseUrl}/services/end-of-lease-cleaning/${slugifiedSuburb}`,
+          lastModified: new Date(),
+          changeFrequency: 'weekly' as const,
+          priority: 0.9
+        }
+      })
+    )
+  )
+
   // Priority 2: Important pages (0.9)
   const importantPages = [
     'about',
@@ -128,6 +153,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     ...mainPages,
     ...coreServicePages,
+    ...endOfLeasePages,
+    ...endOfLeaseLocationPages,
     ...importantPages,
     ...importantBlogPosts,
     ...quickBookPages,
