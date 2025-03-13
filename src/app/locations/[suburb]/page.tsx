@@ -87,7 +87,7 @@ export default async function LocationPage({
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl font-bold text-[#1E3D8F] mb-6">Location Not Found</h1>
             <p className="text-lg mb-8">
-              We couldn't find information about this specific location. Please check our service areas below or contact us for more information.
+              We couldn&apos;t find information about this specific location. Please check our service areas below or contact us for more information.
             </p>
             
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
