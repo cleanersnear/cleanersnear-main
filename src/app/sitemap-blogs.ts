@@ -76,6 +76,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             };
           } catch (error) {
             // Fallback to current date if fetch fails
+                        console.error('Error fetching blog details for slug:', slug, error);
+
             return { slug, lastUpdated: new Date() };
           }
         })
