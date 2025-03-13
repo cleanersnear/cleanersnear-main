@@ -3,17 +3,17 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // Handle www to non-www redirects first
+      // Handle non-www to www redirects (reversed from before)
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
-            value: 'www.cleaningprofessionals.com.au',
+            value: 'cleaningprofessionals.com.au',
           },
         ],
         permanent: true,
-        destination: 'https://cleaningprofessionals.com.au/:path*',
+        destination: 'https://www.cleaningprofessionals.com.au/:path*',
       },
       // Handle terms page variations
       {
@@ -86,7 +86,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Link',
-            value: '<https://cleaningprofessionals.com.au>; rel="canonical"'
+            value: '<https://www.cleaningprofessionals.com.au>; rel="canonical"'
           }
         ],
       },
