@@ -71,7 +71,7 @@ Disallow: /wp-login/
 Disallow: /wp-content/
 
 # Host directive - canonical domain
-Host: https://cleaningprofessionals.com.au
+Host: https://www.cleaningprofessionals.com.au
 
 # Sitemaps
-Sitemap: https://cleaningprofessionals.com.au/sitemap.xml 
+Sitemap: https://www.cleaningprofessionals.com.au/sitemap.xml 

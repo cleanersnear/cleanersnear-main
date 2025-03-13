@@ -59,8 +59,6 @@ const blogPosts = [
   }
 ]
 
-
-
 export default function HomePage() {
   const { loading, error, location } = useLocation();
   const [isClient, setIsClient] = useState(false);
@@ -191,7 +189,6 @@ export default function HomePage() {
 
       <div className="pricing-calculators">
         <InstantCost service="end-of-lease" />
-        
       </div>
 
       {/* Why Choose Us Section */}

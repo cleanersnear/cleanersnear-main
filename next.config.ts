@@ -83,10 +83,6 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, must-revalidate'
-          },
-          {
-            key: 'Link',
-            value: '<https://www.cleaningprofessionals.com.au>; rel="canonical"'
           }
         ],
       },

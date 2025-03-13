@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Melbourne End of Lease Cleaners | Local Bond Cleaning Experts',
     description: 'Looking for end of lease cleaners near me? ✓ Fixed vacate cleaning prices ✓ Professional bond cleaners ✓ Same-day service available ✓ 100% bond back guarantee',
-    url: 'https://cleaningprofessionals.com.au/services/end-of-lease-cleaning',
+    url: 'https://www.cleaningprofessionals.com.au/services/end-of-lease-cleaning/',
     siteName: 'Cleaning Professionals Melbourne',
     images: [
       {
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     images: ['/images/end-of-lease-cleaning-melbourne.jpg'],
   },
   alternates: {
-    canonical: 'https://cleaningprofessionals.com.au/services/end-of-lease-cleaning',
+    canonical: '/services/end-of-lease-cleaning/',
   },
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   generator: 'Next.js',
@@ -51,7 +51,6 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://cleaningprofessionals.com.au'),
   viewport: {
     width: 'device-width',
     initialScale: 1,
