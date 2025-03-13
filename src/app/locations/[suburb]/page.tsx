@@ -2,6 +2,7 @@ import { MELBOURNE_REGIONS } from '@/utils/location/regions'
 import DynamicHero from '@/components/Home/HeroSection/DynamicHero'
 import Header from '@/components/layout/Header'
 import Link from 'next/link'
+import { Metadata } from 'next'
 
 interface LocationData {
   name: string;
@@ -19,6 +20,26 @@ interface BusinessInfo {
 
 interface PageProps {
   params: Promise<{ suburb: string }>;
+}
+
+// Generate metadata for each suburb page
+export async function generateMetadata({ params }: { params: Promise<{ suburb: string }> }): Promise<Metadata> {
+  const resolvedParams = await params
+  const suburb = resolvedParams.suburb.replace(/-/g, ' ')
+  
+  return {
+    title: `Professional Cleaning Services in ${suburb} | Melbourne Cleaners`,
+    description: `Expert cleaning services in ${suburb}, Melbourne. End of lease, carpet cleaning, NDIS, commercial & more. Trusted professionals, affordable rates. Book today!`,
+    alternates: {
+      canonical: `/locations/${resolvedParams.suburb}/`,
+    },
+    openGraph: {
+      title: `${suburb} Cleaning Services | Cleaning Professionals Melbourne`,
+      description: `Professional cleaning services in ${suburb}. Trusted local cleaners for homes and businesses.`,
+      url: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/`,
+      type: 'website',
+    }
+  }
 }
 
 export default async function LocationPage({ 
@@ -59,10 +80,49 @@ export default async function LocationPage({
   }
 
   if (!locationData) {
-  return (
-    <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-center">Location not found</h1>
-      </div>
+    return (
+      <>
+        <Header />
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl font-bold text-[#1E3D8F] mb-6">Location Not Found</h1>
+            <p className="text-lg mb-8">
+              We couldn't find information about this specific location. Please check our service areas below or contact us for more information.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+              <Link
+                href="/locations/"
+                className="bg-[#1E3D8F] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors"
+              >
+                View All Locations
+              </Link>
+              <Link
+                href="/contact"
+                className="bg-[#FFA500] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-colors"
+              >
+                Contact Us
+              </Link>
+              <Link
+                href="/"
+                className="bg-white text-[#1E3D8F] border border-[#1E3D8F] px-6 py-3 rounded-md hover:bg-gray-50 transition-colors"
+              >
+                Back to Home
+              </Link>
+            </div>
+            
+            <h2 className="text-2xl font-semibold text-[#1E3D8F] mb-4">Popular Service Areas</h2>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+              <Link href="/locations/melbourne-cbd/" className="text-[#1E3D8F] hover:text-[#FFA500]">Melbourne CBD</Link>
+              <Link href="/locations/south-yarra/" className="text-[#1E3D8F] hover:text-[#FFA500]">South Yarra</Link>
+              <Link href="/locations/richmond/" className="text-[#1E3D8F] hover:text-[#FFA500]">Richmond</Link>
+              <Link href="/locations/toorak/" className="text-[#1E3D8F] hover:text-[#FFA500]">Toorak</Link>
+              <Link href="/locations/st-kilda/" className="text-[#1E3D8F] hover:text-[#FFA500]">St Kilda</Link>
+              <Link href="/locations/brunswick/" className="text-[#1E3D8F] hover:text-[#FFA500]">Brunswick</Link>
+            </div>
+          </div>
+        </div>
+      </>
     )
   }
 

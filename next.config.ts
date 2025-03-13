@@ -15,6 +15,12 @@ const nextConfig: NextConfig = {
         permanent: true,
         destination: 'https://www.cleaningprofessionals.com.au/:path*',
       },
+      // Handle "Melbourne" location redirect to "Melbourne CBD"
+      {
+        source: '/locations/melbourne/',
+        destination: '/locations/melbourne-cbd/',
+        permanent: true,
+      },
       // Handle terms page variations
       {
         source: '/terms',
