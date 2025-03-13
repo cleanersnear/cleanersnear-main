@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { MetadataRoute } from 'next'
 
 /**
@@ -6,10 +6,10 @@ import { MetadataRoute } from 'next'
  * This converts the Next.js sitemap objects to XML format
  */
 export async function GET(
-  request: NextRequest,
-  { params }: { params: { type: string } }
+  request: Request,
+  { params }: { params: Promise<{ type: string }> }
 ) {
-  const { type } = params
+  const { type } = await params
   
   try {
     // Import the specific sitemap function based on the type
