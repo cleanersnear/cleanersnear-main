@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code',
+    google: 'G-W87SXGYKC1',
   },
   alternates: {
     canonical: 'https://cleaningprofessionals.com.au',
@@ -69,11 +69,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   creator: 'Cleaning Professionals Melbourne',
   publisher: 'Cleaning Professionals Melbourne',
-  other: {
-    'google-site-verification': 'your-verification-code',
-    'msvalidate.01': 'your-bing-verification-code',
-    'facebook-domain-verification': 'your-facebook-verification-code'
-  }
+  
 }
 
 export default function RootLayout({

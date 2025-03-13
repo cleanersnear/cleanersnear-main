@@ -112,8 +112,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'professional-cleaning-services-melbourne',
     'professional-mold-removal-melbourne-guide',
     'professional-move-out-cleaning-melbourne-guide',
-    'move-out-cleaning-mistakes-Victoria',
-    'professional-end-of-lease-cleaning-Melbourne',
+    'move-out-cleaning-mistakes-victoria',
+    'professional-end-of-lease-cleaning-melbourne',
     'professional-office-cleaning-melbourne-benefits'
   ].map(slug => ({
     url: `${baseUrl}/blogs/${slug}`,

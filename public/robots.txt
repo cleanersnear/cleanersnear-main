@@ -23,14 +23,15 @@ Allow: /services/window-cleaning/
 Allow: /services/after-renovation-cleaning/
 Allow: /services/oven-cleaning/
 
-
+# Blog-specific rules
+Allow: /blogs/*
+Allow: /blog/*
 
 # Enhanced Service-specific rules
 Allow: /services/*
 Allow: /locations/melbourne-cbd/*
 Allow: /locations/south-yarra/*
 Allow: /locations/*/professional-cleaning
-
 
 # Block sensitive and utility pages
 Disallow: /admin-tools-x8k9z/
@@ -49,6 +50,7 @@ User-agent: Googlebot
 Crawl-delay: 1
 Allow: /services/*
 Allow: /locations/*
+Allow: /blogs/*
 Allow: /*.js$
 Allow: /*.css$
 
@@ -56,6 +58,7 @@ User-agent: Bingbot
 Crawl-delay: 2
 Allow: /*.js$
 Allow: /*.css$
+Allow: /blogs/*
 
 User-agent: DuckDuckBot
 Crawl-delay: 5
@@ -67,7 +70,7 @@ Disallow: /wp-admin/
 Disallow: /wp-login/
 Disallow: /wp-content/
 
-# Host directive
+# Host directive - canonical domain
 Host: https://cleaningprofessionals.com.au
 
 # Sitemaps
