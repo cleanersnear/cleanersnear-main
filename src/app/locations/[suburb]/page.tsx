@@ -83,7 +83,7 @@ export default async function LocationPage({
     return (
       <>
         <Header />
-        <div className="container mx-auto px-4 py-12">
+        <div className="container mx-auto px-4 pt-36 pb-12">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl font-bold text-[#1E3D8F] mb-6">Location Not Found</h1>
             <p className="text-lg mb-8">
