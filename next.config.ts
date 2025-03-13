@@ -48,7 +48,18 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       beforeFiles: [],
-      afterFiles: [],
+      afterFiles: [
+        // Handle sitemap.xml requests to serve the main sitemap
+        {
+          source: '/sitemap.xml',
+          destination: '/api/sitemap',
+        },
+        // Handle individual sitemap XML files
+        {
+          source: '/sitemap-:type.xml',
+          destination: '/api/sitemap/:type',
+        }
+      ],
       fallback: []
     }
   },
@@ -72,8 +83,38 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, must-revalidate'
+          },
+          {
+            key: 'Link',
+            value: '<https://cleaningprofessionals.com.au>; rel="canonical"'
           }
         ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          }
+        ]
+      },
+      {
+        source: '/sitemap-:type.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, must-revalidate'
+          }
+        ]
       }
     ]
   }
