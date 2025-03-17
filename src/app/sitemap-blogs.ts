@@ -31,7 +31,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'professional-mold-removal-melbourne-guide',
     'professional-move-out-cleaning-melbourne-guide',
     'move-out-cleaning-mistakes-victoria',
-    'professional-end-of-lease-cleaning-melbourne',
     'professional-office-cleaning-melbourne-benefits'
   ]
   
