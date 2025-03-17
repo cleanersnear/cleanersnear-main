@@ -1,12 +1,5 @@
 import type { Metadata } from "next"
 
-interface LocationData {
-  name: string;
-  region: string;
-  council: string;
-  mainSuburbs: string[];
-  postcode: string;
-}
 
 export async function generateMetadata({ 
   params 
