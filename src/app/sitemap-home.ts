@@ -9,7 +9,7 @@ import { MetadataRoute } from 'next'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for home and main pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cleaningprofessionals.com.au'
+  const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Main pages with highest priority (1.0)
   // These are the most important pages that should be crawled frequently

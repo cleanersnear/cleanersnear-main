@@ -10,7 +10,7 @@ import { MetadataRoute } from 'next'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for static pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cleaningprofessionals.com.au'
+  const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Static pages with medium priority (0.7)
   // These are important for compliance and user trust

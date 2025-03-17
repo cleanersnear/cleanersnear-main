@@ -14,7 +14,7 @@ import { MetadataRoute } from 'next'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for blog pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cleaningprofessionals.com.au'
+  const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Main blogs page
   const blogsMainPage = {
@@ -75,9 +75,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               lastUpdated: blogData.lastUpdated ? new Date(blogData.lastUpdated) : new Date() 
             };
           } catch (error) {
+            console.error('Error fetching blog details for slug:', slug, error);
             // Fallback to current date if fetch fails
-                        console.error('Error fetching blog details for slug:', slug, error);
-
             return { slug, lastUpdated: new Date() };
           }
         })

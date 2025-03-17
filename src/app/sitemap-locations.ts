@@ -10,7 +10,7 @@ import { MELBOURNE_REGIONS } from '@/utils/location/regions'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for location pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cleaningprofessionals.com.au'
+  const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Main locations page
   const locationsMainPage = {

@@ -3,13 +3,26 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // Handle non-www to www redirects (reversed from before)
+      // Primary domain redirect - catch all non-www traffic
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
             value: 'cleaningprofessionals.com.au',
+          },
+        ],
+        permanent: true,
+        destination: 'https://www.cleaningprofessionals.com.au/:path*',
+      },
+      // Handle http to https redirects
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
           },
         ],
         permanent: true,
@@ -37,7 +50,7 @@ const nextConfig: NextConfig = {
         destination: '/terms-and-conditions',
         permanent: true,
       },
-      // Then handle case-sensitive URLs for blog posts
+      // Handle case-sensitive URLs for blog posts
       {
         source: '/blogs/professional-end-of-lease-cleaning-Melbourne',
         destination: '/blogs/professional-end-of-lease-cleaning-melbourne',
@@ -55,28 +68,25 @@ const nextConfig: NextConfig = {
     return {
       beforeFiles: [],
       afterFiles: [
-        // Handle sitemap.xml requests to serve the main sitemap
+        // Enhanced sitemap handling
         {
           source: '/sitemap.xml',
           destination: '/api/sitemap',
         },
-        // Handle individual sitemap XML files
         {
           source: '/sitemap-:type.xml',
+          destination: '/api/sitemap/:type',
+        },
+        // Add a catch-all for sitemap variations
+        {
+          source: '/sitemap_:type.xml',
           destination: '/api/sitemap/:type',
         }
       ],
       fallback: []
     }
   },
-  // Force trailing slashes for consistency
-  trailingSlash: true,
-  // Optimize images
-  images: {
-    domains: ['cleaningprofessionals.com.au'],
-    formats: ['image/avif', 'image/webp'],
-  },
-  // Handle headers for better SEO
+  // Enhanced headers configuration
   async headers() {
     return [
       {
@@ -89,28 +99,24 @@ const nextConfig: NextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, must-revalidate'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
           }
         ],
       },
+      // Enhanced XML handling
       {
-        source: '/sitemap.xml',
+        source: '/:path*.xml',
         headers: [
           {
             key: 'Content-Type',
-            value: 'application/xml'
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=3600, must-revalidate'
-          }
-        ]
-      },
-      {
-        source: '/sitemap-:type.xml',
-        headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/xml'
+            value: 'application/xml; charset=utf-8'
           },
           {
             key: 'Cache-Control',
@@ -119,6 +125,13 @@ const nextConfig: NextConfig = {
         ]
       }
     ]
+  },
+  // Keep trailing slash consistent
+  trailingSlash: true,
+  // Enhanced image configuration
+  images: {
+    domains: ['www.cleaningprofessionals.com.au', 'cleaningprofessionals.com.au'],
+    formats: ['image/avif', 'image/webp'],
   }
 }
 

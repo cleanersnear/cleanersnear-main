@@ -9,7 +9,7 @@ import { MetadataRoute } from 'next'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for service pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cleaningprofessionals.com.au'
+  const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Main services page
   const servicesMainPage = {
