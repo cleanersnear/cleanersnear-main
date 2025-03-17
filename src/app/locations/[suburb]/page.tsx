@@ -2,7 +2,6 @@ import { MELBOURNE_REGIONS } from '@/utils/location/regions'
 import DynamicHero from '@/components/Home/HeroSection/DynamicHero'
 import Header from '@/components/layout/Header'
 import Link from 'next/link'
-import { Metadata } from 'next'
 
 interface LocationData {
   name: string;
@@ -20,26 +19,6 @@ interface BusinessInfo {
 
 interface PageProps {
   params: Promise<{ suburb: string }>;
-}
-
-// Generate metadata for each suburb page
-export async function generateMetadata({ params }: { params: Promise<{ suburb: string }> }): Promise<Metadata> {
-  const resolvedParams = await params
-  const suburb = resolvedParams.suburb.replace(/-/g, ' ')
-  
-  return {
-    title: `Professional Cleaning Services in ${suburb} | Melbourne Cleaners`,
-    description: `Expert cleaning services in ${suburb}, Melbourne. End of lease, carpet cleaning, NDIS, commercial & more. Trusted professionals, affordable rates. Book today!`,
-    alternates: {
-      canonical: `/locations/${resolvedParams.suburb}/`,
-    },
-    openGraph: {
-      title: `${suburb} Cleaning Services | Cleaning Professionals Melbourne`,
-      description: `Professional cleaning services in ${suburb}. Trusted local cleaners for homes and businesses.`,
-      url: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/`,
-      type: 'website',
-    }
-  }
 }
 
 export default async function LocationPage({ 
@@ -153,7 +132,7 @@ export default async function LocationPage({
             {/* Content Grid */}
             <div className="grid md:grid-cols-2 gap-8 mb-12">
               {/* Left Column - Main Content */}
-      <div className="prose max-w-none">
+              <div className="prose max-w-none">
                 <p className="text-lg leading-relaxed mb-6">
                   Looking for reliable cleaning services in {locationData.name}? Our professional 
                   cleaning team delivers exceptional results for homes and businesses 
@@ -275,8 +254,8 @@ export default async function LocationPage({
                   Call Us
                 </Link>
               </div>
-      </div>
-    </div>
+            </div>
+          </div>
         </section>
       </main>
     </>
