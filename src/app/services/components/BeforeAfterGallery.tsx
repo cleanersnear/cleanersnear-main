@@ -4,7 +4,11 @@ import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
 import { useState } from 'react'
 
-export default function BeforeAfterGallery() {
+interface BeforeAfterGalleryProps {
+  serviceSlug: string
+}
+
+export default function BeforeAfterGallery({ serviceSlug }: BeforeAfterGalleryProps) {
   const [sliderPositions, setSliderPositions] = useState([50, 50, 50])
 
   const handleSliderDrag = (index: number, clientX: number) => {
@@ -69,8 +73,8 @@ export default function BeforeAfterGallery() {
                 {/* Before Image */}
                 <div className="absolute inset-0">
                   <Image
-                    src={`/images/before-after/image${item}-Before.jpg`}
-                    alt={`Before Cleaning ${item}`}
+                    src={`/images/before-after/${serviceSlug}-image${item}-Before.jpg`}
+                    alt={`Before ${serviceSlug.split('-').join(' ')} ${item}`}
                     fill
                     className="object-cover"
                     priority={index === 0}
@@ -87,8 +91,8 @@ export default function BeforeAfterGallery() {
                     }}
                   >
                     <Image
-                      src={`/images/before-after/image${item}-After.jpg`}
-                      alt={`After Cleaning ${item}`}
+                      src={`/images/before-after/${serviceSlug}-image${item}-After.jpg`}
+                      alt={`After ${serviceSlug.split('-').join(' ')} ${item}`}
                       fill
                       className="object-cover"
                       priority={index === 0}

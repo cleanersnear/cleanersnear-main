@@ -10,7 +10,14 @@ interface SubmitStatus {
   message?: string;
 }
 
-export default function RequestCallback() {
+interface RequestCallbackProps {
+  service: {
+    id: string;
+    title: string;
+  }
+}
+
+export default function RequestCallback({ service }: RequestCallbackProps) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
@@ -29,7 +36,7 @@ export default function RequestCallback() {
         phone,
         email,
         message,
-        subject: 'Callback Request - End of Lease Cleaning',
+        subject: `Callback Request - ${service.title}`,
         address: '' // Optional field from contact form
       }
 
@@ -168,7 +175,7 @@ export default function RequestCallback() {
               Get in touch
             </h2>
             <p className="text-gray-600 mb-8">
-              Have questions? We&apos;re here to help you with your end of lease cleaning needs
+              Have questions? We&apos;re here to help you with your {service.title.toLowerCase()} needs
             </p>
 
             <div className="space-y-6">

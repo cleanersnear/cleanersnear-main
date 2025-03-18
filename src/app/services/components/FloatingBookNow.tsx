@@ -5,20 +5,20 @@ import { ArrowRight, Phone, X, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useBookingStore } from '@/app/quick-book/store/bookingStore'
+import { ServiceBase } from '@/app/quick-book/types/service'
 
-export default function FloatingBookNow() {
+interface FloatingBookNowProps {
+  service: ServiceBase
+}
+
+export default function FloatingBookNow({ service }: FloatingBookNowProps) {
   const [isBookingWidgetOpen, setIsBookingWidgetOpen] = useState(false)
   const [isDesktopWidgetOpen, setIsDesktopWidgetOpen] = useState(false)
   const router = useRouter()
   const { setService } = useBookingStore()
 
   const handleBookNow = () => {
-    setService({
-      id: 'end-of-lease-cleaning',
-      title: 'End of Lease Cleaning',
-      category: 'popular',
-      type: 'end-of-lease-cleaning'
-    })
+    setService(service)
     router.push('/quick-book/location')
   }
 
@@ -88,8 +88,6 @@ export default function FloatingBookNow() {
                 </button>
               </div>
               
-              
-
               <div className="space-y-3">
                 <button
                   onClick={handleBookNow}
@@ -125,8 +123,6 @@ export default function FloatingBookNow() {
               </button>
             </div>
             
-            
-
             <div className="space-y-3">
               <button
                 onClick={handleBookNow}

@@ -1,34 +1,32 @@
 'use client'
 
 import MainLayout from '@/components/layout/MainLayout'
-import EOLHero from './components/EOLHero'
-import QuickStats from './components/QuickStats'
-import ServiceIntro from './components/ServiceIntro'
-import PricingSection from './components/PricingSection'
-import MobileWhatsIncluded from './components/MobileWhatsIncluded'
+import GeneralCleaningHero from './components/GeneralCleaningHero'
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
+import ServiceIntro from './components/ServiceIntro'
+import MobileWhatsIncluded from './components/MobileWhatsIncluded'
+import PricingSection from './components/PricingSection'
+import FloatingBookNow from '../components/FloatingBookNow'
 import ReviewsSection from './components/ReviewsSection'
 import FAQSection from './components/FAQSection'
 import RequestCallback from '../components/RequestCallback'
-import FloatingBookNow from '../components/FloatingBookNow'
 
-export default function EndOfLeaseCleaning() {
+export default function GeneralCleaning() {
   const service = {
-    id: 'end-of-lease-cleaning',
-    title: 'End of Lease Cleaning',
+    id: 'general-cleaning',
+    title: 'General Cleaning',
     category: 'popular',
-    type: 'end-of-lease-cleaning'
+    type: 'general-cleaning'
   } as const
 
   return (
     <MainLayout>
       <FloatingBookNow service={service} />
       <div className="mt-32">
-        <EOLHero />
-        <QuickStats />
+        <GeneralCleaningHero />
         <MobileWhatsIncluded />
         <ServiceIntro service={service} />
-        <BeforeAfterGallery serviceSlug="end-of-lease-cleaning" />
+        <BeforeAfterGallery serviceSlug="general-cleaning" />
         <PricingSection service={service} />
         <ReviewsSection />
         <FAQSection />
