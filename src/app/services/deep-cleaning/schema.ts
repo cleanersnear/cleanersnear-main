@@ -2,14 +2,14 @@ export const getLocalBusinessSchema = () => {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://cleaningprofessionals.com.au/services/general-cleaning',
-    name: 'Cleaning Professionals Melbourne - General Cleaning',
-    image: '/images/general-cleaning-melbourne.jpg',
-    description: 'Professional general cleaning service in Melbourne with satisfaction guarantee. Expert house cleaners, flexible scheduling, and competitive rates.',
-    url: 'https://cleaningprofessionals.com.au/services/general-cleaning',
+    '@id': 'https://cleaningprofessionals.com.au/services/deep-cleaning',
+    name: 'Cleaning Professionals Melbourne - Deep Cleaning Services',
+    image: '/images/deep-cleaning-melbourne.jpg',
+    description: 'Professional deep cleaning service in Melbourne. Specialized in thorough sanitization, detailed cleaning of all surfaces, and intensive cleaning using professional-grade equipment. Starting from $53.07/hour with minimum 3 hours booking.',
+    url: 'https://cleaningprofessionals.com.au/services/deep-cleaning',
     telephone: '0450124086',
     email: 'info@cleaningprofessionals.com.au',
-    priceRange: '$$',
+    priceRange: '$$$',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Melbourne',
@@ -54,14 +54,15 @@ export const getLocalBusinessSchema = () => {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'General Cleaning Services',
+      name: 'Deep Cleaning Services',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '2 Hour General Cleaning',
-            price: '89.00',
+            name: 'Hourly Deep Cleaning',
+            description: 'Professional deep cleaning service with minimum 3 hours booking',
+            price: '53.07',
             priceCurrency: 'AUD'
           }
         },
@@ -69,8 +70,9 @@ export const getLocalBusinessSchema = () => {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '4 Hours General Cleaning',
-            price: '180.00',
+            name: '4 Hours Deep Cleaning Package',
+            description: 'Most popular package ideal for apartments and small homes',
+            price: '212.00',
             priceCurrency: 'AUD'
           }
         },
@@ -78,8 +80,9 @@ export const getLocalBusinessSchema = () => {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
-            name: '6 Hour General Clean',
-            price: '270.00',
+            name: '6 Hours Deep Cleaning Package',
+            description: 'Perfect for larger homes and extensive deep cleaning needs',
+            price: '318.00',
             priceCurrency: 'AUD'
           }
         }
@@ -98,4 +101,4 @@ export const getLocalBusinessSchema = () => {
       'https://www.linkedin.com/company/cleaning-professionals-melbourne/'
     ]
   }
-} 
+}

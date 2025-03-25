@@ -71,7 +71,10 @@ export const metadata: Metadata = {
     'business:contact_data:region': 'Victoria',
     'business:contact_data:country': 'Australia',
     'og:availability': 'in stock',
+    'business:hours:day': 'Mon-Sun 7:00-20:00',
+    'og:service:type': 'House Cleaning',
     'og:price:standard_amount': '90',
-    'business:hours:day': 'Mon-Sun 7:00-20:00'
+    'og:phone_number': '0450124086'
+    
   }
 } 

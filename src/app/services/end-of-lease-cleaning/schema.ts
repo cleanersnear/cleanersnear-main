@@ -91,6 +91,11 @@ export const getLocalBusinessSchema = () => {
       reviewCount: '5000',
       bestRating: '5',
       worstRating: '1'
-    }
+    },
+    sameAs: [
+      'https://www.facebook.com/people/Cleaning-Professionals/61572518431848/',
+      'https://www.instagram.com/cleaning__professionals/',
+      'https://www.linkedin.com/company/cleaning-professionals-melbourne/'
+    ]
   }
 } 
