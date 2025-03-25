@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Professional Cleaning Services Melbourne | Residential & Commercial Cleaners',
-  description: 'Top-rated cleaning services in Melbourne. Specializing in end of lease, regular house cleaning, carpet cleaning, NDIS & commercial cleaning. | Professional cleaners | Affordable rates | Same-day service available | 100% satisfaction guaranteed',
-  keywords: 'cleaning services melbourne, professional cleaners melbourne, end of lease cleaning, house cleaning melbourne, carpet cleaning melbourne, commercial cleaning melbourne, ndis cleaning services, office cleaning melbourne, residential cleaning, local cleaners melbourne',
+  title: 'Cleaning Services Melbourne | Professional Cleaners from $53.07/hr',
+  description: 'Looking for reliable cleaning services in Melbourne? Expert residential & commercial cleaners, specializing in end of lease, regular house cleaning, carpet cleaning, NDIS & commercial cleaning. Professional service from $53.07/hr with satisfaction guarantee.',
+  keywords: 'cleaning services melbourne, melbourne cleaning services, professional cleaners melbourne, end of lease cleaning, house cleaning melbourne, carpet cleaning melbourne, commercial cleaning melbourne, ndis cleaning services, office cleaning melbourne, residential cleaning, local cleaners melbourne',
   alternates: {
     canonical: '/services/',
   },
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_AU',
     url: 'https://www.cleaningprofessionals.com.au/services/',
-    title: 'Melbourne Professional Cleaning Services | Trusted Local Cleaners',
-    description: '| End of lease cleaning | Regular house cleaning | Carpet cleaning | NDIS cleaning | Commercial cleaning | Melbourne\'s most trusted cleaning service. Book online today!',
+    title: 'Cleaning Services Melbourne | Top-Rated Local Cleaning Company',
+    description: 'Melbourne\'s trusted cleaning services from $53.07/hr | End of lease cleaning | Regular house cleaning | Carpet cleaning | NDIS cleaning | Commercial cleaning | Book online today!',
     images: [
       {
         url: '/images/services-hero.jpg',
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Melbourne Professional Cleaning Services | Expert Cleaners',
-    description: 'Melbourne\'s trusted cleaning service. | End of lease | Regular cleaning | Carpet cleaning & more | Professional cleaners | Competitive rates | Book today!',
+    title: 'Cleaning Services Melbourne | Professional Cleaners from $53.07/hr',
+    description: 'Melbourne\'s trusted cleaning services. Professional cleaners for homes & offices | End of lease | Regular cleaning | Carpet cleaning | Book today!',
     images: ['/images/services-hero.jpg'],
   },
   robots: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   generator: 'Next.js',
-  applicationName: 'Melbourne Professional Cleaning Services',
+  applicationName: 'Melbourne Cleaning Services',
   referrer: 'origin-when-cross-origin',
   creator: 'Cleaning Professionals Melbourne',
   publisher: 'Cleaning Professionals Melbourne',
@@ -55,6 +55,9 @@ export const metadata: Metadata = {
     'business:contact_data:locality': 'Melbourne',
     'business:contact_data:region': 'Victoria',
     'business:contact_data:country': 'Australia',
-    'og:price:currency': 'AUD'
+    'og:price:amount': '53.07',
+    'og:price:currency': 'AUD',
+    'business:hours:day': 'Mon-Sun 7:00-20:00',
+    'og:phone_number': '0450124086'
   }
 } 

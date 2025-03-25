@@ -25,30 +25,32 @@ export default function ServicesPage() {
             <div className="max-w-3xl">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-[1px] bg-white/60"></div>
-                <span className="text-sm uppercase tracking-wider text-white/80">OUR SERVICES</span>
+                <span className="text-sm uppercase tracking-wider text-white/80">MELBOURNE'S TRUSTED CLEANERS</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Professionals cleaning<br />
-                services for your homes<br />
-                and offices
+                Cleaning Services Melbourne | Professional Home & Office Cleaners
               </h1>
               <p className="text-lg text-white/90 mb-8 max-w-2xl">
-                We are a professionals cleaning company and providing leading commercial and residential cleaning solutions in the Australia. When it comes to maintaining the cleanliness of your property, you deserve a service that stands out for its quality, reliability, and professionalism.
+                Looking for trusted cleaning services in Melbourne? We are Melbourne's leading cleaning company providing professional residential and commercial cleaning services. With rates starting from $53.07/hr, our experienced team delivers exceptional cleaning solutions across Melbourne.
               </p>
+
+              <h2 className="text-2xl font-bold text-white mb-6">
+                Melbourne's Most Trusted Cleaning Services
+              </h2>
 
               {/* Key Features - Hidden on mobile */}
               <div className="hidden md:grid md:grid-cols-3 gap-6 mb-8">
                 <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">Experienced Staff</span>
+                  <span className="font-medium">Professional Cleaners</span>
                 </div>
                 <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">Guaranteed Results</span>
+                  <span className="font-medium">Satisfaction Guaranteed</span>
                 </div>
                 <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
                   <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">Affordable Rates</span>
+                  <span className="font-medium">From $53.07/hr</span>
                 </div>
               </div>
 
@@ -77,12 +79,12 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="w-12 h-[1px] bg-gray-300"></div>
-              <span className="text-sm uppercase tracking-wider text-gray-600">OUR SERVICES</span>
+              <span className="text-sm uppercase tracking-wider text-gray-600">CLEANING SERVICES MELBOURNE</span>
               <div className="w-12 h-[1px] bg-gray-300"></div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-[#1E3D8F]">
-              We are providing all kind<br />
-              of cleaning services
+              Professional Cleaning Services<br />
+              in Melbourne
             </h2>
           </div>
         </div>
