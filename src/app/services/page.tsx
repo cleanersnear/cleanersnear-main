@@ -25,17 +25,17 @@ export default function ServicesPage() {
             <div className="max-w-3xl">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-[1px] bg-white/60"></div>
-                <span className="text-sm uppercase tracking-wider text-white/80">MELBOURNE'S TRUSTED CLEANERS</span>
+                <span className="text-sm uppercase tracking-wider text-white/80">MELBOURNE&apos;S TRUSTED CLEANERS</span>
               </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
                 Cleaning Services Melbourne | Professional Home & Office Cleaners
               </h1>
               <p className="text-lg text-white/90 mb-8 max-w-2xl">
-                Looking for trusted cleaning services in Melbourne? We are Melbourne's leading cleaning company providing professional residential and commercial cleaning services. With rates starting from $53.07/hr, our experienced team delivers exceptional cleaning solutions across Melbourne.
+                Looking for trusted cleaning services in Melbourne? We are Melbourne&apos;s leading cleaning company providing professional residential and commercial cleaning services. With rates starting from $53.07/hr, our experienced team delivers exceptional cleaning solutions across Melbourne.
               </p>
 
               <h2 className="text-2xl font-bold text-white mb-6">
-                Melbourne's Most Trusted Cleaning Services
+                Melbourne&apos;s Most Trusted Cleaning Services
               </h2>
 
               {/* Key Features - Hidden on mobile */}
