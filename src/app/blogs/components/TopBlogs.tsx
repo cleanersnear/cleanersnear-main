@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import BlogImage from './BlogImage'
 
 interface BlogPost {
     slug: string;
@@ -35,12 +35,11 @@ export default function TopBlogs({ initialBlogs }: TopBlogsProps) {
                     className="group block lg:col-span-7"
                 >
                     <div className="relative h-[600px] rounded-2xl overflow-hidden mb-4">
-                        <Image
+                        <BlogImage
                             src={featuredBlog.coverImage}
                             alt={featuredBlog.title}
-                            fill
                             className="object-cover group-hover:scale-105 transition-all duration-300"
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            fill={true}
                         />
                         <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full 
                             flex items-center gap-1 text-sm font-medium">
@@ -68,13 +67,14 @@ export default function TopBlogs({ initialBlogs }: TopBlogsProps) {
                             {featuredBlog.excerpt}
                         </p>
                         <div className="flex items-center pt-2">
-                            <Image
-                                src={featuredBlog.author.image}
-                                alt={featuredBlog.author.name}
-                                width={32}
-                                height={32}
-                                className="rounded-full"
-                            />
+                            <div className="relative w-8 h-8">
+                                <BlogImage
+                                    src={featuredBlog.author.image}
+                                    alt={featuredBlog.author.name}
+                                    className="rounded-full object-cover"
+                                    fill={true}
+                                />
+                            </div>
                             <span className="ml-2 font-medium text-lg">{featuredBlog.author.name}</span>
                         </div>
                     </div>
@@ -89,12 +89,11 @@ export default function TopBlogs({ initialBlogs }: TopBlogsProps) {
                             className="group block"
                         >
                             <div className="relative h-[280px] rounded-2xl overflow-hidden mb-4">
-                                <Image
+                                <BlogImage
                                     src={blog.coverImage}
                                     alt={blog.title}
-                                    fill
                                     className="object-cover group-hover:scale-105 transition-all duration-300"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    fill={true}
                                 />
                                 <div className="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full 
                                     flex items-center gap-1 text-sm font-medium">
@@ -122,13 +121,14 @@ export default function TopBlogs({ initialBlogs }: TopBlogsProps) {
                                     {blog.excerpt}
                                 </p>
                                 <div className="flex items-center pt-2">
-                                    <Image
-                                        src={blog.author.image}
-                                        alt={blog.author.name}
-                                        width={24}
-                                        height={24}
-                                        className="rounded-full"
-                                    />
+                                    <div className="relative w-6 h-6">
+                                        <BlogImage
+                                            src={blog.author.image}
+                                            alt={blog.author.name}
+                                            className="rounded-full object-cover"
+                                            fill={true}
+                                        />
+                                    </div>
                                     <span className="ml-2 text-sm font-medium">{blog.author.name}</span>
                                 </div>
                             </div>

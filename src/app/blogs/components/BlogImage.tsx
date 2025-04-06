@@ -18,7 +18,7 @@ export default function BlogImage({
     className,
     width,
     height,
-    fill = true,
+    fill,
     priority = false
 }: BlogImageProps) {
     // Handle both Supabase URLs and local paths
@@ -26,15 +26,19 @@ export default function BlogImage({
         ? src.replace(/([^:]\/)\/+/g, "$1")  // Clean up Supabase URLs
         : src.startsWith('/') ? src : `/${src}`  // Handle local paths
 
+    // If width and height are provided, don't use fill
+    const shouldFill = fill && !width && !height
+
     return (
         <Image
             src={imageUrl}
             alt={alt}
-            width={width}
-            height={height}
-            fill={fill}
+            {...(shouldFill 
+                ? { fill: true } 
+                : { width: width || 100, height: height || 100 }
+            )}
             unoptimized={true}
-            className={className}
+            className={`${className} ${shouldFill ? 'absolute inset-0' : ''}`}
             priority={priority}
         />
     )

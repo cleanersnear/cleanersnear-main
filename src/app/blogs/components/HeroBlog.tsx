@@ -1,5 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import BlogImage from './BlogImage'
 
 interface HeroBlogData {
     slug: string;
@@ -26,12 +26,12 @@ export default function HeroBlog({ initialBlog }: HeroBlogProps) {
         <div className="relative">
             <div className="container mx-auto px-4">
                 <div className="relative h-[600px] sm:h-[600px] rounded-2xl overflow-hidden max-w-[1800px] mx-auto">
-                    <Image
+                    <BlogImage
                         src={initialBlog.coverImage}
                         alt={initialBlog.title}
-                        fill
                         className="object-cover"
-                        priority
+                        priority={true}
+                        fill={true}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                         <div className="absolute bottom-0 left-0 p-6 pb-16 sm:pb-10 sm:p-12 text-white max-w-3xl">
@@ -45,13 +45,14 @@ export default function HeroBlog({ initialBlog }: HeroBlogProps) {
                                 {initialBlog.excerpt}
                             </p>
                             <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                                <Image
-                                    src={initialBlog.author.image}
-                                    alt={initialBlog.author.name}
-                                    width={40}
-                                    height={40}
-                                    className="rounded-full w-10 h-10 object-cover"
-                                />
+                                <div className="relative w-10 h-10">
+                                    <BlogImage
+                                        src={initialBlog.author.image}
+                                        alt={initialBlog.author.name}
+                                        className="rounded-full object-cover"
+                                        fill={true}
+                                    />
+                                </div>
                                 <div>
                                     <p className="font-medium text-sm sm:text-base">
                                         {initialBlog.author.name}

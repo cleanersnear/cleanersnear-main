@@ -1,7 +1,7 @@
 "use client"
 
-import Image from 'next/image'
 import Link from 'next/link'
+import BlogImage from './BlogImage'
 import { useState, useMemo } from 'react'
 
 interface BlogPost {
@@ -67,11 +67,11 @@ export default function LatestBlogs({
                             className="group"
                         >
                             <div className="relative h-48 rounded-xl overflow-hidden mb-4">
-                                <Image
+                                <BlogImage
                                     src={blog.coverImage}
                                     alt={blog.title}
-                                    fill
                                     className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                    fill={true}
                                 />
                             </div>
                             <h3 className="font-semibold text-lg mb-2 group-hover:text-[#1E3D8F] 
@@ -83,13 +83,14 @@ export default function LatestBlogs({
                             </p>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <Image
-                                        src={blog.author.image}
-                                        alt={blog.author.name}
-                                        width={32}
-                                        height={32}
-                                        className="rounded-full"
-                                    />
+                                    <div className="relative w-8 h-8">
+                                        <BlogImage
+                                            src={blog.author.image}
+                                            alt={blog.author.name}
+                                            className="rounded-full object-cover"
+                                            fill={true}
+                                        />
+                                    </div>
                                     <span className="text-sm font-medium">{blog.author.name}</span>
                                 </div>
                                 <span className="text-sm text-gray-500">{blog.readTime}</span>
