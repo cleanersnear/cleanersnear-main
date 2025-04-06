@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import BlogImage from './components/BlogImage'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Clock, Share2, Bookmark, ThumbsUp } from 'lucide-react'
@@ -277,13 +277,13 @@ export default async function BlogPage({
                     <div className="flex items-center justify-between flex-wrap gap-4">
                         <div className="flex items-center gap-6">
                             <div className="flex items-center">
-                                <Image
-                                    src={blog.author.image}
-                                    alt={blog.author.name}
-                                    width={48}
-                                    height={48}
-                                    className="rounded-full"
-                                />
+                            <div className="relative h-12 w-12">
+                                    <BlogImage
+                                        src={blog.author.image}
+                                        alt={blog.author.name}
+                                        className="rounded-full"
+                                    />
+                                </div>
                                 <div className="ml-3">
                                     <p className="font-medium">{blog.author.name}</p>
                                     <p className="text-sm text-gray-600">{blog.author.role}</p>
@@ -306,12 +306,11 @@ export default async function BlogPage({
 
                 {/* Hero Image */}
                 <div className="relative h-[600px] rounded-2xl overflow-hidden mb-12">
-                    <Image
+                    <BlogImage
                         src={blog.coverImage}
                         alt={blog.title}
-                        fill
                         className="object-cover"
-                        priority
+                        priority={true}
                     />
                 </div>
 
