@@ -3,11 +3,9 @@
 import MainLayout from '@/components/layout/MainLayout'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, User, Tag } from 'lucide-react'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
 import AnimatedCounter from '@/components/features/AnimatedCounter'
 import { useState, useEffect } from 'react'
-//import CostCalculator from '@/components/features/CostCalculator'
 import DefaultHero from '@/components/Home/HeroSection/DefaultHero'
 import DynamicHero from '@/components/Home/HeroSection/DynamicHero'
 import { useLocation } from '@/utils/location/useLocation'
@@ -17,47 +15,7 @@ import ServicesGrid from '@/components/Home/ServicesGrid/ServicesGrid'
 import TrustedOrganizations from '@/components/Home/TrustedOrganizations/TrustedOrganizations'
 import HomeReviewsGrid from '@/components/Home/ReviewsSection/HomeReviewsGrid'
 import InstantCost from '@/components/instant-cost/instantcost'
-
-
-// Blog posts data
-const blogPosts = [
-  {
-    id: 1,
-    title: 'Expert Guide: Best DIY Carpet Cleaning Solutions from Professional Cleaners',
-    slug: 'diy-carpet-cleaning-guide-melbourne',
-    excerpt: 'Discover professional carpet cleaning tips from Cleaning Professionals. Learn DIY carpet cleaning methods and when to call experts.',
-    image: '/images/blog/diy-cleaning.png',
-    date: 'Dec 13, 2024',
-    author: 'Michelle Zhang',
-    category: 'Cleaning Tips',
-    readTime: '18 MIN READ',
-    tags: ['carpet cleaning', 'DIY cleaning', 'professional cleaning']
-  },
-  {
-    id: 2,
-    title: 'Expert Guide: Professional Mold Removal Solutions for Melbourne Homes',
-    slug: 'professional-mold-removal-melbourne-guide',
-    excerpt: 'Need professional mold removal in Melbourne? Cleaning Professionals shares expert tips and solutions for ceiling mold removal.',
-    image: '/images/blog/mold-cleaning.png',
-    date: 'Dec 10, 2024',
-    author: 'Dr. Robert Chen',
-    category: 'Cleaning Tips',
-    readTime: '20 MIN READ',
-    tags: ['mold removal', 'professional cleaning', 'Melbourne']
-  },
-  {
-    id: 3,
-    title: '11 Critical Mistakes to Avoid When Booking End of Lease Cleaning in Victoria',
-    slug: 'move-out-cleaning-mistakes-victoria',
-    excerpt: 'Planning your end of lease clean in Victoria? Cleaning Professionals reveals crucial mistakes to avoid for guaranteed bond return.',
-    image: '/images/blogimages/latest/bedroom-clean.jpg',
-    date: 'Dec 6, 2024',
-    author: 'James Wilson',
-    category: 'Cleaning Tips',
-    readTime: '20 MIN READ',
-    tags: ['end of lease', 'cleaning tips', 'Victoria']
-  }
-]
+import HomeLatestBlogs from '@/components/Home/HomeBlogs/HomeLatestBlogs'
 
 export default function HomePage() {
   const { loading, error, location } = useLocation();
@@ -72,10 +30,7 @@ export default function HomePage() {
     console.log('Location state:', { loading, error, location });
   }, [loading, error, location]);
 
-  
-  
-
-  
+    
 
   // Show minimal loading state during SSR
   if (!isClient) {
@@ -283,121 +238,11 @@ export default function HomePage() {
       </section>
 
 
-      
-
-    {/* Cost Calculator Section 
-      <section className="relative bg-[#1E3D8F] text-white py-20">
-        
-        <div className="absolute inset-0">
-          <Image
-            
-            src="/images/cost-calculator-bg.jpg" // Make sure to add this image to your public folder
-            alt="Cleaning Background"
-            fill
-            className="object-cover opacity-20"
-            priority
-          />
-        </div>
-
-        <div className="container mx-auto px-4 relative">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4">
-              <div className="w-8 md:w-12 h-[1px] bg-white/30"></div>
-              <span className="text-xs md:text-sm uppercase tracking-wider text-center">
-                COST CALCULATOR
-              </span>
-              <div className="w-8 md:w-12 h-[1px] bg-white/30"></div>
-            </div>
-            <h2 className="text-xl md:text-4xl font-bold text-center mb-12">
-              Be a part of hundreds<br className="hidden md:block" />
-              of happy families.
-            </h2>
-          </div>
-
-          <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-xl">
-            <CostCalculator />
-          </div>
-        </div>
-      </section>
-    */}
-
+    
      
 
-      {/* Blog Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
-            <div className="w-full md:w-auto">
-              <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
-                <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
-                <span className="text-xs md:text-sm uppercase tracking-wider text-center">BLOGS</span>
-                <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
-              </div>
-              <h2 className="text-xl md:text-4xl font-bold mt-2 mb-4 md:mb-0">
-                Tips to keep the&nbsp;<br className="hidden md:block" />
-                surroundings clean.
-              </h2>
-              <Link 
-                href="/blogs"
-                className="w-full md:w-auto bg-white text-[#1E3D8F] border-2 border-[#1E3D8F] md:border-0 md:bg-[#FFA500] md:text-white px-4 md:px-6 py-3 md:py-3 text-sm md:text-base hover-[#1E3D8F] hover:text-white md:hover:bg-opacity-90 transition-all duration-200 text-center mt-4 block md:hidden"
-              >
-                VIEW ALL POSTS
-              </Link>
-            </div>
-            {/* Desktop View All Posts button */}
-            <Link 
-              href="/blogs"
-              className="hidden md:block bg-[#FFA500] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
-            >
-              VIEW ALL POSTS
-            </Link>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-                <div 
-                    key={post.title} 
-                    className="bg-white rounded-lg shadow-lg overflow-hidden 
-                        transform transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-                >
-                    <Link href={`/blogs/${post.slug}`}>
-                        <div className="relative h-48">
-                            <Image
-                                src={post.image}
-                                alt={post.title}
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-                        <div className="p-6">
-                            {/* Blog Meta Info - Only visible on desktop */}
-                            <div className="hidden md:flex flex-wrap gap-4 mb-4 text-sm text-gray-500">
-                                <div className="flex items-center gap-1">
-                                    <Calendar size={16} />
-                                    <span>{post.date}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <User size={16} />
-                                    <span>{post.author}</span>
-                                </div>
-                                <div className="flex items-center gap-1">
-                                    <Tag size={16} />
-                                    <span>Cleaning Tips</span>
-                                </div>
-                            </div>
-
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-[#1E3D8F] 
-                                transition-colors duration-200">
-                                {post.title}
-                            </h3>
-                            <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                        </div>
-                    </Link>
-                </div>
-            ))}
-          </div>
-    </div>
-      </section>
+      {/* Blog Section with Dynamic Data */}
+      <HomeLatestBlogs />
 
       <SubscriptionSection />
 
