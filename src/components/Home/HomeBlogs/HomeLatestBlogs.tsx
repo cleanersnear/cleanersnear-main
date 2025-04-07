@@ -1,9 +1,9 @@
 "use client"
 
 import Link from 'next/link'
-import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Calendar, User, Tag } from 'lucide-react'
+import BlogImage from '@/app/blogs/components/BlogImage'
 
 interface BlogPost {
     slug: string;
@@ -95,11 +95,11 @@ export default function HomeLatestBlogs() {
                         >
                             <Link href={`/blogs/${blog.slug}`}>
                                 <div className="relative h-48">
-                                    <Image
+                                    <BlogImage
                                         src={blog.coverImage}
                                         alt={blog.title}
-                                        fill
                                         className="object-cover"
+                                        fill={true}
                                     />
                                 </div>
                                 <div className="p-4 pb-12">
