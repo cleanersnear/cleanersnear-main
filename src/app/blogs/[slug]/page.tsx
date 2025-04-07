@@ -53,7 +53,7 @@ interface BlogPost {
 export async function generateStaticParams() {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/slugs`, {
-            next: { revalidate: 3600 }
+            next: { revalidate: 1 }
         });
         
         if (!res.ok) throw new Error('Failed to fetch slugs');
@@ -233,7 +233,7 @@ export default async function BlogPage({
 
 
     return (
-        <article className="container mx-auto px-4 py-12 mt-32">
+        <article className="container mx-auto px-4 py-4 md:py-12 mt-8 md:mt-32">
             
            {/* Add Schema markup only for professional cleaning services post */}
            {professionalCleaningSchema && (
@@ -267,7 +267,7 @@ export default async function BlogPage({
                 </div>
 
                 {/* Category Badge & Title */}
-                <div className="mb-8">
+                <div className="mb-4 md:mb-8">
                     <span className="bg-blue-100 text-[#1E3D8F] px-4 py-2 rounded-full text-sm font-medium">
                         {blog.category}
                     </span>
@@ -306,7 +306,7 @@ export default async function BlogPage({
                 </div>
 
                 {/* Hero Image */}
-                <div className="relative h-[600px] rounded-2xl overflow-hidden mb-12">
+                <div className="relative h-[300px] md:h-[600px] rounded-2xl overflow-hidden mb-4 md:mb-12">
                     <BlogImage
                         src={blog.coverImage}
                         alt={blog.title}
@@ -318,7 +318,7 @@ export default async function BlogPage({
                 </div>
 
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-12">
                     {/* Main Content */}
                     <div className="lg:col-span-8">
                         <div className="prose prose-lg max-w-none">
@@ -374,7 +374,7 @@ export default async function BlogPage({
             </div>
 
             {/* Latest Blogs Section */}
-            <div className="mt-32">
+            <div className="mt-16 md:mt-32">
                 <LatestBlogs 
                     initialBlogs={latestData.blogs}
                     initialPagination={latestData.pagination}
@@ -383,7 +383,7 @@ export default async function BlogPage({
             </div>
 
             {/* Newsletter Section */}
-            <div className="mt-32">
+            <div className="mt-16 md:mt-32">
                 <SubscriptionSection />
             </div>
         </article>
