@@ -7,9 +7,6 @@ import FAQ from './components/FAQ'
 import CallToAction from './components/CallToAction'
 import LatestBlogs from '../components/LatestBlogs'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
-import { Metadata } from 'next'
-
-
 
 interface Section {
     id: string;
@@ -82,103 +79,6 @@ async function getBlogBySlug(slug: string): Promise<BlogPost> {
     return res.json();
 }
 
-export async function generateMetadata({ 
-    params 
-}: { 
-    params: Promise<{ slug: string }> 
-}): Promise<Metadata> {
-    try {
-        const { slug } = await params;
-        const blog = await getBlogBySlug(slug);
-
-        // Special SEO configuration ONLY for professional cleaning services post
-        if (slug === 'professional-cleaning-services-melbourne') {
-            return {
-                title: {
-                    absolute: 'Professional Cleaning Services Melbourne | Top-Rated Cleaners 2024',
-                    template: '%s | Melbourne\'s Leading Cleaning Professionals'
-                },
-                description: 'Melbourne\'s #1 professional cleaning services. ✓ 5+ years experience ✓ 10,000+ satisfied customers ✓ Expert cleaners ✓ Same-day service ✓ Free quotes. Transform your space with our trusted local cleaners.',
-                keywords: [
-                    'professional cleaning services melbourne',
-                    'professional cleaners melbourne',
-                    'commercial cleaning services',
-                    'residential cleaning services'
-                ],
-                metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
-                alternates: {
-                    canonical: 'https://www.cleaningprofessionals.com.au/blogs/professional-cleaning-services-melbourne'
-                },
-                openGraph: {
-                    title: 'Professional Cleaning Services Melbourne | Expert Commercial & Residential Cleaners',
-                    description: 'Transform your space with Melbourne\'s leading professional cleaning services. ✓ 15+ years experience ✓ Certified cleaners ✓ Customized solutions',
-                    url: 'https://www.cleaningprofessionals.com.au/blogs/professional-cleaning-services-melbourne',
-                    images: [
-                        {
-                            url: blog.coverImage,
-                            width: 1200,
-                            height: 630,
-                            alt: 'Professional Cleaning Services Melbourne - Cleaning Professionals'
-                        }
-                    ],
-                    type: 'article',
-                    publishedTime: blog.publishDate,
-                    modifiedTime: blog.lastUpdated,
-                    authors: [blog.author.name],
-                    siteName: 'Cleaning Professionals Melbourne'
-                },
-                twitter: {
-                    card: 'summary_large_image',
-                    title: 'Professional Cleaning Services Melbourne',
-                    description: 'Expert professional cleaning services in Melbourne. ✓ Certified cleaners ✓ 100% satisfaction guaranteed',
-                    images: [blog.coverImage],
-                    creator: '@CleaningProfessionals'
-                }
-            };
-        }
-
-        // Return original metadata for all other blog posts
-
-
-        return {
-            title: blog.title,
-            description: blog.excerpt,
-            openGraph: {
-                title: blog.title,
-                description: blog.excerpt,
-                
-                images: [
-                    {
-                        url: blog.coverImage,
-                        width: 1200,
-                        height: 630,
-                        alt: blog.title
-                    }
-                ],
-                type: 'article',
-                publishedTime: blog.publishDate,
-                modifiedTime: blog.lastUpdated,
-                authors: [blog.author.name],
-            },
-            twitter: {
-                card: 'summary_large_image',
-                title: blog.title,
-                description: blog.excerpt,
-                images: [blog.coverImage],
-            }
-        };
-    } catch (error) {
-        console.error('Error generating metadata:', error);
-        return {
-            title: 'Blog Post',
-            description: 'Read our latest blog post'
-        };
-    }
-}
-
-
-
-
 export default async function BlogPage({ 
     params 
 }: { 
@@ -230,8 +130,6 @@ export default async function BlogPage({
         "articleBody": blog.introduction
     } : null;
 
-
-
     return (
         <article className="container mx-auto px-4 py-4 md:py-12 mt-8 md:mt-32">
             
@@ -244,7 +142,6 @@ export default async function BlogPage({
                     }}
                 />
             )}
-
 
             <div className="max-w-[1400px] mx-auto">
                 {/* Breadcrumb & Actions */}

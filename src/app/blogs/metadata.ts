@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: "Cleaning Tips & Advice Blog | Professional Cleaning Services Melbourne",
   description: "Expert cleaning tips, advice, and guides from Melbourne's leading cleaning professionals. Learn about cleaning techniques, maintenance, and best practices for your home or business.",
+  metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
   alternates: {
     canonical: '/blogs/',
   },
@@ -11,15 +12,13 @@ export const metadata: Metadata = {
     description: "Discover expert cleaning tips, guides, and advice from Melbourne's trusted cleaning service. Stay updated with the latest cleaning trends and best practices.",
     url: 'https://www.cleaningprofessionals.com.au/blogs/',
     type: 'website',
-    images: [
-      {
-        url: '/images/blog-hero.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Cleaning Tips & Advice Blog',
-      }
-    ],
     siteName: 'Cleaning Professionals Melbourne'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cleaning Tips & Advice Blog | Melbourne Cleaning Professionals',
+    description: 'Expert cleaning tips and guides from Melbourne\'s leading cleaning professionals',
+    creator: '@CleaningProfessionals'
   },
   robots: {
     index: true,
