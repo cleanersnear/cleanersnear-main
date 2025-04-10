@@ -3,8 +3,7 @@
 import MainLayout from '@/components/layout/MainLayout'
 import { Check, Info, Phone, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
-
+import { useState, useEffect } from 'react'
 
 const hourlyRates = [
   {
@@ -342,6 +341,57 @@ const detailedPricing = [
 export default function PricingPage() {
   const [showCallButtons, setShowCallButtons] = useState<{ [key: string]: boolean }>({});
 
+  // Save scroll position when navigating away
+  useEffect(() => {
+    // Save scroll position when navigating away
+    const handleBeforeUnload = () => {
+      sessionStorage.setItem('pricingScrollPosition', window.scrollY.toString());
+    };
+
+    // Restore scroll position when returning to the page
+    const restoreScrollPosition = () => {
+      const savedPosition = sessionStorage.getItem('pricingScrollPosition');
+      if (savedPosition) {
+        // Use setTimeout to ensure the DOM is fully rendered
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(savedPosition));
+        }, 100);
+        
+        // Clear the saved position after restoring
+        sessionStorage.removeItem('pricingScrollPosition');
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    // Check if we're returning to this page
+    const history = JSON.parse(sessionStorage.getItem('navigationHistory') || '[]');
+    if (history.length > 1 && history[history.length - 2] === '/pricing') {
+      restoreScrollPosition();
+    }
+
+    // Clean up event listeners
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, []);
+
+  // Handle link clicks to save scroll position
+  const handleLinkClick = () => {
+    // Save current scroll position
+    sessionStorage.setItem('pricingScrollPosition', window.scrollY.toString());
+    
+    // Save navigation history
+    const currentPath = window.location.pathname;
+    const history = JSON.parse(sessionStorage.getItem('navigationHistory') || '[]');
+    
+    if (history.length === 0 || history[history.length - 1] !== currentPath) {
+      history.push(currentPath);
+      sessionStorage.setItem('navigationHistory', JSON.stringify(history));
+    }
+  };
+
   return (
     <MainLayout>
       <div className="mt-20">
@@ -374,12 +424,14 @@ export default function PricingPage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link 
                   href="/get-quote"
+                  onClick={handleLinkClick}
                   className="inline-flex justify-center items-center px-6 sm:px-8 py-2.5 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 transition-all shadow-sm"
                 >
                   Get Quote
                 </Link>
                 <Link 
                   href="/quick-book"
+                  onClick={handleLinkClick}
                   className="inline-flex justify-center items-center px-6 sm:px-8 py-2.5 sm:py-3 border border-[#1E3D8F] text-sm sm:text-base font-medium rounded-md text-[#1E3D8F] bg-white hover:bg-[#1E3D8F]/5 transition-all shadow-sm"
                 >
                   Book Now
@@ -452,6 +504,7 @@ export default function PricingPage() {
                     </div>
                     <Link
                       href={rate.link}
+                      onClick={handleLinkClick}
                       className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base mt-6"
                     >
                       Book Now
@@ -504,6 +557,7 @@ export default function PricingPage() {
                     </div>
                     <Link
                       href={rate.link}
+                      onClick={handleLinkClick}
                       className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base"
                     >
                       {rate.buttonText}
@@ -569,6 +623,7 @@ export default function PricingPage() {
                       <div className="flex flex-col space-y-3">
                         <Link
                           href={rate.link}
+                          onClick={handleLinkClick}
                           className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base"
                         >
                           {rate.buttonText}
@@ -628,6 +683,7 @@ export default function PricingPage() {
                     </div>
                     <Link
                       href="/quick-book"
+                      onClick={handleLinkClick}
                       className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base mt-6"
                     >
                       Book Now
