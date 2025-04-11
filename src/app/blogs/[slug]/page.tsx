@@ -47,6 +47,14 @@ interface BlogPost {
     }[];
 }
 
+// Add this helper function after the interfaces and before the generateStaticParams
+const parseContent = (content: string) => {
+    return content.replace(
+        /\{link:(.*?):(.*?)\}/g,
+        '<a href="$2" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>'
+    );
+};
+
 export async function generateStaticParams() {
     try {
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/slugs`, {
@@ -220,9 +228,7 @@ export default async function BlogPage({
                     <div className="lg:col-span-8">
                         <div className="prose prose-lg max-w-none">
                             {/* Introduction */}
-                            <p className="text-lg leading-relaxed mb-8">
-                                {blog.introduction}
-                            </p>
+                            <p className="text-lg leading-relaxed mb-8" dangerouslySetInnerHTML={{ __html: parseContent(blog.introduction) }} />
 
                             {/* Sections */}
                             {blog.sections.map((section: Section) => (
@@ -231,9 +237,11 @@ export default async function BlogPage({
                                         {section.title}
                                     </h2>
                                     {section.content.map((paragraph: string, pIndex: number) => (
-                                        <p key={pIndex} className="text-lg leading-relaxed mb-6">
-                                            {paragraph}
-                                        </p>
+                                        <p 
+                                            key={pIndex} 
+                                            className="text-lg leading-relaxed mb-6" 
+                                            dangerouslySetInnerHTML={{ __html: parseContent(paragraph) }}
+                                        />
                                     ))}
                                     {section.highlights?.map((highlight: Highlight, hIndex: number) => (
                                         <div key={hIndex} className="bg-gray-50 p-8 rounded-2xl my-8">
@@ -244,7 +252,7 @@ export default async function BlogPage({
                                                 {highlight.items.map((item: string, iIndex: number) => (
                                                     <li key={iIndex} className="flex items-start gap-3">
                                                         <span className="text-[#1E3D8F] font-bold">•</span>
-                                                        <span>{item}</span>
+                                                        <span dangerouslySetInnerHTML={{ __html: parseContent(item) }} />
                                                     </li>
                                                 ))}
                                             </ul>
