@@ -46,17 +46,18 @@ const allSuburbs: Suburb[] = [
 
   // City of Boroondara
   { name: "Ashburton", postcode: "3147", region: "Metropolitan East" },
-  { name: "Balwyn", postcode: "3103", region: "Metropolitan East" },
+  { name: "Auburn", postcode: "3123", region: "Inner Metropolitan East" },
+  { name: "Balwyn", postcode: "3103", region: "Inner Metropolitan East" },
   { name: "Balwyn North", postcode: "3104", region: "Metropolitan East" },
-  { name: "Camberwell", postcode: "3124", region: "Metropolitan East" },
-  { name: "Canterbury", postcode: "3126", region: "Metropolitan East" },
+  { name: "Camberwell", postcode: "3124", region: "Inner Metropolitan East" },
+  { name: "Canterbury", postcode: "3126", region: "Inner Metropolitan East" },
   { name: "Deepdene", postcode: "3103", region: "Metropolitan East" },
   { name: "Glen Iris East", postcode: "3146", region: "Metropolitan East" },
-  { name: "Hawthorn", postcode: "3122", region: "Metropolitan East" },
-  { name: "Hawthorn East", postcode: "3123", region: "Metropolitan East" },
-  { name: "Kew", postcode: "3101", region: "Metropolitan East" },
-  { name: "Kew East", postcode: "3102", region: "Metropolitan East" },
-  { name: "Surrey Hills", postcode: "3127", region: "Metropolitan East" },
+  { name: "Hawthorn", postcode: "3122", region: "Inner Metropolitan East" },
+  { name: "Hawthorn East", postcode: "3123", region: "Inner Metropolitan East" },
+  { name: "Kew", postcode: "3101", region: "Inner Metropolitan East" },
+  { name: "Kew East", postcode: "3102", region: "Inner Metropolitan East" },
+  { name: "Surrey Hills", postcode: "3127", region: "Inner Metropolitan East" },
 
   // City of Brimbank
   { name: "Albanvale", postcode: "3021", region: "Metropolitan West" },
@@ -70,10 +71,17 @@ const allSuburbs: Suburb[] = [
   { name: "Albion", postcode: "3020", region: "Metropolitan West" },
   { name: "Ardeer", postcode: "3022", region: "Metropolitan West" },
   { name: "Brooklyn", postcode: "3012", region: "Metropolitan West" },
+  { name: "Burnside", postcode: "3023", region: "Metropolitan West" },
+  { name: "Burnside Heights", postcode: "3023", region: "Metropolitan West" },
+  { name: "Cairnlea", postcode: "3023", region: "Metropolitan West" },
+  { name: "Calder Park", postcode: "3037", region: "Metropolitan West" },
   { name: "Deer Park", postcode: "3023", region: "Metropolitan West" },
+  { name: "Delahey", postcode: "3037", region: "Metropolitan West" },
+  { name: "Derrimut", postcode: "3030", region: "Metropolitan West" },
   { name: "Keilor", postcode: "3036", region: "Metropolitan West" },
   { name: "Keilor Downs", postcode: "3038", region: "Metropolitan West" },
   { name: "Keilor East", postcode: "3033", region: "Metropolitan West" },
+  { name: "Kings Park", postcode: "3021", region: "Metropolitan West" },
   { name: "Keilor Park", postcode: "3042", region: "Metropolitan West" },
   { name: "St Albans", postcode: "3021", region: "Metropolitan West" },
   { name: "Sunshine", postcode: "3020", region: "Metropolitan West" },
@@ -104,6 +112,8 @@ const allSuburbs: Suburb[] = [
   { name: "Narre Warren", postcode: "3805", region: "Metropolitan South" },
   { name: "Narre Warren North", postcode: "3804", region: "Metropolitan South" },
   { name: "Narre Warren South", postcode: "3805", region: "Metropolitan South" },
+  { name: "Officer", postcode: "3809", region: "Metropolitan South" },
+  { name: "Pakenham", postcode: "3810", region: "Metropolitan South" },
 
   // City of Darebin
   { name: "Alphington", postcode: "3078", region: "Metropolitan North" },
@@ -125,11 +135,11 @@ const allSuburbs: Suburb[] = [
   // City of Glen Eira
   { name: "Bentleigh", postcode: "3204", region: "Inner Metropolitan South East" },
   { name: "Bentleigh East", postcode: "3165", region: "Inner Metropolitan South East" },
+  { name: "Carnegie", postcode: "3163", region: "Inner Metropolitan South East" },
   { name: "Caulfield", postcode: "3162", region: "Inner Metropolitan South East" },
   { name: "Caulfield East", postcode: "3145", region: "Inner Metropolitan South East" },
   { name: "Caulfield North", postcode: "3161", region: "Inner Metropolitan South East" },
   { name: "Caulfield South", postcode: "3162", region: "Inner Metropolitan South East" },
-  { name: "Carnegie", postcode: "3163", region: "Inner Metropolitan South East" },
   { name: "Elsternwick", postcode: "3185", region: "Inner Metropolitan South East" },
   { name: "Gardenvale", postcode: "3185", region: "Inner Metropolitan South East" },
   { name: "Glen Huntly", postcode: "3163", region: "Inner Metropolitan South East" },
@@ -139,6 +149,7 @@ const allSuburbs: Suburb[] = [
   { name: "Ripponlea", postcode: "3185", region: "Inner Metropolitan South East" },
 
   // City of Greater Dandenong
+  { name: "Bangholme", postcode: "3175", region: "Metropolitan South" },
   { name: "Dandenong", postcode: "3175", region: "Metropolitan South" },
   { name: "Dandenong North", postcode: "3175", region: "Metropolitan South" },
   { name: "Dandenong South", postcode: "3175", region: "Metropolitan South" },
@@ -181,19 +192,32 @@ const allSuburbs: Suburb[] = [
   { name: "Sunbury", postcode: "3429", region: "Metropolitan North" },
   { name: "Tullamarine", postcode: "3043", region: "Metropolitan North" },
   { name: "Westmeadows", postcode: "3049", region: "Metropolitan North" },
+  { name: "Yuroke", postcode: "3063", region: "Metropolitan North" },
 
   // City of Kingston
   { name: "Aspendale", postcode: "3195", region: "Metropolitan South" },
   { name: "Aspendale Gardens", postcode: "3195", region: "Metropolitan South" },
   { name: "Bonbeach", postcode: "3196", region: "Metropolitan South" },
+  { name: "Braeside", postcode: "3195", region: "Metropolitan South" },
   { name: "Carrum", postcode: "3197", region: "Metropolitan South" },
   { name: "Chelsea", postcode: "3196", region: "Metropolitan South" },
   { name: "Chelsea Heights", postcode: "3196", region: "Metropolitan South" },
   { name: "Cheltenham", postcode: "3192", region: "Metropolitan South" },
+  { name: "Clarinda", postcode: "3169", region: "Metropolitan South" },
+  { name: "Dingley Village", postcode: "3172", region: "Metropolitan South" },
   { name: "Edithvale", postcode: "3196", region: "Metropolitan South" },
+  { name: "Heatherton", postcode: "3202", region: "Metropolitan South" },
+  { name: "Highett", postcode: "3190", region: "Metropolitan South" },
   { name: "Mentone", postcode: "3194", region: "Metropolitan South" },
   { name: "Moorabbin", postcode: "3189", region: "Metropolitan South" },
+  { name: "Moorabbin Airport", postcode: "3194", region: "Metropolitan South" },
+  { name: "Mordialloc", postcode: "3195", region: "Metropolitan South" },
   { name: "Parkdale", postcode: "3195", region: "Metropolitan South" },
+  { name: "Sandringham", postcode: "3191", region: "Metropolitan South" },
+  { name: "St Kilda", postcode: "3182", region: "Metropolitan South" },
+  { name: "St Kilda East", postcode: "3183", region: "Metropolitan South" },
+  { name: "St Kilda West", postcode: "3182", region: "Metropolitan South" },
+  { name: "Waterways", postcode: "3195", region: "Metropolitan South" },
 
   // City of Knox
   { name: "Bayswater", postcode: "3153", region: "Metropolitan East" },
@@ -218,6 +242,8 @@ const allSuburbs: Suburb[] = [
   { name: "Templestowe", postcode: "3106", region: "Metropolitan East" },
   { name: "Templestowe Lower", postcode: "3107", region: "Metropolitan East" },
   { name: "Warrandyte", postcode: "3113", region: "Metropolitan East" },
+  { name: "Warrandyte South", postcode: "3139", region: "Metropolitan East" },
+  { name: "Wonga Park", postcode: "3115", region: "Metropolitan East" },
 
   // City of Maribyrnong
   { name: "Braybrook", postcode: "3019", region: "Metropolitan West" },
@@ -229,41 +255,6 @@ const allSuburbs: Suburb[] = [
   { name: "West Footscray", postcode: "3012", region: "Metropolitan West" },
   { name: "Yarraville", postcode: "3013", region: "Metropolitan West" },
 
-  // City of Maroondah
-  { name: "Croydon", postcode: "3136", region: "Metropolitan East" },
-  { name: "Croydon Hills", postcode: "3136", region: "Metropolitan East" },
-  { name: "Croydon North", postcode: "3136", region: "Metropolitan East" },
-  { name: "Croydon South", postcode: "3136", region: "Metropolitan East" },
-  { name: "Heathmont", postcode: "3135", region: "Metropolitan East" },
-  { name: "Kilsyth", postcode: "3137", region: "Metropolitan East" },
-  { name: "Kilsyth South", postcode: "3137", region: "Metropolitan East" },
-  { name: "Ringwood", postcode: "3134", region: "Metropolitan East" },
-  { name: "Ringwood East", postcode: "3135", region: "Metropolitan East" },
-  { name: "Ringwood North", postcode: "3134", region: "Metropolitan East" },
-  { name: "Warranwood", postcode: "3134", region: "Metropolitan East" },
-
-  // City of Melbourne
-  { name: "Carlton", postcode: "3053", region: "Inner City Melbourne" },
-  { name: "Carlton North", postcode: "3054", region: "Inner City Melbourne" },
-  { name: "Docklands", postcode: "3008", region: "Inner City Melbourne" },
-  { name: "East Melbourne", postcode: "3002", region: "Inner City Melbourne" },
-  { name: "Kensington", postcode: "3031", region: "Inner City Melbourne" },
-  { name: "Melbourne", postcode: "3000", region: "Inner City Melbourne" },
-  { name: "North Melbourne", postcode: "3051", region: "Inner City Melbourne" },
-  { name: "Parkville", postcode: "3052", region: "Inner City Melbourne" },
-  { name: "Princes Hill", postcode: "3054", region: "Inner City Melbourne" },
-  { name: "South Wharf", postcode: "3006", region: "Inner City Melbourne" },
-  { name: "Southbank", postcode: "3006", region: "Inner City Melbourne" },
-  { name: "West Melbourne", postcode: "3003", region: "Inner City Melbourne" },
-
-  // City of Melton
-  { name: "Burnside", postcode: "3023", region: "Metropolitan West" },
-  { name: "Caroline Springs", postcode: "3023", region: "Metropolitan West" },
-  { name: "Hillside", postcode: "3037", region: "Metropolitan West" },
-  { name: "Melton", postcode: "3337", region: "Metropolitan West" },
-  { name: "Melton South", postcode: "3338", region: "Metropolitan West" },
-  { name: "Taylors Hill", postcode: "3037", region: "Metropolitan West" },
-
   // City of Merri-bek
   { name: "Brunswick", postcode: "3056", region: "Metropolitan North" },
   { name: "Brunswick East", postcode: "3057", region: "Metropolitan North" },
@@ -271,11 +262,57 @@ const allSuburbs: Suburb[] = [
   { name: "Coburg", postcode: "3058", region: "Metropolitan North" },
   { name: "Coburg North", postcode: "3058", region: "Metropolitan North" },
   { name: "Fawkner", postcode: "3060", region: "Metropolitan North" },
+  { name: "Fawkner East", postcode: "3060", region: "Metropolitan North" },
   { name: "Glenroy", postcode: "3046", region: "Metropolitan North" },
+  { name: "Glenroy North", postcode: "3046", region: "Metropolitan North" },
   { name: "Hadfield", postcode: "3046", region: "Metropolitan North" },
   { name: "Oak Park", postcode: "3046", region: "Metropolitan North" },
   { name: "Pascoe Vale", postcode: "3044", region: "Metropolitan North" },
   { name: "Pascoe Vale South", postcode: "3044", region: "Metropolitan North" },
+
+  // City of Moonee Valley
+  { name: "Aberfeldie", postcode: "3040", region: "Metropolitan West" },
+  { name: "Airport West", postcode: "3042", region: "Metropolitan West" },
+  { name: "Ascot Vale", postcode: "3032", region: "Metropolitan West" },
+  { name: "Avondale Heights", postcode: "3034", region: "Metropolitan West" },
+  { name: "Essendon", postcode: "3040", region: "Metropolitan West" },
+  { name: "Essendon Fields", postcode: "3041", region: "Metropolitan West" },
+  { name: "Essendon North", postcode: "3041", region: "Metropolitan West" },
+  { name: "Essendon West", postcode: "3040", region: "Metropolitan West" },
+  { name: "Moonee Ponds", postcode: "3039", region: "Metropolitan West" },
+  { name: "Niddrie", postcode: "3042", region: "Metropolitan West" },
+  { name: "Strathmore", postcode: "3041", region: "Metropolitan West" },
+  { name: "Strathmore Heights", postcode: "3041", region: "Metropolitan West" },
+
+  // City of Melbourne
+  { name: "Carlton", postcode: "3053", region: "Inner City Melbourne" },
+  { name: "Carlton North", postcode: "3054", region: "Inner City Melbourne" },
+  { name: "Docklands", postcode: "3008", region: "Inner City Melbourne" },
+  { name: "East Melbourne", postcode: "3002", region: "Inner City Melbourne" },
+  { name: "Flemington", postcode: "3031", region: "Inner City Melbourne" },
+  { name: "Kensington", postcode: "3031", region: "Inner City Melbourne" },
+  { name: "Melbourne", postcode: "3000", region: "Inner City Melbourne" },
+  { name: "North Melbourne", postcode: "3051", region: "Inner City Melbourne" },
+  { name: "Parkville", postcode: "3052", region: "Inner City Melbourne" },
+  { name: "Princes Hill", postcode: "3054", region: "Inner City Melbourne" },
+  { name: "South Wharf", postcode: "3006", region: "Inner City Melbourne" },
+  { name: "Southbank", postcode: "3006", region: "Inner City Melbourne" },
+  { name: "Travancore", postcode: "3032", region: "Inner City Melbourne" },
+  { name: "West Melbourne", postcode: "3003", region: "Inner City Melbourne" },
+
+  // City of Melton
+  { name: "Bacchus Marsh", postcode: "3340", region: "Metropolitan West" },
+  { name: "Burnside", postcode: "3023", region: "Metropolitan West" },
+  { name: "Caroline Springs", postcode: "3023", region: "Metropolitan West" },
+  { name: "Diggers Rest", postcode: "3427", region: "Metropolitan West" },
+  { name: "Hillside", postcode: "3037", region: "Metropolitan West" },
+  { name: "Melton", postcode: "3337", region: "Metropolitan West" },
+  { name: "Melton South", postcode: "3338", region: "Metropolitan West" },
+  { name: "Taylors Hill", postcode: "3037", region: "Metropolitan West" },
+  { name: "Wildwood", postcode: "3429", region: "Metropolitan West" },
+
+  // City of Moreland
+  { name: "Somerton", postcode: "3062", region: "Metropolitan North" },
 
   // City of Monash
   { name: "Ashwood", postcode: "3147", region: "Metropolitan East" },
@@ -297,16 +334,6 @@ const allSuburbs: Suburb[] = [
   { name: "Oakleigh South", postcode: "3167", region: "Metropolitan East" },
   { name: "Wheelers Hill", postcode: "3150", region: "Metropolitan East" },
 
-  // City of Moonee Valley
-  { name: "Airport West", postcode: "3042", region: "Metropolitan West" },
-  { name: "Ascot Vale", postcode: "3032", region: "Metropolitan West" },
-  { name: "Avondale Heights", postcode: "3034", region: "Metropolitan West" },
-  { name: "Essendon", postcode: "3040", region: "Metropolitan West" },
-  { name: "Essendon North", postcode: "3041", region: "Metropolitan West" },
-  { name: "Essendon West", postcode: "3040", region: "Metropolitan West" },
-  { name: "Moonee Ponds", postcode: "3039", region: "Metropolitan West" },
-  { name: "Strathmore", postcode: "3041", region: "Metropolitan West" },
-
   // City of Nillumbik
   { name: "Diamond Creek", postcode: "3089", region: "Metropolitan North" },
   { name: "Eltham", postcode: "3095", region: "Metropolitan North" },
@@ -317,7 +344,11 @@ const allSuburbs: Suburb[] = [
 
   // City of Port Phillip
   { name: "Albert Park", postcode: "3206", region: "Inner Metropolitan South East" },
+  { name: "Balaclava", postcode: "3183", region: "Inner Metropolitan South East" },
+  { name: "Beacon Cove", postcode: "3207", region: "Inner Metropolitan South East" },
   { name: "Elwood", postcode: "3184", region: "Inner Metropolitan South East" },
+  { name: "Fishermans Bend", postcode: "3207", region: "Inner Metropolitan South East" },
+  { name: "Garden City", postcode: "3207", region: "Inner Metropolitan South East" },
   { name: "Middle Park", postcode: "3206", region: "Inner Metropolitan South East" },
   { name: "Port Melbourne", postcode: "3207", region: "Inner Metropolitan South East" },
   { name: "South Melbourne", postcode: "3205", region: "Inner Metropolitan South East" },
@@ -327,7 +358,204 @@ const allSuburbs: Suburb[] = [
 
   // City of Stonnington
   { name: "Armadale", postcode: "3143", region: "Inner Metropolitan South East" },
+  { name: "Glen Iris", postcode: "3146", region: "Inner Metropolitan South East" },
   { name: "Hawksburn", postcode: "3142", region: "Inner Metropolitan South East" },
+  { name: "Kooyong", postcode: "3144", region: "Inner Metropolitan South East" },
+  { name: "Malvern", postcode: "3144", region: "Inner Metropolitan South East" },
+  { name: "Malvern East", postcode: "3145", region: "Inner Metropolitan South East" },
+  { name: "Prahran", postcode: "3181", region: "Inner Metropolitan South East" },
+  { name: "South Yarra", postcode: "3141", region: "Inner Metropolitan South East" },
+  { name: "Toorak", postcode: "3142", region: "Inner Metropolitan South East" },
+  { name: "Windsor", postcode: "3181", region: "Inner Metropolitan South East" },
+
+  // City of Whittlesea
+  { name: "Doreen", postcode: "3754", region: "Metropolitan North" },
+  { name: "Epping", postcode: "3076", region: "Metropolitan North" },
+  { name: "Lalor", postcode: "3075", region: "Metropolitan North" },
+  { name: "Mernda", postcode: "3754", region: "Metropolitan North" },
+  { name: "Mill Park", postcode: "3082", region: "Metropolitan North" },
+  { name: "South Morang", postcode: "3752", region: "Metropolitan North" },
+  { name: "Thomastown", postcode: "3074", region: "Metropolitan North" },
+  { name: "Whittlesea", postcode: "3757", region: "Metropolitan North" },
+  { name: "Wollert", postcode: "3750", region: "Metropolitan North" },
+
+  // City of Wyndham
+  { name: "Hoppers Crossing", postcode: "3029", region: "Metropolitan West" },
+  { name: "Little River", postcode: "3211", region: "Metropolitan West" },
+  { name: "Manor Lakes", postcode: "3024", region: "Metropolitan West" },
+  { name: "Mambourin", postcode: "3024", region: "Metropolitan West" },
+  { name: "Mount Cottrell", postcode: "3024", region: "Metropolitan West" },
+  { name: "Point Cook", postcode: "3030", region: "Metropolitan West" },
+  { name: "Quandong", postcode: "3030", region: "Metropolitan West" },
+  { name: "Tarneit", postcode: "3029", region: "Metropolitan West" },
+  { name: "Truganina", postcode: "3029", region: "Metropolitan West" },
+  { name: "Werribee", postcode: "3030", region: "Metropolitan West" },
+  { name: "Werribee South", postcode: "3030", region: "Metropolitan West" },
+  { name: "Williams Landing", postcode: "3027", region: "Metropolitan West" },
+  { name: "Wyndham Vale", postcode: "3024", region: "Metropolitan West" },
+
+  // City of Maroondah
+  { name: "Croydon", postcode: "3136", region: "Metropolitan East" },
+  { name: "Croydon Hills", postcode: "3136", region: "Metropolitan East" },
+  { name: "Croydon North", postcode: "3136", region: "Metropolitan East" },
+  { name: "Croydon South", postcode: "3136", region: "Metropolitan East" },
+  { name: "Heathmont", postcode: "3135", region: "Metropolitan East" },
+  { name: "Kilsyth", postcode: "3137", region: "Metropolitan East" },
+  { name: "Kilsyth South", postcode: "3137", region: "Metropolitan East" },
+  { name: "Ringwood", postcode: "3134", region: "Metropolitan East" },
+  { name: "Ringwood East", postcode: "3135", region: "Metropolitan East" },
+  { name: "Ringwood North", postcode: "3134", region: "Metropolitan East" },
+  { name: "Warranwood", postcode: "3134", region: "Metropolitan East" },
+
+  // City of Melbourne
+  { name: "Bayswater", postcode: "3153", region: "Metropolitan East" },
+  { name: "Bayswater North", postcode: "3153", region: "Metropolitan East" },
+  { name: "Boronia", postcode: "3155", region: "Metropolitan East" },
+  { name: "Ferntree Gully", postcode: "3156", region: "Metropolitan East" },
+  { name: "Knoxfield", postcode: "3180", region: "Metropolitan East" },
+  { name: "Lysterfield", postcode: "3156", region: "Metropolitan East" },
+  { name: "Rowville", postcode: "3178", region: "Metropolitan East" },
+  { name: "Scoresby", postcode: "3179", region: "Metropolitan East" },
+  { name: "The Basin", postcode: "3154", region: "Metropolitan East" },
+  { name: "Upper Ferntree Gully", postcode: "3156", region: "Metropolitan East" },
+  { name: "Wantirna", postcode: "3152", region: "Metropolitan East" },
+  { name: "Wantirna South", postcode: "3152", region: "Metropolitan East" },
+
+  // City of Nillumbik
+  { name: "Diamond Creek", postcode: "3089", region: "Metropolitan North" },
+  { name: "Eltham", postcode: "3095", region: "Metropolitan North" },
+  { name: "Eltham North", postcode: "3095", region: "Metropolitan North" },
+  { name: "Hurstbridge", postcode: "3099", region: "Metropolitan North" },
+  { name: "Research", postcode: "3095", region: "Metropolitan North" },
+  { name: "Wattle Glen", postcode: "3096", region: "Metropolitan North" },
+
+  // City of Port Phillip
+  { name: "Black Rock", postcode: "3193", region: "Inner Metropolitan South East" },
+  { name: "Beaumaris", postcode: "3193", region: "Inner Metropolitan South East" },
+
+  // City of Yarra
+  { name: "Abbotsford", postcode: "3067", region: "Inner City Melbourne" },
+  { name: "Burnley", postcode: "3121", region: "Inner City Melbourne" },
+  { name: "Clifton Hill", postcode: "3068", region: "Inner City Melbourne" },
+  { name: "Collingwood", postcode: "3066", region: "Inner City Melbourne" },
+  { name: "Cremorne", postcode: "3121", region: "Inner City Melbourne" },
+  { name: "Fitzroy", postcode: "3065", region: "Inner City Melbourne" },
+  { name: "Fitzroy North", postcode: "3068", region: "Inner City Melbourne" },
+  { name: "Richmond", postcode: "3121", region: "Inner City Melbourne" },
+
+  // City of Yarra Ranges
+  { name: "Bittern", postcode: "3918", region: "Metropolitan East" },
+
+  // City of Whitehorse
+  { name: "Blackburn", postcode: "3130", region: "Metropolitan East" },
+  { name: "Blackburn North", postcode: "3130", region: "Metropolitan East" },
+  { name: "Blackburn South", postcode: "3130", region: "Metropolitan East" },
+  { name: "Box Hill", postcode: "3128", region: "Metropolitan East" },
+  { name: "Box Hill North", postcode: "3129", region: "Metropolitan East" },
+  { name: "Box Hill South", postcode: "3128", region: "Metropolitan East" },
+  { name: "Burwood", postcode: "3125", region: "Metropolitan East" },
+  { name: "Burwood East", postcode: "3151", region: "Metropolitan East" },
+  { name: "Forest Hill", postcode: "3131", region: "Metropolitan East" },
+  { name: "Mitcham", postcode: "3132", region: "Metropolitan East" },
+  { name: "Mont Albert", postcode: "3127", region: "Metropolitan East" },
+  { name: "Mont Albert North", postcode: "3129", region: "Metropolitan East" },
+  { name: "Nunawading", postcode: "3131", region: "Metropolitan East" },
+  { name: "Vermont", postcode: "3133", region: "Metropolitan East" },
+  { name: "Vermont South", postcode: "3133", region: "Metropolitan East" },
+
+  // City of Whittlesea
+  { name: "Epping", postcode: "3076", region: "Metropolitan North" },
+  { name: "Lalor", postcode: "3075", region: "Metropolitan North" },
+  { name: "Mernda", postcode: "3754", region: "Metropolitan North" },
+  { name: "Mill Park", postcode: "3082", region: "Metropolitan North" },
+  { name: "South Morang", postcode: "3752", region: "Metropolitan North" },
+  { name: "Thomastown", postcode: "3074", region: "Metropolitan North" },
+  { name: "Wollert", postcode: "3750", region: "Metropolitan North" },
+
+  // City of Wyndham
+  { name: "Hoppers Crossing", postcode: "3029", region: "Metropolitan West" },
+  { name: "Point Cook", postcode: "3030", region: "Metropolitan West" },
+  { name: "Tarneit", postcode: "3029", region: "Metropolitan West" },
+  { name: "Truganina", postcode: "3029", region: "Metropolitan West" },
+  { name: "Werribee", postcode: "3030", region: "Metropolitan West" },
+  { name: "Williams Landing", postcode: "3027", region: "Metropolitan West" },
+
+  // City of Yarra
+  { name: "Braybrook", postcode: "3019", region: "Metropolitan West" },
+
+  // City of Banyule
+  { name: "Aurora", postcode: "3076", region: "Metropolitan North" },
+  { name: "Greensborough", postcode: "3088", region: "Metropolitan North" },
+  { name: "Heidelberg", postcode: "3084", region: "Metropolitan North" },
+  { name: "Heidelberg Heights", postcode: "3081", region: "Metropolitan North" },
+  { name: "Heidelberg West", postcode: "3081", region: "Metropolitan North" },
+  { name: "Ivanhoe", postcode: "3079", region: "Metropolitan North" },
+  { name: "Ivanhoe East", postcode: "3079", region: "Metropolitan North" },
+  { name: "Montmorency", postcode: "3094", region: "Metropolitan North" },
+
+  // City of Knox
+  { name: "Boronia", postcode: "3155", region: "Metropolitan East" },
+
+  // City of Maribyrnong
+  { name: "Beaconsfield Upper", postcode: "3808", region: "Metropolitan South" },
+  { name: "Belgrave", postcode: "3160", region: "Metropolitan South" },
+  { name: "Chirnside Park", postcode: "3116", region: "Metropolitan South" },
+  { name: "Clematis", postcode: "3782", region: "Metropolitan South" },
+  { name: "Ferntree Gully", postcode: "3156", region: "Metropolitan South" },
+
+  // City of Frankston
+  { name: "Frankston", postcode: "3199", region: "Metropolitan South" },
+  { name: "Frankston North", postcode: "3200", region: "Metropolitan South" },
+  { name: "Frankston South", postcode: "3199", region: "Metropolitan South" },
+
+  // City of Darebin
+  { name: "Fawkner", postcode: "3060", region: "Metropolitan North" },
+  { name: "Northcote", postcode: "3070", region: "Metropolitan North" },
+  { name: "Preston", postcode: "3072", region: "Metropolitan North" },
+  { name: "Reservoir", postcode: "3073", region: "Metropolitan North" },
+  { name: "Thornbury", postcode: "3071", region: "Metropolitan North" },
+
+  // City of Moreland
+  { name: "Brunswick East", postcode: "3057", region: "Metropolitan North" },
+  { name: "Brunswick West", postcode: "3055", region: "Metropolitan North" },
+  { name: "Coburg", postcode: "3058", region: "Metropolitan North" },
+  { name: "Coburg North", postcode: "3058", region: "Metropolitan North" },
+
+  // City of Banyule
+  { name: "Aurora", postcode: "3076", region: "Metropolitan North" },
+  { name: "Greensborough", postcode: "3088", region: "Metropolitan North" },
+  { name: "Heidelberg", postcode: "3084", region: "Metropolitan North" },
+  { name: "Heidelberg Heights", postcode: "3081", region: "Metropolitan North" },
+  { name: "Heidelberg West", postcode: "3081", region: "Metropolitan North" },
+  { name: "Ivanhoe", postcode: "3079", region: "Metropolitan North" },
+  { name: "Ivanhoe East", postcode: "3079", region: "Metropolitan North" },
+  { name: "Montmorency", postcode: "3094", region: "Metropolitan North" },
+
+  // City of Knox
+  { name: "Boronia", postcode: "3155", region: "Metropolitan East" },
+
+  // City of Yarra Ranges
+  { name: "Bittern", postcode: "3918", region: "Metropolitan East" },
+
+  // City of Melton
+  { name: "Bacchus Marsh", postcode: "3340", region: "Metropolitan West" },
+
+  // City of Maribyrnong
+  { name: "Braybrook", postcode: "3019", region: "Metropolitan West" },
+
+  // City of Monash
+  { name: "Bayswater", postcode: "3153", region: "Metropolitan East" },
+  { name: "Bayswater North", postcode: "3153", region: "Metropolitan East" },
+
+  // City of Port Phillip
+  { name: "Black Rock", postcode: "3193", region: "Inner Metropolitan South East" },
+  { name: "Beaumaris", postcode: "3193", region: "Inner Metropolitan South East" },
+
+  // City of Stonnington
+  { name: "Armadale", postcode: "3143", region: "Inner Metropolitan South East" },
+  { name: "Glen Iris", postcode: "3146", region: "Inner Metropolitan South East" },
+  { name: "Hawksburn", postcode: "3142", region: "Inner Metropolitan South East" },
+  { name: "Kooyong", postcode: "3144", region: "Inner Metropolitan South East" },
   { name: "Malvern", postcode: "3144", region: "Inner Metropolitan South East" },
   { name: "Malvern East", postcode: "3145", region: "Inner Metropolitan South East" },
   { name: "Prahran", postcode: "3181", region: "Inner Metropolitan South East" },
@@ -373,8 +601,6 @@ const allSuburbs: Suburb[] = [
   // City of Yarra
   { name: "Abbotsford", postcode: "3067", region: "Inner City Melbourne" },
   { name: "Burnley", postcode: "3121", region: "Inner City Melbourne" },
-  { name: "Carlton", postcode: "3053", region: "Inner City Melbourne" },
-  { name: "Carlton North", postcode: "3054", region: "Inner City Melbourne" },
   { name: "Clifton Hill", postcode: "3068", region: "Inner City Melbourne" },
   { name: "Collingwood", postcode: "3066", region: "Inner City Melbourne" },
   { name: "Cremorne", postcode: "3121", region: "Inner City Melbourne" },
