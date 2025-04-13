@@ -187,6 +187,80 @@ export async function generateMetadata({
 
         const blog: BlogPost = await res.json();
 
+        // Special case for cleaning-services-melbourne blog
+        if (params.slug === 'cleaning-services-melbourne') {
+            return {
+                title: {
+                    absolute: 'Professional Cleaning Services Melbourne | General vs Deep Cleaning Guide 2024',
+                    template: '%s | Melbourne\'s Leading Cleaning Professionals'
+                },
+                description: 'Comprehensive guide to Melbourne cleaning services | General vs Deep cleaning explained | Transparent pricing | Expert cleaning tips | Professional cleaning standards | Avoid common pitfalls | Service comparison guide | Trusted cleaning company insights.',
+                keywords: [
+                    'cleaning services melbourne',
+                    'professional cleaning melbourne',
+                    'general cleaning services',
+                    'deep cleaning services',
+                    'house cleaning melbourne',
+                    'commercial cleaning melbourne',
+                    'residential cleaning services',
+                    'office cleaning melbourne',
+                    'regular cleaning service',
+                    'professional cleaners melbourne',
+                    'cleaning company melbourne',
+                    'deep clean vs general clean',
+                    'cleaning service prices melbourne',
+                    'professional house cleaning',
+                    'commercial cleaning services',
+                    'end of lease cleaning',
+                    'carpet cleaning melbourne',
+                    'window cleaning services',
+                    'post construction cleaning',
+                    'specialized cleaning services',
+                    'cleaning service comparison',
+                    'cleaning service rates melbourne',
+                    'best cleaning services melbourne',
+                    'reliable cleaning company',
+                    'experienced cleaners melbourne',
+                    'cleaning service booking',
+                    'cleaning professionals melbourne',
+                    'cleaning service standards',
+                    'cleaning service quality',
+                    'cleaning service reviews melbourne'
+                ],
+                metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
+                alternates: {
+                    canonical: '/blogs/cleaning-services-melbourne'
+                },
+                openGraph: {
+                    title: 'Professional Cleaning Services Melbourne | Expert Guide to Cleaning Types',
+                    description: 'Discover the difference between general and deep cleaning services in Melbourne. Expert insights on choosing the right cleaning service, avoiding common pitfalls, and ensuring quality cleaning standards.',
+                    url: 'https://www.cleaningprofessionals.com.au/blogs/cleaning-services-melbourne',
+                    type: 'article',
+                    publishedTime: blog.publishDate,
+                    modifiedTime: blog.lastUpdated,
+                    authors: [blog.author.name],
+                    siteName: 'Cleaning Professionals Melbourne'
+                },
+                twitter: {
+                    card: 'summary_large_image',
+                    title: 'Professional Cleaning Services Melbourne | Cleaning Types Guide',
+                    description: 'Expert guide to Melbourne cleaning services: Understanding general vs deep cleaning, pricing transparency, and choosing the right service for your needs.',
+                    creator: '@CleaningProfessionals'
+                },
+                robots: {
+                    index: true,
+                    follow: true,
+                    googleBot: {
+                        index: true,
+                        follow: true,
+                        'max-video-preview': -1,
+                        'max-image-preview': 'large' as const,
+                        'max-snippet': -1,
+                    },
+                }
+            };
+        }
+
         // Special case for end-of-lease cleaning blog
         if (params.slug === 'end-of-lease-cleaning') {
             return {
