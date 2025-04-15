@@ -1,18 +1,20 @@
 import { Metadata } from 'next'
 
+// This metadata will only apply to the blog listing page layout structure
 export const metadata: Metadata = {
-    title: 'Cleaning Tips & Advice Blog | Professional Cleaning Services Melbourne',
-    description: 'Expert cleaning tips, guides, and home maintenance advice from Melbourne\'s leading cleaning professionals. Learn about cleaning techniques, maintenance, and best practices.',
     metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
-    alternates: {
-        canonical: '/blogs/',
+    applicationName: 'Cleaning Professionals Melbourne Blog',
+    manifest: '/manifest.json',
+    themeColor: '#1E3D8F',
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 1,
+        userScalable: false
     },
-    openGraph: {
-        title: 'Cleaning Tips & Advice Blog | Melbourne Cleaning Professionals',
-        description: 'Discover expert cleaning tips, guides, and advice from Melbourne\'s trusted cleaning service. Stay updated with the latest cleaning trends and best practices.',
-        url: 'https://www.cleaningprofessionals.com.au/blogs/',
-        type: 'website',
-        siteName: 'Cleaning Professionals Melbourne'
+    icons: {
+        icon: '/favicon.ico',
+        apple: '/apple-touch-icon.png'
     }
 }
 

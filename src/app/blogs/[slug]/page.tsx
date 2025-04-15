@@ -1,3 +1,4 @@
+
 import BlogImage from '../components/BlogImage'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -107,17 +108,18 @@ export default async function BlogPage({
         notFound()
     }
 
-    // Add this before your return statement
-    const professionalCleaningSchema = slug === 'professional-cleaning-services-melbourne' ? {
+    // Enhanced schema markup
+    const blogPostSchema = {
         "@context": "https://schema.org",
-        "@type": "Article",
-        "headline": "Professional Cleaning Services Melbourne",
-        "description": "Expert guide to professional cleaning services in Melbourne. Comprehensive solutions for residential and commercial cleaning needs.",
+        "@type": "BlogPosting",
+        "headline": blog.title,
+        "description": blog.excerpt,
         "image": blog.coverImage,
         "author": {
             "@type": "Person",
             "name": blog.author.name,
-            "jobTitle": blog.author.role
+            "jobTitle": blog.author.role,
+            "url": `https://www.cleaningprofessionals.com.au/team/${blog.author.name.toLowerCase().replace(/\s+/g, '-')}`
         },
         "publisher": {
             "@type": "Organization",
@@ -131,18 +133,102 @@ export default async function BlogPage({
         "dateModified": blog.lastUpdated,
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https://www.cleaningprofessionals.com.au/blogs/professional-cleaning-services-melbourne"
+            "@id": `https://www.cleaningprofessionals.com.au/blogs/${slug}`
         },
-        "keywords": "professional cleaning services, commercial cleaning, residential cleaning, Melbourne cleaners",
-        "articleSection": "Professional Cleaning",
-        "articleBody": blog.introduction
+        "keywords": [
+            blog.category.toLowerCase(),
+            ...blog.title.toLowerCase().split(' '),
+            'cleaning guide',
+            'melbourne cleaning',
+            'professional cleaning'
+        ].join(', '),
+        "articleSection": blog.category,
+        "articleBody": blog.introduction,
+        "wordCount": blog.sections.reduce((count, section) => 
+            count + section.content.join(' ').split(/\s+/).length, 0),
+        "timeRequired": blog.readTime,
+        "inLanguage": "en-AU",
+        "isAccessibleForFree": "true",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    };
+
+    // Professional cleaning services specific schema
+    const professionalCleaningSchema = slug === 'professional-cleaning-services-melbourne' ? {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Professional Cleaning Services Melbourne",
+        "description": "Expert cleaning services in Melbourne for residential and commercial properties.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "Cleaning Professionals Melbourne",
+            "image": "https://www.cleaningprofessionals.com.au/logos/logo.png",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Melbourne",
+                "addressRegion": "VIC",
+                "addressCountry": "AU"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "-37.8136",
+                "longitude": "144.9631"
+            },
+            "url": "https://www.cleaningprofessionals.com.au",
+            "telephone": "+61-xxx-xxx-xxx",
+            "priceRange": "$$",
+            "areaServed": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "-37.8136",
+                    "longitude": "144.9631"
+                },
+                "geoRadius": "50000"
+            }
+        },
+        "serviceType": "Professional Cleaning",
+        "areaServed": "Melbourne Metropolitan Area",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Cleaning Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "House Cleaning"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Commercial Cleaning"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "End of Lease Cleaning"
+                    }
+                }
+            ]
+        }
     } : null;
 
     return (
         <article className="container mx-auto px-4 py-4 md:py-12 mt-8 md:mt-32">
+            {/* Add enhanced Schema markup for all blog posts */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(blogPostSchema)
+                }}
+            />
             
-           {/* Add Schema markup only for professional cleaning services post */}
-           {professionalCleaningSchema && (
+            {/* Add Schema markup for professional cleaning services post */}
+            {professionalCleaningSchema && (
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{
@@ -293,4 +379,7 @@ export default async function BlogPage({
             </div>
         </article>
     )
-} 
+}
+
+// Export generateMetadata from metadata.ts
+export { generateMetadata } from './metadata' 

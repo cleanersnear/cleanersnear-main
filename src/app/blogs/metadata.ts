@@ -1,24 +1,37 @@
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Cleaning Tips & Advice Blog | Professional Cleaning Services Melbourne",
-  description: "Expert cleaning tips, advice, and guides from Melbourne's leading cleaning professionals. Learn about cleaning techniques, maintenance, and best practices for your home or business.",
+  title: {
+    absolute: "Professional Cleaning Services Melbourne | Expert Tips & Guides 2025",
+    template: "%s | Melbourne's Leading Cleaning Experts"
+  },
+  description: "| Expert cleaning guides | Professional tips | Maintenance advice | Industry insights from Melbourne's top cleaning professionals. Comprehensive resources for residential & commercial cleaning.",
   metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
   alternates: {
     canonical: '/blogs/',
   },
   openGraph: {
-    title: "Cleaning Tips & Advice Blog | Melbourne Cleaning Professionals",
-    description: "Discover expert cleaning tips, guides, and advice from Melbourne's trusted cleaning service. Stay updated with the latest cleaning trends and best practices.",
+    title: "Melbourne Cleaning Blog | Cleaning Tips & Expert Guides",
+    description: "Access expert cleaning guides, professional tips, and industry insights from Melbourne's most trusted cleaning service. Updated weekly with latest cleaning trends and solutions.",
     url: 'https://www.cleaningprofessionals.com.au/blogs/',
     type: 'website',
-    siteName: 'Cleaning Professionals Melbourne'
+    siteName: 'Cleaning Professionals Melbourne',
+    locale: 'en_AU',
+    images: [
+      {
+        url: 'https://www.cleaningprofessionals.com.au/images/blog-header.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Professional Cleaning Tips & Guides'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cleaning Tips & Advice Blog | Melbourne Cleaning Professionals',
-    description: 'Expert cleaning tips and guides from Melbourne\'s leading cleaning professionals',
-    creator: '@CleaningProfessionals'
+    title: 'Professional Cleaning Blog | Expert Tips & Guides',
+    description: 'Expert cleaning guides and professional tips from Melbourne\'s leading cleaning experts',
+    creator: '@CleaningProfessionals',
+    images: ['https://www.cleaningprofessionals.com.au/images/blog-header.jpg']
   },
   robots: {
     index: true,
@@ -31,5 +44,28 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  keywords: 'cleaning tips blog, cleaning advice melbourne, cleaning guides, professional cleaning tips, house cleaning advice, cleaning best practices, cleaning professionals blog',
+  keywords: [
+    'cleaning blog melbourne',
+    'professional cleaning tips',
+    'cleaning guides australia',
+    'house cleaning advice',
+    'commercial cleaning tips',
+    'melbourne cleaning experts',
+    'cleaning best practices',
+    'professional cleaning blog',
+    'cleaning maintenance guides',
+    'eco-friendly cleaning tips',
+    'office cleaning advice',
+    'residential cleaning guides',
+    'cleaning industry insights',
+    'cleaning service blog melbourne',
+    'expert cleaning recommendations'
+  ].join(', '),
+  authors: [{ name: 'Cleaning Professionals Melbourne' }],
+  category: 'Professional Cleaning',
+  verification: {
+    google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code'
+  }
 } 
