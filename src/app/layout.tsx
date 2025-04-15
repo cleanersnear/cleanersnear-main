@@ -2,7 +2,11 @@ import { Roboto } from "next/font/google"
 import { Metadata } from "next"
 import "./globals.css"
 import Script from 'next/script'
-import { GA_MEASUREMENT_ID } from '@/utils/analytics'
+import { getOrganizationSchema } from '@/config/schema'
+import { siteConfig } from '@/config/site'
+
+// Google Analytics Measurement ID (GA4)
+const GA_MEASUREMENT_ID = 'G-W87SXGYKC1'
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -15,19 +19,20 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
   title: {
-    default: 'Cleaning Professionals - Melbourne\'s Leading Cleaning Service',
-    template: '%s | Cleaning Professionals Melbourne'
+    template: siteConfig.title.template,
+    default: siteConfig.title.default,
   },
-  description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Trained Professionals ✓ Fully Insured Teams. Professional house cleaning, end of lease & commercial cleaning. Servicing All Melbourne Suburbs.',
+  description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Trained Professionals | Fully Insured Teams. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing All Melbourne Suburbs.',
   icons: {
-    icon: '/favicon.ico'
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
     locale: 'en_AU',
     url: 'https://www.cleaningprofessionals.com.au',
-    title: 'Cleaning Professionals Melbourne | Professional House & Commercial Cleaning | #1 End of Lease & House Cleaning',
-    description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Trained Professionals ✓ Fully Insured Teams. Professional house cleaning, end of lease & commercial cleaning. Servicing All Melbourne Suburbs.',
+    title: 'Cleaning Professionals Melbourne | Professional House & Commercial Cleaning',
+    description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Trained Professionals | Fully Insured Teams. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing All Melbourne Suburbs.',
     images: [
       {
         url: '/images/og-image.jpg',
@@ -38,16 +43,12 @@ export const metadata: Metadata = {
     ],
     siteName: 'Cleaning Professionals Melbourne'
   },
-
-  // Twitter Card
   twitter: {
     card: 'summary_large_image',
     title: 'Cleaning Professionals Melbourne | Professional Cleaning Services',
-    description: 'Melbourne\'s Trusted Cleaning Service ✓ Police Cleared ✓ Reference Checked ✓ Fully Insured Teams. Servicing All Melbourne Suburbs.',
+    description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Reference Checked | Fully Insured Teams. Servicing All Melbourne Suburbs.',
     images: ['/images/twitter-image.jpg'],
   },
-
-  // Additional Important Metadata
   robots: {
     index: true,
     follow: true,
@@ -59,15 +60,52 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  keywords: [
+    // Primary Service Keywords
+    'house cleaning melbourne',
+    'end of lease cleaning melbourne',
+    'deep cleaning melbourne',
+    'move in cleaning melbourne',
+    'move out cleaning melbourne',
+    'ndis cleaning melbourne',
+    'bond cleaning melbourne',
+    'commercial cleaning melbourne',
+    // Service Types
+    'regular house cleaning',
+    'one-time cleaning service',
+    'weekly cleaning service',
+    'fortnightly cleaning',
+    'deep cleaning service',
+    'move in out cleaning',
+    // Action Keywords
+    'book cleaning service melbourne',
+    'cleaning quote melbourne',
+    'instant booking cleaning',
+    'same day cleaning service',
+    // Location Keywords
+    'melbourne cleaning services',
+    'local cleaners melbourne',
+    'cleaning company melbourne',
+    'professional cleaners melbourne'
+  ].join(', '),
   verification: {
-    google: 'G-W87SXGYKC1',
+    // This should be your Google Search Console verification code
+    // Get this from Google Search Console > Settings > Ownership verification > HTML tag
+    // Should look like: google-site-verification=xxxxxxxxxxxxxx
+    google: '',  // Leave empty until you get the verification code
   },
-  
-  keywords: 'house cleaning melbourne, end of lease cleaning melbourne, bond cleaning melbourne, commercial cleaning melbourne, ndis cleaning melbourne, carpet cleaning melbourne, domestic cleaning, office cleaning',
+  alternates: {
+    canonical: 'https://www.cleaningprofessionals.com.au',
+  },
   authors: [{ name: 'Cleaning Professionals Melbourne' }],
   creator: 'Cleaning Professionals Melbourne',
   publisher: 'Cleaning Professionals Melbourne',
-  
+  other: {
+    // Same as above - leave empty until you get the verification code
+    'google-site-verification': '',
+    'msvalidate.01': '',  // Bing verification code
+    'format-detection': 'telephone=no'
+  }
 }
 
 export default function RootLayout({
@@ -78,6 +116,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Analytics Script */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -91,9 +130,17 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_MEASUREMENT_ID}', {
-                debug_mode: true
+                page_path: window.location.pathname,
               });
             `,
+          }}
+        />
+        {/* Organization Schema */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(getOrganizationSchema())
           }}
         />
       </head>

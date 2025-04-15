@@ -1,12 +1,72 @@
 export const getOrganizationSchema = () => ({
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': ['LocalBusiness', 'Organization'],
   name: 'Professional Cleaning Services Melbourne - Cleaning Professionals Australia', // Enhanced
   image: 'https://cleaningprofessionals.com.au/images/logo.png',
   '@id': 'https://cleaningprofessionals.com.au',
   url: 'https://cleaningprofessionals.com.au',
   telephone: '0450124086',
   description: 'Professional cleaning services in Melbourne including end of lease cleaning, deep cleaning, NDIS cleaning, and regular cleaning services. Servicing all Melbourne suburbs.',
+  
+  // Add potentialAction for key user actions
+  potentialAction: [
+    {
+      '@type': 'BookService',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://cleaningprofessionals.com.au/quick-book/location',
+        name: 'Book Now'
+      },
+      name: 'Book Cleaning Service'
+    },
+    {
+      '@type': 'ViewAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://cleaningprofessionals.com.au/pricing',
+        name: 'View Pricing'
+      },
+      name: 'View Cleaning Rates'
+    }
+  ],
+
+  // Add SiteNavigationElement schema
+  mainEntity: {
+    '@type': 'SiteNavigationElement',
+    name: 'Main Navigation',
+    hasPart: [
+      {
+        '@type': 'SiteNavigationElement',
+        name: 'Book Now',
+        url: 'https://cleaningprofessionals.com.au/quick-book/location',
+        description: 'Book your cleaning service instantly online'
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        name: 'Pricing',
+        url: 'https://cleaningprofessionals.com.au/pricing',
+        description: 'View our cleaning service rates and packages'
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        name: 'Get Quote',
+        url: 'https://cleaningprofessionals.com.au/get-quote',
+        description: 'Get a customized cleaning quote'
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        name: 'Contact',
+        url: 'https://cleaningprofessionals.com.au/contact',
+        description: 'Get in touch with our cleaning team'
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        name: 'Services',
+        url: 'https://cleaningprofessionals.com.au/services',
+        description: 'View all our cleaning services'
+      }
+    ]
+  },
   
   // Mobile business - no physical address
   address: {
