@@ -3,20 +3,26 @@ import type { Metadata } from "next"
 /**
  * Metadata Configuration Structure:
  * 
- * 1. Default Dynamic Template (generateDefaultMetadata):
- *    - Applied to all blog posts
+ * 1. Custom Metadata (Highest Priority - Full Customization):
+ *    Found in customMetadata object
+ *    Blogs using this:
+ *    - cleaning-services-melbourne: Main service page with comprehensive cleaning service details
+ *    - end-of-lease-cleaning: Specialized bond cleaning and end of lease services
+ * 
+ * 2. Priority Blogs (Medium Priority - Semi-Custom):
+ *    Found in priorityBlogs object
+ *    Blogs using this:
+ *    - professional-cleaning-services-melbourne: Professional and commercial cleaning focus
+ *    - end-of-lease-cleaning-melbourne: End of lease and bond back services
+ *    - house-cleaning-services-melbourne: Residential and home cleaning services
+ *    - commercial-cleaning-services-melbourne: Business and office cleaning solutions
+ * 
+ * 3. Default Dynamic Template (Base Template):
+ *    Uses generateDefaultMetadata function
+ *    Applied to: All other blog posts not listed above
  *    - Comprehensive SEO optimization
  *    - Dynamic title, description, and keywords based on blog content
  *    - Professional metadata structure for maximum visibility
- * 
- * 2. Specific Blog Overrides (customMetadata):
- *    - cleaning-services-melbourne: Main service page with comprehensive cleaning service details
- *    - end-of-lease-cleaning: Specialized bond cleaning and end of lease services
- *    - professional-cleaning-services: Professional and commercial cleaning focus
- *    - house-cleaning-services: Residential and home cleaning services
- *    - commercial-cleaning-services: Business and office cleaning solutions
- *    - deep-cleaning-services: Detailed deep cleaning and sanitization
- *    - carpet-cleaning-services: Specialized carpet and upholstery cleaning
  */
 
 interface BlogPost {
@@ -75,61 +81,8 @@ const priorityBlogs: Record<string, {
         }[];
     };
 }> = {
-    'cleaning-services-melbourne': {
-        title: 'Professional Cleaning Services Melbourne | Expert House & Commercial Cleaners',
-        description: 'Expert cleaning tips, guides, and home maintenance advice from Melbourne\'s leading cleaning professionals. Trusted local cleaners with 15+ years experience.',
-        keywords: [
-            'house cleaning melbourne',
-            'cleaning services melbourne',
-            'professional cleaners melbourne',
-            'commercial cleaning melbourne',
-            'end of lease cleaning melbourne',
-            'domestic cleaning services',
-            'office cleaning melbourne',
-            'residential cleaning melbourne',
-            'local cleaning services',
-            'professional house cleaning'
-        ],
-        openGraph: {
-            title: 'Professional Cleaning Services Melbourne | Expert Cleaning Tips & Guides',
-            description: 'Discover professional cleaning tips, guides and expert advice from Melbourne\'s leading cleaning service. Quality assured, satisfaction guaranteed.',
-            images: [
-                {
-                    url: 'https://www.cleaningprofessionals.com.au/images/cleaning-services-melbourne.jpg',
-                    width: 1200,
-                    height: 630,
-                    alt: 'Professional Cleaning Services Melbourne'
-                }
-            ]
-        }
-    },
-    'end-of-lease-cleaning': {
-        title: 'End of Lease Cleaning Guide Melbourne | Bond Back Guaranteed 2024',
-        description: 'Complete guide to end of lease cleaning in Melbourne. | Professional bond cleaning | Expert tips | Comprehensive checklist | Guaranteed bond back | Real estate approved cleaning standards.',
-        keywords: [
-            'end of lease cleaning melbourne',
-            'bond cleaning melbourne',
-            'vacate cleaning melbourne',
-            'rental property cleaning',
-            'property manager cleaning',
-            'bond back cleaning',
-            'end of lease cleaning checklist',
-            'professional bond cleaning',
-            'rental cleaning melbourne',
-            'vacate cleaning checklist',
-            'real estate cleaning melbourne',
-            'bond cleaning checklist',
-            'end of lease cleaning cost melbourne',
-            'rental property cleaning melbourne',
-            'professional vacate cleaning'
-        ],
-        openGraph: {
-            title: 'End of Lease Cleaning Guide Melbourne | Professional Bond Cleaning Services',
-            description: 'Expert guide to end of lease cleaning in Melbourne. | Professional bond cleaning services | Comprehensive checklist | Guaranteed bond back | Real estate approved standards'
-        }
-    },
     'professional-cleaning-services-melbourne': {
-        title: 'Professional Cleaning Services Melbourne | Top-Rated Cleaners 2024',
+        title: 'Professional Cleaning Services Melbourne | Top-Rated Cleaners 2025',
         description: 'Melbourne\'s #1 professional cleaning services. | 5+ years experience | 10,000+ satisfied customers | Expert cleaners | Same-day service | Free quotes.',
         keywords: [
             'professional cleaning services melbourne',
@@ -141,11 +94,11 @@ const priorityBlogs: Record<string, {
         ],
         openGraph: {
             title: 'Professional Cleaning Services Melbourne | Expert Commercial & Residential Cleaners',
-            description: 'Transform your space with Melbourne\'s leading professional cleaning services. | 15+ years experience | Certified cleaners | Customized solutions'
+            description: 'Transform your space with Melbourne\'s leading professional cleaning services. | 5+ years experience | Certified cleaners | Customized solutions'
         }
     },
     'end-of-lease-cleaning-melbourne': {
-        title: 'End of Lease Cleaning Melbourne | Bond Back Guaranteed 2024',
+        title: 'End of Lease Cleaning Melbourne | Bond Back Guaranteed 2025',
         description: 'Expert end of lease cleaning in Melbourne. | Bond back guaranteed | Professional cleaners | Same-day service | Free quotes | 100% satisfaction.',
         keywords: [
             'end of lease cleaning melbourne',
@@ -160,7 +113,7 @@ const priorityBlogs: Record<string, {
         }
     },
     'house-cleaning-services-melbourne': {
-        title: 'House Cleaning Services Melbourne | Professional Home Cleaners 2024',
+        title: 'House Cleaning Services Melbourne | Professional Home Cleaners 2025',
         description: 'Professional house cleaning services in Melbourne. | Experienced cleaners | Customized plans | Eco-friendly products | Satisfaction guaranteed.',
         keywords: [
             'house cleaning melbourne',
@@ -175,7 +128,7 @@ const priorityBlogs: Record<string, {
         }
     },
     'commercial-cleaning-services-melbourne': {
-        title: 'Commercial Cleaning Services Melbourne | Office & Business Cleaners 2024',
+        title: 'Commercial Cleaning Services Melbourne | Office & Business Cleaners 2025',
         description: 'Professional commercial cleaning services in Melbourne. | Office cleaning | Retail cleaning | Industrial cleaning | Customized solutions.',
         keywords: [
             'commercial cleaning melbourne',
@@ -199,10 +152,10 @@ function generateDefaultMetadata(blog: BlogPost, slug: string): Metadata & { tit
     return {
         metadataBase: new URL(baseUrl),
         title: {
-            absolute: `${blog.title} | Professional Cleaning Services Melbourne 2024`,
+            absolute: `${blog.title} | Professional Cleaning Services Melbourne 2025`,
             template: '%s | Cleaning Professionals Melbourne'
         } as MetadataTitle,
-        description: `${blog.excerpt} | Professional cleaning services in Melbourne. ✓ 15+ years experience ✓ Satisfaction guaranteed ✓ Expert cleaners ✓ Free quotes ✓ Same-day service available.`,
+        description: `${blog.excerpt} | Professional cleaning services in Melbourne. | 5+ years experience | Satisfaction guaranteed | Expert cleaners | Free quotes | Same-day service available.`,
         keywords: [
             'cleaning services melbourne',
             'professional cleaning melbourne',
@@ -241,7 +194,7 @@ function generateDefaultMetadata(blog: BlogPost, slug: string): Metadata & { tit
         },
         openGraph: {
             title: `${blog.title} | Expert Cleaning Services Melbourne`,
-            description: `${blog.excerpt} | Professional Melbourne cleaning services with 15+ years experience. Quality assured, satisfaction guaranteed.`,
+            description: `${blog.excerpt} | Professional Melbourne cleaning services with 5+ years experience. Quality assured, satisfaction guaranteed.`,
             type: 'article',
             url: fullUrl,
             publishedTime: blog.publishDate,
@@ -287,82 +240,64 @@ function generateDefaultMetadata(blog: BlogPost, slug: string): Metadata & { tit
 // Custom metadata overrides for specific blogs
 const customMetadata: Record<string, (blog: BlogPost) => Partial<Metadata & { title: MetadataTitle }>> = {
     'cleaning-services-melbourne': (blog) => {
-        // Use the blog parameter to avoid the unused variable error
         console.log(`Generating custom metadata for ${blog.title}`);
         
         return {
             title: {
-                absolute: 'Professional Cleaning Services Melbourne | Expert House & Commercial Cleaners 2024',
-                template: '%s | Melbourne\'s Leading Cleaning Service'
+                absolute: 'Cleaning Services Melbourne | Professional House & Commercial Cleaners 2025',
+                template: 'Cleaning Services Melbourne | %s'
             },
-            description: 'Melbourne\'s top-rated cleaning service. ✓ 15+ years experience ✓ 10,000+ satisfied customers ✓ Expert house & commercial cleaners ✓ Same-day service ✓ Free quotes ✓ Professional equipment ✓ Eco-friendly products ✓ Fully insured.',
+            description: 'Cleaning Services Melbourne | Trusted local cleaning services | 5+ years experience | Professional house & commercial cleaners | Same-day service | Affordable rates | Expert cleaners | Satisfaction guaranteed | Free quotes.',
             keywords: [
-                // Location-specific keywords
+                // Primary target keywords
                 'cleaning services melbourne',
-                'melbourne cleaning company',
-                'local cleaners melbourne',
-                'melbourne house cleaning',
-                'melbourne commercial cleaning',
-                // Service-specific keywords
-                'professional cleaning services',
-                'commercial cleaning melbourne',
-                'residential cleaning services',
-                'office cleaning melbourne',
-                'house cleaning services',
-                'end of lease cleaning',
-                'deep cleaning service',
-                'regular cleaning service',
-                'same day cleaning',
-                // Quality and trust keywords
-                'reliable cleaning company',
-                'trusted cleaning service',
-                'experienced cleaners',
+                'melbourne cleaning services',
+                'cleaning services in melbourne',
+                'professional cleaning services melbourne',
+                // Service type variations
+                'residential cleaning services melbourne',
+                'commercial cleaning services melbourne',
+                'house cleaning services melbourne',
+                'office cleaning services melbourne',
+                // Location variations
+                'local cleaning services melbourne',
+                'melbourne city cleaning services',
+                'melbourne metro cleaning services',
+                'melbourne suburbs cleaning services',
+                // Quality indicators
                 'professional cleaners melbourne',
-                'best cleaning company melbourne',
-                'top rated cleaning service',
-                // Specific service keywords
-                'carpet cleaning melbourne',
-                'window cleaning service',
-                'floor cleaning specialists',
-                'office sanitization',
-                'covid safe cleaning',
-                // Commercial keywords
-                'commercial cleaning quotes',
-                'business cleaning solutions',
-                'corporate cleaning services',
-                'industrial cleaning melbourne',
-                'warehouse cleaning',
-                // Additional service aspects
-                'eco friendly cleaning',
-                'green cleaning services',
-                'emergency cleaning service',
-                'regular cleaning contracts',
-                'specialized cleaning solutions'
+                'expert cleaning services melbourne',
+                'reliable cleaning services melbourne',
+                'trusted cleaning services melbourne',
+                // Service features
+                'same day cleaning service melbourne',
+                'regular cleaning services melbourne',
+                'one-off cleaning services melbourne',
+                'emergency cleaning services melbourne'
             ],
             openGraph: {
-                title: 'Professional Cleaning Services Melbourne | Expert Commercial & Residential Cleaners',
-                description: 'Transform your space with Melbourne\'s leading cleaning service. ✓ Professional cleaners ✓ Commercial & residential experts ✓ Satisfaction guaranteed ✓ Free quotes available.',
+                title: 'Cleaning Services Melbourne | Expert Local Cleaners | Professional Service',
+                description: 'Looking for Cleaning Services in Melbourne? | Professional & reliable cleaning service | Local expert cleaners | 5+ years experience | Residential & commercial cleaning | Free quotes available',
                 images: [
                     {
                         url: 'https://www.cleaningprofessionals.com.au/images/cleaning-services-melbourne.jpg',
                         width: 1200,
                         height: 630,
-                        alt: 'Professional Cleaning Services Melbourne - Expert Cleaners'
+                        alt: 'Professional Cleaning Services Melbourne - Local Expert Cleaners'
                     }
                 ]
             }
         };
     },
     'end-of-lease-cleaning': (blog) => {
-        // Use the blog parameter to avoid the unused variable error
         console.log(`Generating custom metadata for ${blog.title}`);
         
         return {
             title: {
-                absolute: 'End of Lease Cleaning Melbourne | Bond Back Guaranteed 2024',
+                absolute: 'End of Lease Cleaning Melbourne | Bond Back Guaranteed 2025',
                 template: '%s | Expert Bond Cleaning Service'
             },
-            description: 'Melbourne\'s trusted end of lease cleaning service. ✓ Bond back guarantee ✓ Real estate approved ✓ Professional equipment ✓ Detailed cleaning checklist ✓ Experienced cleaners ✓ Same day service ✓ Affordable rates ✓ Free quotes.',
+            description: 'Melbourne\'s trusted end of lease cleaning service. | Bond back guarantee | Real estate approved | Professional equipment | Detailed cleaning checklist | Experienced cleaners | Same day service | Affordable rates | Free quotes.',
             keywords: [
                 // Primary keywords
                 'end of lease cleaning melbourne',
@@ -482,7 +417,7 @@ export async function generateMetadata({
             title: {
                 absolute: 'Professional Cleaning Services Melbourne | Expert Cleaning Solutions'
             } as MetadataTitle,
-            description: 'Discover professional cleaning services in Melbourne. Expert cleaners, quality service, satisfaction guaranteed. Contact us for a free quote today.',
+            description: 'Discover professional cleaning services in Melbourne. | Expert cleaners | Quality service | Satisfaction guaranteed. Contact us for a free quote today.',
             metadataBase: new URL('https://www.cleaningprofessionals.com.au')
         };
     }
