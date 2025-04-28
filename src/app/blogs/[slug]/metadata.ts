@@ -346,6 +346,150 @@ const customMetadata: Record<string, (blog: BlogPost) => Partial<Metadata & { ti
                 'express bond cleaning service'
             ]
         };
+    },
+    'move-out-cleaning': (blog) => {
+        console.log(`Generating custom metadata for ${blog.title}`);
+        
+        return {
+            title: {
+                absolute: 'Move Out Cleaning | Melbourne | Prices & Bond Back Guarantee from $200',
+                template: 'Move Out Cleaning Melbourne | %s'
+            },
+            description: 'Professional move out & end of lease cleaning services in Melbourne with 100% bond return guarantee. Affordable prices starting from $200. Book now!',
+            keywords: [
+                // Primary target keywords
+                'move out cleaning prices',
+                'move out cleaning melbourne',
+                'end of lease cleaning',
+                'end of lease cleaning price melbourne',
+                'move out cleaning price',
+                // Requirements and location variations
+                'end of lease cleaning requirements victoria',
+                'end of lease cleaning near me',
+                'move out cleaning near me',
+                'cheap end of lease cleaning melbourne',
+                // Related service keywords
+                'bond cleaning melbourne',
+                'carpet cleaning',
+                'cleaning services',
+                'end of tenancy cleaning',
+                // Job related keywords
+                'move out cleaning jobs',
+                // Property types
+                'apartment move out cleaning',
+                'house end of lease cleaning',
+                'studio move out cleaning cost',
+                // Service features
+                'professional move out cleaning',
+                'guaranteed bond return',
+                'deep cleaning service',
+                'thorough property cleaning',
+                // Quality indicators
+                'best move out cleaners melbourne',
+                'reliable end of lease cleaning',
+                'trusted bond cleaning service',
+                // Pricing variations
+                'affordable move out cleaning',
+                'end of lease cleaning cost',
+                'cheap bond cleaning',
+                'move out cleaning quotes',
+                // Additional services
+                'carpet steam cleaning',
+                'oven cleaning service',
+                'window cleaning service',
+                // Specific Melbourne areas from your image
+                'move out cleaning melbourne cbd',
+                'south yarra move out cleaning',
+                'toorak end of lease cleaning',
+                'richmond bond cleaning',
+                'brunswick move out cleaning',
+                'carlton end of lease cleaning',
+                'st kilda bond cleaning',
+                'fitzroy move out cleaning',
+                // Additional specific locations you requested
+                'move out cleaning epping',
+                'end of lease cleaning thomastown',
+                'bond cleaning carlton',
+                'preston move out cleaning',
+                'north melbourne end of lease cleaning',
+                'sunshine bond cleaning',
+                'essendon move out cleaning',
+                'moonee ponds end of lease cleaning',
+                'ascot vale bond cleaning',
+                'glenroy move out cleaning',
+                'airport west end of lease cleaning',
+                'broadmeadows bond cleaning',
+                'craigieburn move out cleaning',
+                'greenvale end of lease cleaning',
+                'thornbury bond cleaning',
+                'reservoir move out cleaning',
+                'coburg end of lease cleaning',
+                'pascoe vale bond cleaning',
+                // Time-based keywords
+                'same day move out cleaning',
+                'emergency end of lease cleaning',
+                'weekend bond cleaning service'
+            ],
+            openGraph: {
+                title: 'Move Out Cleaning Prices Melbourne | Bond Back Guarantee from $200',
+                description: 'Professional move out & end of lease cleaning in Melbourne with 100% bond return guarantee. Prices from $200. Expert cleaners, thorough service.',
+                images: [
+                    {
+                        url: 'https://vzyscxgvpzsqbkzpvttk.supabase.co/storage/v1/object/public/blog-images/Move%20Out%20Cleaning%20-%20Professional%20Services.png',
+                        width: 1200,
+                        height: 630,
+                        alt: 'Professional Move Out Cleaning Services Melbourne - Bond Back Guaranteed'
+                    }
+                ]
+            },
+            // FAQs schema for Google rich results
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': 'FAQPage',
+                mainEntity: [
+                    {
+                        '@type': 'Question',
+                        name: 'What defines move out cleaning?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Move-out cleaning services refer to the deep cleaning of all rooms within the home prior to move-out day. This typically includes scrubbing bathrooms, kitchens, bedrooms, living areas, closets, and hallways from top to bottom for maximum efficiency and thoroughness.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'How much does an exit clean cost?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'At Cleaning Professionals, our exit cleaning prices in Melbourne vary based on property size and condition: Studio/1-bedroom: $200 - $350, 2-bedroom apartment: $250 - $400, 3-bedroom house: $350 - $600, 4-bedroom house: $500 - $800. Additional services like carpet steam cleaning may increase these prices. We provide transparent quotes with NO HIDDEN CLEANING COSTS - NO SURPRISES - $200 WITH HARD FLOOR OR $250 WITH CARPET.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'What is the difference between a move out cleaning and a regular cleaning?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'While deep cleaning is a thorough cleaning of your entire home, move out cleaning is more about preparing the property for new occupants, ensuring every nook and cranny is spotless. This distinction is vital for homeowners and landlords to ensure their properties are maintained to the highest standard and meet all requirements for bond returns.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'Should you clean when you move out?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'When you move out, the place should be pretty clean--like how it was when you first moved in, minus normal wear and tear. For renters, thorough cleaning is essential for getting your bond back. At Cleaning Professionals, we ensure your property exceeds all cleaning requirements, guaranteeing your bond return.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'What are your move out cleaning prices?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Here\'s a quick breakdown of our competitive pricing at Cleaning Professionals: Studio / 1 Bedroom: $200 – $350, 2 Bedroom Apartment: $250 – $400, 3 Bedroom House: $350 – $600, 4 Bedroom House: $500 – $800. NO HIDDEN CLEANING COSTS - NO SURPRISES '
+                        }
+                    }
+                ]
+            }
+        };
     }
 };
 
