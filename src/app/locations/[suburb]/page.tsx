@@ -152,49 +152,89 @@ export default async function LocationPage({
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>End of Lease Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/end-of-lease-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      End of Lease Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>NDIS Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/ndis-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      NDIS Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Regular House Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/general-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Regular House Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Deep Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/deep-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Deep Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Spring Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/spring-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Spring Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Office Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/office-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Office Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Carpet Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/carpet-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Carpet Cleaning
+                    </Link>
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    <span>Window Cleaning</span>
+                    <Link 
+                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/move-in-cleaning`}
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Move In Cleaning
+                    </Link>
                   </li>
                 </ul>
               </div>
