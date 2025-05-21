@@ -244,16 +244,18 @@ const customMetadata: Record<string, (blog: BlogPost) => Partial<Metadata & { ti
         
         return {
             title: {
-                absolute: 'Cleaning Services Melbourne | Professional House & Commercial Cleaners 2025',
+                absolute: 'Leading Cleaning Services Melbourne | #1 Professional Cleaners 2025',
                 template: 'Cleaning Services Melbourne | %s'
             },
-            description: 'Cleaning Services Melbourne | Trusted local cleaning services | 5+ years experience | Professional house & commercial cleaners | Same-day service | Affordable rates | Expert cleaners | Satisfaction guaranteed | Free quotes.',
+            description: 'Looking for top-rated cleaning services in Melbourne? Cleaning Professionals offers exceptional cleaning solutions for homes and businesses. | 5+ years experience | Expert cleaners | Same-day service | Free quotes | Satisfaction guaranteed.',
             keywords: [
                 // Primary target keywords
                 'cleaning services melbourne',
                 'melbourne cleaning services',
                 'cleaning services in melbourne',
                 'professional cleaning services melbourne',
+                'leading cleaning services melbourne',
+                'best cleaning services melbourne',
                 // Service type variations
                 'residential cleaning services melbourne',
                 'commercial cleaning services melbourne',
@@ -276,8 +278,8 @@ const customMetadata: Record<string, (blog: BlogPost) => Partial<Metadata & { ti
                 'emergency cleaning services melbourne'
             ],
             openGraph: {
-                title: 'Cleaning Services Melbourne | Expert Local Cleaners | Professional Service',
-                description: 'Looking for Cleaning Services in Melbourne? | Professional & reliable cleaning service | Local expert cleaners | 5+ years experience | Residential & commercial cleaning | Free quotes available',
+                title: 'Leading Cleaning Services Melbourne | Professional House & Commercial Cleaners',
+                description: 'Looking for top-rated cleaning services in Melbourne? | Professional & reliable cleaning service | Local expert cleaners | 5+ years experience | Residential & commercial cleaning | Free quotes available',
                 images: [
                     {
                         url: 'https://www.cleaningprofessionals.com.au/images/cleaning-services-melbourne.jpg',
@@ -286,6 +288,45 @@ const customMetadata: Record<string, (blog: BlogPost) => Partial<Metadata & { ti
                         alt: 'Professional Cleaning Services Melbourne - Local Expert Cleaners'
                     }
                 ]
+            },
+            jsonLd: {
+                '@context': 'https://schema.org',
+                '@type': ['Organization', 'LocalBusiness'],
+                name: 'Cleaning Professionals Melbourne',
+                url: 'https://www.cleaningprofessionals.com.au',
+                logo: 'https://www.cleaningprofessionals.com.au/images/logo.png',
+                image: 'https://www.cleaningprofessionals.com.au/images/cleaning-services-melbourne.jpg',
+                description: 'Leading professional cleaning services in Melbourne. Expert cleaners for residential and commercial properties.',
+                address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Melbourne',
+                    addressLocality: 'Melbourne',
+                    postalCode: '3000',
+                    addressRegion: 'VIC',
+                    addressCountry: 'AU'
+                },
+                geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: '-37.813629',
+                    longitude: '144.963058'
+                },
+                telephone: ['0450124086'],
+                email: 'info@cleaningprofessionals.com.au',
+                openingHoursSpecification: [
+                    {
+                        '@type': 'OpeningHoursSpecification',
+                        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                        opens: '09:00',
+                        closes: '17:00'
+                    }
+                ],
+                areaServed: 'Melbourne',
+                sameAs: [
+                    'https://www.facebook.com/cleaningprofessionals',
+                    'https://www.instagram.com/cleaningprofessionals'
+                ],
+                priceRange: '$$',
+                paymentAccepted: ['Cash', 'Credit Card', 'EFTPOS', 'Online Payment']
             }
         };
     },
