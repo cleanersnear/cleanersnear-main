@@ -1,44 +1,52 @@
 'use client'
 
-import { useEffect } from 'react'
-import { use } from 'react'
-import { useRouter } from 'next/navigation'
+import { use, Suspense } from 'react'
+import MainLayout from '@/components/layout/MainLayout'
+import CarpetCleaningHero from './components/CarpetCleaningHero'
+import { ServiceBase } from '@/app/quick-book/types/service'
+import BeforeAfterGallery from '../components/BeforeAfterGallery'
+import FloatingBookNow from '../components/FloatingBookNow'
+import RequestCallback from '../components/RequestCallback'
+import MobileWhatsIncluded from './components/MobileWhatsIncluded'
+import PricingSection from './components/PricingSection'
+import ReviewsSection from './components/ReviewsSection'
+import FAQSection from './components/FAQSection'
+import ServiceIntro from './components/ServiceIntro'
 
-interface PageProps {
+interface CarpetCleaningPageProps {
   params: Promise<{ suburb: string }>
 }
 
-export default function Page({ params }: PageProps) {
-  const router = useRouter()
-  const resolvedParams = use(params)
-  const suburb = resolvedParams.suburb.replace(/-/g, ' ')
-  const capitalizedSuburb = suburb.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
+export default function CarpetCleaningPage({ params }: CarpetCleaningPageProps) {
+  const { suburb } = use(params)
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push('https://www.cleaningprofessionals.com.au/services/carpet-cleaning/')
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [router])
+  const carpetCleaningService: ServiceBase = {
+    id: 'carpet-cleaning',
+    title: 'Professional Carpet Cleaning',
+    description: 'Expert carpet cleaning services with eco-friendly solutions',
+    category: 'popular',
+    type: 'carpet-cleaning'
+  }
 
   return (
-    <main>
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1E3D8F] mb-6">
-            Carpet Cleaning Services in {capitalizedSuburb}
-          </h1>
-          <p className="text-gray-600 text-lg mb-8">
-            Expert carpet cleaning services in {capitalizedSuburb}. Professional equipment and eco-friendly solutions for all types of carpets.
-          </p>
-          <p className="text-blue-600 text-lg">
-            Redirecting you to our main carpet cleaning service page in 3 seconds...
-          </p>
-        </div>
-      </section>
-    </main>
+    <MainLayout>
+      <FloatingBookNow service={carpetCleaningService} />
+      <div className="mt-32">
+        <CarpetCleaningHero suburb={suburb} />
+        <MobileWhatsIncluded suburb={suburb} />
+        <ServiceIntro service={carpetCleaningService} suburb={suburb} />
+        <BeforeAfterGallery serviceSlug="carpet-cleaning" />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PricingSection service={carpetCleaningService} suburb={suburb} />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ReviewsSection suburb={suburb} />
+        </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <FAQSection />
+        </Suspense>
+        <RequestCallback service={carpetCleaningService} />
+      </div>
+    </MainLayout>
   )
 } 
