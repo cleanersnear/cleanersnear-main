@@ -86,7 +86,46 @@ export const metadata: Metadata = {
     'melbourne cleaning services',
     'local cleaners melbourne',
     'cleaning company melbourne',
-    'professional cleaners melbourne'
+    'professional cleaners melbourne',
+    // Additional Keywords
+    'house cleaning',
+    'cleaning services melbourne',
+    'cleaning services near me',
+    'house cleaners near me',
+    'home cleaning services melbourne',
+    'house cleaners',
+    'residential cleaning brisbane',
+    'house cleaning house',
+    'home cleaning home',
+    'and cleaning services',
+    'cleaning jobs perth wa',
+    'housework cleaning',
+    'a cleaning services',
+    'cleaning svc',
+    'maid service perth',
+    'cleaning jobs in australia melbourne',
+    'cleaning firm',
+    'near me cleaners',
+    'cleaning housekeeping services',
+    'service house cleaning',
+    'clean cleaning company',
+    'cleaning service services',
+    'cleaners to clean house',
+    'home cleaners adelaide',
+    'maid service melbourne',
+    'ndis cleaning service',
+    'maid service cleaning',
+    'home cleaners perth',
+    'move in move out cleaners',
+    'home cleaners melbourne',
+    'household cleaners near me',
+    'move in and move out cleaning',
+    'maid cleaner',
+    'household cleaning services near me',
+    'residential cleaning service near me',
+    'home cleaning services melbourne',
+    'house cleaning melbourne',
+    'maid to clean'
   ].join(', '),
   verification: {
     // This should be your Google Search Console verification code
@@ -134,6 +173,12 @@ export default function RootLayout({
               });
             `,
           }}
+        />
+        <Script
+          id="ahrefs-analytics"
+          strategy="afterInteractive"
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="JYH3/BMc5iSMgIfPgKQ4AQ"
         />
         {/* Organization Schema */}
         <Script
