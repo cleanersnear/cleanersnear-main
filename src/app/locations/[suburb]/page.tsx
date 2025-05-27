@@ -276,6 +276,132 @@ export default async function LocationPage({
               </div>
             </div>
 
+            {/* House Cleaning Near Me Section */}
+            <section className="mb-12 bg-white rounded-lg shadow-md p-8 flex flex-col md:flex-row items-center gap-8 border border-gray-100">
+              <div className="flex-shrink-0 flex items-center justify-center w-20 h-20 bg-[#FFA500]/10 rounded-full">
+                <svg className="w-12 h-12 text-[#FFA500]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5z" />
+                </svg>
+              </div>
+              <div className="flex-1">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#1E3D8F] mb-2">
+                  House Cleaning Services Near Me in {locationData.name}
+                </h2>
+                <p className="text-lg text-gray-700 mb-2">
+                  Looking for <strong>house cleaning</strong>, <strong>house cleaners</strong>, or <strong>home cleaning near me</strong> in <span className="font-semibold text-[#FFA500]">{locationData.name}</span>? Our local, trusted cleaners provide professional <strong>home cleaning services</strong> and <strong>cleaning services near me</strong> in <span className="font-semibold text-[#FFA500]">{locationData.name}</span> and all nearby suburbs. Book a reliable house cleaner near you today!
+                </p>
+                <Link href="/quick-book" className="inline-block mt-4 bg-[#FFA500] text-white px-6 py-2 rounded-md font-semibold shadow hover:bg-[#ffb733] transition-colors">
+                  Book House Cleaning Now
+                </Link>
+              </div>
+            </section>
+
+            {/* Pricing Section */}
+            <section className="mb-12">
+              <h3 className="text-xl font-semibold text-[#1E3D8F] mb-4 flex items-center gap-2">
+                <svg className="w-6 h-6 text-[#FFA500]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 10c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" />
+                </svg>
+                House Cleaning Prices in {locationData.name}
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="bg-white rounded-lg shadow p-6 border border-gray-100">
+                  <h4 className="font-bold mb-2">Weekly Service</h4>
+                  <p className="text-2xl font-bold text-[#1E3D8F] mb-1">$48.50<span className="text-base font-normal">/hour</span></p>
+                  <p className="text-green-600 font-semibold mb-2">10% OFF</p>
+                  <ul className="text-gray-700 text-sm space-y-1">
+                    <li>✔️ All cleaning products included</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-lg shadow p-6 border border-gray-100 border-2 border-green-400">
+                  <h4 className="font-bold mb-2">Fortnightly Service <span className="bg-green-400 text-white text-xs px-2 py-1 rounded ml-2">Popular Choice</span></h4>
+                  <p className="text-2xl font-bold text-[#1E3D8F] mb-1">$58.50<span className="text-base font-normal">/hour</span></p>
+                  <p className="text-green-600 font-semibold mb-2">5% OFF</p>
+                  <ul className="text-gray-700 text-sm space-y-1">
+                    <li>✔️ All cleaning products included</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-lg shadow p-6 border border-gray-100">
+                  <h4 className="font-bold mb-2">3-Weekly Service</h4>
+                  <p className="text-2xl font-bold text-[#1E3D8F] mb-1">$63.05<span className="text-base font-normal">/hour</span></p>
+                  <p className="text-green-600 font-semibold mb-2">3% OFF</p>
+                  <ul className="text-gray-700 text-sm space-y-1">
+                    <li>✔️ All cleaning products included</li>
+                  </ul>
+                </div>
+                <div className="bg-white rounded-lg shadow p-6 border border-gray-100">
+                  <h4 className="font-bold mb-2">Monthly / One-Time</h4>
+                  <p className="text-2xl font-bold text-[#1E3D8F] mb-1">$65.00<span className="text-base font-normal">/hour</span></p>
+                
+                  <ul className="text-gray-700 text-sm space-y-1">
+                    <li>✔️ All cleaning products included</li>
+                    
+                  </ul>
+                </div>
+              </div>
+              <p className="text-gray-600 text-sm mt-4">*Prices are for house cleaning services in {locationData.name} and may vary based on your specific needs. Contact us for a custom quote or to book your <strong>house cleaning near me</strong> service today.</p>
+            </section>
+
+            {/* FAQ Section */}
+            <section className="mb-12">
+              <h3 className="text-xl font-semibold text-[#1E3D8F] mb-6 flex items-center gap-2">
+                <svg className="w-6 h-6 text-[#FFA500]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8a9 9 0 1118 0z" />
+                </svg>
+                Frequently Asked Questions
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                  <h4 className="font-bold mb-2 text-[#1E3D8F]">Do you offer house cleaning services near me in {locationData.name}?</h4>
+                  <p className="text-gray-700">Yes! We provide house cleaning services in <span className="font-semibold text-[#FFA500]">{locationData.name}</span> and all surrounding suburbs. Our local cleaners are ready to help you keep your home spotless.</p>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                  <h4 className="font-bold mb-2 text-[#1E3D8F]">How do I book a house cleaner near me?</h4>
+                  <p className="text-gray-700">Simply use our <Link href="/quick-book" className="text-[#FFA500] underline hover:text-[#1E3D8F]">online booking form</Link> or call us to schedule a house cleaning service in <span className="font-semibold text-[#FFA500]">{locationData.name}</span> or any nearby area.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Service Checklist Section */}
+            <section className="mb-12">
+              <h3 className="text-xl font-semibold text-[#1E3D8F] mb-4 flex items-center gap-2">
+                <svg className="w-6 h-6 text-[#FFA500]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                What&apos;s Included in Our House Cleaning?
+              </h3>
+              <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
+                <li>✔️ Kitchen cleaning (benchtops, sinks, appliances)</li>
+                <li>✔️ Bathroom & toilet cleaning</li>
+                <li>✔️ Dusting and wiping all surfaces</li>
+                <li>✔️ Vacuuming and mopping floors</li>
+                <li>✔️ Bedroom and living area cleaning</li>
+                <li>✔️ Rubbish removal</li>
+                <li>✔️ Custom requests available</li>
+              </ul>
+            </section>
+
+            {/* Testimonials Section */}
+            <section className="mb-12">
+              <h3 className="text-xl font-semibold text-[#1E3D8F] mb-4 flex items-center gap-2">
+                <svg className="w-6 h-6 text-[#FFA500]" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2h5" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+                What Our Clients Say
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                  <p className="italic text-gray-700 mb-2">&quot;Fantastic service! The cleaners were punctual, professional, and left my house sparkling. Highly recommend for anyone in {locationData.name}.&quot;</p>
+                  <span className="font-semibold text-[#1E3D8F]">— Sarah, {locationData.name}</span>
+                </div>
+                <div className="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-100">
+                  <p className="italic text-gray-700 mb-2">&quot;Booking was easy and the results were amazing. I&apos;ll definitely use this cleaning service again!&quot;</p>
+                  <span className="font-semibold text-[#1E3D8F]">— James, {locationData.name}</span>
+                </div>
+              </div>
+            </section>
+
             {/* CTA Section */}
             <div className="bg-[#1E3D8F] text-white rounded-lg p-8 text-center">
               <h3 className="text-2xl font-bold mb-4">Ready to Book Your Clean?</h3>

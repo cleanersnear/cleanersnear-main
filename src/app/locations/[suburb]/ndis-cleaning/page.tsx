@@ -1,44 +1,62 @@
-'use client'
+import { Suspense, use } from 'react'
+import MainLayout from '@/components/layout/MainLayout'
+import NDISCleaningHero from './components/NDISCleaningHero'
+import BeforeAfterGallery from '../components/BeforeAfterGallery'
+import ServiceIntro from './components/ServiceIntro'
+import MobileWhatsIncluded from './components/MobileWhatsIncluded'
+import PricingSection from './components/PricingSection'
+import FloatingBookNow from '../components/FloatingBookNow'
+import ReviewsSection from './components/ReviewsSection'
+import FAQSection from './components/FAQSection'
+import RequestCallback from '../components/RequestCallback'
+import { ServiceBase } from '@/app/quick-book/types/service'
+import { getLocalBusinessSchema } from './schema'
 
-import { useEffect } from 'react'
-import { use } from 'react'
-import { useRouter } from 'next/navigation'
-
-interface PageProps {
-  params: Promise<{ suburb: string }>
+interface NDISCleaningPageProps {
+  params: Promise<{
+    suburb: string;
+  }>;
 }
 
-export default function Page({ params }: PageProps) {
-  const router = useRouter()
-  const resolvedParams = use(params)
-  const suburb = resolvedParams.suburb.replace(/-/g, ' ')
-  const capitalizedSuburb = suburb.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
+const ndisCleaningService: ServiceBase = {
+  id: 'ndis-cleaning',
+  title: 'NDIS House Cleaning',
+  description: 'Professional NDIS registered cleaning service with qualified support workers',
+  category: 'popular',
+  type: 'ndis-cleaning'
+}
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push('https://www.cleaningprofessionals.com.au/services/ndis-cleaning/')
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [router])
+export default function NDISCleaningPage({ params }: NDISCleaningPageProps) {
+  const { suburb } = use(params)
 
   return (
-    <main>
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1E3D8F] mb-6">
-            NDIS Cleaning Services in {capitalizedSuburb}
-          </h1>
-          <p className="text-gray-600 text-lg mb-8">
-            Specialized NDIS cleaning services in {capitalizedSuburb}. Supporting NDIS participants with professional and caring cleaning solutions.
-          </p>
-          <p className="text-blue-600 text-lg">
-            Redirecting you to our main NDIS cleaning service page in 3 seconds...
-          </p>
-        </div>
-      </section>
-    </main>
+    <MainLayout>
+      <FloatingBookNow service={ndisCleaningService} />
+      <div className="mt-32">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getLocalBusinessSchema(suburb)) }}
+        />
+        
+        <NDISCleaningHero suburb={suburb} />
+        <MobileWhatsIncluded />
+        <ServiceIntro service={ndisCleaningService} />
+        <BeforeAfterGallery serviceSlug="ndis-cleaning" />
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <PricingSection service={ndisCleaningService} />
+        </Suspense>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <ReviewsSection />
+        </Suspense>
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <FAQSection />
+        </Suspense>
+
+        <RequestCallback service={ndisCleaningService} />
+      </div>
+    </MainLayout>
   )
 } 
