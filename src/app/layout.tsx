@@ -178,7 +178,7 @@ export default function RootLayout({
           id="ahrefs-analytics"
           strategy="afterInteractive"
           src="https://analytics.ahrefs.com/analytics.js"
-          data-key="JYH3/BMc5iSMgIfPgKQ4AQ"
+          data-key="JYH3/BMc5iSMglfPgKQ4AQ"
         />
         {/* Organization Schema */}
         <Script
