@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   },
   title: {
     template: '%s | Cleaning Professionals Melbourne',
-    default: 'Professional Cleaning Services Melbourne',
+    default: 'Professional Cleaning Services Melbourne | End of Lease, NDIS & Commercial | Cleaning Professionals',
     services: 'Professional Cleaning Services Melbourne | %s',
   },
   description: {
