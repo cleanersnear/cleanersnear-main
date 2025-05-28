@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'spring-cleaning',
     'carpet-cleaning',
     'ndis-cleaning',
-    'office-cleaning'
+    'commercial-cleaning'
   ] as const
 
   // Generate location-service pages (0.85)
