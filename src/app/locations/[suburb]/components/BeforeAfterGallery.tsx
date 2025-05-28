@@ -101,7 +101,7 @@ export default function BeforeAfterGallery({ serviceSlug }: BeforeAfterGalleryPr
                   
                   {/* Slider Handle */}
                   <div 
-                    className="absolute inset-y-0 w-1 bg-white cursor-ew-resize group-hover:bg-[#FFA500] transition-colors"
+                    className="absolute inset-y-0 w-1 bg-white cursor-ew-resize group-hover:bg-[#FFA500] transition-colors hover:scale-110 transition-transform"
                     style={{ left: `${sliderPositions[index]}%` }}
                     onMouseDown={() => handleMouseDown(index)}
                     onTouchStart={() => handleTouchStart(index)}
@@ -112,7 +112,7 @@ export default function BeforeAfterGallery({ serviceSlug }: BeforeAfterGalleryPr
                       <div className="w-6 h-6 text-white">→</div>
                     </div>
                     {/* Handle Button */}
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform">
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center">
                       <div className="flex items-center gap-1">
                         <ArrowRight className="w-4 h-4 text-[#1E3D8F] -rotate-180" />
                         <ArrowRight className="w-4 h-4 text-[#1E3D8F]" />
