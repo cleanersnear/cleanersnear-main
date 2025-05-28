@@ -1,6 +1,6 @@
 export { generateMetadata } from './metadata'
 
-export default function CarpetCleaningLayout({
+export default function CommercialCleaningLayout({
   children,
 }: {
   children: React.ReactNode

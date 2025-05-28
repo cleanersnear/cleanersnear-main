@@ -1,44 +1,46 @@
 'use client'
 
-import { useEffect } from 'react'
 import { use } from 'react'
-import { useRouter } from 'next/navigation'
+import MainLayout from '@/components/layout/MainLayout'
+import DeepCleaningHero from './components/DeepCleaningHero'
+import BeforeAfterGallery from '../components/BeforeAfterGallery'
+import ServiceIntro from './components/ServiceIntro'
+import MobileWhatsIncluded from './components/MobileWhatsIncluded'
+import PricingSection from './components/PricingSection'
+import FloatingBookNow from '../components/FloatingBookNow'
+import ReviewsSection from './components/ReviewsSection'
+import FAQSection from './components/FAQSection'
+import RequestCallback from '../components/RequestCallback'
 
-interface PageProps {
-  params: Promise<{ suburb: string }>
+interface SpringCleaningPageProps {
+  params: Promise<{
+    suburb: string;
+  }>;
 }
 
-export default function Page({ params }: PageProps) {
-  const router = useRouter()
-  const resolvedParams = use(params)
-  const suburb = resolvedParams.suburb.replace(/-/g, ' ')
-  const capitalizedSuburb = suburb.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push('https://www.cleaningprofessionals.com.au/services/deep-cleaning/')
-    }, 3000)
-
-    return () => clearTimeout(timer)
-  }, [router])
+export default function SpringCleaningPage({ params }: SpringCleaningPageProps) {
+  const { suburb } = use(params)
+  
+  const service = {
+    id: 'spring-cleaning',
+    title: 'Spring Cleaning',
+    category: 'popular',
+    type: 'spring-cleaning'
+  } as const
 
   return (
-    <main>
-      <section className="py-12 md:py-20">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#1E3D8F] mb-6">
-            Spring Cleaning Services in {capitalizedSuburb}
-          </h1>
-          <p className="text-gray-600 text-lg mb-8">
-            Professional spring cleaning services in {capitalizedSuburb}. Comprehensive cleaning solutions for your home or office.
-          </p>
-          <p className="text-blue-600 text-lg">
-            Redirecting you to our main deep cleaning service page in 3 seconds...
-          </p>
-        </div>
-      </section>
-    </main>
+    <MainLayout>
+      <FloatingBookNow service={service} />
+      <div className="mt-32">
+        <DeepCleaningHero suburb={suburb} />
+        <MobileWhatsIncluded />
+        <ServiceIntro service={service} />
+        <BeforeAfterGallery serviceSlug="spring-cleaning" />
+        <PricingSection service={service} />
+        <ReviewsSection />
+        <FAQSection />
+        <RequestCallback service={service} />
+      </div>
+    </MainLayout>
   )
-} 
+}
