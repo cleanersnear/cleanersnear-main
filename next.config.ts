@@ -61,7 +61,32 @@ const nextConfig: NextConfig = {
         source: '/blog/:slug',
         destination: '/blogs/:slug',
         permanent: true,
-      }
+      },
+      {
+        source: '/services/windows-cleaning/',
+        destination: '/services/window-cleaning/',
+        permanent: true,
+      },
+      {
+        source: '/locations/melbourne',
+        destination: '/locations/melbourne-cbd/',
+        permanent: true,
+      },
+      {
+        source: '/services/general-house-cleaning/',
+        destination: '/services/general-cleaning/',
+        permanent: true,
+      },
+      {
+        source: '/services/office-cleaning/',
+        destination: '/services/commercial-cleaning/',
+        permanent: true,
+      },
+      {
+        source: '/services/holiday-cleaning',
+        destination: '/services/move-in-cleaning/',
+        permanent: true,
+      },
     ]
   },
   async rewrites() {
