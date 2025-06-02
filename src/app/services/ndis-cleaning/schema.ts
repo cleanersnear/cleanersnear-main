@@ -72,13 +72,6 @@ export const schema = {
     }
   },
   termsOfService: 'https://cleaningprofessionals.com.au/terms',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: '2500',
-    bestRating: '5',
-    worstRating: '1'
-  },
   additionalType: 'https://schema.org/CleaningService',
   audience: {
     '@type': 'Audience',
