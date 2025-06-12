@@ -1,0 +1,510 @@
+/* Mobile-first responsive design */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Category Tabs */
+.categoryTabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding: 0 8px;
+}
+
+.categoryTab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #64748b;
+  position: relative;
+}
+
+.categoryTab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.categoryTab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.tabIcon {
+  font-size: 1.5rem;
+}
+
+.tabBadge {
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.categoryTab.active .tabBadge {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Frequency Tabs */
+.frequencyTabs {
+  margin-bottom: 32px;
+}
+
+.frequencyTabs > div:first-child {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 0 8px;
+}
+
+.frequencyTab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 20px;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.frequencyTab:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.frequencyTab.active {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border-color: #10b981;
+}
+
+.savingsBadge {
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.frequencyTab.active .savingsBadge {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+/* Service Cards */
+.serviceCard {
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+  position: relative;
+  overflow: hidden;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.serviceHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.serviceName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.popularBadge, .commercialBadge {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.commercialBadge {
+  background: linear-gradient(135deg, #1e3d8f 0%, #3b82f6 100%);
+}
+
+.serviceDescription {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Pricing Details */
+.pricingDetails {
+  margin-bottom: 24px;
+}
+
+.mainPrice {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.priceAmount {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #10b981;
+  line-height: 1;
+}
+
+.priceLabel {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.hourlyRate {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Features List */
+.features {
+  margin-bottom: 24px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* Buttons */
+.bookServiceButton {
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.bookServiceButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+}
+
+/* Business Section Specific */
+.businessSection {
+  margin-bottom: 32px;
+}
+
+.businessBanner {
+  text-align: center;
+  padding: 32px;
+  background: linear-gradient(135deg, #1e3d8f 0%, #3b82f6 100%);
+  color: white;
+  border-radius: 16px;
+  margin-bottom: 32px;
+}
+
+.businessBanner h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.businessBanner p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.businessActions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactButton {
+  padding: 12px 24px;
+  background: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.contactButton:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Savings Banner */
+.savingsBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.savingsIcon {
+  font-size: 1.2rem;
+}
+
+/* Frequency Grid */
+.frequencyGrid {
+  display: grid;
+  gap: 32px;
+}
+
+.frequencySection {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.frequencyTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 16px;
+}
+
+/* Trust Signals */
+.trustSignals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 48px 0;
+  padding: 32px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.trustItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.trustIcon {
+  font-size: 2rem;
+}
+
+/* Final CTA */
+.finalCTA {
+  text-align: center;
+  padding: 48px 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  margin-top: 48px;
+}
+
+.finalCTA h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.finalCTA p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+.mainCTAButton {
+  display: inline-block;
+  padding: 20px 40px;
+  background: white;
+  color: #667eea;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.mainCTAButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.guaranteeText {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .categoryTabs {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .categoryTab {
+    flex-direction: row;
+    padding: 16px;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .serviceCard {
+    padding: 24px;
+  }
+
+  .priceAmount {
+    font-size: 2rem;
+  }
+
+  .businessActions {
+    flex-direction: column;
+  }
+
+  .trustSignals {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 24px;
+  }
+
+  .finalCTA {
+    padding: 32px 24px;
+  }
+
+  .finalCTA h2 {
+    font-size: 1.5rem;
+  }
+
+  .mainCTAButton {
+    padding: 16px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .trustSignals {
+    grid-template-columns: 1fr;
+  }
+
+  .frequencyTabs > div:first-child {
+    flex-direction: column;
+  }
+} 

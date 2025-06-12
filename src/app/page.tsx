@@ -16,10 +16,12 @@ import TrustedOrganizations from '@/components/Home/TrustedOrganizations/Trusted
 import HomeReviewsGrid from '@/components/Home/ReviewsSection/HomeReviewsGrid'
 import InstantCost from '@/components/instant-cost/instantcost'
 import HomeLatestBlogs from '@/components/Home/HomeBlogs/HomeLatestBlogs'
+import BookingDialog from '@/components/BookingDialog/BookingDialog'
 
 export default function HomePage() {
   const { loading, error, location } = useLocation();
   const [isClient, setIsClient] = useState(false);
+  const [showBookingDialog, setShowBookingDialog] = useState(false);
   
 
   useEffect(() => {
@@ -29,6 +31,13 @@ export default function HomePage() {
   useEffect(() => {
     console.log('Location state:', { loading, error, location });
   }, [loading, error, location]);
+
+  useEffect(() => {
+    if (isClient) {
+      const timer = setTimeout(() => setShowBookingDialog(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isClient]);
 
     
 
@@ -43,6 +52,9 @@ export default function HomePage() {
 
   return (
     <MainLayout>
+      {showBookingDialog && (
+        <BookingDialog onClose={() => setShowBookingDialog(false)} />
+      )}
       {(loading || error || !location?.found) ? (
         <DefaultHero />
       ) : (
