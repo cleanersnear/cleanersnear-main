@@ -10,7 +10,7 @@ export const PRICING_TABLE: PricingTable = {
     'Move-Out Cleaning': PLACEHOLDER,
     'Inspection Cleaning': PLACEHOLDER,
     'Deep/Spring Cleaning': PLACEHOLDER,
-    'AirBNB Cleaning': { minHours: 2, minAmount: 91.98, baseRate: 40.97 },
+    'Airbnb Cleaning': { minHours: 2, minAmount: 91.98, baseRate: 40.97 },
   },
   fortnightly: {
     'General Cleaning': { minHours: 2, minAmount: 102, baseRate: 43 },
@@ -19,7 +19,7 @@ export const PRICING_TABLE: PricingTable = {
     'Move-Out Cleaning': PLACEHOLDER,
     'Inspection Cleaning': PLACEHOLDER,
     'Deep/Spring Cleaning': PLACEHOLDER,
-    'AirBNB Cleaning': { minHours: 2, minAmount: 103, baseRate: 45.67 },
+    'Airbnb Cleaning': { minHours: 2, minAmount: 103, baseRate: 45.67 },
   },
   once: {
     'General Cleaning': { minHours: 3, minAmount: 161, baseRate: 45 },
@@ -28,6 +28,6 @@ export const PRICING_TABLE: PricingTable = {
     'Move-Out Cleaning': { minHours: 3, minAmount: 249.15, baseRate: 63.05 },
     'Inspection Cleaning': { minHours: 3, minAmount: 191.28, baseRate: 53.76 },
     'Deep/Spring Cleaning': { minHours: 3, minAmount: 205, baseRate: 53.07 },
-    'AirBNB Cleaning': { minHours: 3, minAmount: 179, baseRate: 49.89 },
+    'Airbnb Cleaning': { minHours: 3, minAmount: 179, baseRate: 49.89 },
   }
 }; 

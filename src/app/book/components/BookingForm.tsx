@@ -12,13 +12,13 @@ const INDIVIDUAL_ONCE_OFF_SERVICES: ServiceType[] = [
   'Move-Out Cleaning',
   'Inspection Cleaning',
   'Deep/Spring Cleaning',
-  'AirBNB Cleaning',
+  'Airbnb Cleaning',
 ];
 
 const INDIVIDUAL_REGULAR_SERVICES: ServiceType[] = [
   'General Cleaning',
   'NDIS Cleaning',
-  'AirBNB Cleaning',
+  'Airbnb Cleaning',
 ];
 
 // Business Commercial Dialog Component

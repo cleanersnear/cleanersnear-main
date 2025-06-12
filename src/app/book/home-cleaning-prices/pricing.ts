@@ -11,7 +11,7 @@ export type ServiceType =
   | 'Move-Out Cleaning'
   | 'Inspection Cleaning'
   | 'Deep/Spring Cleaning'
-  | 'AirBNB Cleaning';
+  | 'Airbnb Cleaning';
 
 export interface ServicePricing {
   serviceType: ServiceType;
@@ -42,7 +42,7 @@ export const PRICING: BookingPricing[] = [
       { serviceType: 'Move-Out Cleaning', hourlyRate: 63.05, minimumHours: 3, minimumPrice: 249.15, extraHourRate: 63.05 },
       { serviceType: 'Inspection Cleaning', hourlyRate: 53.76, minimumHours: 3, minimumPrice: 191.28, extraHourRate: 53.76 },
       { serviceType: 'Deep/Spring Cleaning', hourlyRate: 53.07, minimumHours: 3, minimumPrice: 205, extraHourRate: 53.07 },
-      { serviceType: 'AirBNB Cleaning', hourlyRate: 49.89, minimumHours: 3, minimumPrice: 179, extraHourRate: 49.89 },
+      { serviceType: 'Airbnb Cleaning', hourlyRate: 49.89, minimumHours: 3, minimumPrice: 179, extraHourRate: 49.89 },
     ],
   },
   // Individual Regular Weekly
@@ -53,7 +53,7 @@ export const PRICING: BookingPricing[] = [
     services: [
       { serviceType: 'General Cleaning', hourlyRate: 38, minimumHours: 2, minimumPrice: 92.05, extraHourRate: 38, frequency: 'weekly' },
       { serviceType: 'NDIS Cleaning', hourlyRate: 45.15, minimumHours: 2, minimumPrice: 99.98, extraHourRate: 45.15, frequency: 'weekly' },
-      { serviceType: 'AirBNB Cleaning', hourlyRate: 40.97, minimumHours: 2, minimumPrice: 91.98, extraHourRate: 40.97, frequency: 'weekly' },
+      { serviceType: 'Airbnb Cleaning', hourlyRate: 40.97, minimumHours: 2, minimumPrice: 91.98, extraHourRate: 40.97, frequency: 'weekly' },
     ],
   },
   // Individual Regular Fortnightly
@@ -64,7 +64,7 @@ export const PRICING: BookingPricing[] = [
     services: [
       { serviceType: 'General Cleaning', hourlyRate: 43, minimumHours: 2, minimumPrice: 102, extraHourRate: 43, frequency: 'fortnightly' },
       { serviceType: 'NDIS Cleaning', hourlyRate: 47.19, minimumHours: 2, minimumPrice: 110, extraHourRate: 47.19, frequency: 'fortnightly' },
-      { serviceType: 'AirBNB Cleaning', hourlyRate: 45.67, minimumHours: 2, minimumPrice: 103, extraHourRate: 45.67, frequency: 'fortnightly' },
+      { serviceType: 'Airbnb Cleaning', hourlyRate: 45.67, minimumHours: 2, minimumPrice: 103, extraHourRate: 45.67, frequency: 'fortnightly' },
     ],
   },
   // Business/Commercial Once-Off

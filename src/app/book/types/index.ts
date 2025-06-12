@@ -9,7 +9,7 @@ export type ServiceType =
   | 'Move-Out Cleaning'
   | 'Inspection Cleaning'
   | 'Deep/Spring Cleaning'
-  | 'AirBNB Cleaning'
+  | 'Airbnb Cleaning'
   | null;
 
 export type MinHours = number | null;

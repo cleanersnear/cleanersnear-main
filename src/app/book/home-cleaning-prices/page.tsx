@@ -44,7 +44,7 @@ const HomeCleaningPricesPage = () => {
       'Move-Out Cleaning': 'Thorough cleaning to help you get your bond back and leave the property pristine',
       'Inspection Cleaning': 'Detailed cleaning focused on areas that matter most for property inspections',
       'Deep/Spring Cleaning': 'Intensive cleaning that covers every corner, perfect for seasonal refresh',
-      'AirBNB Cleaning': 'Professional cleaning between guests to maintain 5-star property standards'
+      'Airbnb Cleaning': 'Professional cleaning between guests to maintain 5-star property standards'
     };
     return descriptions[serviceType] || 'Professional cleaning service tailored to your needs';
   };
