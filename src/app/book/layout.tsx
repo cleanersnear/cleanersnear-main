@@ -1,10 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
+import { metadata as pageMetadata } from './metadata';
 
-export const metadata = {
-  title: 'Book a Cleaning Service',
-  description: 'Book your professional cleaning service with ease',
-};
+export const metadata = pageMetadata;
 
 export default function BookingLayout({
   children,

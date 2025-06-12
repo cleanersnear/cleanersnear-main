@@ -100,11 +100,26 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
           fontSize: 14, 
           color: '#888', 
           fontWeight: 350,
-          marginBottom: 16,
+          marginBottom: 8,
           textAlign: 'center',
           width: '100%'
         }}>
           Cleaning Professionals
+        </div>
+        
+        {/* Payment notice */}
+        <div style={{
+          fontSize: 12,
+          color: '#27ae60',
+          fontWeight: 600,
+          marginBottom: 16,
+          textAlign: 'center',
+          background: '#e8f5e8',
+          padding: '6px 12px',
+          borderRadius: 12,
+          border: '1px solid #c3e6c3'
+        }}>
+          BOOK NOW – PAY ON THE DAY
         </div>
 
         <div style={{ 

@@ -311,6 +311,14 @@
   gap: 12px;
 }
 
+.businessActions .contactButton {
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contactButton {
   padding: 12px 24px;
   background: transparent;
@@ -321,6 +329,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 0.95rem;
+  align-items: center;
 }
 
 .contactButton:hover {

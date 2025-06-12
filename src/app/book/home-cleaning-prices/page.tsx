@@ -258,15 +258,21 @@ const HomeCleaningPricesPage = () => {
                 <div className={styles.feature}>✓ Custom cleaning plans</div>
               </div>
               <div className={styles.businessActions}>
-                                 <button 
-                   onClick={() => handleBookService(service.serviceType, activeFrequency)}
-                   className={styles.bookServiceButton}
-                 >
-                   Get Quote
-                 </button>
-                <button className={styles.contactButton}>
+                <a 
+                  href="https://www.cleaningprofessionals.com.au/contact/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.bookServiceButton}
+                >
+                  Request for Call Back
+                </a>
+                <a 
+                  href="tel:+61450124086"
+                  className={styles.contactButton}
+                  
+                >
                   Call for Custom Quote
-                </button>
+                </a>
               </div>
             </div>
           ))}
