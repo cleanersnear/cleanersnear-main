@@ -14,6 +14,10 @@ import type {
 } from '../types/details'
 
 import { BookingService } from '../types/booking/booking'
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import styles from './BookingForm.module.css';
+import { Calendar as CalendarIcon } from 'lucide-react';
 
 export default function DetailsPage() {
     const router = useRouter()
@@ -343,14 +347,32 @@ export default function DetailsPage() {
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Preferred Date
                                 </label>
-                                <input
-                                    type="date"
-                                    value={customerDetails?.date || ''}
-                                    onChange={(e) => handleInputChange('date', e.target.value)}
-                                    min={new Date().toISOString().split('T')[0]}
-                                    className={`w-full px-4 py-2 rounded-lg border ${
-                                        formState.errors.date ? 'border-red-500' : 'border-gray-200'
-                                    } focus:border-[#1E3D8F] focus:ring-2 focus:ring-[#1E3D8F]/20 outline-none`}
+                                <DatePicker
+                                    selected={customerDetails?.date ? new Date(customerDetails.date) : null}
+                                    onChange={(date: Date | null) => handleInputChange('date', date ? date.toISOString().split('T')[0] : '')}
+                                    minDate={new Date()}
+                                    placeholderText="Pick a date"
+                                    dateFormat="yyyy-MM-dd"
+                                    customInput={
+                                        <button
+                                            type="button"
+                                            className={styles['responsive-datepicker-button']}
+                                            style={{ color: customerDetails?.date ? '#1E3D8F' : '#888' }}
+                                        >
+                                            <span className={styles['datepicker-text']} style={{ color: customerDetails?.date ? '#1E3D8F' : '#888' }}>
+                                                {customerDetails?.date
+                                                    ? new Date(customerDetails.date).toLocaleDateString()
+                                                    : 'Pick a date'}
+                                            </span>
+                                            <CalendarIcon
+                                                size={20}
+                                                className={styles['datepicker-icon']}
+                                                style={{ color: '#1E3D8F' }}
+                                            />
+                                        </button>
+                                    }
+                                    popperPlacement="bottom"
+                                    popperClassName="custom-blue-datepicker"
                                 />
                                 <div className="flex items-center justify-between pt-2">
                                     <span className="text-sm text-gray-600">I&apos;m flexible with dates</span>

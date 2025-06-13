@@ -4,6 +4,10 @@ import { ServiceType, BookingCategory } from '../types';
 import { PRICING_TABLE } from '../pricing/pricingTable';
 import type { BookingResponse } from '../types';
 import { Phone } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Calendar as CalendarIcon } from 'lucide-react';
+import styles from './BookingForm.module.css';
 
 const INDIVIDUAL_ONCE_OFF_SERVICES: ServiceType[] = [
   'General Cleaning',
@@ -656,30 +660,46 @@ const BookingForm: React.FC = () => {
 
   // Step 5: Date Selection
   if (step === 5) {
+    // Convert string to Date for DatePicker
+    const selectedDate = bookingPreferences.preferredDate ? new Date(bookingPreferences.preferredDate) : null;
     return (
       <div style={{ maxWidth: 600, margin: '0 auto', padding: '2rem 0' }}>
         <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: '1.5rem', color: '#1E3D8F', textAlign: 'left' }}>
           When would you like us to come by?
         </h2>
-        <div style={{ marginBottom: '2rem' }}>
-          <input
-            type="date"
-            value={bookingPreferences.preferredDate}
-            onChange={(e) => {
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+          <DatePicker
+            selected={selectedDate}
+            onChange={(date: Date | null) => {
               setBookingPreferencesState(prev => ({
                 ...prev,
-                preferredDate: e.target.value
+                preferredDate: date ? date.toISOString().split('T')[0] : ''
               }));
             }}
-            min={new Date().toISOString().split('T')[0]}
-            style={{
-              width: '100%',
-              padding: '12px',
-              borderRadius: '8px',
-              border: '1.5px solid #c3d0ee',
-              fontSize: '16px',
-              color: '#1E3D8F',
-            }}
+            minDate={new Date()}
+            placeholderText="Pick a date"
+            dateFormat="yyyy-MM-dd"
+            customInput={
+              <button
+                type="button"
+                className={styles['responsive-datepicker-button']}
+                style={{ color: selectedDate ? '#1E3D8F' : '#888' }}
+              >
+                <CalendarIcon
+                  size={20}
+                  className={styles['datepicker-icon']}
+                  style={{ color: '#1E3D8F' }}
+                />
+                <span
+                  className={styles['datepicker-text']}
+                  style={{ color: selectedDate ? '#1E3D8F' : '#888' }}
+                >
+                  {selectedDate ? selectedDate.toLocaleDateString() : 'Pick a date'}
+                </span>
+              </button>
+            }
+            popperPlacement="bottom"
+            popperClassName="custom-blue-datepicker"
           />
         </div>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'space-between' }}>
@@ -719,6 +739,42 @@ const BookingForm: React.FC = () => {
             Next
           </button>
         </div>
+        <style>{`
+          .custom-blue-datepicker .react-datepicker__header {
+            background-color: #e3eefd;
+            border-bottom: 1.5px solid #1E3D8F;
+          }
+          .custom-blue-datepicker .react-datepicker__current-month,
+          .custom-blue-datepicker .react-datepicker__day-name {
+            color: #1E3D8F;
+            font-weight: 600;
+          }
+          .custom-blue-datepicker .react-datepicker__day--selected,
+          .custom-blue-datepicker .react-datepicker__day--keyboard-selected {
+            background-color: #1E3D8F !important;
+            color: #fff !important;
+            border-radius: 50%;
+          }
+          .custom-blue-datepicker .react-datepicker__day:hover {
+            background-color: #e3eefd;
+            color: #1E3D8F;
+            border-radius: 50%;
+          }
+          .custom-blue-datepicker .react-datepicker__day--today {
+            border: 1.5px solid #1E3D8F;
+            background: #fff;
+            color: #1E3D8F;
+            border-radius: 50%;
+          }
+          .custom-blue-datepicker .react-datepicker__navigation--previous,
+          .custom-blue-datepicker .react-datepicker__navigation--next {
+            top: 16px;
+            line-height: 1.5;
+          }
+          .custom-blue-datepicker .react-datepicker__navigation-icon::before {
+            border-color: #1E3D8F;
+          }
+        `}</style>
       </div>
     );
   }
