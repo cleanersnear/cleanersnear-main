@@ -109,7 +109,7 @@ export default function HomePage() {
             </blockquote>
 
             <div className="mb-12 md:mb-16">
-              <p className="text-lg md:text-xl font-bold text-white">Priti Ale</p>
+              <p className="text-lg md:text-xl font-bold text-white">Ashish D</p>
               <p className="text-sm md:text-base text-white/90">Founder, Cleaning Professionals</p>
             </div>
 
