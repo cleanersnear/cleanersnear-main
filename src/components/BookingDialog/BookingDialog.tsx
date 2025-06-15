@@ -8,7 +8,7 @@ interface BookingDialogProps {
 
 const options = [
   'Just Once',
-  'Weekly (Most Popular)',
+  'Weekly (15% off)',
   'Fortnightly',
   'Unsure',
 ];
@@ -166,8 +166,8 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
                   (e.currentTarget as HTMLButtonElement).style.color = '#1E3D8F';
                 }}
               >
-                {option.replace(' (Most Popular)', '')}
-                {option.includes('Most Popular') && (
+                {option.replace(' (15% off)', '')}
+                {option.includes('15% off') && (
                   <span style={{
                     display: 'inline-block',
                     marginLeft: 8,
@@ -186,7 +186,7 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
                       zIndex: 1,
                       display: 'inline-block',
                     }}>
-                      Most Popular
+                      15% off
                       <span className="shine-once" style={{
                         position: 'absolute',
                         left: '-40%',

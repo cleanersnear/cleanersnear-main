@@ -139,6 +139,8 @@ const BookingForm: React.FC = () => {
   const setBookingCategory = useBookingStore((s) => s.setBookingCategory);
   const bookingType = useBookingStore((s) => s.bookingType);
   const frequency = useBookingStore((s) => s.frequency);
+  const setFrequency = useBookingStore((s) => s.setFrequency);
+  const setBookingType = useBookingStore((s) => s.setBookingType);
   const serviceType = useBookingStore((s) => s.serviceType);
   const setServiceType = useBookingStore((s) => s.setServiceType);
   const setMinHours = useBookingStore((s) => s.setMinHours);
@@ -200,6 +202,11 @@ const BookingForm: React.FC = () => {
     // Skip address step if authenticated user has complete address
     if (n === 4 && shouldSkipAddressStep()) {
       n = 5; // Skip to date selection
+    }
+    
+    // NEW: Check if frequency is null when trying to go to step 2
+    if (n === 2 && useBookingStore.getState().frequency === null) {
+      n = 101; // Redirect to the new intermediate step
     }
     
     // Skip contact info steps if authenticated and submit booking when going to step 10
@@ -314,6 +321,84 @@ const BookingForm: React.FC = () => {
   const handleCallNow = () => {
     window.location.href = 'tel:0450124086';
   };
+
+  // NEW: Step 1.5: Frequency Selection (if frequency is null)
+  if (step === 101) {
+    const frequencyOptions = [
+      'Just Once',
+      'Weekly (15% off)',
+      'Fortnightly',
+    ];
+
+    const handleFrequencyOptionClick = async (option: string) => {
+        if (option === 'Just Once') {
+          setBookingType('once-off');
+          setFrequency('once');
+        } else if (option.startsWith('Weekly')) {
+          setBookingType('regular');
+          setFrequency('weekly');
+        } else if (option === 'Fortnightly') {
+          setBookingType('regular');
+          setFrequency('fortnightly');
+        }
+        await goToStep(2); // Proceed to Step 2 after selection
+    };
+
+    return (
+      <div style={{ maxWidth: 600, margin: '0 auto', padding: '2rem 1rem', width: '100%' }}>
+        <h2 style={{ fontSize: 24, fontWeight: 600, marginBottom: '1.5rem', color: '#1E3D8F', textAlign: 'center' }}>
+          How often would you like help with cleaning?
+        </h2>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          {frequencyOptions.map((option) => (
+            <button
+              key={option}
+              onClick={() => handleFrequencyOptionClick(option)}
+              style={{
+                padding: '14px ',
+                borderRadius: 32,
+                border: '1px solid #1E3D8F',
+                background: '#fff',
+                color: '#1E3D8F',
+                fontWeight: 500,
+                fontSize: 17,
+                cursor: 'pointer',
+                transition: 'all 0.18s',
+                outline: 'none',
+                width: '50%',
+                position: 'relative',
+              }}
+            >
+              {option.replace(' (15% off)', '')}
+              {option.includes('15% off') && (
+                <span style={{
+                  display: 'inline-block',
+                  marginLeft: 8,
+                  verticalAlign: 'middle',
+                  position: 'relative',
+                }}>
+                  <span style={{
+                    background: '#4CAF50',
+                    color: '#fff',
+                    fontWeight: 600,
+                    fontSize: 12,
+                    borderRadius: 12,
+                    padding: '2px 8px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    zIndex: 1,
+                    display: 'inline-block',
+                  }}>
+                    15% off
+                  </span>
+                </span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   // Step 2: Service selection for individual
   if (step === 2) {
