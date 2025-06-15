@@ -7,6 +7,7 @@ import { siteConfig } from '@/config/site'
 
 // Google Analytics Measurement ID (GA4)
 const GA_MEASUREMENT_ID = 'G-W87SXGYKC1'
+const AW_MEASUREMENT_ID = 'AW-16653720077' // Google Ads Conversion Tracking ID
 
 const roboto = Roboto({
     weight: ['300', '400', '500', '700'],
@@ -171,6 +172,23 @@ export default function RootLayout({
               gtag('config', '${GA_MEASUREMENT_ID}', {
                 page_path: window.location.pathname,
               });
+            `,
+          }}
+        />
+        {/* Google Ads Conversion Tracking Script */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${AW_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-ads-conversion"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${AW_MEASUREMENT_ID}');
             `,
           }}
         />
