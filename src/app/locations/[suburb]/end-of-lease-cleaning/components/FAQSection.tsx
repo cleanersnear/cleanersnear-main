@@ -41,10 +41,10 @@ export default function FAQSection({ suburb }: FAQSectionProps) {
           {/* FAQ Column */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
-              Common Questions About Our ${suburb} Service
+              Common Questions About Our {suburb} Service
             </h2>
             <p className="text-gray-600 mb-8">
-              Get detailed answers about our end of lease cleaning process and guarantees in ${suburb}
+              Get detailed answers about our end of lease cleaning process and guarantees in {suburb}
             </p>
 
             <div className="space-y-4">
@@ -82,10 +82,10 @@ export default function FAQSection({ suburb }: FAQSectionProps) {
           <div className="md:pl-8">
             <div className="sticky top-8">
               <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
-                Find Your Local Cleaner<br />in ${suburb}
+                Find Your Local Cleaner<br />in {suburb}
               </h2>
               <p className="text-gray-600 mb-8">
-                Enter your location to get matched with trusted end of lease cleaners in ${suburb}
+                Enter your location to get matched with trusted end of lease cleaners in {suburb}
               </p>
 
               <SimpleLocation />

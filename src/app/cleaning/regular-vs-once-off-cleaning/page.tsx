@@ -12,7 +12,7 @@ import MainLayout from "@/components/layout/MainLayout";
 
 export default function BlogLandingPage() {
   const canonicalUrl = "https://www.cleaningprofessionals.com.au/blog/regular-vs-one-off-cleaning-melbourne";
-  const featuredImage = "/ceaning/regular-vs-once-off-cleaning.png";
+  const featuredImage = "/cleaning/regular-vs-once-off-cleaning.png";
 
   const tocItems = [
     { id: "introduction", title: "Making the Right Choice" },
