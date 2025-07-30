@@ -123,7 +123,7 @@ export default function DynamicHero({ location, businessInfo }: HeroProps) {
                     href="/quick-book/location"
                     className="w-[calc(100%-16px)] md:w-auto mx-auto md:mx-0 bg-[#FFA500] text-white px-4 md:px-8 py-2.5 md:py-3 text-sm md:text-lg font-semibold hover:bg-opacity-80 transition-all duration-200 text-center flex items-center justify-center md:rounded-none"
                   >
-                    Book Now – PAY ON THE DAY
+                    Get Instant Pricing
                     <ArrowRight className="ml-2 w-4 h-4 md:w-[18px] md:h-[18px]" />
                   </Link>
                   <Link 
