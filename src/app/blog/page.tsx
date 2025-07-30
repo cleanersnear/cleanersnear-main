@@ -4,13 +4,15 @@ import Image from "next/image";
 
 const blog = [
   {
-    slug: "regular-vs-once-off-cleaning",
+    url: "/blog/regular-vs-once-off-cleaning", // 👈 hardcoded URL
     title: "Regular vs One-Off Cleaning Services in Melbourne",
-    description: "Struggling to decide between regular and one-off house cleaning in Melbourne? We break down the pros, costs, and best situations for each — direct from our local experts.",
-    image: "https://vzyscxgvpzsqbkzpvttk.supabase.co/storage/v1/object/public/blog-images/Regular%20House%20Cleaning.png",
+    description:
+      "Struggling to decide between regular and one-off house cleaning in Melbourne? We break down the pros, costs, and best situations for each — direct from our local experts.",
+    image: "/blog/regular-vs-once-off-cleaning.png", // 👈 use local public path
   },
-  // Add more blog objects here as you add more posts
+  // Add more blogs manually
 ];
+
 
 export const metadata = {
   title: "Melbourne House Cleaning Blog | Expert Tips & Guides",
@@ -38,7 +40,7 @@ export default function BlogListingPage() {
       </h1>
       {blog.map((blog) => (
         <article
-          key={blog.slug}
+          key={blog.url}
           style={{
             background: '#fff',
             borderRadius: 18,
@@ -76,7 +78,7 @@ export default function BlogListingPage() {
               margin: 0,
               marginBottom: '0.7rem',
             }}>
-              <Link href={`/blog/${blog.slug}`} style={{ color: '#23272f', textDecoration: 'none' }}>
+              <Link href={blog.url} style={{ color: '#23272f', textDecoration: 'none' }}>
                 {blog.title}
               </Link>
             </h2>
@@ -84,7 +86,7 @@ export default function BlogListingPage() {
               {blog.description}
             </p>
             <Link
-              href={`/blog/${blog.slug}`}
+              href={blog.url}
               style={{
                 display: 'inline-block',
                 background: '#23272f',
