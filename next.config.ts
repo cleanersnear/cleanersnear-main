@@ -56,13 +56,13 @@ const nextConfig: NextConfig = {
         destination: '/blogs/professional-end-of-lease-cleaning-melbourne',
         permanent: true,
       },
-      
-      
-      // {
-//   source: '/blog/:slug',
-//   destination: '/blogs/:slug',
-//   permanent: true,
-// },
+
+
+      {
+        source: '/blog/:slug',
+        destination: '/blogs/:slug',
+        permanent: true,
+      },
 
       {
         source: '/services/windows-cleaning/',
