@@ -2,9 +2,9 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const blogs = [
+const blog = [
   {
-    slug: "regular-vs-oneoff-cleaning",
+    slug: "regular-vs-once-off-cleaning",
     title: "Regular vs One-Off Cleaning Services in Melbourne",
     description: "Struggling to decide between regular and one-off house cleaning in Melbourne? We break down the pros, costs, and best situations for each — direct from our local experts.",
     image: "https://vzyscxgvpzsqbkzpvttk.supabase.co/storage/v1/object/public/blog-images/Regular%20House%20Cleaning.png",
@@ -36,7 +36,7 @@ export default function BlogListingPage() {
       }}>
         Melbourne Cleaning Blog
       </h1>
-      {blogs.map((blog) => (
+      {blog.map((blog) => (
         <article
           key={blog.slug}
           style={{
