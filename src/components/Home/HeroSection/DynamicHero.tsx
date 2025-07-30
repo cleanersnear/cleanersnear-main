@@ -65,16 +65,31 @@ export default function DynamicHero({ location, businessInfo }: HeroProps) {
     <div className="relative bg-gray-50">
       <section className="relative h-auto md:h-[800px]">
         {/* Background image for both mobile and desktop */}
-        <div className="absolute inset-0">
-          <Image
-            src="/images/hero-bg.webp"
-            alt={`Professional Cleaning Services in ${location.city}`}
-            fill
-            className="object-cover object-center brightness-[0.85]"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
-        </div>
+        
+        
+        
+        {/* Mobile image - shown on small screens */}
+      <Image
+        src="/images/homepage/Cleaning Professionals mobile Hero.png"
+        alt={`Professional Cleaning Services in ${location.city}`}
+        fill
+        className="object-cover object-center brightness-100 sm:brightness-[0.85] md:hidden"
+        priority
+      />
+      {/* Desktop image - shown on medium screens and up */}
+      <Image
+        src="/images/homepage/Cleaning Professionals Desktop Hero.png"
+        alt={`Professional Cleaning Services in ${location.city}`}
+        fill
+        className="hidden object-cover object-center brightness-100 md:block md:brightness-[0.85]"
+        priority
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-grey/50" />
+    </div>
+
+
+
+
 
         {/* Content container */}
         <div className="relative inset-0">
@@ -88,6 +103,9 @@ export default function DynamicHero({ location, businessInfo }: HeroProps) {
                   region="VIC"
                   className="mb-4 md:mb-8 scale-90 origin-left md:scale-100"
                 />
+
+
+                <div className="block md:hidden h-[130px]" />
 
                 <h1 className="text-xl md:text-4xl font-bold mb-5 md:mb-8 leading-tight md:leading-normal">
                   Professional Cleaning Services in {location.city} | End of Lease & NDIS Cleaning Experts
