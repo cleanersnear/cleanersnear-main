@@ -65,7 +65,8 @@ export default function DynamicHero({ location, businessInfo }: HeroProps) {
     <div className="relative bg-gray-50">
       <section className="relative h-auto md:h-[800px]">
         {/* Background image for both mobile and desktop */}
-        
+         {/* Background images with different sources for mobile and desktop */}
+    <div className="absolute inset-0">
         
         
         {/* Mobile image - shown on small screens */}
