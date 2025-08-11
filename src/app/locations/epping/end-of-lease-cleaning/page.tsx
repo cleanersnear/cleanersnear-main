@@ -19,7 +19,7 @@ const SITE_URL = "https://www.cleaningprofessionals.com.au";
 const CANONICAL = `${SITE_URL}/locations/epping/${SERVICE_SLUG}/`;
 
 export const metadata: Metadata = {
-  title: `End of Lease Cleaning ${SUBURB} VIC | Bond Back Guarantee | From $260`,
+  title: `${SERVICE} ${SUBURB} VIC | Bond Back Guarantee | From $260`,
   description: `Professional end of lease cleaning in ${SUBURB}, VIC. 100% bond back guarantee | Real estate approved | Same-day service | Eco-friendly | Book online in 60 seconds`,
   keywords: `end of lease cleaning ${SUBURB}, bond cleaning ${SUBURB}, vacate cleaning ${SUBURB}, end of lease cleaners ${SUBURB}, bond back cleaning ${SUBURB}, end of tenancy cleaning ${SUBURB}, exit clean ${SUBURB}, move out cleaning ${SUBURB}, cleaners near ${SUBURB}, local cleaners ${SUBURB}, bond cleaners ${SUBURB}, best end of lease cleaners ${SUBURB}, affordable end of lease cleaning ${SUBURB}, professional cleaners ${SUBURB}, end of lease cleaning services ${SUBURB}`,
   openGraph: {

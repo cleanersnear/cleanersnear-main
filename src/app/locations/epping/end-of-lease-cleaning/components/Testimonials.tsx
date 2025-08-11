@@ -238,7 +238,7 @@ function ReviewCard({ review, suburb }: { review: Review; suburb: string }) {
       </div>
       
       <p className="text-gray-600 mb-6 text-base md:text-lg italic">
-        "{review.quote}"
+        &quot;{review.quote}&quot;
       </p>
       
       <div className="flex items-center gap-3">
