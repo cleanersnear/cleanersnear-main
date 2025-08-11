@@ -13,25 +13,49 @@ import { MetadataRoute } from 'next'
  * @returns {MetadataRoute.Sitemap} The sitemap entries for manually optimized location pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  // Using www subdomain as per Next.js config and enforcing HTTPS
   const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   // Manually edited and SEO-optimized location pages
-  // Add new manually edited pages here as they are completed
+  // These pages have been individually crafted with enhanced content, metadata,
+  // and structured data for maximum SEO performance
   const manualLocationPages = [
     {
-      url: `${baseUrl}/locations/epping/end-of-lease-cleaning/`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.95 // Highest priority - manually optimized pages
+      route: 'locations/epping/end-of-lease-cleaning',
+      priority: 0.95,
+      changeFrequency: 'weekly' as const
     }
     // Add more manually edited pages here as they are completed:
     // {
-    //   url: `${baseUrl}/locations/[suburb]/[service]/`,
-    //   lastModified: new Date(),
-    //   changeFrequency: 'weekly' as const,
-    //   priority: 0.95
+    //   route: 'locations/[suburb]/[service]',
+    //   priority: 0.95,
+    //   changeFrequency: 'weekly' as const
     // }
   ]
-  
-  return manualLocationPages
+
+  // Format pages for the sitemap
+  const formattedPages = manualLocationPages.map(({ route, priority, changeFrequency }) => {
+    // Ensure consistent URL formatting with trailing slash
+    const formattedUrl = `${baseUrl}/${route}/`
+      
+    return {
+      url: formattedUrl,
+      lastModified: new Date(),
+      changeFrequency,
+      priority
+    }
+  })
+
+  // Remove any duplicate URLs
+  const uniqueUrls = new Set<string>()
+  const uniquePages = formattedPages.filter(page => {
+    const normalized = page.url.toLowerCase()
+    if (uniqueUrls.has(normalized)) {
+      return false
+    }
+    uniqueUrls.add(normalized)
+    return true
+  })
+
+  return uniquePages
 }
