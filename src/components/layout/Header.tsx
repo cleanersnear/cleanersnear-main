@@ -108,6 +108,20 @@ export default function Header() {
               />
             </a>
             <a 
+              href="https://www.tiktok.com/@cleaning.professional?is_from_webapp=1&sender_device=pc" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-5 h-5 flex items-center justify-center"
+            >
+              <Image 
+                src="/logos/Tiktok_icon.svg.png"
+                alt="TikTok"
+                width={20}
+                height={20}
+                className="w-full h-full object-contain hover:opacity-80 transition-opacity opacity-60"
+              />
+            </a>
+            <a 
               href="https://www.linkedin.com/company/cleaning-professionals-melbourne/" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -435,6 +449,9 @@ export default function Header() {
                   </a>
                   <a href="https://instagram.com" className="text-gray-600 hover:text-[#1E3D8F]">
                     <Image src="/logos/instagram.png" alt="Instagram" width={20} height={20} />
+                  </a>
+                  <a href="https://www.tiktok.com/@cleaning.professional?is_from_webapp=1&sender_device=pc" className="text-gray-600 hover:text-[#1E3D8F]">
+                    <Image src="/logos/Tiktok_icon.svg.png" alt="TikTok" width={20} height={20} />
                   </a>
                   <a href="https://linkedin.com" className="text-gray-600 hover:text-[#1E3D8F]">
                     <Image src="/logos/linkedin.png" alt="LinkedIn" width={20} height={20} />
