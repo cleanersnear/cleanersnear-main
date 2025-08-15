@@ -12,6 +12,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.95
+    },
+    {
+      url: 'https://www.cleaningprofessionals.com.au/locations/melbourne-cbd/',
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.95
     }
   ]
 }
