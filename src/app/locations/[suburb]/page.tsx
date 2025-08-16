@@ -432,9 +432,11 @@ export default async function LocationPage({
 export async function generateStaticParams() {
   const suburbs = Object.values(MELBOURNE_REGIONS).flatMap(region =>
     region.councils.flatMap(council => 
-      council.key_suburbs.map(suburb => ({
-        suburb: suburb.toLowerCase().replace(/\s+/g, '-')
-      }))
+      council.key_suburbs
+        .filter(suburb => suburb.toLowerCase().replace(/\s+/g, '-') !== 'melbourne-cbd') // Exclude melbourne-cbd to prevent routing conflict
+        .map(suburb => ({
+          suburb: suburb.toLowerCase().replace(/\s+/g, '-')
+        }))
     )
   )
   
