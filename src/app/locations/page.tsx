@@ -8,7 +8,7 @@ export default function LocationsDirectory() {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-36 pb-12">
         <header className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl font-bold mb-4">
             Cleaning Services Coverage Areas in Melbourne

@@ -34,6 +34,12 @@ const nextConfig: NextConfig = {
         destination: '/locations/melbourne-cbd/',
         permanent: true,
       },
+      // Ensure melbourne-cbd static route takes precedence over dynamic route
+      {
+        source: '/locations/melbourne-cbd',
+        destination: '/locations/melbourne-cbd/',
+        permanent: true,
+      },
       // Handle terms page variations
       {
         source: '/terms',
@@ -56,14 +62,11 @@ const nextConfig: NextConfig = {
         destination: '/blogs/professional-end-of-lease-cleaning-melbourne',
         permanent: true,
       },
-
-
       {
         source: '/blog/:slug',
         destination: '/blogs/:slug',
         permanent: true,
       },
-
       {
         source: '/services/windows-cleaning/',
         destination: '/services/window-cleaning/',
@@ -87,6 +90,19 @@ const nextConfig: NextConfig = {
       {
         source: '/services/holiday-cleaning',
         destination: '/services/move-in-cleaning/',
+        permanent: true,
+      },
+      // Handle query parameter redirects
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'query',
+            key: 'url',
+            value: '(?<url>.*)',
+          },
+        ],
+        destination: '/:path*/:url',
         permanent: true,
       },
     ]
@@ -157,8 +173,30 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // Enhanced image configuration
   images: {
-    domains: ['www.cleaningprofessionals.com.au', 'cleaningprofessionals.com.au'],
-    formats: ['image/avif', 'image/webp'],
+    domains: ['vzyscxgvpzsqbkzpvttk.supabase.co', 'www.cleaningprofessionals.com.au', 'cleaningprofessionals.com.au'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'vzyscxgvpzsqbkzpvttk.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/**',
+      },
+    ],
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    path: '/_next/image',
+    loader: 'default',
+    disableStaticImages: false,
+    minimumCacheTTL: 60,
+    dangerouslyAllowSVG: false,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  experimental: {
+    serverComponentsExternalPackages: [],
+    serverActions: {
+      bodySizeLimit: '2mb'
+    }
   }
 }
 

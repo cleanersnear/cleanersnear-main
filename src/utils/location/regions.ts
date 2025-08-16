@@ -30,13 +30,15 @@ export const MELBOURNE_REGIONS = {
     councils: [
       {
         name: "City of Melbourne",
-        key_suburbs: ["Melbourne CBD", "Carlton", "North Melbourne", "Docklands"],
-        postcodes: ["3000", "3053", "3051", "3008"],
+        key_suburbs: ["Melbourne CBD", "Carlton", "North Melbourne", "Docklands", "Southbank", "Parkville"],
+        postcodes: ["3000", "3053", "3051", "3008", "3006", "3052"],
         coordinates: [
           { lat: -37.8136, lng: 144.9631 }, // Melbourne CBD - verified
           { lat: -37.7947, lng: 144.9672 }, // Carlton - verified
           { lat: -37.7989, lng: 144.9541 }, // North Melbourne - verified
-          { lat: -37.8152, lng: 144.9455 }  // Docklands - verified
+          { lat: -37.8152, lng: 144.9455 }, // Docklands - verified
+          { lat: -37.8228, lng: 144.9646 }, // Southbank - verified
+          { lat: -37.7938, lng: 144.9559 }  // Parkville - verified
         ]
       },
       {
@@ -199,27 +201,7 @@ export const MELBOURNE_REGIONS = {
           }
         ]
       },
-      {
-        name: "City of Melbourne",
-        key_suburbs: ["CBD", "Carlton", "Docklands", "North Melbourne", "Southbank", "Parkville"],
-        postcodes: ["3000", "3053", "3008", "3051", "3006", "3052"],
-        coordinates: [
-          { lat: -37.8136, lng: 144.9631 }, // CBD - verified
-          { lat: -37.7947, lng: 144.9672 }, // Carlton - verified
-          { lat: -37.8152, lng: 144.9455 }, // Docklands - verified
-          { lat: -37.7989, lng: 144.9541 }, // North Melbourne - verified
-          { lat: -37.8228, lng: 144.9646 }, // Southbank - verified
-          { lat: -37.7938, lng: 144.9559 }  // Parkville - verified
-        ],
-        boundaries: [
-          {
-            north: -37.8083,
-            south: -37.8250,
-            east: 144.9833,
-            west: 144.9667
-          }
-        ]
-      },
+
       {
         name: "City of Boroondara",
         key_suburbs: ["Hawthorn", "Kew", "Camberwell", "Balwyn", "Surrey Hills"],
