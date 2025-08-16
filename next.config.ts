@@ -60,11 +60,7 @@ const nextConfig: NextConfig = {
         destination: '/services/window-cleaning/',
         permanent: true,
       },
-      {
-        source: '/locations/melbourne',
-        destination: '/locations/melbourne-cbd/',
-        permanent: true,
-      },
+      
       {
         source: '/services/general-house-cleaning/',
         destination: '/services/general-cleaning/',
