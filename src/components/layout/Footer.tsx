@@ -90,7 +90,7 @@ export default function Footer() {
           <div>
             <h3 className="text-base md:text-lg font-bold mb-6">Service Areas</h3>
             <ul className="space-y-3 text-sm md:text-base">
-              <li><Link href="/locations/melbourne" className="hover:text-[#FFA500]">Melbourne CBD</Link></li>
+              <li><Link href="/locations/melbourne-cbd" className="hover:text-[#FFA500]">Melbourne CBD</Link></li>
               <li><Link href="/locations/south-yarra" className="hover:text-[#FFA500]">South Yarra</Link></li>
               <li><Link href="/locations/toorak" className="hover:text-[#FFA500]">Toorak</Link></li>
               <li><Link href="/locations/richmond" className="hover:text-[#FFA500]">Richmond</Link></li>
