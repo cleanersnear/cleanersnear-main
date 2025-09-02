@@ -80,7 +80,7 @@ export default function Footer() {
               <li><Link href="/services/commercial-cleaning" className="hover:text-[#FFA500]">Commercial Cleaning</Link></li>
               <li><Link href="/services/after-renovation-cleaning" className="hover:text-[#FFA500]">After Renovation Clean</Link></li>
               <li><Link href="/services/oven-cleaning" className="hover:text-[#FFA500]">Oven Clean</Link></li>
-              <li><Link href="/services/tile-and-floor-cleaning" className="hover:text-[#FFA500]">Tile & Floor Clean</Link></li>
+              <li><Link href="/services/airbnb-cleaning" className="hover:text-[#FFA500]">Airbnb Cleaning</Link></li>
               <li><Link href="/services/upholstery-cleaning" className="hover:text-[#FFA500]">Upholstery Clean</Link></li>
               <li><Link href="/services/window-cleaning" className="hover:text-[#FFA500]">Window Clean</Link></li>
             </ul>

@@ -41,7 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'deep-cleaning',
     'move-in-cleaning',
     'ndis-cleaning',
-    'commercial-cleaning'
+    'commercial-cleaning',
+    'airbnb-cleaning'
   ].map(service => ({
     url: `${baseUrl}/services/${service}/`,
     lastModified: new Date(),

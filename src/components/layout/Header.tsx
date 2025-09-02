@@ -18,7 +18,7 @@ const serviceLinks = [
   { title: 'Commercial Cleaning', href: '/services/commercial-cleaning' },
   { title: 'After Renovation Clean', href: '/services/after-renovation-cleaning' },
   { title: 'Oven Clean', href: '/services/oven-cleaning' },
-  { title: 'Tile & Floor Clean', href: '/services/tile-and-floor-cleaning' },
+  { title: 'Airbnb Cleaning', href: '/services/airbnb-cleaning' },
   { title: 'Upholstery Clean', href: '/services/upholstery-cleaning' },
   { title: 'Window Clean', href: '/services/window-cleaning' }
 ]
