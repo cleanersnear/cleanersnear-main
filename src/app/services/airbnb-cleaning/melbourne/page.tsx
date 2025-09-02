@@ -1,7 +1,18 @@
 import Link from 'next/link'
 import { Check, MapPin, Star, Phone } from 'lucide-react'
 import AirbnbCleaningHero from '../components/AirbnbCleaningHero'
+import ServiceIntro from '../components/ServiceIntro'
 import MobileWhatsIncluded from '../components/MobileWhatsIncluded'
+import { ServiceBase } from '@/app/quick-book/types/service'
+
+// Mock service data for the component
+const service: ServiceBase = {
+  id: 'airbnb-cleaning',
+  title: 'Airbnb Cleaning Melbourne',
+  description: 'Professional Airbnb cleaning service in Melbourne CBD and suburbs',
+  category: 'popular',
+  type: 'airbnb-cleaning'
+}
 
 const melbourneSuburbs = [
   'Melbourne CBD', 'South Yarra', 'St Kilda', 'Richmond', 'Brunswick', 'Carlton',
@@ -17,194 +28,8 @@ export default function MelbourneAirbnbCleaningPage() {
       {/* Hero Section */}
       <AirbnbCleaningHero />
 
-      {/* Service Introduction - Custom Content */}
-      <section className="md:py-12 hidden md:block">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Content Area */}
-            <div className="lg:col-span-2 hidden md:block">
-              <div className="prose prose-lg max-w-none">
-                <h2 className="text-3xl font-bold text-[#1E3D8F] mb-6">
-                  Melbourne&apos;s Most Trusted Airbnb Cleaning Service
-                </h2>
-                <p className="text-gray-600 mb-8">
-                  Keep your Airbnb property spotless and your guests happy with our professional Airbnb cleaning service. 
-                  We understand the unique needs of short stay properties and provide reliable turnover cleaning that meets 
-                  the highest standards expected by your guests.
-                </p>
-
-                {/* Service Features */}
-                <div className="grid md:grid-cols-2 gap-6 mb-12">
-                  <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 className="font-bold text-xl mb-4">Living Areas & Bedrooms</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Remove cobwebs from walls and ceilings</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean all skirting boards and window sills</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Wipe doors and door frames</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean switches and power points</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Vacuum and mop all floors</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Make beds with fresh linen (if provided)</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 className="font-bold text-xl mb-4">Kitchen</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Deep clean stovetop and rangehood</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean and sanitize all benchtops</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean and polish sink area</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean inside/outside microwave</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Deep clean oven (inside and out)</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Empty and clean refrigerator</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 className="font-bold text-xl mb-4">Bathrooms and Toilets</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Deep clean shower and screens</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean and sanitize vanity area</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Thorough toilet cleaning</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Wall tiles and grout cleaning</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Clean exhaust fans</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Replace towels and amenities</span>
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <h3 className="font-bold text-xl mb-4">Our Guarantee</h3>
-                    <ul className="space-y-3">
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>100% Satisfaction Guarantee</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Airbnb Host Approved Service</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Professional Equipment Used</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Experienced Cleaning Team</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Public Liability Insured</span>
-                      </li>
-                      <li className="flex items-start">
-                        <Check className="text-green-500 mt-1 mr-2 flex-shrink-0" />
-                        <span>Same Day Service Available</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1 hidden md:block">
-              <div className="bg-white rounded-lg shadow-lg p-6 sticky top-32">
-                <h3 className="text-2xl font-bold mb-4">Book Your Clean</h3>
-                <div className="mb-6">
-                  <div className="text-sm text-gray-500">Starting from</div>
-                  <div className="text-3xl font-bold text-[#1E3D8F]">$149</div>
-                  <div className="text-sm text-gray-500">Studio/1 Bedroom</div>
-                </div>
-                <div className="mb-4">
-                  <Link
-                    href="/services/airbnb-cleaning/book"
-                    className="block w-full bg-[#1E3D8F] text-white text-center py-3 rounded-md hover:bg-opacity-90 transition-all"
-                  >
-                    Book Now
-                  </Link>
-                </div>
-                <Link
-                  href="/services/airbnb-cleaning/pricing"
-                  className="block w-full border-2 border-[#1E3D8F] text-[#1E3D8F] text-center py-3 rounded-md hover:bg-[#1E3D8F] hover:text-white transition-all"
-                >
-                  See Detailed Pricing
-                </Link>
-
-                {/* Operating Hours */}
-                <div className="mt-8">
-                  <h4 className="font-bold mb-4">Operating Hours</h4>
-                  <div className="space-y-2">
-                    <div className="flex justify-between">
-                      <span>Monday - Friday</span>
-                      <span>8am – 8pm</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Saturday</span>
-                      <span>9am - 7pm</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sunday</span>
-                      <span>9am - 8pm</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Service Introduction */}
+      <ServiceIntro service={service} />
 
       {/* Mobile What's Included */}
       <MobileWhatsIncluded />

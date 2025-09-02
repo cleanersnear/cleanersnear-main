@@ -9,6 +9,7 @@ export type ServiceType =
     | 'ndis-cleaning'
     | 'commercial-cleaning'
     | 'spring-cleaning'
+    | 'airbnb-cleaning'
     // Other services
     | 'after-renovation-cleaning'
     | 'oven-cleaning'
