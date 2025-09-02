@@ -3,15 +3,14 @@ import { Check, MapPin, Star, Phone } from 'lucide-react'
 import AirbnbCleaningHero from '../components/AirbnbCleaningHero'
 import ServiceIntro from '../components/ServiceIntro'
 import MobileWhatsIncluded from '../components/MobileWhatsIncluded'
-import { ServiceBase } from '@/app/quick-book/types/service'
 
-// Mock service data for the component
-const service: ServiceBase = {
-  id: 'airbnb-cleaning',
+// Local service data for this page
+const service = {
+  id: 'airbnb-cleaning' as const,
   title: 'Airbnb Cleaning Melbourne',
   description: 'Professional Airbnb cleaning service in Melbourne CBD and suburbs',
-  category: 'popular',
-  type: 'airbnb-cleaning'
+  category: 'popular' as const,
+  type: 'airbnb-cleaning' as const
 }
 
 const melbourneSuburbs = [
