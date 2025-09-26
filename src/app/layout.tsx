@@ -1,66 +1,21 @@
-import { Roboto } from "next/font/google"
-import { Metadata } from "next"
-import "./globals.css"
-import Script from 'next/script'
-import { getOrganizationSchema } from '@/config/schema'
-import { siteConfig } from '@/config/site'
-
-// Google Analytics Measurement ID (GA4)
-const GA_MEASUREMENT_ID = 'G-W87SXGYKC1'
-const AW_MEASUREMENT_ID = 'AW-16653720077' // Google Ads Conversion Tracking ID
+import type { Metadata } from "next";
+import { Roboto } from "next/font/google";
+import "./globals.css";
 
 const roboto = Roboto({
-    weight: ['300', '400', '500', '700'],
-    subsets: ['latin'],
-    display: 'swap',
-    preload: true,
-    fallback: ['system-ui', 'arial'],
-})
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
   title: {
-    template: siteConfig.title.template,
-    default: siteConfig.title.default,
+    default: "House Cleaning Melbourne | Professional Cleaning Services | Cleaning Professionals",
+    template: "%s | Cleaning Professionals - Melbourne's Trusted Cleaning Service"
   },
-  description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Trained Professionals | Fully Insured Teams. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing All Melbourne Suburbs.',
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_AU',
-    url: 'https://www.cleaningprofessionals.com.au',
-    title: 'Cleaning Professionals Melbourne | Professional House & Commercial Cleaning',
-    description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Trained Professionals | Fully Insured Teams. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing All Melbourne Suburbs.',
-    images: [
-      {
-        url: '/images/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Cleaning Professionals Melbourne - Professional Cleaning Services',
-      }
-    ],
-    siteName: 'Cleaning Professionals Melbourne'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Cleaning Professionals Melbourne | Professional Cleaning Services',
-    description: 'Melbourne\'s Trusted Cleaning Service | Police Cleared | Reference Checked | Fully Insured Teams. Servicing All Melbourne Suburbs.',
-    images: ['/images/twitter-image.jpg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
+  description: "Melbourne's most trusted cleaning service with police cleared, trained professionals. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing all Melbourne suburbs with 4+ years experience.",
   keywords: [
     // Primary Service Keywords
     'house cleaning melbourne',
@@ -95,121 +50,440 @@ export const metadata: Metadata = {
     'house cleaners near me',
     'home cleaning services melbourne',
     'house cleaners',
-    'residential cleaning brisbane',
-    'house cleaning house',
-    'home cleaning home',
-    'and cleaning services',
-    'cleaning jobs perth wa',
-    'housework cleaning',
-    'a cleaning services',
-    'cleaning svc',
-    'maid service perth',
-    'cleaning jobs in australia melbourne',
-    'cleaning firm',
-    'near me cleaners',
-    'cleaning housekeeping services',
-    'service house cleaning',
-    'clean cleaning company',
-    'cleaning service services',
-    'cleaners to clean house',
-    'home cleaners adelaide',
     'maid service melbourne',
     'ndis cleaning service',
-    'maid service cleaning',
-    'home cleaners perth',
-    'move in move out cleaners',
     'home cleaners melbourne',
     'household cleaners near me',
     'move in and move out cleaning',
-    'maid cleaner',
     'household cleaning services near me',
     'residential cleaning service near me',
-    'home cleaning services melbourne',
-    'house cleaning melbourne',
-    'maid to clean'
+    'maid to clean',
+    'police cleared cleaners',
+    'trained cleaning professionals',
+    'fully insured cleaners'
   ].join(', '),
-  verification: {
-    // This should be your Google Search Console verification code
-    // Get this from Google Search Console > Settings > Ownership verification > HTML tag
-    // Should look like: google-site-verification=xxxxxxxxxxxxxx
-    google: '',  // Leave empty until you get the verification code
+  authors: [{ name: "Cleaning Professionals Team" }],
+  creator: "Cleaning Professionals",
+  publisher: "Cleaning Professionals",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
+  metadataBase: new URL('https://www.cleaningprofessionals.com.au'),
   alternates: {
-    canonical: 'https://www.cleaningprofessionals.com.au',
+    canonical: '/',
   },
-  authors: [{ name: 'Cleaning Professionals Melbourne' }],
-  creator: 'Cleaning Professionals Melbourne',
-  publisher: 'Cleaning Professionals Melbourne',
-  other: {
-    // Same as above - leave empty until you get the verification code
-    'google-site-verification': '',
-    'msvalidate.01': '',  // Bing verification code
-    'format-detection': 'telephone=no'
-  }
-}
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_AU',
+    url: 'https://www.cleaningprofessionals.com.au',
+    siteName: 'Cleaning Professionals',
+    title: 'House Cleaning Melbourne | Professional Cleaning Services | Cleaning Professionals',
+    description: 'Melbourne\'s most trusted cleaning service with police cleared, trained professionals. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing all Melbourne suburbs with 4+ years experience.',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Cleaning Professionals - Professional House Cleaning Services Melbourne',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'House Cleaning Melbourne | Professional Cleaning Services | Cleaning Professionals',
+    description: 'Melbourne\'s most trusted cleaning service with police cleared, trained professionals. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing all Melbourne suburbs with 4+ years experience.',
+    images: ['/images/og-image.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: '', // Add your Google Search Console verification code here
+  },
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.cleaningprofessionals.com.au/#organization",
+        "name": "Cleaning Professionals",
+        "url": "https://www.cleaningprofessionals.com.au",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.cleaningprofessionals.com.au/logos/logo.png",
+          "width": 300,
+          "height": 100
+        },
+        "description": "Professional house cleaning services in Melbourne. End of lease cleaning, deep cleaning, NDIS cleaning, and regular cleaning services with police cleared, trained professionals.",
+        "foundingDate": "2020",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Melbourne",
+          "addressRegion": "VIC",
+          "addressCountry": "AU"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+61-000-000-000",
+          "contactType": "customer service",
+          "areaServed": "AU",
+          "availableLanguage": "English"
+        },
+        "sameAs": [
+          "https://www.facebook.com/cleaningprofessionals",
+          "https://www.instagram.com/cleaningprofessionals",
+          "https://www.linkedin.com/company/cleaningprofessionals"
+        ],
+        "serviceArea": {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": -37.8136,
+            "longitude": 144.9631
+          },
+          "geoRadius": "50000"
+        }
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.cleaningprofessionals.com.au/#localbusiness",
+        "name": "Cleaning Professionals - House Cleaning Melbourne",
+        "image": "https://www.cleaningprofessionals.com.au/images/og-image.jpg",
+        "telephone": "+61-000-000-000",
+        "email": "info@cleaningprofessionals.com.au",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Melbourne",
+          "addressRegion": "VIC",
+          "addressCountry": "AU"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -37.8136,
+          "longitude": 144.9631
+        },
+        "url": "https://www.cleaningprofessionals.com.au",
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 08:00-18:00, Sa 09:00-17:00",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Cleaning Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "House Cleaning",
+                "description": "Regular house cleaning services with trained professionals"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "End of Lease Cleaning",
+                "description": "Professional bond cleaning services for rental properties"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Deep Cleaning",
+                "description": "Comprehensive deep cleaning services for thorough results"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "NDIS Cleaning",
+                "description": "Specialized NDIS cleaning services for participants"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Commercial Cleaning",
+                "description": "Professional commercial cleaning services for businesses"
+              }
+            }
+          ]
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "740",
+          "bestRating": "5",
+          "worstRating": "1"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.cleaningprofessionals.com.au/#website",
+        "url": "https://www.cleaningprofessionals.com.au",
+        "name": "Cleaning Professionals",
+        "description": "Melbourne's most trusted cleaning service with police cleared, trained professionals. Professional house cleaning, end of lease, NDIS & commercial cleaning. Servicing all Melbourne suburbs with 4+ years experience.",
+        "publisher": {
+          "@id": "https://www.cleaningprofessionals.com.au/#organization"
+        },
+        "potentialAction": [
+          {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://www.cleaningprofessionals.com.au/book?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        ],
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "SiteNavigationElement",
+              "name": "From $76 For Two Hours",
+              "url": "https://www.cleaningprofessionals.com.au/services/general-cleaning",
+              "description": "Affordable house cleaning that doesn't compromise on quality. Enjoy a fresh, spotless home starting from just $76 for 2 hours. Perfect for busy Melbourne households."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Get Instant Quote - Book Now!",
+              "url": "https://www.cleaningprofessionals.com.au/book",
+              "description": "Know your cleaning cost instantly! Get an accurate quote online and book your Melbourne home clean in seconds—simple, quick, and hassle-free."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Contact Us",
+              "url": "https://www.cleaningprofessionals.com.au/contact",
+              "description": "Have questions or need a custom clean? Reach out to our friendly Melbourne team and we'll make your cleaning experience easy and stress-free."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "See Our Pricing",
+              "url": "https://www.cleaningprofessionals.com.au/services",
+              "description": "Transparent, fair pricing for all your cleaning needs. Check our Melbourne cleaning rates and find a plan that suits your home and schedule."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "End of Lease Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/end-of-lease-cleaning",
+              "description": "Get your bond back guaranteed! Our thorough end of lease cleaning in Melbourne ensures your rental property meets all inspection standards."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Move In Clean",
+              "url": "https://www.cleaningprofessionals.com.au/services/move-in-cleaning",
+              "description": "Start fresh in your new Melbourne home! Our move-in cleaning service ensures every corner is spotless before you unpack your belongings."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "NDIS Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/ndis-cleaning",
+              "description": "Specialized cleaning services for NDIS participants in Melbourne. Our trained team understands your unique needs and provides compassionate, reliable care."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Deep Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/deep-cleaning",
+              "description": "When your Melbourne home needs more than regular cleaning, our deep clean service tackles every detail—from baseboards to ceiling fans and everything in between."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Air BnB Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/airbnb-cleaning",
+              "description": "Keep your Melbourne Air BnB guest-ready with our professional turnover cleaning. Fast, thorough, and designed to impress your guests every time."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Commercial Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/commercial-cleaning",
+              "description": "Professional office and commercial cleaning in Melbourne. Keep your workplace spotless and productive with our reliable business cleaning services."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Reviews",
+              "url": "https://www.cleaningprofessionals.com.au/reviews",
+              "description": "See why Melbourne homeowners trust Cleaning Professionals. Honest reviews from real clients show our commitment to thorough, reliable cleaning every time."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "About Us",
+              "url": "https://www.cleaningprofessionals.com.au/about",
+              "description": "Meet the team behind Melbourne's most trusted cleaning service. Learn about our police-cleared staff, comprehensive training, and 4+ years of local experience."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Book Online",
+              "url": "https://www.cleaningprofessionals.com.au/quick-book/location",
+              "description": "Booking your Melbourne home clean is simple. Choose your service, select a time, and secure your professional cleaning in just a few clicks."
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.cleaningprofessionals.com.au/#faqpage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How much does house cleaning cost in Melbourne?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our house cleaning services are competitively priced based on the size of your home, frequency of cleaning, and specific services required. We offer transparent pricing with no hidden fees. Contact us for a personalized quote for your Melbourne home."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are your cleaners police cleared and trained?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all our cleaners are police cleared, thoroughly trained, and professionally vetted. We ensure the highest standards of security and professionalism for your peace of mind."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What areas of Melbourne do you service?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We service all major Melbourne suburbs including inner city, eastern, western, northern, and southern regions. Our service area covers 200+ suburbs across Melbourne. Contact us to confirm service availability in your area."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What cleaning services do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer regular house cleaning, deep cleaning, end of lease cleaning, NDIS cleaning, commercial cleaning, and one-time cleaning services. Each service is tailored to meet your specific needs and schedule."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can I book a cleaning service?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You can book our cleaning services quickly and easily online or by phone. We offer flexible scheduling including same-day and next-day availability for most Melbourne areas, subject to availability."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are you fully insured?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we are fully insured with comprehensive public liability insurance. Your home and belongings are protected, and we guarantee the quality of our work."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Review",
+        "@id": "https://www.cleaningprofessionals.com.au/#review",
+        "itemReviewed": {
+          "@type": "LocalBusiness",
+          "name": "Cleaning Professionals",
+          "@id": "https://www.cleaningprofessionals.com.au/#localbusiness"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4.9",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Sarah M."
+        },
+        "reviewBody": "Absolutely fantastic service! The team arrived on time, was incredibly thorough, and left our Melbourne home spotless. The cleaners were professional, polite, and clearly well-trained. I was impressed by their attention to detail and the quality of their work. Highly recommend Cleaning Professionals for anyone looking for reliable, professional cleaning services.",
+        "datePublished": "2024-01-15"
+      }
+    ]
+  };
+
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics Script */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
+        
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-W87SXGYKC1');
+            `,
+          }}
         />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+        
+        {/* Google Analytics 4 */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-W87SXGYKC1"
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}', {
-                page_path: window.location.pathname,
+              gtag('config', 'G-W87SXGYKC1', {
+                page_title: document.title,
+                page_location: window.location.href,
               });
             `,
           }}
         />
-        {/* Google Ads Conversion Tracking Script */}
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${AW_MEASUREMENT_ID}`}
-        />
-        <Script
-          id="google-ads-conversion"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${AW_MEASUREMENT_ID}');
-            `,
-          }}
-        />
-        <Script
-          id="ahrefs-analytics"
-          strategy="afterInteractive"
-          src="https://analytics.ahrefs.com/analytics.js"
-          data-key="JYH3/BMc5iSMglfPgKQ4AQ"
-        />
-        {/* Organization Schema */}
-        <Script
-          id="organization-schema"
+
+        <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(getOrganizationSchema())
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body className={roboto.className}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W87SXGYKC1"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+        
         {children}
       </body>
     </html>
-  )
+  );
 }
