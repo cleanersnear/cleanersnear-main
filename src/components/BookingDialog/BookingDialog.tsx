@@ -18,6 +18,12 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
   const setBookingType = useBookingStore((s) => s.setBookingType);
   const setFrequency = useBookingStore((s) => s.setFrequency);
 
+  const handleClose = () => {
+    // Ensure dialog is marked as shown when closed
+    sessionStorage.setItem('bookingDialogShown', 'true');
+    onClose();
+  };
+
   const handleOptionClick = (option: string) => {
     if (option === 'Unsure') {
       // For Unsure, set both to null and redirect to pricing page
@@ -38,7 +44,7 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
     }
       router.push('/book');
     }
-    onClose();
+    handleClose();
   };
 
   return (
@@ -69,7 +75,7 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
       }}>
         {/* Close button - absolute positioned */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           style={{
             position: 'absolute',
             top: 12,

@@ -34,8 +34,17 @@ export default function HomePageClient() {
 
   useEffect(() => {
     if (isClient) {
-      const timer = setTimeout(() => setShowBookingDialog(true), 3000);
-      return () => clearTimeout(timer);
+      // Check if dialog has been shown in this session
+      const hasSeenDialog = sessionStorage.getItem('bookingDialogShown');
+      
+      if (!hasSeenDialog) {
+        const timer = setTimeout(() => {
+          setShowBookingDialog(true);
+          // Mark dialog as shown in this session
+          sessionStorage.setItem('bookingDialogShown', 'true');
+        }, 3000);
+        return () => clearTimeout(timer);
+      }
     }
   }, [isClient]);
 
@@ -249,3 +258,4 @@ export default function HomePageClient() {
     </MainLayout>
   )
 }
+
