@@ -1,7 +1,7 @@
 import MainLayout from '@/components/layout/MainLayout'
 import Image from 'next/image'
 import { Award, Users, Clock, Shield } from 'lucide-react'
-import SubscriptionSection from '@/components/features/SubscriptionSection'
+import { Subscription } from '@/app/services/components/Subscription'
 import { Metadata } from "next"
 
 
@@ -350,7 +350,7 @@ export default function AboutPage() {
       </section>
 
       {/* Subscription Section */}
-      <SubscriptionSection />
+      <Subscription />
     </MainLayout>
   )
 } 

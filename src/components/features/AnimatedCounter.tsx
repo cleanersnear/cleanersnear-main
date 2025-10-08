@@ -9,37 +9,28 @@ interface AnimatedCounterProps {
   suffix?: string
 }
 
-export default function AnimatedCounter({ end, duration = 2000, suffix = '' }: AnimatedCounterProps) {
+export default function AnimatedCounter({ end, duration = 1600, suffix = '' }: AnimatedCounterProps) {
   const [count, setCount] = useState(0)
-  const { ref, inView } = useInView({
-    threshold: 0,
-    triggerOnce: true
-  })
-  const countRef = useRef(count)
+  const { ref, inView } = useInView({ threshold: 0, triggerOnce: true })
   const startTimeRef = useRef<number>(0)
 
   useEffect(() => {
-    if (inView) {
-      const animate = (timestamp: number) => {
-        if (!startTimeRef.current) {
-          startTimeRef.current = timestamp
-        }
+    if (!inView) return
 
-        const progress = timestamp - startTimeRef.current
-        const percentage = Math.min(progress / duration, 1)
-        
-        const currentCount = Math.floor(end * percentage)
-        setCount(currentCount)
-        countRef.current = currentCount
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3)
 
-        if (percentage < 1) {
-          requestAnimationFrame(animate)
-        }
-      }
-
-      requestAnimationFrame(animate)
+    const animate = (timestamp: number) => {
+      if (!startTimeRef.current) startTimeRef.current = timestamp
+      const progress = Math.min((timestamp - startTimeRef.current) / duration, 1)
+      const eased = easeOutCubic(progress)
+      setCount(Math.round(end * eased))
+      if (progress < 1) requestAnimationFrame(animate)
     }
+
+    const rAF = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(rAF)
   }, [inView, end, duration])
 
-  return <span ref={ref}>{count}{suffix}</span>
-} 
+  const formatted = new Intl.NumberFormat().format(count)
+  return <span ref={ref}>{formatted}{suffix}</span>
+}

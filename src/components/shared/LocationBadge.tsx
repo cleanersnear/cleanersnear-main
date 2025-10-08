@@ -5,9 +5,7 @@ import { LocationBadgeProps } from '@/components/Home/HeroSection/types'
 export function LocationBadge({ city, region, className = '' }: LocationBadgeProps) {
   return (
     <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full
-      bg-white/10 
-      backdrop-blur-sm 
-      text-white
+      bg-[#1E3D8F] text-white shadow
       ${className}`}
     >
       <svg 

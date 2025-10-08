@@ -4,6 +4,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Footer() {
+  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '0450124086'
+  const emailPrimary = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'info@cleaningprofessionals.com.au'
+  const telHref = `tel:${phone.replace(/\s/g,'')}`
   return (
     <footer className="bg-[#1E3D8F] text-white">
       <div className="container mx-auto px-4 py-16">
@@ -22,13 +25,10 @@ export default function Footer() {
             </p>
             <div className="space-y-4 text-sm md:text-base">
               <p className="text-gray-300 font-medium">Email:</p>
-              <a href="mailto:info@cleaningprofessionals.com.au" className="text-white hover:text-[#FFA500] text-sm md:text-base block mb-2">
-                info@cleaningprofessionals.com.au
+              <a href={`mailto:${emailPrimary}`} className="text-white hover:text-[#FFA500] text-sm md:text-base block mb-2">
+                {emailPrimary}
               </a>
-              <a href="mailto:account@cleaningprofessionals.com.au" className="block text-white hover:text-[#FFA500] text-sm md:text-base">
-                account@cleaningprofessionals.com.au
-              </a>
-              <p className="text-gray-300 mt-6 font-medium">Phone: <a href="tel:0450124086" className="text-white hover:text-[#FFA500] ml-1">0450124086</a></p>
+              <p className="text-gray-300 mt-6 font-medium">Phone: <a href={telHref} className="text-white hover:text-[#FFA500] ml-1">{phone}</a></p>
             </div>
             <div className="flex gap-4 mt-6">
               <Link href="https://www.facebook.com/people/Cleaning-Professionals/61572518431848/" className="text-white hover:text-[#FFA500] transition-colors">
@@ -63,6 +63,7 @@ export default function Footer() {
               <li><Link href="/services" className="hover:text-[#FFA500]">Services</Link></li>
               <li><Link href="/pricing" className="hover:text-[#FFA500]">Pricing</Link></li>
               <li><Link href="/blogs" className="hover:text-[#FFA500]">Blog</Link></li>
+              <li><Link href="/reviews" className="hover:text-[#FFA500]">Reviews</Link></li>
               <li><Link href="/contact" className="hover:text-[#FFA500]">Contact</Link></li>
             </ul>
           </div>
@@ -71,18 +72,12 @@ export default function Footer() {
           <div>
             <h3 className="text-base md:text-lg font-bold mb-6">Services</h3>
             <ul className="space-y-3 text-sm md:text-base">
-              <li><Link href="/services/carpet-cleaning" className="hover:text-[#FFA500]">Carpet Cleaning</Link></li>
-              <li><Link href="/services/end-of-lease-cleaning" className="hover:text-[#FFA500]">End Of Lease Cleaning</Link></li>
-              <li><Link href="/services/general-cleaning" className="hover:text-[#FFA500]">General Cleaning</Link></li>
-              <li><Link href="/services/deep-cleaning" className="hover:text-[#FFA500]">Deep Cleaning</Link></li>
-              <li><Link href="/services/move-in-cleaning" className="hover:text-[#FFA500]">Move In Cleaning</Link></li>
+              <li><Link href="/services/regular-cleaning" className="hover:text-[#FFA500]">Regular Cleaning</Link></li>
+              <li><Link href="/services/once-off-cleaning" className="hover:text-[#FFA500]">Once-Off Cleaning</Link></li>
               <li><Link href="/services/ndis-cleaning" className="hover:text-[#FFA500]">NDIS Cleaning</Link></li>
-              <li><Link href="/services/commercial-cleaning" className="hover:text-[#FFA500]">Commercial Cleaning</Link></li>
-              <li><Link href="/services/after-renovation-cleaning" className="hover:text-[#FFA500]">After Renovation Clean</Link></li>
-              <li><Link href="/services/oven-cleaning" className="hover:text-[#FFA500]">Oven Clean</Link></li>
               <li><Link href="/services/airbnb-cleaning" className="hover:text-[#FFA500]">Airbnb Cleaning</Link></li>
-              <li><Link href="/services/upholstery-cleaning" className="hover:text-[#FFA500]">Upholstery Clean</Link></li>
-              <li><Link href="/services/window-cleaning" className="hover:text-[#FFA500]">Window Clean</Link></li>
+              <li><Link href="/services/end-of-lease-cleaning" className="hover:text-[#FFA500]">End Of Lease Cleaning</Link></li>
+              <li><Link href="/services/commercial-cleaning" className="hover:text-[#FFA500]">Commercial Cleaning</Link></li>
             </ul>
           </div>
 
@@ -128,8 +123,8 @@ export default function Footer() {
 
             <h3 className="text-base md:text-lg font-bold mb-4">Policies</h3>
             <ul className="space-y-3 text-sm md:text-base">
-              <li><Link href="/privacy-policy" className="hover:text-[#FFA500]">Privacy Policy</Link></li>
-              <li><Link href="/terms-and-conditions" className="hover:text-[#FFA500]">Terms & Conditions</Link></li>
+              <li><Link href="/about/privacy-policy" className="hover:text-[#FFA500]">Privacy Policy</Link></li>
+              <li><Link href="/about/terms-and-conditions" className="hover:text-[#FFA500]">Terms & Conditions</Link></li>
               {/* To be enabled once pages are customized */}
               {/* <li><Link href="/cookie-policy" className="hover:text-[#FFA500]">Cookie Policy</Link></li> */}
               {/* <li><Link href="/collection-notice" className="hover:text-[#FFA500]">Collection Notice</Link></li> */}

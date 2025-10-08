@@ -12,10 +12,13 @@ interface BlogPost {
     readTime: string;
     lastUpdated: string;
     coverImage: string;
+    category: string;
     author: {
         name: string;
         image: string;
     }
+    categories?: string[];
+    tags?: string[];
 }
 
 interface Pagination {
@@ -32,16 +35,24 @@ export default function HomeLatestBlogs() {
     useEffect(() => {
         const fetchLatestBlogs = async () => {
             try {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/latest`);
+                const base = process.env.NEXT_PUBLIC_API_URL?.trim();
+                const url = base && base.startsWith('http') 
+                  ? `${base}/api/blog/latest`
+                  : `/api/blog/latest`;
+                const res = await fetch(url, { cache: 'no-store' });
+                if (!res.ok) throw new Error(`Request failed: ${res.status}`);
                 const data = await res.json();
-                setBlogs(data.blogs);
+                const items = Array.isArray(data?.blogs) ? data.blogs : [];
+                setBlogs(items);
                 setPagination({
-                    totalBlogs: data.blogs.length,
+                    totalBlogs: items.length,
                     postsPerPage: 3,
-                    totalPages: Math.ceil(data.blogs.length / 3)
+                    totalPages: Math.ceil(items.length / 3)
                 });
             } catch (error) {
                 console.error('Error fetching latest blogs:', error);
+                setBlogs([]);
+                setPagination({ totalBlogs: 0, postsPerPage: 3, totalPages: 0 });
             }
         };
 
@@ -57,30 +68,30 @@ export default function HomeLatestBlogs() {
     if (!blogs.length) return null;
 
     return (
-        <section className="py-20">
+        <section className="py-10">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
                     <div className="w-full md:w-auto">
-                        <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
+                <div className="flex items-center justify-center md:justify-start gap-4 mb-2">
                             <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
-                            <span className="text-xs md:text-sm uppercase tracking-wider text-center">BLOGS</span>
+                    <span className="text-xs md:text-sm uppercase tracking-wider text-center text-[#1E3D8F]">BLOGS</span>
                             <div className="w-8 md:w-12 h-[1px] bg-gray-300"></div>
                         </div>
-                        <h2 className="text-xl md:text-4xl font-bold mt-2 mb-4 md:mb-0">
+                        <h2 className="text-center text-xl md:text-4xl font-bold mt-2 mb-4 md:mb-0">
                             Tips to keep the&nbsp;<br className="hidden md:block" />
-                            surroundings clean.
+                            surroundings clean
                         </h2>
-                        <Link 
-                            href="/blogs"
-                            className="w-full md:w-auto bg-white text-[#1E3D8F] border-2 border-[#1E3D8F] md:border-0 md:bg-[#FFA500] md:text-white px-4 md:px-6 py-3 md:py-3 text-sm md:text-base hover-[#1E3D8F] hover:text-white md:hover:bg-opacity-90 transition-all duration-200 text-center mt-4 block md:hidden"
-                        >
+                <Link 
+                    href="/blogs"
+                    className="w-full md:w-auto bg-white text-[#1E3D8F] border-2 border-[#1E3D8F] md:border-0 md:bg-[#1E3D8F] md:text-white px-4 md:px-6 py-3 md:py-3 text-sm md:text-base hover:bg-[#1E3D8F]/10 md:hover:bg-[#1E3D8F]/90 transition-all duration-200 text-center mt-4 block md:hidden rounded-lg"
+                >
                             VIEW ALL POSTS
                         </Link>
                     </div>
                     {/* Desktop View All Posts button */}
                     <Link 
                         href="/blogs"
-                        className="hidden md:block bg-[#FFA500] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
+                className="hidden md:block bg-[#1E3D8F] text-white px-6 py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
                     >
                         VIEW ALL POSTS
                     </Link>
@@ -101,6 +112,12 @@ export default function HomeLatestBlogs() {
                                         className="object-cover"
                                         fill={true}
                                     />
+                                    {/* Category badge from API (primary category) */}
+                                    <div className="absolute top-3 left-3">
+                                      <span className="inline-block rounded-full bg-blue-100/90 text-[#1E3D8F] px-3 py-1 text-xs font-semibold backdrop-blur-sm">
+                                        {blog.category || 'General'}
+                                      </span>
+                                    </div>
                                 </div>
                                 <div className="p-4 pb-12">
                                     {/* Blog Meta Info - Only visible on desktop */}

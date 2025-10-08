@@ -1,26 +1,18 @@
-'use client';
+import React from 'react';
+import Header from './components/Header';
+import { metadata as pageMetadata } from './metadata';
 
-import { usePathname } from 'next/navigation';
-import BookingHeader from '@/app/quick-book/components/layout/BookingHeader'
+export const metadata = pageMetadata;
 
-
-export default function QuickBookLayout({
-    children,
+export default function BookingLayout({
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    const pathname = usePathname();
-    const showSidebar = !pathname.includes('/location') && !pathname.includes('/service');
-
-    return (
-        <div className="min-h-screen bg-white">
-            <BookingHeader />
-            
-            <main className={`pt-24 ${showSidebar ? 'md:pl-72' : ''}`}>
-                <div className="w-full max-w-[1200px] mx-auto px-4 lg:px-6">
-                    {children}
-                </div>
-            </main>
-        </div>
-    )
+  return (
+    <div className="booking-layout">
+      <Header />
+      {children}
+    </div>
+  );
 } 

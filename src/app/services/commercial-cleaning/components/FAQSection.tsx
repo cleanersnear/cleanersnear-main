@@ -9,24 +9,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "What is meant by commercial cleaning?",
-      answer: "Commercial cleaning encompasses a broad range of services tailored to meet the unique needs of different businesses. These can include general cleaning (dusting, vacuuming, sanitising surfaces, emptying bins, and mopping floors) to maintain a clean and welcoming environment."
+      question: "What's the difference between once-off and regular commercial cleaning?",
+      answer: "Once-off cleaning is perfect for special events, move-ins, or one-time deep cleans. Regular cleaning provides ongoing maintenance with consistent scheduling and frequency discounts for weekly, fortnightly, or monthly service."
     },
     {
-      question: "What is the difference between commercial cleaning and home cleaning?",
-      answer: "A domestic cleaner specialises in home cleaning, looking after things like bathrooms, kitchens and floors. A commercial cleaner, however, specialises in cleaning businesses and workplaces, often using specialised equipment and products to meet higher standards of hygiene and safety."
+      question: "How many staff do you typically send for commercial cleaning?",
+      answer: "We can provide 1-4 cleaning staff depending on your space size and requirements. For larger offices, we typically send 2-3 staff to ensure efficient and thorough cleaning within your preferred timeframe."
     },
     {
-      question: "What is another name for a commercial cleaner?",
-      answer: "The term 'janitor' is often used interchangeably with 'cleaner' or 'custodian.' All refer to professionals who maintain cleanliness and hygiene in business environments."
+      question: "What's included in your commercial cleaning service?",
+      answer: "Our commercial cleaning includes office desk cleaning, floor mopping & vacuuming, restroom sanitization, kitchen/break room cleaning, window cleaning, trash removal, and common area maintenance to keep your workplace spotless."
     },
     {
-      question: "What does commercial cleaning cover?",
-      answer: "Commercial cleaning covers dusting furniture, vacuuming and mopping floors, removing cobwebs, cleaning under appliances and furniture, spot cleaning doors and walls, wiping handrails and high-touch areas, and cleaning and sanitising kitchens and canteens."
+      question: "How much does commercial cleaning cost?",
+      answer: "Commercial cleaning starts at $50/hour for regular service and $60/hour for once-off cleaning. We offer flexible scheduling and frequency discounts for ongoing contracts. Get an instant quote based on your space size and requirements."
     },
     {
-      question: "What is the role of a commercial cleaner?",
-      answer: "Commercial cleaners don't just keep business establishments free from dirt and grime—they also ensure that everything is sanitised. Using safe and EPA-approved chemicals and disinfectants, commercial cleaners maintain high standards of sanitation and workplace safety."
+      question: "Can you work outside business hours?",
+      answer: "Yes! We offer flexible scheduling including evenings, weekends, and early mornings to minimize disruption to your business operations. We can work around your business hours for maximum convenience."
+    },
+    {
+      question: "Do you provide your own cleaning supplies and equipment?",
+      answer: "Yes, we bring all professional cleaning supplies, equipment, and eco-friendly products. We're fully equipped with commercial-grade cleaning tools to ensure the highest quality results for your business."
     }
   ]
 
@@ -77,11 +81,11 @@ export default function FAQSection() {
           {/* Book Now Column */}
           <div className="md:pl-8">
             <div className="sticky top-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
-                Schedule Your Commercial<br />Cleaning Today
+              <h2 className="mb:text-center text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
+                Book Your Commercial<br />Cleaning Today
               </h2>
               <p className="text-gray-600 mb-8">
-                Enter your location to book a professional commercial cleaning service with our expert team
+                Enter your location to find trusted cleaners in your area for commercial cleaning service
               </p>
 
               <SimpleLocation />

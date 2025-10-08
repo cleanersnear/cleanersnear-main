@@ -14,7 +14,7 @@ export default function CallToAction({
     description = "Experience the difference professional carpet cleaning can make. Book now and enjoy 10% off your first service. Our team of experts is ready to restore your carpets to their original beauty.",
     primaryButtonText = "Get a Free Quote",
     secondaryButtonText = "View Services",
-    primaryButtonLink = "/get-quote",
+    primaryButtonLink = "/book?source=get-quote",
     secondaryButtonLink = "/services"
 }: CallToActionProps) {
     return (

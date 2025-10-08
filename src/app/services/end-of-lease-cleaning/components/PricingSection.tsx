@@ -1,147 +1,121 @@
-'use client'
+import Link from "next/link";
+import { Button } from "../../components/ui/Button";
 
-import Link from 'next/link'
-import { Check, ChevronDown, Phone} from 'lucide-react'
-import { useState } from 'react'
-import BookNowButton from '../../components/BookNowButton'
-import { ServiceBase } from '@/app/quick-book/types/service'
+const PRICING_PLANS = [
+  {
+    name: "Studio/1 Bed",
+    description: "Perfect for studio apartments and 1 bedroom units",
+    price: "From $205",
+    features: [
+      "Bond back guarantee",
+      "REIV checklist compliant",
+      "Professional equipment used",
+      "All cleaning supplies included",
+      "Detailed cleaning checklist"
+    ],
+    note: "Great value"
+  },
+  {
+    name: "2 Bed",
+    description: "Perfect for 2 bedroom homes and apartments",
+    price: "From $310",
+    features: [
+      "Bond back guarantee",
+      "REIV checklist compliant",
+      "Professional equipment used", 
+      "All cleaning supplies included",
+      "Detailed cleaning checklist"
+    ],
+    note: "Popular choice"
+  },
+  {
+    name: "3 Bed",
+    description: "Ideal for 3 bedroom houses and larger apartments",
+    price: "From $450",
+    features: [
+      "Bond back guarantee",
+      "REIV checklist compliant",
+      "Professional equipment used",
+      "All cleaning supplies included", 
+      "Detailed cleaning checklist"
+    ],
+    note: "Comprehensive cleaning"
+  },
+  {
+    name: "4 Bed",
+    description: "Perfect for large 4 bedroom houses",
+    price: "From $625",
+    features: [
+      "Bond back guarantee",
+      "REIV checklist compliant",
+      "Professional equipment used",
+      "All cleaning supplies included",
+      "Detailed cleaning checklist"
+    ],
+    note: "Premium service"
+  }
+];
 
-interface PricingSectionProps {
-  service: ServiceBase
-}
-
-export default function PricingSection({ service }: PricingSectionProps) {
-  const [showCallButtons, setShowCallButtons] = useState<{ [key: string]: boolean }>({})
-  
+export function PricingStructure() {
   return (
-    <section id="pricing-section" className="pt-8 md:pt-8 pb-12 md:pb-20">
+    <section className="bg-[#F7FAFF] py-16 lg:py-20">
       <div className="container mx-auto px-4">
-        <h1 className="text-3xl font-bold text-center mb-4">
-          End of Lease Cleaning Packages
-        </h1>
-        <h2 className="text-1xl font-bold text-center mb-4">
-          Professional Bond Cleaning Services
-        </h2>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-          Our end of lease cleaning service is designed to help you get your bond back. We follow a comprehensive checklist that meets real estate standards and includes all the necessary cleaning tasks required by property managers.
-        </p>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-          {[
-            {
-              title: '1 Bedroom/Studio Apartment',
-              description: 'Perfect for small rentals and studio apartments',
-              priceRange: '260 - 315',
-              features: [
-                'Bond back guarantee',
-                'Real estate standard cleaning',
-                'Professional equipment used',
-                'All cleaning supplies included',
-                'Detailed cleaning checklist'
-              ],
-              buttonText: 'Book Now',
-              callText: 'Need a custom quote? Call us for the best price'
-            },
-            {
-              title: '2 Bedrooms',
-              description: 'Ideal for small to medium rental properties',
-              priceRange: '287 - 408',
-              features: [
-                'Bond back guarantee',
-                'Real estate standard cleaning',
-                'Professional equipment used',
-                'All cleaning supplies included',
-                'Detailed cleaning checklist'
-              ],
-              buttonText: 'Book Now',
-              callText: 'Need a custom quote? Call us for the best price'
-            },
-            {
-              title: '3 Bedrooms',
-              description: 'Perfect for medium to large rental homes',
-              priceRange: '359 - 650',
-              features: [
-                'Bond back guarantee',
-                'Real estate standard cleaning',
-                'Professional equipment used',
-                'All cleaning supplies included',
-                'Detailed cleaning checklist'
-              ],
-              buttonText: 'Book Now'
-            },
-            {
-              title: '4 Bedrooms',
-              description: 'Ideal for larger rental properties',
-              priceRange: '545 - 890',
-              features: [
-                'Bond back guarantee',
-                'Real estate standard cleaning',
-                'Professional equipment used',
-                'All cleaning supplies included',
-                'Detailed cleaning checklist'
-              ],
-              buttonText: 'Book Now'
-            }
-          ].map((rate) => {
-            return (
-              <div 
-                key={rate.title}
-                className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
-              >
-                <div className="p-4 sm:p-6 flex flex-col flex-grow">
-                  <div className="flex-grow">
-                    <h3 className="text-lg sm:text-xl font-bold mb-2">{rate.title}</h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4">{rate.description}</p>
-                    <div className="mb-6">
-                      <div className="text-sm text-gray-500">Price Range</div>
-                      <div className="text-3xl font-bold">${rate.priceRange}</div>
-                      <button 
-                        onClick={() => setShowCallButtons(prev => ({
-                          ...prev,
-                          [rate.title]: !prev[rate.title]
-                        }))}
-                        className="text-sm text-blue-600 hover:text-blue-700 mt-2 flex items-center gap-1 transition-colors"
-                      >
-                        Not sure about the price? 
-                        <ChevronDown 
-                          size={16} 
-                          className={`transform transition-transform duration-200 ${
-                            showCallButtons[rate.title] ? 'rotate-180' : ''
-                          }`}
-                        />
-                      </button>
-                    </div>
-                    <ul className="space-y-3 mb-6">
-                      {rate.features.map((feature, index) => (
-                        <li key={index} className="flex items-center">
-                          <Check size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                          <span className="text-gray-600">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Simple, Transparent{" "}
+            <span className="text-[#1E3D8F]">Pricing</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            No hidden fees, no surprises. Choose the end of lease cleaning package that works best for your Melbourne property size and get your bond back guaranteed.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-7xl mx-auto">
+          {PRICING_PLANS.map((plan) => (
+            <div
+              key={plan.name}
+              className="relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:scale-[1.02] border border-[#1E3D8F]"
+            >
+              <div className="p-6 lg:p-8">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <p className="text-gray-600 mb-4 text-sm">{plan.description}</p>
+                  
+                  <div className="mb-4">
+                    <div className="text-3xl lg:text-4xl font-bold text-[#1E3D8F]">{plan.price}</div>
                   </div>
-                  <div className="flex flex-col space-y-3">
-                    <BookNowButton service={service} />
-                    <div className={`transform transition-all duration-200 overflow-hidden ${
-                      showCallButtons[rate.title] ? 'max-h-24 opacity-100' : 'max-h-0 opacity-0'
-                    }`}>
-                      <Link
-                        href="tel:0450124086"
-                        className="mx-auto w-full bg-green-500 text-white text-center py-3 rounded-lg hover:bg-opacity-90 transition-all text-base gap-2 flex items-center justify-center font-medium"
-                      >
-                        <Phone size={18} />
-                        Call for Best Price
-                      </Link>
-                      <p className="text-xs text-gray-500 text-center mt-2">
-                        We can provide a custom quote based on your specific needs
-                      </p>
-                    </div>
+                  
+                  <div className="inline-block bg-blue-100 text-[#1E3D8F] px-3 py-1 rounded-full text-sm font-medium">
+                    {plan.note}
                   </div>
                 </div>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-5 h-5 bg-blue-100 rounded-full flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-[#1E3D8F]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-gray-700 text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link href={`/book?selectedServices=End%20of%20Lease%20Cleaning`}>
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white"
+                  >
+                    Book Now
+                  </Button>
+                </Link>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 } 

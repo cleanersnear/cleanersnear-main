@@ -423,7 +423,7 @@ export default function PricingPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link 
-                  href="/get-quote"
+                  href="/book?source=get-quote"
                   onClick={handleLinkClick}
                   className="inline-flex justify-center items-center px-6 sm:px-8 py-2.5 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-white bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 transition-all shadow-sm"
                 >

@@ -45,9 +45,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all blog posts from the API
   // Using the same approach as in your [slug]/page.tsx
   try {
+    // Check if API URL is available
+    if (!process.env.NEXT_PUBLIC_API_URL) {
+      console.warn('NEXT_PUBLIC_API_URL not set, returning only important blog posts');
+      return [
+        blogsMainPage,
+        ...importantBlogPosts
+      ];
+    }
+
     // Fetch all blog slugs from the API
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/slugs`, {
-      next: { revalidate: 3600 }
+      next: { revalidate: 3600 },
+      cache: 'no-store'
     });
     
     if (!res.ok) throw new Error('Failed to fetch blog slugs');

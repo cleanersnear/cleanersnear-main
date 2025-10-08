@@ -1,155 +1,63 @@
 'use client'
 
 import MainLayout from '@/components/layout/MainLayout'
-import Image from 'next/image'
-import Link from 'next/link'
-import { services } from '@/data/services'
-import { ArrowRight, Check } from 'lucide-react'
-import { useBookingStore } from '@/app/quick-book/store/bookingStore'
-import type { ServiceType } from '@/app/quick-book/types'
+import Hero from './components/Hero'
+import { ServicesSection } from './components/ServicesSection'
+import { Testimonials } from './components/Testimonials'
+import { WhatsIncluded } from './components/WhatsIncluded'
+import { Subscription } from './components/Subscription'
+import FAQs from './components/FAQs'
+import HomeLatestBlogs from '@/components/Home/HomeBlogs/HomeLatestBlogs'
+import TrustedOrganizations from './components/TrustedOrganizations'
 
 export default function ServicesPage() {
   return (
     <MainLayout>
-      <div className="mt-32">
-        {/* Hero Section */}
-        <section className="relative py-20">
-          {/* Background image and gradient overlay */}
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[url('/images/services-hero.jpg')] bg-cover bg-center"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1E3D8F]/90 via-[#1E3D8F]/70 to-transparent"></div>
-          </div>
-
-          {/* Hero Content */}
-          <div className="container mx-auto px-4 relative">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-[1px] bg-white/60"></div>
-                <span className="text-sm uppercase tracking-wider text-white/80">MELBOURNE&apos;S TRUSTED CLEANERS</span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                Cleaning Services Melbourne | Professional Home & Office Cleaners
-              </h1>
-              <p className="text-lg text-white/90 mb-8 max-w-2xl">
-                Looking for trusted cleaning services in Melbourne? We are Melbourne&apos;s leading cleaning company providing professional residential and commercial cleaning services. With rates starting from $53.07/hr, our experienced team delivers exceptional cleaning solutions across Melbourne.
-              </p>
-
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Melbourne&apos;s Most Trusted Cleaning Services
-              </h2>
-
-              {/* Key Features - Hidden on mobile */}
-              <div className="hidden md:grid md:grid-cols-3 gap-6 mb-8">
-                <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                  <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">Professional Cleaners</span>
-                </div>
-                <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                  <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">Satisfaction Guaranteed</span>
-                </div>
-                <div className="flex items-center gap-3 text-white bg-white/10 p-4 rounded-lg backdrop-blur-sm">
-                  <Check className="w-6 h-6 text-green-400 flex-shrink-0" />
-                  <span className="font-medium">From $53.07/hr</span>
-                </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href="/get-quote"
-                  className="inline-flex items-center justify-center bg-[#FFA500] text-white px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all group"
-                >
-                  Get a Free Quote
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center bg-white text-[#1E3D8F] px-8 py-4 rounded-lg font-semibold hover:bg-opacity-90 transition-all"
-                >
-                  Contact Us
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Title Section */}
-        <div className="py-16 text-center">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-center gap-4 mb-4">
-              <div className="w-12 h-[1px] bg-gray-300"></div>
-              <span className="text-sm uppercase tracking-wider text-gray-600">CLEANING SERVICES MELBOURNE</span>
-              <div className="w-12 h-[1px] bg-gray-300"></div>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#1E3D8F]">
-              Professional Cleaning Services<br />
-              in Melbourne
-            </h2>
-          </div>
-        </div>
-
-        {/* Services Grid Section */}
-        <div className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <div 
-                  key={service.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 flex flex-col"
-                >
-                  {service.isPopular && (
-                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm">
-                      Popular
-                    </div>
-                  )}
-                  <div className="relative h-64">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">{service.description}</p>
-                    <div className="mt-auto">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-[#1E3D8F] font-bold text-xl">
-                          {service.price}
-                        </span>
-                        <Link 
-                          href={`/services/${service.id}`}
-                          className="text-[#1E3D8F] hover:text-opacity-80 transition-all duration-200"
-                        >
-                          Learn More
-                        </Link>
-                      </div>
-                      <div className="pt-3 border-t">
-                        <Link 
-                          href="/quick-book/location"
-                          onClick={() => {
-                            useBookingStore.getState().setService({
-                              id: service.id as ServiceType,
-                              title: service.title,
-                              category: service.isPopular ? 'popular' : 'other',
-                              type: service.id as ServiceType
-                            });
-                          }}
-                          className="block w-full text-center bg-[#1E3D8F] text-white py-3 rounded-md hover:bg-opacity-90 transition-all duration-200"
-                        >
-                          Book Now
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="mt-24 bg-white">
+        <Hero />
+        {/* SEO JSON-LD for WebPage, ItemList (services) and FAQ */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebPage',
+              name: 'Cleaning Services Melbourne',
+              url: 'https://www.cleaningprofessionals.com.au/services',
+              description:
+                'Regular house cleaning, deep/spring cleans, end of lease bond cleans, NDIS and commercial office cleaning in Melbourne.',
+              mainEntity: {
+                '@type': 'ItemList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Regular Cleaning', url: 'https://www.cleaningprofessionals.com.au/services/regular-cleaning' },
+                  { '@type': 'ListItem', position: 2, name: 'Once-Off Cleaning', url: 'https://www.cleaningprofessionals.com.au/services/once-off-cleaning' },
+                  { '@type': 'ListItem', position: 3, name: 'NDIS Cleaning', url: 'https://www.cleaningprofessionals.com.au/services/ndis-cleaning' },
+                  { '@type': 'ListItem', position: 4, name: 'End of Lease Cleaning', url: 'https://www.cleaningprofessionals.com.au/services/end-of-lease-cleaning' },
+                  { '@type': 'ListItem', position: 5, name: 'Commercial Cleaning', url: 'https://www.cleaningprofessionals.com.au/services/commercial-cleaning' },
+                ],
+              },
+              faq: {
+                '@type': 'FAQPage',
+                mainEntity: [
+                  { '@type': 'Question', name: 'How long does a standard clean take?', acceptedAnswer: { '@type': 'Answer', text: 'Most regular cleans take 2–4 hours depending on home size and selected tasks.' } },
+                  { '@type': 'Question', name: 'Do you bring your own supplies?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Our cleaners bring professional products and equipment.' } },
+                  { '@type': 'Question', name: 'Can I reschedule?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, please give 24 hours’ notice to avoid fees.' } },
+                ],
+              },
+            }),
+          }}
+        />
+        <ServicesSection />
+        <Testimonials />
+        <WhatsIncluded />
+        <TrustedOrganizations />
+         <FAQs />
+        <HomeLatestBlogs />
+        <Subscription />
+       
       </div>
     </MainLayout>
   )
-} 
+}
+
+

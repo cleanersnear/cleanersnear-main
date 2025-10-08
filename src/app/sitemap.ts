@@ -32,19 +32,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified,
     },
     {
-      url: `${baseUrl}/sitemap-location-services.xml`,
-      lastModified,
-    },
-    {
       url: `${baseUrl}/sitemap-manual-locations.xml`,
       lastModified,
     },
     {
       url: `${baseUrl}/sitemap-blogs.xml`,
-      lastModified,
-    },
-    {
-      url: `${baseUrl}/sitemap-static.xml`,
       lastModified,
     }
   ]

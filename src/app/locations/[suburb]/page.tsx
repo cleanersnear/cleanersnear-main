@@ -153,10 +153,10 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/end-of-lease-cleaning`}
+                      href="/services"
                       className="hover:text-[#FFA500] transition-colors"
                     >
-                      End of Lease Cleaning
+                      Regular Cleaning
                     </Link>
                   </li>
                   <li className="flex items-start">
@@ -164,7 +164,18 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/ndis-cleaning`}
+                      href="/services"
+                      className="hover:text-[#FFA500] transition-colors"
+                    >
+                      Once-Off Cleaning
+                    </Link>
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    <Link 
+                      href="/services"
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       NDIS Cleaning
@@ -175,10 +186,10 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/general-cleaning`}
+                      href="/services"
                       className="hover:text-[#FFA500] transition-colors"
                     >
-                      Regular House Cleaning
+                      Airbnb Cleaning
                     </Link>
                   </li>
                   <li className="flex items-start">
@@ -186,29 +197,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/deep-cleaning`}
-                      className="hover:text-[#FFA500] transition-colors"
-                    >
-                      Deep Cleaning
-                    </Link>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/spring-cleaning`}
-                      className="hover:text-[#FFA500] transition-colors"
-                    >
-                      Spring Cleaning
-                    </Link>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/commercial-cleaning`}
+                      href="/services"
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       Commercial Cleaning
@@ -219,21 +208,10 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/carpet-cleaning`}
+                      href="/services"
                       className="hover:text-[#FFA500] transition-colors"
                     >
-                      Carpet Cleaning
-                    </Link>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-[#FFA500] mt-1 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <Link 
-                      href={`/locations/${locationData.name.toLowerCase().replace(/\s+/g, '-')}/move-in-cleaning`}
-                      className="hover:text-[#FFA500] transition-colors"
-                    >
-                      Move In Cleaning
+                      End of Lease Cleaning
                     </Link>
                   </li>
                 </ul>

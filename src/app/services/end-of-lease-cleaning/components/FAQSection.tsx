@@ -9,24 +9,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "Do you guarantee bond back?",
-      answer: "Yes, we offer a 100% bond back guarantee. If you're not satisfied with our cleaning service, we'll return to clean any areas that need attention at no extra cost."
+      question: "What's included in your end of lease cleaning service?",
+      answer: "Our end of lease cleaning includes complete kitchen deep clean, bathroom sanitization, inside all appliances, window cleaning, floor mopping & vacuuming, cabinet cleaning, light fixtures, baseboards, and door & frame cleaning. Everything needed to meet real estate standards."
+    },
+    {
+      question: "Do you guarantee bond back with your end of lease cleaning?",
+      answer: "Yes! We offer a bond back guarantee. Our cleaning meets REIV checklist standards and real estate requirements. If there are any issues, we'll return to fix them at no extra cost to ensure you get your full bond back."
+    },
+    {
+      question: "How much does end of lease cleaning cost?",
+      answer: "End of lease cleaning starts from $205 for studio apartments, $255 for 1 bedroom, $310 for 2 bedrooms, $450 for 3 bedrooms, and $625 for 4 bedrooms. All prices include our bond back guarantee and professional equipment."
     },
     {
       question: "How long does end of lease cleaning take?",
-      answer: "The duration varies depending on the property size and condition. Generally, it takes 4-8 hours for a standard property. We ensure thorough cleaning of all areas according to the real estate checklist."
+      answer: "Cleaning time depends on property size and condition. Studio apartments typically take 2-3 hours, while larger properties can take 4-8 hours. We work efficiently to complete the job thoroughly while meeting your timeline requirements."
     },
     {
-      question: "What's included in end of lease cleaning?",
-      answer: "Our end of lease cleaning covers all areas required by real estate agents, including deep cleaning of kitchen, bathrooms, bedrooms, living areas, windows, and carpets. We follow a comprehensive checklist to ensure nothing is missed."
+      question: "Do you provide your own cleaning supplies and equipment?",
+      answer: "Yes, we bring all professional cleaning supplies, equipment, and eco-friendly products. We're fully equipped with commercial-grade cleaning tools to ensure the highest quality results that meet real estate standards."
     },
     {
-      question: "Do I need to be present during cleaning?",
-      answer: "No, you don't need to be present. Just ensure we have access to the property. We're fully insured and our cleaners are police-checked for your peace of mind."
-    },
-    {
-      question: "When should I book end of lease cleaning?",
-      answer: "We recommend booking at least 2-3 days before your final inspection. This allows time for any touch-ups if needed. Book early to secure your preferred date, especially during peak moving seasons."
+      question: "Can you work around my move-out schedule?",
+      answer: "Absolutely! We offer flexible scheduling including evenings and weekends to fit your move-out timeline. We can often provide same-day service and work around your schedule to ensure the property is ready for your final inspection."
     }
   ]
 
@@ -37,10 +41,10 @@ export default function FAQSection() {
           {/* FAQ Column */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
-              Common Questions About Our Service
+              Frequently Asked Questions
             </h2>
             <p className="text-gray-600 mb-8">
-              Get detailed answers about our end of lease cleaning process and guarantees
+              Everything you need to know about our end of lease cleaning services
             </p>
 
             <div className="space-y-4">
@@ -77,11 +81,11 @@ export default function FAQSection() {
           {/* Book Now Column */}
           <div className="md:pl-8">
             <div className="sticky top-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
-                Find Your Local Cleaner<br />in Minutes
+              <h2 className="mb:text-center text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
+                Book Your End of Lease<br />Cleaning Today
               </h2>
               <p className="text-gray-600 mb-8">
-                Enter your location to get matched with trusted end of lease cleaners near you
+                Enter your location to find trusted cleaners in your area for end of lease cleaning service
               </p>
 
               <SimpleLocation />

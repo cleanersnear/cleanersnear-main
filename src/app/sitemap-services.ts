@@ -33,16 +33,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   ]
   
-  // Core service pages (0.95)
-  // Primary cleaning services excluding end-of-lease which has its own entry
-  const coreServices = [
-    'carpet-cleaning',
-    'general-cleaning',
-    'deep-cleaning',
-    'move-in-cleaning',
+  // Updated current services (six pages total)
+  const currentServices = [
+    'regular-cleaning',
+    'once-off-cleaning',
     'ndis-cleaning',
+    'airbnb-cleaning',
     'commercial-cleaning',
-    'airbnb-cleaning'
+    'end-of-lease-cleaning'
   ].map(service => ({
     url: `${baseUrl}/services/${service}/`,
     lastModified: new Date(),
@@ -50,25 +48,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.95
   }))
 
-  // Supporting service pages (0.9)
-  // Specialized cleaning services that complement our main offerings
-  const supportingServices = [
-    'after-renovation-cleaning',
-    'oven-cleaning',
-    'upholstery-cleaning',
-    'window-cleaning'
-  ].map(service => ({
-    url: `${baseUrl}/services/${service}/`,
-    lastModified: new Date(),
-    changeFrequency: 'weekly' as const,
-    priority: 0.9
-  }))
-
   // Combine all pages and ensure no duplicates
   const allServicePages = [
     ...mainPages,
-    ...coreServices,
-    ...supportingServices
+    ...currentServices
   ]
   
   // Remove any duplicate URLs with case-insensitive comparison

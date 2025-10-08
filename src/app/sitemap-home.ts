@@ -24,12 +24,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'daily' as const
     },
     {
-      route: 'get-quote',  // Primary conversion page
-      priority: 1.0,
-      changeFrequency: 'daily' as const
-    },
-    {
-      route: 'quick-book/location',  // Quick booking entry point (main quick-book page)
+      route: 'book',  // Booking entry point
       priority: 1.0,
       changeFrequency: 'daily' as const
     },
@@ -50,20 +45,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   ]
 
-  // Booking flow pages (0.8)
-  // These are important but not as critical as main landing pages
-  const bookingPages = [
-    'quick-book/service'
-  ].map(route => ({
-    route,
-    priority: 0.8,
-    changeFrequency: 'weekly' as const
-  }))
+  // No legacy quick-book routes
+  const bookingPages: { route: string; priority: number; changeFrequency: 'weekly' }[] = []
 
   // Important information pages (0.9)
   // These pages support main conversion funnel
   const informationPages = [
     'about',
+    'about/why_choose_us',
+    'about/how_it_works',
     'reviews',
     'pricing',
     'blogs',
@@ -75,10 +65,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Legal and policy pages (0.7)
-  // Important but less frequently accessed
   const legalPages = [
-    'privacy-policy',
-    'terms-and-conditions'
+    'career',
+    'about/privacy-policy',
+    'about/terms-and-conditions'
   ].map(route => ({
     route,
     priority: 0.7,

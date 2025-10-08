@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useBookingStore } from '../../app/book/booking-store/bookingStore';
+import { useBookingStore } from '../../app/quick-book/booking-store/bookingStore';
 
 interface BookingDialogProps {
   onClose: () => void;
@@ -29,7 +29,7 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
       // For Unsure, set both to null and redirect to pricing page
       setBookingType(null);
       setFrequency(null);
-      router.push('/book/home-cleaning-prices');
+      router.push('/quick-book/home-cleaning-prices');
     } else {
       // For other options, set the appropriate values and redirect to booking
       if (option === 'Just Once') {
@@ -42,7 +42,7 @@ const BookingDialog: React.FC<BookingDialogProps> = ({ onClose }) => {
       setBookingType('regular');
       setFrequency('fortnightly');
     }
-      router.push('/book');
+      router.push('/quick-book');
     }
     handleClose();
   };

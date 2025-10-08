@@ -2,15 +2,27 @@ import { Suspense } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import FAQList from '@/components/features/FAQList';
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic';
+
 async function getFaqs() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/faqs`, {
-        next: { 
-            revalidate: 3600 // Revalidate every hour
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/faqs`, {
+            next: { 
+                revalidate: 3600 // Revalidate every hour
+            },
+            cache: 'no-store' // Ensure no caching during build
+        });
+        
+        if (!res.ok) {
+            console.error('Failed to fetch FAQs:', res.status);
+            return { faqs: [] }; // Return empty array on error
         }
-    });
-    
-    if (!res.ok) throw new Error('Failed to fetch FAQs');
-    return res.json();
+        return res.json();
+    } catch (error) {
+        console.error('Error fetching FAQs:', error);
+        return { faqs: [] }; // Return empty array on error
+    }
 }
 
 export default async function FAQsPage() {

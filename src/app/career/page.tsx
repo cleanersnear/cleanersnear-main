@@ -3,15 +3,27 @@ import MainLayout from '@/components/layout/MainLayout';
 import CareerList from '@/components/features/CareerList';
 import Image from 'next/image';
 
+// Force dynamic rendering to avoid build-time API calls
+export const dynamic = 'force-dynamic';
+
 async function getCareers() {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/careers`, {
-        next: { 
-            revalidate: 3600 // Revalidate every hour
+    try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/careers`, {
+            next: { 
+                revalidate: 3600 // Revalidate every hour
+            },
+            cache: 'no-store' // Ensure no caching during build
+        });
+        
+        if (!res.ok) {
+            console.error('Failed to fetch careers:', res.status);
+            return []; // Return empty array on error
         }
-    });
-    
-    if (!res.ok) throw new Error('Failed to fetch careers');
-    return res.json();
+        return res.json();
+    } catch (error) {
+        console.error('Error fetching careers:', error);
+        return []; // Return empty array on error
+    }
 }
 
 export default async function CareerPage() {

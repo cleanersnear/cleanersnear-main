@@ -178,6 +178,7 @@ const nextConfig: NextConfig = {
   },
   serverExternalPackages: [],
   experimental: {
+    serverComponentsExternalPackages: [],
     serverActions: {
       bodySizeLimit: '2mb'
     }

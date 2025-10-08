@@ -1,45 +1,107 @@
 'use client'
-
-
-import QuickEnquiryForm from '@/components/features/QuickEnquiryForm'
 import Link from 'next/link'
+import AnimatedCounter from '@/components/features/AnimatedCounter'
+import GoogleIcon from '@/app/services/components/GoogleIcon'
 
 export default function AboutCompany() {
   return (
     <>
     {/* About Company Section with Quick Enquiry Form */}
-    <section className="py-12 md:py-20">
+    <section className="bg-gray-50 py-12 md:py-20">
     <div className="container mx-auto px-4">
 
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-        {/* About Company Content */}
-        <div className="lg:w-2/3">
-          <div className="mb-8 md:mb-12">
-            <span className="text-xs md:text-sm uppercase tracking-wider">ABOUT COMPANY</span>
-            <h2 className="text-2xl md:text-4xl font-bold mt-2">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-12 items-start">
+        {/* Left: Copy */}
+        <div className="w-full lg:w-7/12">
+          <div className="mb-6 md:mb-8">
+            <span className="text-xs md:text-sm uppercase tracking-wider text-gray-600">ABOUT COMPANY</span>
+            <h2 className="text-2xl md:text-4xl font-bold mt-2 text-gray-900">
               Committed to Keeping Your Home Squeaky Clean
             </h2>
           </div>
-          
+
           <div className="max-w-3xl">
             <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-4 md:mb-6 leading-relaxed">
-              At Cleaning Professionals Melbourne, Australia, we believe a clean environment is the foundation for a healthy and productive lifestyle. Serving households and businesses across Australia, we specialize in delivering tailored cleaning solutions to meet the unique needs of every property type. All our industry best practices make us one of the best cleaning services in melbourne area.
+              Cleaning Professionals delivers reliable, high‑quality residential and light commercial cleaning across Melbourne. We tailor every clean to your space and schedule, with friendly, police‑checked cleaners and full public liability insurance.
             </p>
             <p className="text-sm md:text-base lg:text-lg text-gray-600 mb-6 md:mb-8 leading-relaxed">
-              Whether you&apos;re seeking comprehensive home cleaning, detailed office upkeep, or specific services like carpet or window cleaning, our team of experienced professionals ensures spotless results every time. With a focus on eco-friendly and child-safe methods, we provide a thorough clean without compromising the safety of your home or workplace.
+              From regular weekly/fortnightly cleans to deep once‑off, Airbnb turnarounds, NDIS supports and end‑of‑lease cleans, our methods are efficient, eco‑conscious and results‑driven—so you can enjoy a spotless space without the stress.
             </p>
-            <Link 
-              href="/about" 
-              className="text-sm md:text-base lg:text-lg text-[#1E3D8F] hover:underline"
-            >
-              Learn more about Cleaning Professionals
-            </Link>
+
+            <ul className="grid sm:grid-cols-2 gap-3 md:gap-4 mb-8">
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-gray-700 text-sm md:text-base">Police‑checked, insured local cleaners</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-gray-700 text-sm md:text-base">Eco‑friendly products on request</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-gray-700 text-sm md:text-base">Flexible scheduling; reliable reminders</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-1 inline-block h-2 w-2 rounded-full bg-emerald-500" />
+                <span className="text-gray-700 text-sm md:text-base">4.9★ average rating from Melbourne clients</span>
+              </li>
+            </ul>
+<div className='mt-8 mb-6' >  
+            <GoogleIcon />
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
+              <Link 
+                href="/book" 
+                className="inline-flex items-center justify-center bg-[#1E3D8F] text-white px-5 md:px-6 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1E3D8F]/90 transition-colors"
+              >
+                Get Instant Pricing
+              </Link>
+              <Link 
+                href="/about" 
+                className="inline-flex items-center justify-center border-2 border-[#1E3D8F] text-[#1E3D8F] px-5 md:px-6 py-3 rounded-md text-sm md:text-base font-semibold hover:bg-[#1E3D8F] hover:text-white transition-colors"
+              >
+                Learn More About Us
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Quick Enquiry Form */}
-        <div className="lg:w-1/3">
-          <QuickEnquiryForm />
+        {/* Right: Stats */}
+        <div className=" w-full lg:w-5/12 lg:self-center">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6 md:gap-8 bg-white rounded-xl shadow-sm ring-1 ring-gray-200 p-6 md:p-8">
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-[#1E3D8F]">
+                <AnimatedCounter end={740} />
+              </div>
+              <div className="text-[11px] md:text-xs uppercase tracking-wider font-medium text-gray-600 mt-1">
+                CLEAN HOMES
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-[#1E3D8F]">
+                <AnimatedCounter end={35} />
+              </div>
+              <div className="text-[11px] md:text-xs uppercase tracking-wider font-medium text-gray-600 mt-1">
+                PROFESSIONAL STAFFS
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-[#1E3D8F]">
+                <AnimatedCounter end={100} suffix="%" />
+              </div>
+              <div className="text-[11px] md:text-xs uppercase tracking-wider font-medium text-gray-600 mt-1">
+                HAPPY CLIENTS
+              </div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl md:text-5xl font-bold text-[#1E3D8F]">
+                <AnimatedCounter end={4} />
+              </div>
+              <div className="text-[11px] md:text-xs uppercase tracking-wider font-medium text-gray-600 mt-1">
+                YEARS
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

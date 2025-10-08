@@ -9,6 +9,10 @@ import CallToAction from './components/CallToAction'
 import LatestBlogs from '../components/LatestBlogs'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
 
+// Use ISR with dynamic params generation
+export const dynamicParams = true;
+export const revalidate = 3600; // Revalidate every hour
+
 interface Section {
     id: string;
     title: string;
@@ -58,14 +62,25 @@ const parseContent = (content: string) => {
 
 export async function generateStaticParams() {
     try {
+        // Check if API URL is available
+        if (!process.env.NEXT_PUBLIC_API_URL) {
+            console.warn('NEXT_PUBLIC_API_URL not set, skipping static generation');
+            return [];
+        }
+
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blog/slugs`, {
-            next: { revalidate: 1 }
+            next: { revalidate: 1 },
+            cache: 'no-store'
         });
         
-        if (!res.ok) throw new Error('Failed to fetch slugs');
+        if (!res.ok) {
+            console.error('Failed to fetch slugs:', res.status, res.statusText);
+            return [];
+        }
         
-        const { slugs } = await res.json();
-        return slugs.map((slug: string) => ({ slug }));
+        const data = await res.json();
+        const slugs = data.slugs || data || [];
+        return Array.isArray(slugs) ? slugs.map((slug: string) => ({ slug })) : [];
     } catch (error) {
         console.error('Error generating static params:', error);
         return []; // Return empty array to prevent build failure
@@ -98,11 +113,25 @@ export default async function BlogPage({
     const blog = await getBlogBySlug(slug);
     
     // Fetch latest blogs with error handling
-    const latestRes = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/blog/latest?excludeSlug=${slug}`,
-        { next: { revalidate: 3600 } }
-    );
-    const latestData = await latestRes.json();
+    let latestData = { blogs: [], pagination: { totalBlogs: 0, postsPerPage: 3, totalPages: 0 } };
+    try {
+        if (process.env.NEXT_PUBLIC_API_URL) {
+            const latestRes = await fetch(
+                `${process.env.NEXT_PUBLIC_API_URL}/api/blog/latest?excludeSlug=${slug}`,
+                { 
+                    next: { revalidate: 3600 },
+                    cache: 'no-store'
+                }
+            );
+            if (latestRes.ok) {
+                latestData = await latestRes.json();
+            } else {
+                console.error('Failed to fetch latest blogs:', latestRes.status);
+            }
+        }
+    } catch (error) {
+        console.error('Error fetching latest blogs:', error);
+    }
 
     if (!blog) {
         notFound()

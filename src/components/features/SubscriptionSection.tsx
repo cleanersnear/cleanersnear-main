@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { apiService } from '@/services/api'
+import { apiService } from '@/app/api/services/api'
 
 interface SubmitStatus {
   success?: boolean;

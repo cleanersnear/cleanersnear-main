@@ -5,17 +5,17 @@ import Image from 'next/image'
 export default function AirbnbImageGallery() {
   const images = [
     {
-      src: '/airbnb cleaning/airbnb cleaning_kitchen.jpg',
+      src: '/images/airbnb cleaning/airbnb cleaning_kitchen.jpg',
       alt: 'Professional Airbnb Kitchen Cleaning Melbourne',
       title: 'Kitchen Cleaning'
     },
     {
-      src: '/airbnb cleaning/airbnb cleaning_bathroom.jpg',
+      src: '/images/airbnb cleaning/airbnb cleaning_bathroom.jpg',
       alt: 'Professional Airbnb Bathroom Cleaning Melbourne',
       title: 'Bathroom Cleaning'
     },
     {
-      src: '/airbnb cleaning/airbnb cleaning_toilet.jpg',
+      src: '/images/airbnb cleaning/airbnb cleaning_toilet.jpg',
       alt: 'Professional Airbnb Toilet Cleaning Melbourne',
       title: 'Toilet Cleaning'
     }
@@ -56,5 +56,3 @@ export default function AirbnbImageGallery() {
     </section>
   )
 }
-
-

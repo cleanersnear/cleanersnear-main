@@ -9,28 +9,28 @@ export default function FAQSection() {
 
   const faqs = [
     {
-      question: "Do you charge for travel?",
-      answer: "No, we don't charge for travel to your location. Our service rates are all-inclusive, meaning you only pay for the actual cleaning time. This makes our pricing transparent and easier to manage within your NDIS plan."
+      question: "Are your cleaners NDIS registered?",
+      answer: "Yes, our cleaners are experienced in working with NDIS participants and understand the specific needs and requirements. We provide compassionate, professional cleaning services tailored to support your independence and comfort."
     },
     {
-      question: "How does NDIS cleaning service work?",
-      answer: "Our NDIS cleaning service is available to all NDIS participants with cleaning support in their plan. We work directly with your NDIS plan manager or support coordinator to arrange regular or one-off cleaning services. All our cleaners are NDIS registered and trained to work with people with disabilities."
+      question: "What's the difference between weekly and fortnightly NDIS cleaning?",
+      answer: "Weekly cleaning provides consistent support with the same cleaner visiting every week, perfect for those who need regular assistance. Fortnightly cleaning is ideal for participants who prefer less frequent service while maintaining a clean home."
     },
     {
-      question: "Can I use my NDIS funding for cleaning services?",
-      answer: "Yes, if your NDIS plan includes Core Supports or Household Tasks, you can use your funding for our cleaning services. We can help you understand how to best utilize your NDIS funding for cleaning support and provide detailed invoices for your plan manager."
+      question: "What's included in NDIS cleaning service?",
+      answer: "Our NDIS cleaning includes dusting, vacuuming, mopping, bathroom cleaning, kitchen cleaning, tidying, bed making, and basic organization. We can also assist with light tasks like organizing and can accommodate specific needs you may have."
     },
     {
-      question: "What's included in your NDIS cleaning service?",
-      answer: "Our NDIS cleaning service includes comprehensive house cleaning tailored to your needs. This covers vacuuming, mopping, bathroom and kitchen cleaning, dusting, and general tidying. We can also provide additional services like laundry assistance, changing bed linens, and organizing spaces based on your specific requirements."
+      question: "How much does NDIS cleaning cost?",
+      answer: "NDIS cleaning starts from $112 for 2 hours (weekly) or $168 for 3 hours (fortnightly), then $56/hour thereafter. The cost depends on your home size and specific requirements. We can work with your NDIS plan coordinator."
     },
     {
-      question: "How do I book and pay for the service?",
-      answer: "Booking is simple - you can call us directly or use our online booking system. For payment, we can either invoice your NDIS plan manager directly, work with your support coordinator, or process claims through the NDIS portal. We handle all the paperwork to make it hassle-free for you."
+      question: "Can I use my NDIS funding for cleaning?",
+      answer: "Yes, our cleaning services can be funded through your NDIS plan under Core Supports - Assistance with Daily Life. We can work with your plan coordinator to ensure proper invoicing and payment arrangements."
     },
     {
-      question: "Will I have the same cleaner each time?",
-      answer: "Yes, we prioritize consistency for our NDIS clients. You'll be assigned a regular cleaner who understands your specific needs and preferences. In case your regular cleaner is unavailable, we'll notify you in advance and ensure the replacement cleaner is fully briefed on your requirements."
+      question: "Will I get the same cleaner each visit?",
+      answer: "Absolutely! We assign you a dedicated cleaner who will learn your preferences, home layout, and any specific needs you may have. This consistency helps build trust and ensures the best possible service."
     }
   ]
 
@@ -81,11 +81,11 @@ export default function FAQSection() {
           {/* Book Now Column */}
           <div className="md:pl-8">
             <div className="sticky top-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
+              <h2 className="mb:text-center text-3xl md:text-4xl font-bold text-[#1E3D8F] mb-4">
                 Book Your NDIS<br />Cleaning Today
               </h2>
               <p className="text-gray-600 mb-8">
-                Enter your location to find NDIS registered cleaners in your area
+                Enter your location to find trusted NDIS cleaners in your area for compassionate cleaning support
               </p>
 
               <SimpleLocation />
@@ -95,4 +95,4 @@ export default function FAQSection() {
       </div>
     </section>
   )
-}
+} 

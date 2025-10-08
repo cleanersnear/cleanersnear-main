@@ -4,13 +4,17 @@ import { useState } from 'react'
 import { MapPin, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useRouter } from 'next/navigation'
-import type { Suburb } from '@/app/quick-book/types/location'
-import { suburbs } from '@/app/quick-book/components/features/LocationSearch'
-import { useBookingStore } from '@/app/quick-book/store/bookingStore'
+import { suburbs } from '@/app/book/components/AddressLookup/LocationSearch'
+
+// Local Suburb type to avoid coupling with backup quick-book types
+type Suburb = {
+  name: string
+  postcode: string
+  region?: string
+}
 
 export default function SimpleLocation() {
   const router = useRouter()
-  const { setLocation } = useBookingStore()
   const [searchQuery, setSearchQuery] = useState('')
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [selectedSuburb, setSelectedSuburb] = useState<Suburb | null>(null)
@@ -32,19 +36,12 @@ export default function SimpleLocation() {
     setSearchQuery(`${suburb.name} ${suburb.postcode}`)
     setShowSuggestions(false)
     
-    // Update to match the store type
-    setLocation({
-      name: suburb.name,
-      postcode: suburb.postcode,
-      region: suburb.region
-    })
+    // No booking store updates; selection is local only
   }
 
   const handleGetStarted = () => {
-    if (selectedSuburb) {
-      // Store is already updated from handleSuburbSelect
-      router.push('/quick-book/service')
-    }
+    // Push directly to new booking flow; location handled in the flow if needed
+    router.push('/book')
   }
 
   return (
@@ -79,7 +76,7 @@ export default function SimpleLocation() {
               <button
                 onClick={handleGetStarted}
                 className="px-4 md:px-8 mx-2 py-2 md:py-2.5 flex items-center whitespace-nowrap rounded-md
-                  bg-[#FFA500] text-white hover:bg-[#FFA500]/90 
+                  bg-[#1E3D8F] text-white hover:bg-[#1E3D8F]/90 
                   transition-all duration-200 text-xs md:text-sm tracking-wide"
               >
                 Get Pricing Details

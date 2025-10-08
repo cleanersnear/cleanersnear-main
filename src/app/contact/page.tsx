@@ -3,7 +3,7 @@
 import MainLayout from '@/components/layout/MainLayout'
 import { Phone, Mail, MapPin, Clock } from 'lucide-react'
 import { useState } from 'react'
-import { apiService } from '@/services/api'
+import { apiService } from '@/app/api/services/api'
 import SubscriptionSection from '@/components/features/SubscriptionSection'
 
 const contactInfo = [

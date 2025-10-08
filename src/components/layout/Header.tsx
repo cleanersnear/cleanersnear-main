@@ -9,28 +9,29 @@ import { usePathname } from 'next/navigation'
 // Add services submenu data
 const serviceLinks = [
   { title: 'All Services', href: '/services' },
-  { title: 'Carpet Cleaning', href: '/services/carpet-cleaning' },
-  { title: 'End Of Lease Cleaning', href: '/services/end-of-lease-cleaning' },
-  { title: 'General Cleaning', href: '/services/general-cleaning' },
-  { title: 'Deep Cleaning', href: '/services/deep-cleaning' },
-  { title: 'Move In Cleaning', href: '/services/move-in-cleaning' },
+  { title: 'Regular Cleaning', href: '/services/regular-cleaning' },
+  { title: 'Once-Off Cleaning', href: '/services/once-off-cleaning' },
   { title: 'NDIS Cleaning', href: '/services/ndis-cleaning' },
-  { title: 'Commercial Cleaning', href: '/services/commercial-cleaning' },
-  { title: 'After Renovation Clean', href: '/services/after-renovation-cleaning' },
-  { title: 'Oven Clean', href: '/services/oven-cleaning' },
   { title: 'Airbnb Cleaning', href: '/services/airbnb-cleaning' },
-  { title: 'Upholstery Clean', href: '/services/upholstery-cleaning' },
-  { title: 'Window Clean', href: '/services/window-cleaning' }
+  { title: 'End Of Lease Cleaning', href: '/services/end-of-lease-cleaning' },
+  { title: 'Commercial Cleaning', href: '/services/commercial-cleaning' }
 ]
 
 // First, add the about submenu data near the top where serviceLinks is defined
 const aboutLinks = [
   { title: 'About Us', href: '/about' },
+  { title: 'Why Choose Us', href: '/about/why_choose_us' },
+  { title: 'How It Works', href: '/about/how_it_works' },
   { title: 'Service Areas', href: '/locations' },
-  { title: 'Reviews', href: '/reviews' }
+  { title: 'Reviews', href: '/reviews' },
+  { title: 'Privacy Policy', href: '/about/privacy-policy' },
+  { title: 'Terms & Conditions', href: '/about/terms-and-conditions' },
 ]
 
 export default function Header() {
+  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE ?? '0450124086'
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? 'account@cleaningprofessionals.com.au'
+  const telHref = `tel:${phone.replace(/\s/g,'')}`
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
@@ -69,12 +70,12 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-6">
             <div className="flex items-center space-x-2">
               <Phone size={16} className="text-gray-600" />
-              <a href="tel:0450124086" className="text-gray-600 hover:text-[#1E3D8F]">0450124086</a>
+              <a href={telHref} className="text-gray-600 hover:text-[#1E3D8F]">{phone}</a>
             </div>
             <div className="flex items-center space-x-2">
               <Mail size={16} className="text-gray-600" />
-              <a href="mailto:account@cleaningprofessionals.com.au" className="text-gray-600 hover:text-[#1E3D8F]">
-                account@cleaningprofessionals.com.au
+              <a href={`mailto:${email}`} className="text-gray-600 hover:text-[#1E3D8F]">
+                {email}
               </a>
             </div>
           </div>
@@ -272,9 +273,9 @@ export default function Header() {
                 CONTACT
               </Link>
               <Link 
-                href="/get-quote" 
+                href="/book?source=get-quote" 
                 className={`text-gray-700 hover:text-[#1E3D8F] transition-colors relative ${
-                  isActive('/get-quote') ? 'text-[#1E3D8F] font-semibold after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#1E3D8F]' : ''
+                  isActive('/book') ? 'text-[#1E3D8F] font-semibold after:absolute after:left-0 after:bottom-[-4px] after:w-full after:h-[2px] after:bg-[#1E3D8F]' : ''
                 }`}
               >
                 GET QUOTE
@@ -292,10 +293,10 @@ export default function Header() {
             <div className="flex items-center space-x-4">
               {/* Call Button - Show only on desktop */}
               <Link 
-                href="tel:0450124086"
-                className="hidden md:flex bg-[#FFA500] text-white px-6 py-2 rounded-md hover:bg-opacity-90 whitespace-nowrap transition-all"
+                href={telHref}
+                className="hidden md:flex bg-[#1E3D8F] text-white px-6 py-2 md:rounded-lg rounded-none hover:bg-[#1E3D8F]/90 whitespace-nowrap transition-all items-center gap-2"
               >
-                Call Us: 0450124086
+                <Phone size={16} />  Call {phone}
               </Link>
 
               {/* Mobile Menu Button */}
@@ -318,13 +319,13 @@ export default function Header() {
           <div className="container mx-auto">
             <div className="grid grid-cols-2 gap-0">
               <Link 
-                href="tel:0450124086"
-                className="w-full bg-[#FFA500] text-white px-4 py-3 text-center text-sm hover:bg-opacity-90 transition-all"
+                href={telHref}
+                className="w-full bg-[#1E3D8F] text-white px-4 py-3 text-center text-sm hover:bg-[#1E3D8F]/90 transition-all"
               >
                 Call Us Now
               </Link>
               <Link 
-                href="/quick-book"
+                href="/book"
                 className="w-full bg-white text-[#1E3D8F] px-4 py-3 text-center text-sm hover:bg-[#1E3D8F] hover:text-white transition-all border-l border-gray-100"
               >
                 Quick Book
@@ -413,7 +414,7 @@ export default function Header() {
               {['PRICING', 'BLOGS', 'FAQS', 'CONTACT', 'GET QUOTE', 'CAREER'].map((item) => (
                 <Link
                   key={item}
-                  href={`/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={item === 'GET QUOTE' ? '/book?source=get-quote' : `/${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="text-gray-700 hover:text-[#1E3D8F] py-2 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
