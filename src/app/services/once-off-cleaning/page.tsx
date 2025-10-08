@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { RegularCleaningHero } from "./components/OnceoffCleaningHero";
+import { OnceoffCleaningHero } from "./components/OnceoffCleaningHero";
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import { WhatsIncluded } from "./components/WhatsIncluded";
 import { PricingStructure } from "./components/PricingStructure";
@@ -167,7 +167,7 @@ export default function OnceOffCleaningPage() {
     <MainLayout>
       <div className="mt-28">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <RegularCleaningHero />
+        <OnceoffCleaningHero />
         <BeforeAfterGallery serviceSlug="once-off-cleaning" />
         <PricingStructure />
         <WhatsIncluded />

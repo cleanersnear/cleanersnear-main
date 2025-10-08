@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "../../components/ui/Button";
 import { Phone } from "lucide-react";
 
-export function RegularCleaningHero() {
+export function OnceoffCleaningHero() {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
   const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
   

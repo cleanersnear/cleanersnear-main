@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { RegularCleaningHero } from "./components/AirbnbCleaningHero";
+import { AirbnbCleaningHero } from "./components/AirbnbCleaningHero";
 import AirbnbImageGallery from "./components/AirbnbImageGallery";
 import { WhatsIncluded } from "./components/WhatsIncluded";
 import { PricingStructure } from "./components/PricingStructure";
@@ -167,7 +167,7 @@ export default function AirbnbCleaningPage() {
     <MainLayout>
       <div className="mt-28">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <RegularCleaningHero />
+        <AirbnbCleaningHero />
         
         <PricingStructure />
         <WhatsIncluded />
