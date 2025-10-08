@@ -20,8 +20,8 @@ const nextConfig = {
         dangerouslyAllowSVG: false,
         contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     },
+    serverExternalPackages: [],
     experimental: {
-        serverComponentsExternalPackages: [],
         serverActions: {
             bodySizeLimit: '2mb'
         }
