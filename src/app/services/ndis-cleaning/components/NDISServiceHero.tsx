@@ -3,87 +3,70 @@ import Link from "next/link";
 import { Button } from "../../components/ui/Button";
 import { Phone } from "lucide-react";
 
-export function NdisCleaningHero() {
-  const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
-  const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
+export default function NDISServiceHero() {
+  const contactPhone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
+  const phoneLink = `tel:${contactPhone.replace(/\s+/g, '')}`;
   
   return (
     <section className="relative bg-white py-8 sm:py-12 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Column - Content */}
+          {/* Content Column */}
           <div className="space-y-6 lg:space-y-8">
+            {/* Badge */}
             <div className="space-y-3 lg:space-y-4">
-              <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-[#1E3D8F] rounded-full text-xs sm:text-sm font-medium">
-                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1E3D8F] rounded-full mr-1.5 sm:mr-2"></span>
+              <span className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-[#1E3D8F] rounded-full text-xs sm:text-sm font-medium">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1E3D8F] rounded-full mr-1.5 sm:mr-2" />
                 NDIS registered cleaners
-              </div>
+              </span>
               
+              {/* Heading */}
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
                 NDIS Cleaning in{" "}
                 <span className="text-[#1E3D8F]">Melbourne</span>
               </h1>
               
+              {/* Description */}
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
                 Compassionate, reliable house cleaning for NDIS participants. Flexible weekly or fortnightly schedules with experienced, background-checked cleaners who understand your needs.
               </p>
             </div>
 
-            {/* Key Benefits */}
+            {/* Benefits Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
+              {[
+                { text: "NDIS Registered" },
+                { text: "Police checked & Insured" },
+                { text: "Same Cleaner" },
+                { text: "Flexible Scheduling" }
+              ].map((benefit, index) => (
+                <div key={index} className="flex items-center space-x-2 sm:space-x-3">
+                  <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-sm sm:text-base text-gray-700 font-medium">{benefit.text}</span>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">NDIS Registered</span>
-              </div>
-              
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Police checked & Insured</span>
-              </div>
-              
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Same Cleaner</span>
-              </div>
-              
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center">
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Flexible Scheduling</span>
-              </div>
+              ))}
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link href="/book?selectedServices=NDIS%20Cleaning">
+              <Link href="/book?selectedServices=NDIS%20Cleaning" className="w-full sm:w-auto">
                 <Button 
                   size="lg" 
-                  className="bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto"
+                  className="bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full"
                 >
                   Book NDIS Cleaning
                 </Button>
               </Link>
               
-              <Link href="/book?selectedServices=NDIS%20Cleaning">
+              <Link href="/book?selectedServices=NDIS%20Cleaning" className="w-full sm:w-auto">
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-[#1E3D8F] text-[#1E3D8F] hover:bg-[#1E3D8F] hover:text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 w-full sm:w-auto"
+                  className="border-2 border-[#1E3D8F] text-[#1E3D8F] hover:bg-[#1E3D8F] hover:text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg transition-all duration-200 w-full"
                 >
                   Get Instant Quote
                 </Button>
@@ -93,8 +76,7 @@ export function NdisCleaningHero() {
             {/* Trust Indicators */}
             <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 pt-4">
               <div className="flex items-center space-x-2">
-              <Image src="/icons/google-icon.png" alt="Google icon" width={20} height={20} />
-             
+                <Image src="/icons/google-icon.png" alt="Google icon" width={20} height={20} />
                 <div className="flex -space-x-1">
                   {[1, 2, 3, 4, 5].map((star) => (
                     <svg key={star} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -102,7 +84,6 @@ export function NdisCleaningHero() {
                     </svg>
                   ))}
                 </div>
-                
                 <span className="text-sm sm:text-base text-gray-600 font-medium">4.9/5 (1,200+ reviews)</span>
               </div>
               
@@ -112,7 +93,7 @@ export function NdisCleaningHero() {
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Image Column */}
           <div className="relative">
             <div className="relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
@@ -123,10 +104,10 @@ export function NdisCleaningHero() {
                 priority
               />
               
-              {/* Overlay Card - Hidden on mobile */}
+              {/* Desktop Overlay Card */}
               <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:right-6 sm:left-auto sm:w-auto bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg hidden sm:block">
-                 <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                   <div className="hidden sm:flex items-center space-x-3">
+                <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                  <div className="hidden sm:flex items-center space-x-3">
                     <div className="flex-shrink-0">
                       <div className="w-8 h-8 sm:w-12 sm:h-12 bg-blue-100 rounded-full flex items-center justify-center">
                         <svg className="w-4 h-4 sm:w-6 sm:h-6 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,39 +124,38 @@ export function NdisCleaningHero() {
                   
                   <div className="flex-shrink-0">
                     <Link 
-                      href={phoneHref}
+                      href={phoneLink}
                       className="inline-flex items-center justify-center px-4 py-2 sm:px-6 sm:py-3 bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white text-sm sm:text-base font-medium rounded-lg transition-colors duration-200 w-full sm:w-auto"
                     >
                       <Phone className="w-4 h-4 mr-2" />
-                      Call {phone}
+                      Call {contactPhone}
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating Elements */}
+            {/* Floating Badge */}
             <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-full flex items-center justify-center shadow-lg">
               <svg className="w-6 h-6 sm:w-8 sm:h-8 text-[#1E3D8F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
             
-            {/* Mobile-only Call Now Button */}
+            {/* Mobile Call Button */}
             <div className="mt-4 sm:hidden">
               <Link
-                href={phoneHref}
+                href={phoneLink}
                 className="inline-flex items-center justify-center w-full bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white px-6 py-3 text-base font-semibold rounded-lg transition-colors duration-200"
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Call {phone}
+                Call {contactPhone}
               </Link>
             </div>
-          
           </div>
         </div>
       </div>
-
     </section>
   );
 }
+
