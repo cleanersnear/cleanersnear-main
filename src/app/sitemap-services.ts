@@ -1,6 +1,15 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/**
+ * Services sitemap file
+ * 
+ * Contains all service pages for the cleaning business.
+ * Service pages are high priority as they represent core business offerings.
+ * 
+ * @see https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
+ * @returns {Promise<MetadataRoute.Sitemap>} The sitemap entries for service pages
+ */
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   return [

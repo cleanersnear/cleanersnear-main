@@ -7,7 +7,8 @@ import { MELBOURNE_REGIONS } from '@/utils/location/regions'
  * Contains all location pages for local SEO targeting.
  * Location pages are crucial for targeting specific geographic areas.
  * 
- * @returns {MetadataRoute.Sitemap} The sitemap entries for location pages
+ * @see https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
+ * @returns {Promise<MetadataRoute.Sitemap>} The sitemap entries for location pages
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.cleaningprofessionals.com.au'

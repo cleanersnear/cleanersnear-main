@@ -1,6 +1,15 @@
 import { MetadataRoute } from 'next'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/**
+ * Home and main pages sitemap
+ * 
+ * Contains the homepage and primary navigation pages.
+ * These pages have the highest priority as they represent core site functionality.
+ * 
+ * @see https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
+ * @returns {Promise<MetadataRoute.Sitemap>} The sitemap entries for home and main pages
+ */
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
   return [
