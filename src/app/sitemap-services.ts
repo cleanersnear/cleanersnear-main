@@ -1,69 +1,52 @@
 import { MetadataRoute } from 'next'
 
-/**
- * Services sitemap file
- * 
- * Contains all service pages with special emphasis on end-of-lease cleaning.
- * Priority structure:
- * 1.0 - Main services page and end-of-lease cleaning (highest priority service)
- * 0.95 - Core cleaning services
- * 0.9 - Supporting services
- * 
- * @returns {MetadataRoute.Sitemap} The sitemap entries for service pages
- */
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.cleaningprofessionals.com.au'
   
-  // Main services pages with highest priority
-  const mainPages = [
+  return [
+    // Main services page
     {
-      // Main services landing page
-      url: `${baseUrl}/services/`,
+      url: `${baseUrl}/services`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1.0
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
+    // Individual service pages
+    {
+      url: `${baseUrl}/services/regular-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
     },
     {
-      // End of lease cleaning - our specialized service
-      // This is a comprehensive, dedicated page with full service details
-      url: `${baseUrl}/services/end-of-lease-cleaning/`,
+      url: `${baseUrl}/services/once-off-cleaning`,
       lastModified: new Date(),
-      changeFrequency: 'daily' as const,
-      priority: 1.0
-    }
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/ndis-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/airbnb-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/commercial-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/end-of-lease-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
+      priority: 1.0,
+    },
   ]
-  
-  // Updated current services (six pages total)
-  const currentServices = [
-    'regular-cleaning',
-    'once-off-cleaning',
-    'ndis-cleaning',
-    'airbnb-cleaning',
-    'commercial-cleaning',
-    'end-of-lease-cleaning'
-  ].map(service => ({
-    url: `${baseUrl}/services/${service}/`,
-    lastModified: new Date(),
-    changeFrequency: 'daily' as const,
-    priority: 0.95
-  }))
-
-  // Combine all pages and ensure no duplicates
-  const allServicePages = [
-    ...mainPages,
-    ...currentServices
-  ]
-  
-  // Remove any duplicate URLs with case-insensitive comparison
-  const uniqueUrls = new Set<string>()
-  const uniqueServicePages = allServicePages.filter(page => {
-    const normalized = page.url.toLowerCase()
-    if (uniqueUrls.has(normalized)) {
-      return false
-    }
-    uniqueUrls.add(normalized)
-    return true
-  })
-  
-  return uniqueServicePages
-} 
+}
