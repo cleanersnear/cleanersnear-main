@@ -138,7 +138,7 @@ export default function SubscriptionSection() {
               <p className="text-xs md:text-sm text-gray-600 mt-3 md:mt-4">
                 Please read{' '}
                 <Link 
-                  href="/terms" 
+                  href="/terms-and-conditions" 
                   className="text-[#1E3D8F] underline hover:text-[#FFA500] transition-colors"
                 >
                   Terms and Conditions
