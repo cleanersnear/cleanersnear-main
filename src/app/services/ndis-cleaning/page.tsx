@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import { NdisCleaningHero } from "./components/NdisCleaningHero";
+import { NdisCleaningHero } from "./components/NdisCleaningHero";
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import { WhatsIncluded } from "./components/WhatsIncluded";
 import { PricingStructure } from "./components/PricingStructure";
@@ -167,7 +167,7 @@ export default function NDISCleaningPage() {
     <MainLayout>
       <div className="mt-28">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        {/* <NdisCleaningHero /> */}
+        <NdisCleaningHero />
         <BeforeAfterGallery serviceSlug="ndis-cleaning" />
         <PricingStructure />
         <WhatsIncluded />
