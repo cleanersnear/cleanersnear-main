@@ -153,7 +153,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/regular-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       Regular Cleaning
@@ -164,7 +164,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/once-off-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       Once-Off Cleaning
@@ -175,7 +175,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/ndis-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       NDIS Cleaning
@@ -186,7 +186,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/airbnb-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       Airbnb Cleaning
@@ -197,7 +197,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/commercial-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       Commercial Cleaning
@@ -208,7 +208,7 @@ export default async function LocationPage({
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                     <Link 
-                      href="/services"
+                      href={`/locations/${resolvedParams.suburb}/end-of-lease-cleaning`}
                       className="hover:text-[#FFA500] transition-colors"
                     >
                       End of Lease Cleaning

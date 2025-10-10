@@ -1,346 +1,224 @@
 'use client'
 
 import MainLayout from '@/components/layout/MainLayout'
-import { Check, Info, Phone, ChevronDown } from 'lucide-react'
+import { Check } from 'lucide-react'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
-const hourlyRates = [
+const serviceCards = [
   {
-    id: 'weekly',
-    title: <span className="flex items-center relative">
-      Weekly Service
-      <span className="relative group inline-block ml-2">
-        <Info size={14} className="text-gray-400 cursor-help inline" />
-        <span className="invisible group-hover:visible absolute left-0 top-full mt-1 w-48 bg-gray-500/80 text-white text-xs rounded p-2 z-50 transform -translate-x-1/2">
-          Minimum 2 hours booking required for a thorough cleaning service
-        </span>
-      </span>
-    </span>,
-    price: '48.50',
-    discount: '10% OFF',
+    id: 'regular-cleaning',
+    title: 'Regular Cleaning',
+    description: 'Weekly or fortnightly cleans to keep your home.',
+    priceLine: 'From $92 for 2 hours',
+    priceSub: '$38/hour thereafter',
     features: [
-      'All cleaning products included',
-      'Professional cleaning equipment',
-      'Trained & experienced cleaners',
-      'Regular scheduled cleaning'
-    ],
-    link: '/quick-book',
-    isPopular: false
-  },
-  {
-    id: 'fortnightly',
-    title: <span className="flex items-center relative">
-      Fortnightly Service
-      <span className="relative group inline-block ml-2">
-        <Info size={14} className="text-gray-400 cursor-help inline" />
-        <span className="invisible group-hover:visible absolute left-0 top-full mt-1 w-48 bg-gray-500/80 text-white text-xs rounded p-2 z-50 transform -translate-x-1/2">
-          Minimum 3 hours booking required for a thorough cleaning service
-        </span>
-      </span>
-    </span>,
-    price: '58.50',
-    discount: '5% OFF',
-    features: [
-      'All cleaning products included',
-      'Professional cleaning equipment',
-      'Trained & experienced cleaners',
+      'Police checked and insured cleaners',
+      'Customised cleaning plan',
       'Flexible scheduling'
     ],
-    link: '/quick-book',
-    isPopular: true
+    minimums: 'Minimum 2 hours • Weekly or fortnightly options',
+    link: '/services/regular-cleaning',
+    isPopular: true,
+    highlight: 'Most Popular'
   },
   {
-    id: '3weekly',
-    title: <span className="flex items-center relative">
-      3-Weekly Service
-      <span className="relative group inline-block ml-2">
-        <Info size={14} className="text-gray-400 cursor-help inline" />
-        <span className="invisible group-hover:visible absolute left-0 top-full mt-1 w-48 bg-gray-500/80 text-white text-xs rounded p-2 z-50 transform -translate-x-1/2">
-          Minimum 3 hours booking required for a thorough cleaning service
-        </span>
-      </span>
-    </span>,
-    price: '63.05',
-    discount: '3% OFF',
+    id: 'once-off-cleaning',
+    title: 'Once-Off Cleaning',
+    description: 'Deep clean for a fresh reset or special occasion.',
+    priceLine: 'From $161 for 3 hours',
+    priceSub: '$45/hour thereafter',
     features: [
-      'All cleaning products included',
-      'Professional cleaning equipment',
-      'Trained & experienced cleaners',
-      'Consistent service quality'
+      'Top-to-bottom comprehensive clean',
+      'All equipment and products supplied',
+      'Attention to detail'
     ],
-    link: '/quick-book',
+    minimums: 'Minimum 3 hours',
+    link: '/services/once-off-cleaning',
     isPopular: false
   },
   {
-    id: 'monthly',
-    title: <span className="flex items-center relative">
-      Monthly / One-Time
-      <span className="relative group inline-block ml-2">
-        <Info size={14} className="text-gray-400 cursor-help inline" />
-        <span className="invisible group-hover:visible absolute left-0 top-full mt-1 w-48 bg-gray-500/80 text-white text-xs rounded p-2 z-50 transform -translate-x-1/2">
-          Minimum 4 hours booking required for a thorough cleaning service
-        </span>
-      </span>
-    </span>,
-    price: '65.00',
+    id: 'ndis-cleaning',
+    title: 'NDIS Cleaning',
+    description: 'Support-focused cleaning for eligible participants (self or plan managed).',
+    priceLine: 'From $112 for 2 hours',
+    priceSub: '$56/hour thereafter',
     features: [
-      'All cleaning products included',
-      'Professional cleaning equipment',
-      'Trained & experienced cleaners',
-      'No commitment required'
+      'Police checked, reliable team',
+      'Tailored cleaning to needs',
+      'Public liability insurance'
     ],
-    link: '/quick-book',
+    minimums: 'Minimum 2 hours',
+    link: '/services/ndis-cleaning',
     isPopular: false
-  }
-]
-
-const flatRates = [
+  },
   {
-    title: '1 Bedroom/Studio Apartment',
-    description: 'Perfect for small homes and studio apartments',
-    startingPrice: '178',
-    duration: '2-4 hours',
+    id: 'airbnb-cleaning',
+    title: 'Airbnb Cleaning',
+    description: 'Professional turnover cleaning for your rental property.',
+    priceLine: 'From $118 for 2 hours',
+    priceSub: '$45/hour thereafter',
     features: [
-      'Complete home cleaning',
-      'All cleaning supplies included',
-      'Professional equipment used',
-      'Trained & experienced cleaners',
-      'Detailed cleaning checklist'
+      'Sanitisation of high-touch areas',
+      'Bed linen change & presentation',
+      'Restocking essentials'
     ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
+    minimums: 'Minimum 2 hours',
+    link: '/services/airbnb-cleaning',
+    isPopular: false
   },
   {
-    title: '2 Bedrooms',
-    description: 'Ideal for small to medium-sized homes',
-    startingPrice: '212',
-    duration: '3-4 hours',
-    features: [
-      'Complete home cleaning',
-      'All cleaning supplies included',
-      'Professional equipment used',
-      'Trained & experienced cleaners',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
-  },
-  {
-    title: '3 Bedrooms',
-    description: 'Perfect for medium to large homes',
-    startingPrice: '309',
-    duration: '4-6 hours',
-    features: [
-      'Complete home cleaning',
-      'All cleaning supplies included',
-      'Professional equipment used',
-      'Trained & experienced cleaners',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
-  },
-  {
-    title: '4 Bedrooms',
-    description: 'Ideal for larger family homes',
-    startingPrice: '395',
-    duration: '5-8 hours',
-    features: [
-      'Complete home cleaning',
-      'All cleaning supplies included',
-      'Professional equipment used',
-      'Trained & experienced cleaners',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
-  }
-]
-
-const endOfLeaseRates = [
-  {
-    title: '1 Bedroom/Studio Apartment',
-    description: 'Perfect for small rentals and studio apartments',
-    priceRange: '260 - 315',
-    features: [
-      'Bond back guarantee',
-      'Real estate standard cleaning',
-      'Professional equipment used',
-      'All cleaning supplies included',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now',
-    callText: 'Need a custom quote? Call us for the best price'
-  },
-  {
-    title: '2 Bedrooms',
-    description: 'Ideal for small to medium rental properties',
-    priceRange: '287 - 408',
-    features: [
-      'Bond back guarantee',
-      'Real estate standard cleaning',
-      'Professional equipment used',
-      'All cleaning supplies included',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now',
-    callText: 'Need a custom quote? Call us for the best price'
-  },
-  {
-    title: '3 Bedrooms',
-    description: 'Perfect for medium to large rental homes',
-    priceRange: '359 - 650',
-    features: [
-      'Bond back guarantee',
-      'Real estate standard cleaning',
-      'Professional equipment used',
-      'All cleaning supplies included',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
-  },
-  {
-    title: '4 Bedrooms',
-    description: 'Ideal for larger rental properties',
-    priceRange: '545 - 890',
-    features: [
-      'Bond back guarantee',
-      'Real estate standard cleaning',
-      'Professional equipment used',
-      'All cleaning supplies included',
-      'Detailed cleaning checklist'
-    ],
-    link: '/quick-book',
-    buttonText: 'Book Now'
-  }
-]
-
-const detailedPricing = [
-  {
-    title: 'Carpet Cleaning',
-    rates: [
-      '1 Bedroom: $35 - $55',
-      '2 Bedrooms: $60 - $75',
-      '3 Bedrooms: $90 - $100',
-      '4 Bedrooms: $120 + more'
-    ],
-    description: 'These prices cover deep steam cleaning and stain removal, ensuring your carpets are left fresh and hygienic.'
-  },
-  {
-    title: 'General House Cleaning',
-    rates: [
-      'Hourly Rate: $48.50 - $65.00 per hour',
-      '1 Bedroom/Studio Apartment: $178',
-      '2 Bedrooms: $212',
-      '3 Bedrooms: $309',
-      '4 Bedrooms: $395'
-    ],
-    description: 'These rates include dusting, vacuuming, mopping, and general tidying of all rooms.'
-  },
-  {
-    title: 'Upholstery Cleaning',
-    rates: [
-      'Sofa Cleaning: $60 - $100 per seat',
-      'Armchair Cleaning: $50 - $80 per chair',
-      'Mattress Cleaning: $80 - $120 per mattress'
-    ],
-    description: 'These prices include deep cleaning, stain removal, and deodorizing of upholstered furniture'
-  },
-  {
-    title: 'Office Cleaning',
-    rates: [
-      'Hourly Rate: $35 - $50 per hour',
-      'Small Office (up to 500 sq ft): $150 - $250 per visit',
-      'Medium Office (500-2000 sq ft): $250 - $400 per visit',
-      'Large Office (2000+ sq ft): $400 - $600 per visit'
-    ],
-    description: 'This includes desk cleaning, floor care, restroom sanitation, and more.'
-  },
-  {
-    title: 'End of Lease Cleaning',
-    rates: [
-      '1 Bedroom/Studio Apartment: $260 - $315',
-      '2 Bedroom Apartment/House: $287 - $408',
-      '3 Bedroom Apartment/House: $359 - $650',
-      '4 Bedroom House: $545 - $890'
-    ],
-    description: 'End of lease cleaning includes comprehensive cleaning of all rooms, kitchen deep cleaning, bathroom sanitization, and ensuring the property meets the landlord\'s standards for bond return.'
-  },
-  {
-    title: 'Oven Cleaning',
-    rates: [
-      'Single Oven: $80 - $120',
-      'Double Oven: $120 - $160',
-      'Range/Oven with Stovetop: $150 - $200'
-    ],
-    description: 'Oven cleaning involves thorough cleaning of the interior and exterior, including racks and trays, to remove grease and burnt-on food residues'
-  },
-  {
-    title: 'Window Cleaning',
-    rates: [
-      'Interior (per window): $15 - $25',
-      'Small Home (up to 5 windows): $75 - $128',
-      'Medium Home (5-10 windows): $128 - $230',
-      'Large Home (10+ windows): $230 - $350'
-    ],
-    description: 'This service ensures windows are streak-free and clear, enhancing the overall look of your home'
-  },
-  {
-    title: 'After Renovation Cleaning',
-    rates: [
-      'Hourly Rate: $45 - $60 per hour',
-      'Small Home: $300 - $400',
-      'Medium Home: $400 - $600',
-      'Large Home: $600 - $800'
-    ],
-    description: 'This includes removal of construction dust, debris, and thorough cleaning of all surfaces to prepare the space for occupancy'
-  },
-  {
+    id: 'commercial-cleaning',
     title: 'Commercial Cleaning',
-    rates: [
-      'Hourly Rate: $40 - $55 per hour',
-      'Small Office (up to 500 sq ft): $200 - $300 per visit',
-      'Medium Office (500-2000 sq ft): $300 - $500 per visit',
-      'Large Office (2000+ sq ft): $500 - $800 per visit'
+    description: 'Professional office and commercial space cleaning.',
+    priceLine: 'From $50/hour base rate',
+    priceSub: 'Discounts by frequency',
+    features: [
+      'Complete office cleaning',
+      'Restroom sanitization',
+      'Flexible scheduling'
     ],
-    description: 'These services include detailed cleaning of workspaces, restrooms, common areas, and more.'
+    minimums: 'Minimum 3 hours',
+    link: '/services/commercial-cleaning',
+    isPopular: false
   },
   {
-    title: 'Tile and Floor Cleaning',
-    rates: [
-      'Hourly Rate: $40 - $55 per hour',
-      'Small Areas (up to 500 sq ft): $150 - $200',
-      'Medium Areas (500-1500 sq ft): $200 - $300',
-      'Large Areas (1500+ sq ft): $300 - $450'
+    id: 'end-of-lease-cleaning',
+    title: 'End of Lease Cleaning',
+    description: 'Bond back guarantee cleaning service.',
+    priceLine: 'From $205 for studio/1 bed',
+    priceSub: 'Up to $625+ for 4 bed',
+    features: [
+      'Bond back guarantee',
+      'REIV checklist compliant',
+      'Professional equipment used'
     ],
-    description: 'This service includes scrubbing, polishing, and sealing of tile and floor surfaces to restore their appearance and prolong their lifespan'
+    minimums: 'Various minimums by property size',
+    link: '/services/end-of-lease-cleaning',
+    isPopular: false
+  }
+]
+
+const endOfLeasePricing = [
+  {
+    title: 'Studio/1 Bedroom',
+    description: 'Perfect for studio apartments and 1 bedroom units',
+    priceRange: '$205 - $315',
+    features: [
+      'Bond back guarantee',
+      'REIV checklist compliant',
+      'Professional equipment used',
+      'All cleaning supplies included',
+      'Detailed cleaning checklist'
+    ],
+    link: '/services/end-of-lease-cleaning',
+    buttonText: 'Book Now'
+  },
+  {
+    title: '2 Bedrooms',
+    description: 'Perfect for 2 bedroom homes and apartments',
+    priceRange: '$310 - $408',
+    features: [
+      'Bond back guarantee',
+      'REIV checklist compliant',
+      'Professional equipment used',
+      'All cleaning supplies included',
+      'Detailed cleaning checklist'
+    ],
+    link: '/services/end-of-lease-cleaning',
+    buttonText: 'Book Now'
+  },
+  {
+    title: '3 Bedrooms',
+    description: 'Ideal for 3 bedroom houses and larger apartments',
+    priceRange: '$450 - $650',
+    features: [
+      'Bond back guarantee',
+      'REIV checklist compliant',
+      'Professional equipment used',
+      'All cleaning supplies included',
+      'Detailed cleaning checklist'
+    ],
+    link: '/services/end-of-lease-cleaning',
+    buttonText: 'Book Now'
+  },
+  {
+    title: '4 Bedrooms',
+    description: 'Perfect for large 4 bedroom houses',
+    priceRange: '$625 - $890',
+    features: [
+      'Bond back guarantee',
+      'REIV checklist compliant',
+      'Professional equipment used',
+      'All cleaning supplies included',
+      'Detailed cleaning checklist'
+    ],
+    link: '/services/end-of-lease-cleaning',
+    buttonText: 'Book Now'
+  }
+]
+
+
+const additionalServices = [
+  {
+    title: 'Regular Cleaning',
+    rates: [
+      'Weekly: From $92 for 2 hours',
+      'Fortnightly: From $130 for 3 hours',
+      'Hourly Rate: $38/hour thereafter'
+    ],
+    description: 'Consistent cleaning service with same cleaner, flexible scheduling, and all supplies included.'
+  },
+  {
+    title: 'Once-Off Cleaning',
+    rates: [
+      'Standard Deep Clean: From $161 for 3 hours',
+      'Premium Deep Clean: From $296 for 6 hours',
+      'Hourly Rate: $45/hour thereafter'
+    ],
+    description: 'Comprehensive one-time cleaning including deep cleaning, appliance cleaning, and window cleaning.'
   },
   {
     title: 'NDIS Cleaning',
     rates: [
-      'Hourly Rate: $45 - $55 per hour (with NDIS funding typically covering up to $50.20 per hour)'
+      'Weekly: From $112 for 2 hours',
+      'Fortnightly: From $168 for 3 hours',
+      'Hourly Rate: $56/hour thereafter'
     ],
-    description: 'Service Plans: Customizable based on individual needs, including regular cleaning, deep cleaning, and specialized cleaning services such as hypoallergenic cleaning. These services are tailored to the needs of individuals with disabilities, ensuring a clean and safe living environment that meets NDIS standards'
+    description: 'Specialized cleaning for NDIS participants with tailored services and support-focused approach.'
   },
   {
-    title: 'Move In/Move Out Cleaning',
+    title: 'Airbnb Cleaning',
     rates: [
-      '1 Bedroom/Studio: $220 - $280',
-      '2 Bedrooms: $280 - $350',
-      '3 Bedrooms: $350 - $450',
-      '4 Bedrooms: $450 - $550'
+      'Regular Turnover: From $118 for 2 hours',
+      'Deep Clean: From $198 for 3 hours',
+      'Hourly Rate: $45/hour thereafter'
     ],
-    description: 'Comprehensive cleaning service for moving transitions. Includes deep cleaning of all rooms, appliances, cabinets, and fixtures to ensure the space is perfectly clean for new occupants.'
+    description: 'Professional turnover cleaning with sanitization, bed linen changes, and restocking essentials.'
+  },
+  {
+    title: 'Commercial Cleaning',
+    rates: [
+      'Once-off: $60/hour (3 hour minimum)',
+      'Regular Service: $50/hour base rate',
+      'Frequency discounts available'
+    ],
+    description: 'Professional office cleaning with restroom sanitization, floor care, and flexible scheduling.'
+  },
+  {
+    title: 'End of Lease Cleaning',
+    rates: [
+      'Studio/1 Bed: $205 - $315',
+      '2 Bed: $310 - $408',
+      '3 Bed: $450 - $650',
+      '4 Bed: $625 - $890'
+    ],
+    description: 'Bond back guarantee cleaning service that meets real estate standards and includes comprehensive cleaning.'
   }
 ]
 
 export default function PricingPage() {
-  const [showCallButtons, setShowCallButtons] = useState<{ [key: string]: boolean }>({});
-
+  
   // Save scroll position when navigating away
   useEffect(() => {
     // Save scroll position when navigating away
@@ -430,7 +308,7 @@ export default function PricingPage() {
                   Get Quote
                 </Link>
                 <Link 
-                  href="/quick-book"
+                  href="/book"
                   onClick={handleLinkClick}
                   className="inline-flex justify-center items-center px-6 sm:px-8 py-2.5 sm:py-3 border border-[#1E3D8F] text-sm sm:text-base font-medium rounded-md text-[#1E3D8F] bg-white hover:bg-[#1E3D8F]/5 transition-all shadow-sm"
                 >
@@ -463,52 +341,58 @@ export default function PricingPage() {
           </div>
         </div>
 
-        {/* Hourly Rates Section */}
+        {/* Service Cards Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-4">General House Cleaning</h2>
-            <p className="text-xl font-semibold text-center text-gray-600 mb-12">Hourly rates</p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {hourlyRates.map((rate) => (
+            <h2 className="text-3xl font-bold text-center mb-4">Our Cleaning Services</h2>
+            <p className="text-xl font-semibold text-center text-gray-600 mb-12">Choose the service that fits your needs</p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {serviceCards.map((service) => (
                 <div 
-                  key={rate.id}
+                  key={service.id}
                   className={`bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col ${
-                    rate.isPopular ? 'ring-2 ring-green-500' : ''
+                    service.isPopular ? 'ring-2 ring-blue-500' : ''
                   }`}
                 >
-                  {rate.isPopular && (
-                    <div className="bg-green-500 text-white text-center py-2">
-                      Popular Choice
+                  {service.highlight && (
+                    <div className="bg-blue-500 text-white text-center py-2 text-sm font-semibold">
+                      {service.highlight}
                     </div>
                   )}
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className={`p-6 flex flex-col flex-grow ${service.highlight ? 'pt-12' : ''}`}>
                     <div className="flex-grow">
-                      <h3 className="text-xl font-bold mb-4">{rate.title}</h3>
-                      <div className="flex items-baseline mb-4">
-                        <span className="text-3xl font-bold">${rate.price}</span>
-                        <span className="text-gray-600 ml-1">/hour</span>
+                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                      <p className="text-gray-600 mb-4 text-sm">{service.description}</p>
+                      <div className="mb-4">
+                        <div className="text-2xl font-bold text-[#1E3D8F]">{service.priceLine}</div>
+                        <div className="text-sm text-gray-500">{service.priceSub}</div>
                       </div>
-                      {rate.discount && (
-                        <div className="text-green-500 font-semibold mb-4">
-                          {rate.discount}
-                        </div>
-                      )}
-                      <ul className="space-y-3 mb-6">
-                        {rate.features.map((feature, index) => (
+                      <ul className="space-y-2 mb-4">
+                        {service.features.map((feature, index) => (
                           <li key={index} className="flex items-center">
-                            <Check size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                            <span className="text-gray-600">{feature}</span>
+                            <div className="w-2 h-2 bg-green-500 rounded-full mr-2 flex-shrink-0"></div>
+                            <span className="text-sm text-gray-600">{feature}</span>
                           </li>
                         ))}
                       </ul>
+                      <div className="text-xs text-gray-500 mb-4">{service.minimums}</div>
                     </div>
-                    <Link
-                      href={rate.link}
-                      onClick={handleLinkClick}
-                      className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base mt-6"
-                    >
-                      Book Now
-                    </Link>
+                    <div className="flex flex-col space-y-2">
+                      <Link
+                        href={`/book?selectedServices=${encodeURIComponent(service.title)}`}
+                        onClick={handleLinkClick}
+                        className="w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base"
+                      >
+                        Get Instant Pricing
+                      </Link>
+                      <Link
+                        href={service.link}
+                        onClick={handleLinkClick}
+                        className="text-xs text-gray-500 underline hover:text-gray-700 text-center"
+                      >
+                        Learn more
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -516,20 +400,20 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* Flat Rates Section */}
+        {/* End of Lease Cleaning Section */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
-          <h1 className="text-3xl font-bold text-center mb-4">
-              Flat-Rates for a Complete Home Cleaning
+            <h1 className="text-3xl font-bold text-center mb-4">
+              End of Lease Cleaning
             </h1>
-            <h2 className="text-1xl font-bold text-center mb-4">
-              One-Time House Cleaning, Fixed Rates for a Full Home Clean
+            <h2 className="text-xl font-bold text-center mb-4">
+              Bond Back Guarantee Service
             </h2>
             <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-              Our one-time cleaning service is perfect for those who need a thorough clean without any ongoing commitment. Prices are based on the size of your home and include all cleaning supplies and equipment.
+              Our end of lease cleaning service is designed to help you get your bond back. We follow a comprehensive checklist that meets real estate standards and includes all the necessary cleaning tasks required by property managers.
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-              {flatRates.map((rate) => (
+              {endOfLeasePricing.map((rate) => (
                 <div 
                   key={rate.title}
                   className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
@@ -538,13 +422,9 @@ export default function PricingPage() {
                     <div className="flex-grow">
                       <h3 className="text-lg sm:text-xl font-bold mb-2">{rate.title}</h3>
                       <p className="text-sm sm:text-base text-gray-600 mb-4">{rate.description}</p>
-                      <div className="mb-2">
-                        <div className="text-xs sm:text-sm text-gray-500">Starting from</div>
-                        <div className="text-2xl sm:text-3xl font-bold">${rate.startingPrice}</div>
-                      </div>
                       <div className="mb-4 sm:mb-6">
-                        <div className="text-xs sm:text-sm font-medium text-gray-500">Duration</div>
-                        <div className="text-sm sm:text-md text-gray-700">{rate.duration}</div>
+                        <div className="text-xs sm:text-sm text-gray-500">Price Range</div>
+                        <div className="text-2xl sm:text-3xl font-bold">{rate.priceRange}</div>
                       </div>
                       <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                         {rate.features.map((feature, index) => (
@@ -556,7 +436,7 @@ export default function PricingPage() {
                       </ul>
                     </div>
                     <Link
-                      href={rate.link}
+                      href="/book?selectedServices=End%20of%20Lease%20Cleaning"
                       onClick={handleLinkClick}
                       className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base"
                     >
@@ -569,99 +449,18 @@ export default function PricingPage() {
           </div>
         </section>
 
-        {/* End of Lease Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold text-center mb-4">
-              End of Lease Cleaning Packages
-            </h1>
-            <h2 className="text-1xl font-bold text-center mb-4">
-              Professional Bond Cleaning Services
-            </h2>
-            <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-              Our end of lease cleaning service is designed to help you get your bond back. We follow a comprehensive checklist that meets real estate standards and includes all the necessary cleaning tasks required by property managers.
-            </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-              {endOfLeaseRates.map((rate) => {
-                return (
-                  <div 
-                    key={rate.title}
-                    className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col"
-                  >
-                    <div className="p-4 sm:p-6 flex flex-col flex-grow">
-                      <div className="flex-grow">
-                        <h3 className="text-lg sm:text-xl font-bold mb-2">{rate.title}</h3>
-                        <p className="text-sm sm:text-base text-gray-600 mb-4">{rate.description}</p>
-                        <div className="mb-6">
-                          <div className="text-sm text-gray-500">Price Range</div>
-                          <div className="text-3xl font-bold">${rate.priceRange}</div>
-                          <button 
-                            onClick={() => setShowCallButtons(prev => ({
-                              ...prev,
-                              [rate.title]: !prev[rate.title]
-                            }))}
-                            className="text-sm text-blue-600 hover:text-blue-700 mt-2 flex items-center gap-1 transition-colors"
-                          >
-                            Not sure about the price? 
-                            <ChevronDown 
-                              size={16} 
-                              className={`transform transition-transform duration-200 ${
-                                showCallButtons[rate.title] ? 'rotate-180' : ''
-                              }`}
-                            />
-                          </button>
-                        </div>
-                        <ul className="space-y-3 mb-6">
-                          {rate.features.map((feature, index) => (
-                            <li key={index} className="flex items-center">
-                              <Check size={16} className="text-green-500 mr-2 flex-shrink-0" />
-                              <span className="text-gray-600">{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div className="flex flex-col space-y-3">
-                        <Link
-                          href={rate.link}
-                          onClick={handleLinkClick}
-                          className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base"
-                        >
-                          {rate.buttonText}
-                        </Link>
-                        <div className={`transform transition-all duration-200 overflow-hidden ${
-                          showCallButtons[rate.title] ? 'max-h-20 opacity-100' : 'max-h-0 opacity-0'
-                        }`}>
-                          <Link
-                            href="tel:+61123456789"
-                            className="mx-auto w-[180px] sm:w-full bg-green-500 text-white text-center py-2 rounded-md hover:bg-opacity-90 transition-all text-sm gap-2 flex items-center justify-center"
-                          >
-                            <Phone size={14} />
-                            Call for Best Price
-                          </Link>
-                          <p className="text-xs text-gray-500 text-center mt-2">
-                            We can provide a custom quote based on your specific needs
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
 
-        {/* Detailed Pricing Section */}
+        {/* Additional Services Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-4">
-              Detailed Cleaning Pricing
+              Service Pricing Details
             </h2>
             <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
-              Comprehensive pricing for all our specialized cleaning services
+              Detailed pricing information for all our cleaning services
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {detailedPricing.map((service) => (
+              {additionalServices.map((service) => (
                 <div 
                   key={service.title}
                   className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
@@ -677,12 +476,12 @@ export default function PricingPage() {
                           </li>
                         ))}
                       </ul>
-                      <p className="text-sm sm:text-base text-gray-600 text-sm border-t pt-4">
+                      <p className="text-sm sm:text-base text-gray-600 border-t pt-4">
                         {service.description}
                       </p>
                     </div>
                     <Link
-                      href="/quick-book"
+                      href="/book"
                       onClick={handleLinkClick}
                       className="mx-auto w-[200px] sm:w-full bg-[#1E3D8F] text-white text-center py-2 sm:py-3 rounded-md hover:bg-opacity-90 transition-all text-sm sm:text-base mt-6"
                     >

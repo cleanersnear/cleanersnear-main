@@ -33,14 +33,24 @@ export default function NotFound() {
 
   const popularServices = [
     {
-      title: 'End of Lease Cleaning',
-      href: '/services/end-of-lease-cleaning',
+      title: 'Regular Cleaning',
+      href: '/services/regular-cleaning',
       icon: '🏠'
     },
     {
-      title: 'House Cleaning',
-      href: '/services/general-cleaning',
+      title: 'Once-Off Cleaning',
+      href: '/services/once-off-cleaning',
       icon: '🧹'
+    },
+    {
+      title: 'NDIS Cleaning',
+      href: '/services/ndis-cleaning',
+      icon: '✨'
+    },
+    {
+      title: 'Airbnb Cleaning',
+      href: '/services/airbnb-cleaning',
+      icon: '🔑'
     },
     {
       title: 'Commercial Cleaning',
@@ -48,17 +58,17 @@ export default function NotFound() {
       icon: '🏢'
     },
     {
-      title: 'NDIS Cleaning',
-      href: '/services/ndis-cleaning',
-      icon: '✨'
+      title: 'End of Lease Cleaning',
+      href: '/services/end-of-lease-cleaning',
+      icon: '📋'
     }
   ]
 
   const quickLinks = [
     {
-      title: 'Get a Quote',
-      href: '/get-quote',
-      description: 'Get an instant quote for your cleaning needs'
+      title: 'Book Online',
+      href: '/book',
+      description: 'Get an instant quote and book your cleaning service'
     },
     {
       title: 'Contact Us',
@@ -68,7 +78,12 @@ export default function NotFound() {
     {
       title: 'View All Services',
       href: '/services',
-      description: 'Explore our complete range of services'
+      description: 'Explore our complete range of cleaning services'
+    },
+    {
+      title: 'Pricing',
+      href: '/pricing',
+      description: 'View transparent pricing for all our services'
     }
   ]
 
@@ -112,14 +127,14 @@ export default function NotFound() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Popular Cleaning Services
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {popularServices.map((service) => (
               <Link
                 key={service.href}
                 href={service.href}
-                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 hover:border-[#1E3D8F] border border-transparent"
               >
-                <div className="text-2xl mb-2">{service.icon}</div>
+                <div className="text-3xl mb-2">{service.icon}</div>
                 <h3 className="font-semibold text-gray-900 group-hover:text-[#1E3D8F] transition-colors duration-200">
                   {service.title}
                 </h3>
@@ -133,12 +148,12 @@ export default function NotFound() {
           <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             Quick Links
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {quickLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 hover:border-[#1E3D8F] border border-transparent"
               >
                 <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-[#1E3D8F] transition-colors duration-200 flex items-center">
                   {link.title}
@@ -159,11 +174,11 @@ export default function NotFound() {
             Our friendly team is here to help you 24/7
           </p>
           <Link
-            href="tel:0450124086"
+            href={`tel:${process.env.NEXT_PUBLIC_CONTACT_PHONE?.replace(/\s+/g, '') || '1300886119'}`}
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#FFA500] hover:bg-[#FFA500]/90 transition-colors duration-200"
           >
             <Phone className="w-5 h-5 mr-2" />
-            Call Us: 0450 124 086
+            Call Us: {process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119'}
           </Link>
         </div>
       </div>

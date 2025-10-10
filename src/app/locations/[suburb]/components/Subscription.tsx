@@ -90,7 +90,7 @@ export function Subscription() {
                 Join our Melbourne community and receive exclusive cleaning tips, seasonal offers, and updates about our services. No spam, just valuable content for keeping your home spotless.
               </p>
               <p className="mt-2 text-sm text-gray-500">
-                Please read <Link href="/about/terms-and-conditions" className="text-[#1E3D8F] hover:text-[#162e6a] underline">Terms and Conditions</Link> before subscribing to the newsletter.
+                Please read <Link href="/about/terms" className="text-[#1E3D8F] hover:text-[#162e6a] underline">Terms and Conditions</Link> before subscribing to the newsletter.
               </p>
             </div>
           </div>

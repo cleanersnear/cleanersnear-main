@@ -154,7 +154,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // Location pages
+  // Location pages - Main suburb pages
   const locationPages = Object.values(MELBOURNE_REGIONS).flatMap(region =>
     region.councils.flatMap(council =>
       council.key_suburbs.map(suburb => {
@@ -165,6 +165,30 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           changeFrequency: 'weekly' as const,
           priority: 0.75
         }
+      })
+    )
+  )
+
+  // Location-specific service pages (suburb + service combinations)
+  const services = [
+    'regular-cleaning',
+    'once-off-cleaning',
+    'ndis-cleaning',
+    'airbnb-cleaning',
+    'commercial-cleaning',
+    'end-of-lease-cleaning'
+  ]
+
+  const locationServicePages = Object.values(MELBOURNE_REGIONS).flatMap(region =>
+    region.councils.flatMap(council =>
+      council.key_suburbs.flatMap(suburb => {
+        const slugifiedSuburb = suburb.toLowerCase().replace(/\s+/g, '-')
+        return services.map(service => ({
+          url: `${baseUrl}/locations/${slugifiedSuburb}/${service}`,
+          lastModified: new Date(),
+          changeFrequency: 'weekly' as const,
+          priority: 0.85
+        }))
       })
     )
   )
@@ -200,6 +224,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...legalPages,
     ...servicePages,
     ...locationPages,
+    ...locationServicePages,
     ...blogPages,
   ]
 }
