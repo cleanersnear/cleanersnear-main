@@ -269,9 +269,9 @@ export default function RootLayout({
           "itemListElement": [
             {
               "@type": "SiteNavigationElement",
-              "name": "From $76 For Two Hours",
-              "url": "https://www.cleaningprofessionals.com.au/services/general-cleaning",
-              "description": "Affordable house cleaning that doesn't compromise on quality. Enjoy a fresh, spotless home starting from just $76 for 2 hours. Perfect for busy Melbourne households."
+              "name": "Regular Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/regular-cleaning",
+              "description": "Weekly or fortnightly cleans from $92 for 2 hours, $38/hour thereafter. Police checked cleaners, flexible scheduling, same cleaner every visit. Perfect for busy Melbourne households."
             },
             {
               "@type": "SiteNavigationElement",
@@ -300,26 +300,26 @@ export default function RootLayout({
             {
               "@type": "SiteNavigationElement",
               "name": "Move In Clean",
-              "url": "https://www.cleaningprofessionals.com.au/services/move-in-cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning",
               "description": "Start fresh in your new Melbourne home! Our move-in cleaning service ensures every corner is spotless before you unpack your belongings."
+            },
+            {
+              "@type": "SiteNavigationElement",
+              "name": "Deep Cleaning",
+              "url": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning",
+              "description": "When your Melbourne home needs more than regular cleaning, our deep clean service tackles every detail—from baseboards to ceiling fans and everything in between."
             },
             {
               "@type": "SiteNavigationElement",
               "name": "NDIS Cleaning",
               "url": "https://www.cleaningprofessionals.com.au/services/ndis-cleaning",
-              "description": "Specialized cleaning services for NDIS participants in Melbourne. Our trained team understands your unique needs and provides compassionate, reliable care."
+              "description": "Specialized cleaning for NDIS participants from $112 for 2 hours, $56/hour thereafter. Police checked team, tailored to needs, public liability insurance."
             },
             {
               "@type": "SiteNavigationElement",
-              "name": "Deep Cleaning",
-              "url": "https://www.cleaningprofessionals.com.au/services/deep-cleaning",
-              "description": "When your Melbourne home needs more than regular cleaning, our deep clean service tackles every detail—from baseboards to ceiling fans and everything in between."
-            },
-            {
-              "@type": "SiteNavigationElement",
-              "name": "Air BnB Cleaning",
+              "name": "Airbnb Cleaning",
               "url": "https://www.cleaningprofessionals.com.au/services/airbnb-cleaning",
-              "description": "Keep your Melbourne Air BnB guest-ready with our professional turnover cleaning. Fast, thorough, and designed to impress your guests every time."
+              "description": "Professional turnover cleaning from $118 for 2 hours, $45/hour thereafter. Sanitisation of high-touch areas, bed linen changes, restocking essentials."
             },
             {
               "@type": "SiteNavigationElement",
@@ -342,8 +342,8 @@ export default function RootLayout({
             {
               "@type": "SiteNavigationElement",
               "name": "Book Online",
-              "url": "https://www.cleaningprofessionals.com.au/quick-book/location",
-              "description": "Booking your Melbourne home clean is simple. Choose your service, select a time, and secure your professional cleaning in just a few clicks."
+              "url": "https://www.cleaningprofessionals.com.au/book",
+              "description": "Get instant quote and book your Melbourne home clean online. Choose from regular, once-off, NDIS, Airbnb, commercial, or end of lease cleaning services."
             }
           ]
         }
