@@ -159,6 +159,11 @@ export default function RegularCleaningPage() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "Service",
+        "name": "Regular House Cleaning Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/regular-cleaning#service"
+      },
       "ratingValue": "4.9",
       "reviewCount": "1200",
       "bestRating": "5",

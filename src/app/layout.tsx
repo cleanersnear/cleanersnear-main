@@ -239,6 +239,11 @@ export default function RootLayout({
         },
         "aggregateRating": {
           "@type": "AggregateRating",
+          "itemReviewed": {
+            "@type": "LocalBusiness",
+            "name": "Cleaning Professionals",
+            "@id": "https://www.cleaningprofessionals.com.au/#localbusiness"
+          },
           "ratingValue": "4.9",
           "reviewCount": "740",
           "bestRating": "5",

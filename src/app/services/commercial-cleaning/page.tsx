@@ -122,6 +122,11 @@ export default function CommercialCleaningPage() {
     },
     aggregateRating: {
       "@type": "AggregateRating",
+      itemReviewed: {
+        "@type": "Service",
+        name: "Commercial Cleaning Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/commercial-cleaning#service"
+      },
       ratingValue: "4.9",
       reviewCount: "1200",
       bestRating: "5",

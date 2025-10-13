@@ -142,6 +142,11 @@ export default function OnceOffCleaningPage() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "Service",
+        "name": "Once-Off Deep Cleaning Service Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning#service"
+      },
       "ratingValue": "4.9",
       "reviewCount": "1200",
       "bestRating": "5",

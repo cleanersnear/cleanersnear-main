@@ -142,6 +142,11 @@ export default function AirbnbCleaningPage() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "Service",
+        "name": "Airbnb Cleaning Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/airbnb-cleaning#service"
+      },
       "ratingValue": "4.9",
       "reviewCount": "1200",
       "bestRating": "5",

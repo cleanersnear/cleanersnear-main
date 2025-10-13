@@ -142,6 +142,11 @@ export default function NDISCleaningPage() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
+      "itemReviewed": {
+        "@type": "Service",
+        "name": "NDIS Cleaning Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/ndis-cleaning#service"
+      },
       "ratingValue": "4.9",
       "reviewCount": "1200",
       "bestRating": "5",
