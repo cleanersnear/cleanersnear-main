@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 };
 
 export default function RegularCleaningPage() {
-  const jsonLd = {
+  const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.cleaningprofessionals.com.au/services/regular-cleaning#service",
@@ -169,18 +169,20 @@ export default function RegularCleaningPage() {
       "bestRating": "5",
       "worstRating": "1"
     },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://www.cleaningprofessionals.com.au/services" },
-        { "@type": "ListItem", position: 3, name: "Regular Cleaning", item: "https://www.cleaningprofessionals.com.au/services/regular-cleaning" },
-      ],
-    },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://www.cleaningprofessionals.com.au/services/regular-cleaning"
     }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.cleaningprofessionals.com.au/services" },
+      { "@type": "ListItem", position: 3, name: "Regular Cleaning", item: "https://www.cleaningprofessionals.com.au/services/regular-cleaning" },
+    ],
   };
    
   
@@ -188,7 +190,8 @@ export default function RegularCleaningPage() {
   return (
     <MainLayout>
       <div className="mt-28">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
         <RegularCleaningHero />
         <BeforeAfterGallery serviceSlug="regular-cleaning" />
         <PricingStructure />

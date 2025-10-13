@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export default function OnceOffCleaningPage() {
-  const jsonLd = {
+  const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning#service",
@@ -152,18 +152,20 @@ export default function OnceOffCleaningPage() {
       "bestRating": "5",
       "worstRating": "1"
     },
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
-        { "@type": "ListItem", position: 2, name: "Services", item: "https://www.cleaningprofessionals.com.au/services" },
-        { "@type": "ListItem", position: 3, name: "Once-Off Cleaning", item: "https://www.cleaningprofessionals.com.au/services/once-off-cleaning" },
-      ],
-    },
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning"
     }
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
+      { "@type": "ListItem", position: 2, name: "Services", item: "https://www.cleaningprofessionals.com.au/services" },
+      { "@type": "ListItem", position: 3, name: "Once-Off Cleaning", item: "https://www.cleaningprofessionals.com.au/services/once-off-cleaning" },
+    ],
   };
    
  
@@ -171,7 +173,8 @@ export default function OnceOffCleaningPage() {
   return (
     <MainLayout>
       <div className="mt-28">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
         <OnceoffCleaningHero />
         <BeforeAfterGallery serviceSlug="once-off-cleaning" />
         <PricingStructure />
