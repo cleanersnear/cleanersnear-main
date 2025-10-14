@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import SimpleLocation from '@/components/Home/Location/SimpleLocation'
-import Link from 'next/link'
 
 export default function FAQSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
