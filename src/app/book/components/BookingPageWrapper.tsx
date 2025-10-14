@@ -100,49 +100,119 @@ function BookingPageContent() {
           )}
           {currentStep === 1 && (
             <>
-              <h2 className="text-xl font-semibold text-gray-900 mb-4">Choose your service</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Choose Your Cleaning Service</h2>
+                <p className="text-gray-600">Select the service that best fits your needs</p>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Regular Cleaning */}
                 <button 
-                  className="rounded-lg border border-gray-300 p-4 text-left hover:border-[#1E3D8F]"
+                  className="relative bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("Regular Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">Regular Cleaning</div>
-                  <div className="text-sm text-gray-600">Weekly or fortnightly home cleaning</div>
+                  <div className="absolute top-4 left-4 bg-green-100 text-green-800 text-xs font-medium px-2 py-1 rounded-full">
+                    Popular
+                  </div>
+                  <div className="mt-6">
+                    <div className="font-bold text-lg text-gray-900 mb-2">Regular Cleaning</div>
+                    <div className="text-sm text-gray-600 mb-4">Weekly or fortnightly home cleaning</div>
+                    <div className="space-y-2">
+                      <div className="text-xs text-gray-400">Starting from</div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-gray-900">$92</span>
+                        <span className="text-sm text-gray-600">for 2 hours</span>
+                      </div>
+                      <div className="text-xs text-gray-400">*$38/hour thereafter</div>
+                    </div>
+                  </div>
                 </button>
+
+                {/* Once-Off Cleaning */}
                 <button 
-                  className="rounded-lg border border-gray-300 p-4 text-left hover:border-[#1E3D8F]"
+                  className="bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("Once-Off Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">Once-Off Cleaning</div>
-                  <div className="text-sm text-gray-600">Deep clean for a fresh reset</div>
+                  <div className="font-bold text-lg text-gray-900 mb-2">Once-Off Cleaning</div>
+                  <div className="text-sm text-gray-600 mb-4">Deep clean for a fresh reset</div>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-400">Starting from</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-gray-900">$161</span>
+                      <span className="text-sm text-gray-600">for 3 hours</span>
+                    </div>
+                    <div className="text-xs text-gray-400">*$45/hour thereafter</div>
+                  </div>
                 </button>
+
+                {/* NDIS Cleaning */}
                 <button 
-                  className="rounded-lg border border-gray-300 p-4 text-left hover:border-[#1E3D8F]"
+                  className="relative bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("NDIS Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">NDIS Cleaning</div>
-                  <div className="text-sm text-gray-600">Support-focused cleaning services</div>
+                  <div className="absolute top-4 left-4 bg-blue-100 text-blue-800 text-xs font-medium px-2 py-1 rounded-full">
+                    NDIS
+                  </div>
+                  <div className="mt-6">
+                    <div className="font-bold text-lg text-gray-900 mb-2">NDIS Cleaning</div>
+                    <div className="text-sm text-gray-600 mb-4">Support-focused cleaning services</div>
+                    <div className="space-y-2">
+                      <div className="text-xs text-gray-400">Flat rate</div>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-2xl font-bold text-gray-900">$56</span>
+                        <span className="text-sm text-gray-600">per hour</span>
+                      </div>
+                    </div>
+                  </div>
                 </button>
+
+                {/* End of Lease Cleaning */}
                 <button 
-                  className="rounded-lg border border-gray-300 p-4 text-left hover:border-[#1E3D8F]"
+                  className="bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("End of Lease Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">End of Lease Cleaning</div>
-                  <div className="text-sm text-gray-600">Bond-ready move clean</div>
+                  <div className="font-bold text-lg text-gray-900 mb-2">End of Lease Cleaning</div>
+                  <div className="text-sm text-gray-600 mb-4">Bond-ready move-out clean</div>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-400">Starting from</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-gray-900">$205</span>
+                      <span className="text-sm text-gray-600">for Studio</span>
+                    </div>
+                    <div className="text-xs text-gray-400">From 4 hours minimum</div>
+                  </div>
                 </button>
+
+                {/* Airbnb Cleaning */}
                 <button 
-                  className="rounded-lg border border-[#1E3D8F] p-4 text-left hover:border-[#1E3D8F]"
+                  className="bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("Airbnb Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">Airbnb Cleaning</div>
-                  <div className="text-sm text-gray-600">Fast turnovers with hotel-standard presentation</div>
+                  <div className="font-bold text-lg text-gray-900 mb-2">Airbnb Cleaning</div>
+                  <div className="text-sm text-gray-600 mb-4">Fast turnovers with hotel-standard presentation</div>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-400">Starting from</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-gray-900">$118</span>
+                      <span className="text-sm text-gray-600">for 2 hours</span>
+                    </div>
+                    <div className="text-xs text-gray-400">*$45/hour thereafter</div>
+                  </div>
                 </button>
+
+                {/* Commercial Cleaning */}
                 <button 
-                  className="rounded-lg border border-gray-300 p-4 text-left hover:border-[#1E3D8F]"
+                  className="bg-white rounded-xl border-2 border-[#1E3D8F] shadow-md p-6 text-left hover:bg-blue-50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
                   onClick={() => handleServiceSelection("Commercial Cleaning" as ServiceType)}
                 >
-                  <div className="font-semibold text-gray-900">Commercial Cleaning</div>
-                  <div className="text-sm text-gray-600">Small offices and light commercial spaces</div>
+                  <div className="font-bold text-lg text-gray-900 mb-2">Commercial Cleaning</div>
+                  <div className="text-sm text-gray-600 mb-4">Small offices and light commercial spaces</div>
+                  <div className="space-y-2">
+                    <div className="text-xs text-gray-400">Custom pricing</div>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-2xl font-bold text-gray-900">Custom Quote</span>
+                    </div>
+                    <div className="text-xs text-gray-400">Flexible duration</div>
+                  </div>
                 </button>
               </div>
             </>
@@ -236,7 +306,7 @@ function BookingPageContent() {
                             ${pricing?.totalPrice?.toFixed(2) || '0.00'}
                           </span>
                         </div>
-                      </div>
+                      </div> 
                     </div>
 
                     {/* Countdown Timer Component */}
