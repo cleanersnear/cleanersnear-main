@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "../../components/ui/Button";
 import { Phone } from "lucide-react";
 
-export function OnceoffCleaningHero() {
+export function DeepCleaningHero() {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
   const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
   
@@ -20,12 +20,12 @@ export function OnceoffCleaningHero() {
               </div>
               
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                Once-Off Deep Cleaning in{" "}
+                Deep Cleaning in{" "}
                 <span className="text-[#1E3D8F]">Melbourne</span>
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                Professional deep cleaning for move-in/out, spring cleans, or post-renovation. Thorough cleaning that reaches every corner with our experienced team and quality guarantee.
+                Professional deep cleaning that reaches every corner of your home. Perfect for move-in/out, spring cleans, or when you need that extra thorough clean.
               </p>
             </div>
 
@@ -116,8 +116,8 @@ export function OnceoffCleaningHero() {
           <div className="relative">
             <div className="relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/once-off-cleaning.png"
-                alt="Professional once-off deep cleaning service in Melbourne"
+                src="/images/deep-cleaning.png"
+                alt="Professional deep cleaning service in Melbourne"
                 fill
                 className="object-cover"
                 priority

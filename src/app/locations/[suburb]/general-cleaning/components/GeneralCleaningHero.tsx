@@ -2,10 +2,28 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../../components/ui/Button";
 import { Phone } from "lucide-react";
+import { LocationBreadcrumb } from "../../components/LocationBreadcrumb";
 
-export function OnceoffCleaningHero() {
+interface LocationData {
+  name: string;
+  region: string;
+  council: string;
+  mainSuburbs: string[];
+  postcode: string;
+}
+
+interface GeneralCleaningHeroProps {
+  locationData: LocationData;
+  suburbSlug: string;
+}
+
+export function GeneralCleaningHero({ locationData, suburbSlug }: GeneralCleaningHeroProps) {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
   const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
+  
+  const capitalizeFirstLetter = (str: string) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
   
   return (
     <section className="relative bg-white py-8 sm:py-12 lg:py-24">
@@ -13,19 +31,24 @@ export function OnceoffCleaningHero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Content */}
           <div className="space-y-6 lg:space-y-8">
+            <LocationBreadcrumb
+              suburb={locationData.name}
+              service="General Cleaning"
+              suburbSlug={suburbSlug}
+            />
             <div className="space-y-3 lg:space-y-4">
               <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-[#1E3D8F] rounded-full text-xs sm:text-sm font-medium">
                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1E3D8F] rounded-full mr-1.5 sm:mr-2"></span>
-                Deep cleaning specialists
+                Professional maintenance cleaning
               </div>
               
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                Once-Off Deep Cleaning in{" "}
-                <span className="text-[#1E3D8F]">Melbourne</span>
+                General House Cleaning in{" "}
+                <span className="text-[#1E3D8F]">{capitalizeFirstLetter(locationData.name)}</span>
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                Professional deep cleaning for move-in/out, spring cleans, or post-renovation. Thorough cleaning that reaches every corner with our experienced team and quality guarantee.
+                Keep your {capitalizeFirstLetter(locationData.name)} home consistently clean with our professional general cleaning service. Regular maintenance cleaning that covers all the essentials with experienced cleaners and flexible scheduling.
               </p>
             </div>
 
@@ -37,7 +60,7 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Thorough Deep Clean</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">Flexible Scheduling</span>
               </div>
               
               <div className="flex items-center space-x-2 sm:space-x-3">
@@ -55,7 +78,7 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Same-Day Available</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">All Supplies Included</span>
               </div>
               
               <div className="flex items-center space-x-2 sm:space-x-3">
@@ -64,22 +87,22 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Quality Guarantee</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">60-Second Booking</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link href="/book?selectedServices=Once-Off%20Cleaning">
+              <Link href={`/book?selectedServices=Regular%20Cleaning&location=${encodeURIComponent(locationData.name)}`}>
                 <Button 
                   size="lg" 
                   className="bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto"
                 >
-                  Book Deep Cleaning
+                  Book General Cleaning in {capitalizeFirstLetter(locationData.name)}
                 </Button>
               </Link>
               
-              <Link href="/book?selectedServices=Once-Off%20Cleaning">
+              <Link href={`/book?selectedServices=Regular%20Cleaning&location=${encodeURIComponent(locationData.name)}`}>
                 <Button 
                   variant="outline" 
                   size="lg"
@@ -107,7 +130,7 @@ export function OnceoffCleaningHero() {
               </div>
               
               <div className="text-sm sm:text-base text-gray-600">
-                <span className="font-semibold">100+</span> Melbourne Suburbs
+                <span className="font-semibold">100+</span> {locationData.region} Suburbs
               </div>
             </div>
           </div>
@@ -116,8 +139,8 @@ export function OnceoffCleaningHero() {
           <div className="relative">
             <div className="relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/once-off-cleaning.png"
-                alt="Professional once-off deep cleaning service in Melbourne"
+                src="/images/general-cleaning.png"
+                alt={`Professional general house cleaning service in ${capitalizeFirstLetter(locationData.name)}`}
                 fill
                 className="object-cover"
                 priority

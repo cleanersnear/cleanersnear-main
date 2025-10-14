@@ -123,7 +123,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/services/general-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/services/once-off-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/deep-cleaning`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/services/move-in-cleaning`,
       lastModified: new Date(),
       changeFrequency: 'daily' as const,
       priority: 0.95,
@@ -172,7 +190,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Location-specific service pages (suburb + service combinations)
   const services = [
     'regular-cleaning',
+    'general-cleaning',
     'once-off-cleaning',
+    'deep-cleaning',
+    'move-in-cleaning',
     'ndis-cleaning',
     'airbnb-cleaning',
     'commercial-cleaning',

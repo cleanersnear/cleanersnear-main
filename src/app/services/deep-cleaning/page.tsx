@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { OnceoffCleaningHero } from "./components/OnceoffCleaningHero";
+import { DeepCleaningHero } from "./components/DeepCleaningHero";
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import { WhatsIncluded } from "./components/WhatsIncluded";
 import { PricingStructure } from "./components/PricingStructure";
@@ -8,45 +8,59 @@ import HomeLatestBlogs from "@/components/Home/HomeBlogs/HomeLatestBlogs";
 import MainLayout from "@/components/layout/MainLayout";
 import ReviewsSection from "./components/ReviewsSection";
 import FAQSection from "./components/FAQSection";
-
+  
 export const metadata: Metadata = {
-  title: "Once‑Off Deep Cleaning Melbourne | Spring Clean & One‑Time Clean | Cleaning Professionals",
+  title: "Deep Cleaning Melbourne | Professional Deep House Clean | Cleaning Professionals",
   description:
-    "Professional once‑off deep cleaning in Melbourne by Cleaning Professionals for move‑in/out, post‑renovation or seasonal refresh.",
-  keywords: 'once off cleaning melbourne, deep cleaning melbourne, spring cleaning melbourne, move in cleaning melbourne, move out cleaning melbourne, post renovation cleaning melbourne, one time cleaning melbourne, thorough cleaning melbourne',
-  alternates: { canonical: "https://www.cleaningprofessionals.com.au/services/once-off-cleaning" },
+    "Professional deep cleaning service in Melbourne. Thorough cleaning for every corner of your home. Experienced cleaners with quality guarantee and same-day availability.",
+  keywords: [
+    "deep cleaning melbourne",
+    "professional deep cleaning melbourne", 
+    "thorough house cleaning melbourne",
+    "deep clean melbourne $161",
+    "professional house cleaning",
+    "deep cleaning service melbourne",
+    "home deep cleaning melbourne",
+    "house deep cleaning melbourne",
+    "deep clean service",
+    "thorough cleaning melbourne",
+    "melbourne deep cleaning company",
+    "trusted deep cleaners melbourne",
+    "insured deep cleaners melbourne"
+  ].join(", "),
+  alternates: { canonical: "https://www.cleaningprofessionals.com.au/services/deep-cleaning" },
   openGraph: {
-    title: "Once‑Off Deep Cleaning Melbourne | Spring Clean & One‑Time Clean | Cleaning Professionals",
+    title: "Deep Cleaning Melbourne | Professional Deep House Clean | Cleaning Professionals",
     description:
-      "Professional once‑off deep cleaning in Melbourne by Cleaning Professionals for move‑in/out, post‑renovation or seasonal refresh.",
-    url: "https://www.cleaningprofessionals.com.au/services/once-off-cleaning",
-    type: "article",
+      "Professional deep cleaning service in Melbourne. Thorough cleaning for every corner of your home with experienced cleaners.",
+    url: "https://www.cleaningprofessionals.com.au/services/deep-cleaning",
+    type: "website",
     images: [
       {
-        url: 'https://www.cleaningprofessionals.com.au/images/once-off-cleaning.png',
+        url: "/images/deep-cleaning.png",
         width: 1200,
         height: 630,
-        alt: 'Professional Once-Off Deep Cleaning Melbourne',
-      }
+        alt: "Professional Deep Cleaning Service Melbourne",
+      },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Once‑Off Deep Cleaning Melbourne | Spring Clean & One‑Time Clean | Cleaning Professionals",
+    title: "Deep Cleaning Melbourne | Professional Deep House Clean",
     description:
-      "Professional once‑off deep cleaning in Melbourne for move‑in/out, post‑renovation or seasonal refresh.",
-    images: ['https://www.cleaningprofessionals.com.au/images/once-off-cleaning.png'],
+      "Professional deep cleaning service in Melbourne by Cleaning Professionals.",
+    images: ["/images/deep-cleaning.png"],
   },
 };
 
-export default function OnceOffCleaningPage() {
+export default function DeepCleaningPage() {
   const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning#service",
-    "name": "Once-Off Deep Cleaning Service Melbourne",
-    "description": "Professional once-off deep cleaning service in Melbourne. Perfect for move-in/out, spring cleans, or post-renovation cleaning. Starting from $161 for 3 hours.",
-    "serviceType": "Once-Off Deep Cleaning",
+    "@id": "https://www.cleaningprofessionals.com.au/services/deep-cleaning#service",
+    "name": "Deep Cleaning Service Melbourne",
+    "description": "Professional deep cleaning service in Melbourne. Thorough cleaning that reaches every corner of your home. Starting from $161 for 3 hours.",
+    "serviceType": "Deep Cleaning",
     "provider": { "@id": "https://www.cleaningprofessionals.com.au/#localbusiness" },
     "areaServed": {
       "@type": "City",
@@ -70,7 +84,7 @@ export default function OnceOffCleaningPage() {
         "priceCurrency": "AUD",
         "price": "161.00",
         "priceValidUntil": "2025-12-31",
-        "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Once-Off%20Cleaning",
+        "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Deep%20Cleaning",
         "availability": "https://schema.org/InStock",
         "eligibleRegion": "Melbourne",
         "validFrom": "2024-01-01",
@@ -99,7 +113,7 @@ export default function OnceOffCleaningPage() {
         "priceCurrency": "AUD",
         "price": "296.00",
         "priceValidUntil": "2025-12-31",
-        "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Once-Off%20Cleaning",
+        "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Deep%20Cleaning",
         "availability": "https://schema.org/InStock",
         "eligibleRegion": "Melbourne",
         "validFrom": "2024-01-01",
@@ -124,18 +138,18 @@ export default function OnceOffCleaningPage() {
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Once-Off Cleaning Packages",
+      "name": "Deep Cleaning Packages",
       "itemListElement": [
         { 
           "@type": "Offer", 
           "name": "Standard Deep Clean", 
-          "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Once-Off%20Cleaning",
+          "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Deep%20Cleaning",
           "description": "Comprehensive deep cleaning for most homes"
         },
         { 
           "@type": "Offer", 
           "name": "Premium Deep Clean", 
-          "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Once-Off%20Cleaning",
+          "url": "https://www.cleaningprofessionals.com.au/book?selectedServices=Deep%20Cleaning",
           "description": "Extensive cleaning for large homes"
         },
       ],
@@ -144,8 +158,8 @@ export default function OnceOffCleaningPage() {
       "@type": "AggregateRating",
       "itemReviewed": {
         "@type": "Service",
-        "name": "Once-Off Deep Cleaning Service Melbourne",
-        "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning#service"
+        "name": "Deep Cleaning Service Melbourne",
+        "@id": "https://www.cleaningprofessionals.com.au/services/deep-cleaning#service"
       },
       "ratingValue": "4.9",
       "reviewCount": "1200",
@@ -154,7 +168,7 @@ export default function OnceOffCleaningPage() {
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": "https://www.cleaningprofessionals.com.au/services/once-off-cleaning"
+      "@id": "https://www.cleaningprofessionals.com.au/services/deep-cleaning"
     }
   };
 
@@ -164,29 +178,29 @@ export default function OnceOffCleaningPage() {
     "itemListElement": [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
       { "@type": "ListItem", position: 2, name: "Services", item: "https://www.cleaningprofessionals.com.au/services" },
-      { "@type": "ListItem", position: 3, name: "Once-Off Cleaning", item: "https://www.cleaningprofessionals.com.au/services/once-off-cleaning" },
+      { "@type": "ListItem", position: 3, name: "Deep Cleaning", item: "https://www.cleaningprofessionals.com.au/services/deep-cleaning" },
     ],
   };
    
- 
+  
 
   return (
     <MainLayout>
       <div className="mt-28">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
-        <OnceoffCleaningHero />
-        <BeforeAfterGallery serviceSlug="once-off-cleaning" />
+        <DeepCleaningHero />
+        <BeforeAfterGallery serviceSlug="deep-cleaning" />
         <PricingStructure />
         <WhatsIncluded />
-        {/* <FAQs /> */}
-        <ReviewsSection />
+         {/* <FAQs /> */}
+         <ReviewsSection />
         <FAQSection />
         <HomeLatestBlogs />
        
         {/* <RequestCallback service={service} /> */}
         
-        <Subscription />
+         <Subscription />
       </div>
     </MainLayout>
   );

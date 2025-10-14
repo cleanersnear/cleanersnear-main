@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { RegularCleaningHero } from "./components/RegularCleaningHero";
+import { GeneralCleaningHero } from "./components/GeneralCleaningHero";
 import BeforeAfterGallery from '../components/BeforeAfterGallery'
 import { WhatsIncluded } from "./components/WhatsIncluded";
 import { PricingStructure } from "./components/PricingStructure";
@@ -34,32 +34,30 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const capitalizedSuburb = capitalizeFirstLetter(suburb);
   
   return {
-    title: `Regular House Cleaning ${capitalizedSuburb} | Weekly & Fortnightly Cleaners | Cleaning Professionals`,
-    description: `Trusted regular house cleaning in ${capitalizedSuburb}. Weekly or fortnightly schedules with the same vetted, insured cleaner. Easy online booking and flexible times. Starting from $92 for 2 hours.`,
+    title: `General House Cleaning ${capitalizedSuburb} | Professional Home Cleaning | Cleaning Professionals`,
+    description: `Professional general house cleaning service in ${capitalizedSuburb}. Regular maintenance cleaning to keep your home spotless. Experienced cleaners with flexible scheduling. Starting from $92 for 2 hours.`,
     keywords: [
-      `regular house cleaning ${capitalizedSuburb}`,
-      `weekly cleaning service ${capitalizedSuburb}`, 
-      `fortnightly cleaning ${capitalizedSuburb}`,
-      `house cleaning ${capitalizedSuburb} $92`,
-      `same cleaner every week ${capitalizedSuburb}`,
-      `vetted cleaners ${capitalizedSuburb}`,
+      `general house cleaning ${capitalizedSuburb}`,
+      `home cleaning ${capitalizedSuburb}`, 
+      `house cleaning service ${capitalizedSuburb}`,
+      `general cleaning ${capitalizedSuburb} $92`,
       `professional house cleaning ${capitalizedSuburb}`,
-      `cleaning service ${capitalizedSuburb}`,
-      `home cleaning ${capitalizedSuburb}`,
-      `house cleaners ${capitalizedSuburb}`,
-      `regular cleaning service ${capitalizedSuburb}`,
-      `weekly house cleaning ${capitalizedSuburb}`,
-      `fortnightly house cleaning ${capitalizedSuburb}`,
+      `home cleaning service ${capitalizedSuburb}`,
+      `house cleaning ${capitalizedSuburb}`,
+      `general cleaning service ${capitalizedSuburb}`,
+      `regular house cleaning ${capitalizedSuburb}`,
       `${capitalizedSuburb} cleaning company`,
       `trusted cleaners ${capitalizedSuburb}`,
       `insured cleaners ${capitalizedSuburb}`,
       `best cleaners ${capitalizedSuburb}`,
       `affordable cleaning ${capitalizedSuburb}`,
       `${capitalizedSuburb} house cleaning near me`,
-      `local cleaners ${capitalizedSuburb}`
+      `local cleaners ${capitalizedSuburb}`,
+      `professional cleaners ${capitalizedSuburb}`,
+      `reliable cleaning ${capitalizedSuburb}`
     ].join(", "),
     alternates: { 
-      canonical: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning` 
+      canonical: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning` 
     },
     robots: {
       index: true,
@@ -73,26 +71,26 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
     },
     openGraph: {
-      title: `Regular House Cleaning ${capitalizedSuburb} | Weekly & Fortnightly Cleaners | Cleaning Professionals`,
-      description: `Trusted regular house cleaning in ${capitalizedSuburb}. Same cleaner each visit, flexible schedules and easy online booking. Starting from $92 for 2 hours.`,
-      url: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning`,
+      title: `General House Cleaning ${capitalizedSuburb} | Professional Home Cleaning | Cleaning Professionals`,
+      description: `Professional general house cleaning service in ${capitalizedSuburb}. Regular maintenance cleaning to keep your home spotless with experienced cleaners. Starting from $92 for 2 hours.`,
+      url: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning`,
       siteName: 'Cleaning Professionals',
       locale: 'en_AU',
       type: "website",
       images: [
         {
-          url: "https://www.cleaningprofessionals.com.au/images/general-cleaning.jpg",
+          url: "https://www.cleaningprofessionals.com.au/images/general-cleaning.png",
           width: 1200,
           height: 630,
-          alt: `Professional Regular House Cleaning Service in ${capitalizedSuburb}, Victoria`,
+          alt: `Professional General House Cleaning Service in ${capitalizedSuburb}, Victoria`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `Regular House Cleaning ${capitalizedSuburb} | Weekly & Fortnightly Cleaners`,
-      description: `Trusted regular house cleaning in ${capitalizedSuburb} by Cleaning Professionals. From $92 for 2 hours.`,
-      images: ["https://www.cleaningprofessionals.com.au/images/general-cleaning.jpg"],
+      title: `General House Cleaning ${capitalizedSuburb} | Professional Home Cleaning`,
+      description: `Professional general house cleaning service in ${capitalizedSuburb} by Cleaning Professionals. Starting from $92 for 2 hours.`,
+      images: ["https://www.cleaningprofessionals.com.au/images/general-cleaning.png"],
       creator: '@CleaningProsAU',
       site: '@CleaningProsAU',
     },
@@ -104,7 +102,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function RegularCleaningPage({ params }: PageProps) {
+export default async function GeneralCleaningPage({ params }: PageProps) {
   const resolvedParams = await params;
   const suburb = resolvedParams.suburb.replace(/-/g, ' ');
   
@@ -147,16 +145,17 @@ export default async function RegularCleaningPage({ params }: PageProps) {
       </MainLayout>
     )
   }
+  
   // Service Schema
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning#service`,
-    "name": `Regular House Cleaning ${capitalizeFirstLetter(locationData.name)}`,
-    "description": `Professional regular house cleaning service in ${capitalizeFirstLetter(locationData.name)}. Weekly and fortnightly cleaning schedules with the same trusted cleaner every visit. Starting from $92 for 2 hours.`,
-    "serviceType": "Regular House Cleaning",
+    "@id": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning#service`,
+    "name": `General House Cleaning ${capitalizeFirstLetter(locationData.name)}`,
+    "description": `Professional general house cleaning service in ${capitalizeFirstLetter(locationData.name)}. Regular maintenance cleaning to keep your home spotless. Starting from $92 for 2 hours.`,
+    "serviceType": "General House Cleaning",
     "provider": { "@id": "https://www.cleaningprofessionals.com.au/#localbusiness" },
-    "image": "https://www.cleaningprofessionals.com.au/images/general-cleaning.jpg",
+    "image": "https://www.cleaningprofessionals.com.au/images/general-cleaning.png",
     "areaServed": {
       "@type": "City",
       "name": capitalizeFirstLetter(locationData.name),
@@ -233,7 +232,7 @@ export default async function RegularCleaningPage({ params }: PageProps) {
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Regular Cleaning Packages",
+      "name": "General Cleaning Packages",
       "itemListElement": [
         { 
           "@type": "Offer", 
@@ -262,12 +261,12 @@ export default async function RegularCleaningPage({ params }: PageProps) {
         { "@type": "ListItem", position: 1, name: "Home", item: "https://www.cleaningprofessionals.com.au" },
         { "@type": "ListItem", position: 2, name: "Locations", item: "https://www.cleaningprofessionals.com.au/locations" },
         { "@type": "ListItem", position: 3, name: capitalizeFirstLetter(locationData.name), item: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}` },
-        { "@type": "ListItem", position: 4, name: "Regular Cleaning", item: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning` },
+        { "@type": "ListItem", position: 4, name: "General Cleaning", item: `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning` },
       ],
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning`
+      "@id": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning`
     }
   };
 
@@ -278,50 +277,50 @@ export default async function RegularCleaningPage({ params }: PageProps) {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's the difference between weekly and fortnightly cleaning?",
+        "name": "What's included in general house cleaning?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Weekly cleaning provides consistent maintenance with the same cleaner visiting every week. Fortnightly cleaning is perfect for smaller homes or those who prefer less frequent service. Both include the same comprehensive cleaning tasks."
+          "text": "General cleaning includes essential maintenance tasks like dusting, vacuuming, mopping, kitchen and bathroom cleaning, window cleaning, and general tidying to keep your home consistently clean and well-maintained."
         }
       },
       {
         "@type": "Question",
-        "name": `Will I get the same cleaner every time in ${capitalizeFirstLetter(locationData.name)}?`,
+        "name": `How often should I book general cleaning in ${capitalizeFirstLetter(locationData.name)}?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes! We assign you a dedicated cleaner for consistency. They'll learn your preferences, home layout, and specific requirements to provide the best service possible."
+          "text": "General cleaning is perfect for weekly, fortnightly, or monthly maintenance. The frequency depends on your lifestyle and preferences. We can work with you to create a schedule that keeps your home consistently clean."
         }
       },
       {
         "@type": "Question",
-        "name": "What's included in a regular cleaning service?",
+        "name": "How long does general cleaning take?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `Our regular cleaning includes dusting, vacuuming, mopping, bathroom cleaning, kitchen cleaning, tidying, bed making, and basic organization. We also clean appliances like fridges and ovens as needed. All services are performed by our professional ${capitalizeFirstLetter(locationData.name)} cleaners.`
+          "text": "General cleaning typically takes 2-4 hours depending on home size and requirements. We start with a 2-hour minimum for standard homes and add time as needed for larger properties or additional tasks."
         }
       },
       {
         "@type": "Question",
-        "name": `How much does regular cleaning cost in ${capitalizeFirstLetter(locationData.name)}?`,
+        "name": `How much does general cleaning cost in ${capitalizeFirstLetter(locationData.name)}?`,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `Regular cleaning in ${capitalizeFirstLetter(locationData.name)} starts from $92 for 2 hours, then $38/hour thereafter. The total cost depends on your home size and specific requirements. Get an instant quote when you book online.`
+          "text": `General cleaning in ${capitalizeFirstLetter(locationData.name)} starts from $92 for 2 hours, then $38/hour thereafter. This provides excellent value for regular maintenance cleaning. Get an instant quote when you book online based on your home size and requirements.`
         }
       },
       {
         "@type": "Question",
-        "name": "Can I customize my regular cleaning schedule?",
+        "name": "What's the difference between general and deep cleaning?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": `Absolutely! You can choose weekly or fortnightly frequency, select your preferred day and time, and specify any additional tasks. We'll create a cleaning plan tailored to your ${capitalizeFirstLetter(locationData.name)} home needs.`
+          "text": "General cleaning focuses on regular maintenance and essential tasks, while deep cleaning is more thorough and includes inside appliances, detailed scrubbing, and areas often missed in routine cleaning."
         }
       },
       {
         "@type": "Question",
-        "name": "What if I need to skip or reschedule a cleaning?",
+        "name": "Do I need to provide cleaning supplies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No problem! You can reschedule or skip cleanings with 24 hours' notice through your booking confirmation or by contacting us. We're flexible with your schedule changes."
+          "text": "No, we bring all necessary cleaning supplies and equipment. Our team arrives fully prepared with professional-grade cleaning products and tools to ensure the best results for your home."
         }
       }
     ]
@@ -353,8 +352,8 @@ export default async function RegularCleaningPage({ params }: PageProps) {
       {
         "@type": "ListItem",
         "position": 4,
-        "name": "Regular Cleaning",
-        "item": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/regular-cleaning`
+        "name": "General Cleaning",
+        "item": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}/general-cleaning`
       }
     ]
   };
@@ -366,7 +365,7 @@ export default async function RegularCleaningPage({ params }: PageProps) {
     "@id": `https://www.cleaningprofessionals.com.au/locations/${resolvedParams.suburb}#localbusiness`,
     "name": `Cleaning Professionals - ${capitalizeFirstLetter(locationData.name)}`,
     "image": "https://www.cleaningprofessionals.com.au/images/logo.png",
-    "description": `Professional cleaning services in ${capitalizeFirstLetter(locationData.name)}, Victoria. Regular house cleaning, deep cleaning, and more.`,
+    "description": `Professional cleaning services in ${capitalizeFirstLetter(locationData.name)}, Victoria. General house cleaning, regular cleaning, and more.`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": capitalizeFirstLetter(locationData.name),
@@ -395,7 +394,7 @@ export default async function RegularCleaningPage({ params }: PageProps) {
 
   return (
     <MainLayout>
-      <div className="mt-28"> 
+      <div className="mt-28">
         {/* Service Schema */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
         
@@ -407,18 +406,17 @@ export default async function RegularCleaningPage({ params }: PageProps) {
         
         {/* LocalBusiness Schema */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-        <RegularCleaningHero locationData={locationData} suburbSlug={resolvedParams.suburb} />
-        <BeforeAfterGallery serviceSlug="regular-cleaning" />
+        <GeneralCleaningHero locationData={locationData} suburbSlug={resolvedParams.suburb} />
+        <BeforeAfterGallery serviceSlug="general-cleaning" />
         <PricingStructure locationData={locationData} />
         <WhatsIncluded />
-         {/* <FAQs /> */}
-         <ReviewsSection locationData={locationData} />
+        <ReviewsSection locationData={locationData} />
         <FAQSection locationData={locationData} />
         <HomeLatestBlogs />
        
         {/* <RequestCallback service={service} /> */}
         
-         <Subscription />
+        <Subscription />
       </div>
     </MainLayout>
   );

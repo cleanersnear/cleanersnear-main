@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Button } from "../../components/ui/Button";
 import { Phone } from "lucide-react";
 
-export function OnceoffCleaningHero() {
+export function GeneralCleaningHero() {
   const phone = process.env.NEXT_PUBLIC_CONTACT_PHONE || '1300 886 119';
   const phoneHref = `tel:${phone.replace(/\s+/g, '')}`;
   
@@ -16,16 +16,16 @@ export function OnceoffCleaningHero() {
             <div className="space-y-3 lg:space-y-4">
               <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 text-[#1E3D8F] rounded-full text-xs sm:text-sm font-medium">
                 <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#1E3D8F] rounded-full mr-1.5 sm:mr-2"></span>
-                Deep cleaning specialists
+                General cleaning specialists
               </div>
               
               <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
-                Once-Off Deep Cleaning in{" "}
+                General House Cleaning in{" "}
                 <span className="text-[#1E3D8F]">Melbourne</span>
               </h1>
               
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 leading-relaxed">
-                Professional deep cleaning for move-in/out, spring cleans, or post-renovation. Thorough cleaning that reaches every corner with our experienced team and quality guarantee.
+                Keep your home consistently clean with professional general cleaning services. Regular maintenance cleaning that covers all the essentials to maintain a spotless living space.
               </p>
             </div>
 
@@ -37,7 +37,7 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Thorough Deep Clean</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">Regular Maintenance</span>
               </div>
               
               <div className="flex items-center space-x-2 sm:space-x-3">
@@ -55,7 +55,7 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Same-Day Available</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">Flexible Scheduling</span>
               </div>
               
               <div className="flex items-center space-x-2 sm:space-x-3">
@@ -64,22 +64,22 @@ export function OnceoffCleaningHero() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-sm sm:text-base text-gray-700 font-medium">Quality Guarantee</span>
+                <span className="text-sm sm:text-base text-gray-700 font-medium">Affordable Rates</span>
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-              <Link href="/book?selectedServices=Once-Off%20Cleaning">
+              <Link href="/book?selectedServices=Regular%20Cleaning">
                 <Button 
                   size="lg" 
                   className="bg-[#1E3D8F] hover:bg-[#1E3D8F]/90 text-white px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto"
                 >
-                  Book Deep Cleaning
+                  Book General Cleaning
                 </Button>
               </Link>
               
-              <Link href="/book?selectedServices=Once-Off%20Cleaning">
+              <Link href="/book?selectedServices=Regular%20Cleaning">
                 <Button 
                   variant="outline" 
                   size="lg"
@@ -116,15 +116,15 @@ export function OnceoffCleaningHero() {
           <div className="relative">
             <div className="relative h-[350px] sm:h-[400px] lg:h-[500px] xl:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/once-off-cleaning.png"
-                alt="Professional once-off deep cleaning service in Melbourne"
+                src="/images/general-cleaning.png"
+                alt="Professional general house cleaning service in Melbourne"
                 fill
                 className="object-cover"
                 priority
               />
               
               {/* Overlay Card - Hidden on mobile */}
-              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-auto sm:w-auto bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg hidden sm:block">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:right-6 sm:left-auto sm:w-auto bg-white/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 sm:p-6 shadow-lg hidden sm:block">
                  <div className="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
                    <div className="hidden sm:flex items-center space-x-3">
                     <div className="flex-shrink-0">

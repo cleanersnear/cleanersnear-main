@@ -10,7 +10,10 @@ import { usePathname } from 'next/navigation'
 const serviceLinks = [
   { title: 'All Services', href: '/services' },
   { title: 'Regular Cleaning', href: '/services/regular-cleaning' },
+  { title: 'General Cleaning', href: '/services/general-cleaning' },
   { title: 'Once-Off Cleaning', href: '/services/once-off-cleaning' },
+  { title: 'Deep Cleaning', href: '/services/deep-cleaning' },
+  { title: 'Move-In Cleaning', href: '/services/move-in-cleaning' },
   { title: 'NDIS Cleaning', href: '/services/ndis-cleaning' },
   { title: 'Airbnb Cleaning', href: '/services/airbnb-cleaning' },
   { title: 'End Of Lease Cleaning', href: '/services/end-of-lease-cleaning' },
