@@ -184,6 +184,7 @@ const BookingForm: React.FC = () => {
   });
   const [bookingResponse, setBookingResponse] = useState<BookingResponse | null>(null);
   const [showCommercialDialog, setShowCommercialDialog] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const bookingStoreState = useBookingStore();
 
@@ -209,33 +210,12 @@ const BookingForm: React.FC = () => {
       n = 101; // Redirect to the new intermediate step
     }
     
-    // Skip contact info steps if authenticated and submit booking when going to step 10
-    if (isAuthenticated && customer) {
-      if (n === 7 || n === 8 || n === 9) {
-        // Submit booking and go directly to confirmation
-        try {
-          const response = await useBookingStore.getState().sendBookingToBackend();
-          setBookingResponse(response);
-          n = 10;
-        } catch (error: unknown) {
-          let errorMsg = 'Failed to submit booking. Please try again.';
-          if (error && typeof error === 'object' && 'response' in error) {
-            const response = (error as { response: { json: () => Promise<{ error?: string }> } }).response;
-            const data = await response.json();
-            if (data?.error) errorMsg += `\n${data.error}`;
-          } else if (error instanceof Error) {
-            errorMsg += `\n${error.message}`;
-          }
-          alert(errorMsg);
-          console.error('Failed to submit booking:', error);
-          return; // Don't proceed to step 10 if booking failed
-        }
-      }
-    }
+    // For authenticated users, they still go through contact steps but with pre-populated data
+    // The booking will be submitted when they click the final button in step 9
     
     setStep(n);
     setCurrentStep(n);
-  }, [isAuthenticated, customer, setBookingResponse, setStep, setCurrentStep, shouldSkipAddressStep]);
+  }, [setStep, setCurrentStep, shouldSkipAddressStep]);
 
   // Sync local step with store currentStep on mount and changes
   useEffect(() => {
@@ -1134,6 +1114,7 @@ const BookingForm: React.FC = () => {
           <button
             onClick={async () => {
               try {
+                setIsSubmitting(true);
                 // First update the contact info in the store
                 setContactInfo({
                   ...useBookingStore.getState().contactInfo,
@@ -1158,9 +1139,10 @@ const BookingForm: React.FC = () => {
                 }
                 alert(errorMsg);
                 console.error('Failed to submit booking:', error);
+                setIsSubmitting(false);
               }
             }}
-            disabled={!contactInfo.email}
+            disabled={!contactInfo.email || isSubmitting}
             style={{
               padding: '12px 24px',
               borderRadius: '8px',
@@ -1169,11 +1151,11 @@ const BookingForm: React.FC = () => {
               color: '#fff',
               fontWeight: 500,
               fontSize: 16,
-              cursor: 'pointer',
-              opacity: !contactInfo.email ? 0.5 : 1,
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              opacity: (!contactInfo.email || isSubmitting) ? 0.5 : 1,
             }}
           >
-            Next
+            {isSubmitting ? 'Submitting...' : 'Next'}
           </button>
         </div>
       </div>
