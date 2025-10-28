@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { MELBOURNE_REGIONS } from '../../data/regions';
-import { Phone } from 'lucide-react';
+ 
 
 interface GooglePlacesAutocompleteProps {
   onAddressSelect: (address: string, postcode: string, suburb: string) => void;
@@ -69,9 +68,7 @@ export default function GooglePlacesAutocomplete({
   const inputRef = useRef<HTMLInputElement>(null);
   const autocompleteRef = useRef<GoogleMapsAutocomplete | null>(null);
   const [inputValue, setInputValue] = useState(value);
-  const [isServiceArea, setIsServiceArea] = useState<boolean | null>(null);
-  const [councilInfo, setCouncilInfo] = useState<string>("");
-  const supportPhone = process.env.NEXT_PUBLIC_PHONE || '';
+  const [loadError, setLoadError] = useState<string>("");
 
   const initializeAutocomplete = useCallback(() => {
     if (!inputRef.current || !window.google) return;
@@ -111,11 +108,7 @@ export default function GooglePlacesAutocomplete({
         }
       });
 
-      // Check if postcode/suburb is in our service area (from our dataset)
-      const isInServiceArea = checkServiceArea(postcode, suburb);
-      
       setInputValue(place.formatted_address);
-      setIsServiceArea(isInServiceArea);
       
       if (onChange) {
         onChange(place.formatted_address);
@@ -161,19 +154,32 @@ export default function GooglePlacesAutocomplete({
           return;
         }
 
+        // Check if API key is available
+        const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+        if (!apiKey) {
+          console.error('Google Maps API key is not configured. Please set NEXT_PUBLIC_GOOGLE_MAPS_API_KEY');
+          googleMapsLoadingPromise = null;
+          reject(new Error('Google Maps API key not configured'));
+          return;
+        }
+
         // Create new script
         const script = document.createElement('script');
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&libraries=places`;
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places&callback=initGooglePlaces`;
         script.async = true;
         script.defer = true;
-        script.onload = () => {
+        
+        // Set up callback
+        window.initGooglePlaces = () => {
           isGoogleMapsLoaded = true;
           googleMapsLoadingPromise = null;
           resolve();
         };
-        script.onerror = () => {
+        
+        script.onerror = (error) => {
           googleMapsLoadingPromise = null;
-          reject(new Error('Failed to load Google Maps API'));
+          console.error('Failed to load Google Maps API. Check your API key and domain restrictions:', error);
+          reject(new Error('Failed to load Google Maps API - Check API key and domain restrictions'));
         };
         document.head.appendChild(script);
       });
@@ -181,8 +187,10 @@ export default function GooglePlacesAutocomplete({
       try {
         await googleMapsLoadingPromise;
         initializeAutocomplete();
+        setLoadError("");
       } catch (error) {
         console.error('Failed to load Google Maps API:', error);
+        setLoadError('Address autocomplete temporarily unavailable. Please type your full address manually.');
       }
     };
 
@@ -201,31 +209,6 @@ export default function GooglePlacesAutocomplete({
     };
   }, [initializeAutocomplete]);
 
-  const checkServiceArea = (postcode: string, suburb: string): boolean => {
-    if (!postcode || !suburb) {
-      setCouncilInfo('Unable to detect suburb/postcode from address');
-      return false;
-    }
-
-    const suburbLower = suburb.toLowerCase();
-
-    // Find any council where the suburb exists AND the postcode matches that council's postcodes
-    for (const region of Object.values(MELBOURNE_REGIONS)) {
-      for (const council of region.councils) {
-        const suburbMatch = council.key_suburbs.some(s => s.toLowerCase() === suburbLower);
-        if (!suburbMatch) continue;
-        if (council.postcodes.includes(postcode)) {
-          setCouncilInfo('Perfect! We Service Your Area');
-          return true;
-        }
-      }
-    }
-
-    // If suburb exists anywhere but postcode doesn't match known postcodes for that suburb, mark as outside
-    setCouncilInfo('Address outside service area');
-    return false;
-  };
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setInputValue(newValue);
@@ -233,69 +216,25 @@ export default function GooglePlacesAutocomplete({
     // DON'T call onChange while typing - only when place is selected
     // This prevents saving incomplete addresses
     
-    // Reset service area status when user types
-    if (newValue !== value) {
-      setIsServiceArea(null);
-      setCouncilInfo("");
-    }
   };
 
 
   return (
     <div className="w-full">
+      {loadError && (
+        <div className="mb-2 p-2 bg-yellow-50 border border-yellow-200 rounded-md text-sm text-yellow-800">
+          ⚠️ {loadError}
+        </div>
+      )}
       <div className="relative">
         <input
           ref={inputRef}
           type="text"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder={placeholder}
-          className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#1E3D8F] focus:border-[#1E3D8F] ${
-            isServiceArea === true 
-              ? 'border-green-500 bg-green-50' 
-              : isServiceArea === false 
-              ? 'border-red-500 bg-red-50' 
-              : 'border-gray-300'
-          } ${className}`}
+          placeholder={loadError ? "Type your full address" : placeholder}
+          className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-[#1E3D8F] focus:border-[#1E3D8F] border-gray-300 ${className}`}
         />
-        
-        {/* Service Area Status */}
-        {councilInfo && (
-          <div className={`mt-2 text-sm ${
-            isServiceArea === true 
-              ? 'text-green-600' 
-              : isServiceArea === false 
-              ? 'text-red-600' 
-              : 'text-gray-600'
-          }`}>
-            {councilInfo}
-          </div>
-        )}
-        
-        {/* Available suburb list removed per request */}
-
-        {/* Service Area Info */}
-        {isServiceArea === false && (
-          <div className="mt-2 p-3 bg-red-50 border border-red-200 rounded-md">
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-              <p className="text-sm text-red-700">
-                <strong>Service Not Available</strong><br />
-                We currently don&apos;t provide cleaning services in this area. 
-                Please contact us to discuss alternative arrangements.
-              </p>
-              {supportPhone && (
-                <a
-                  href={`tel:${supportPhone}`}
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-[#1E3D8F] w-full md:w-auto px-5 md:px-4 py-3 md:py-2 text-white text-base md:text-sm font-medium hover:bg-[#1E3D8F]/90 mt-2 md:mt-0 self-stretch md:self-start"
-                  aria-label="Call us"
-                >
-                  <Phone className="w-5 h-5 md:w-4 md:h-4" />
-                  Call
-                </a>
-              )}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
