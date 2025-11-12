@@ -140,11 +140,8 @@ export const useBookingStore = create<BookingState>()(
           };
 
           // Call API endpoint - Use environment variable for API URL
-          const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL ;
+          const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL;
           const apiUrl = `${apiBaseUrl}/api/bookings`;
-          console.log('🚀 Submitting booking to:', apiUrl);
-          console.log('📦 Booking data:', bookingData);
-          console.log('🌐 Current origin:', window.location.origin);
           
           const response = await fetch(apiUrl, {
             method: 'POST',
