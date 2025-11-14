@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useBookingStore, useBookingActions } from '../store';
 import type { ServiceType, BookingStep } from '../types';
 import { BookingHeader } from './Header';
@@ -27,21 +27,6 @@ function BookingPageContent() {
     setCurrentStep
   } = useBookingStore();
   const { handleServiceSelection, handleResetBooking } = useBookingActions();
-  
-  // Reset booking store only when navigating to home page after successful booking
-  useEffect(() => {
-    const handleBeforeUnload = () => {
-      if (confirmationState.apiStatus === 'success') {
-        handleResetBooking();
-      }
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-    
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [confirmationState.apiStatus, handleResetBooking]);
 
   const isTwoColumn = currentStep === 2 || currentStep === 3;
 
@@ -312,7 +297,7 @@ function BookingPageContent() {
                     {/* Countdown Timer Component */}
                     <CountdownTimer 
                       onComplete={handleResetBooking}
-                      seconds={30}
+                      seconds={10}
                     />
                   </>
                 )}
